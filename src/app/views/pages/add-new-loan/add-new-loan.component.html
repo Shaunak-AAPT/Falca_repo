@@ -1,0 +1,113 @@
+<div class="container mgb-10per">
+	<div class="row mt-4">
+		<div class="col-lg-12">
+			<h4 class="breadcrumb-title"><span [routerLink]="['/account-details']"><i class="fa fa-arrow-left i-icon"></i></span> Add New Loan</h4>
+            <div class="eligibility-progress">
+                <div class="progress-fill" [style.width.%]="StepsWidth"></div>
+            </div>
+			<p class="breadcrumb-sub">It takes hardly 1 minute to complete</p>
+		</div>
+	</div>
+    <div class="row">
+		<div class="col-lg-6 ">
+            <div class="sideimg">
+			<img src="assets/img/eligibility-check.svg" alt="eligiblity" class="w-85"/>
+            </div>
+		</div>
+        <div class="col-lg-6 pos-rel mt-m60">
+            <div class="overlay-div"></div>
+			<div class="process-div">
+                <div class="step-one pos-rel active stepsdiv space-slide" id="step1">
+                    <h5 class="step-heading">Which bank did you get the Loan from?</h5>
+					<select class="form-control form-select custom-formfield" id="study-input" [(ngModel)]="OfflineLoanData.product_name">
+                        <option value="">Select Existing Bank</option>
+                        <option value="{{lender.name}}" *ngFor="let lender of lenderList">{{lender.name}}</option>
+                    </select>
+                </div>
+                <div class="step-two pos-rel stepsdiv space-qt" id="step2">
+                    <h5 class="step-heading">Select Type of Loan</h5>
+					<div class="select-box1">
+						<span [ngClass]="{'active-year': OfflineLoanData.loan_type === 1}" (click)="OfflineLoanData.loan_type = 1; Steps=2;updateLoanvalues(); NextStep()">Personal Loan</span>                   
+                        <span [ngClass]="{'active-year': OfflineLoanData.loan_type === 2}" (click)="OfflineLoanData.loan_type = 2; Steps=2;updateLoanvalues(); NextStep()">Home Loan</span>
+                        <span [ngClass]="{'active-year': OfflineLoanData.loan_type === 3}" (click)="OfflineLoanData.loan_type = 3; Steps=2;updateLoanvalues(); NextStep()">Education Loan</span>
+                        <span [ngClass]="{'active-year': OfflineLoanData.loan_type === 4}" (click)="OfflineLoanData.loan_type = 4; Steps=2;updateLoanvalues(); NextStep()">Business Loan</span>
+                        <span [ngClass]="{'active-year': OfflineLoanData.loan_type === 5}" (click)="OfflineLoanData.loan_type = 5; Steps=2;updateLoanvalues(); NextStep()">Loan Against Property</span>
+                    </div>	
+                </div>
+                <div class="step-three stepsdiv space-qt" id="step3">
+					<h5 class="step-heading">Current Loan Amount</h5>
+					<div class="custom-slider">
+						<div class="row align-items-center">
+							<div class="col-lg-8 col-6">
+								<h5 class="mb-0">Loan Amount</h5>
+							</div>
+							<div class="col-lg-4 col-6 pos-rel">
+								<input type="text" class="form-control rs-value" [(ngModel)]="OfflineLoanData.loan_amount" (keypress)="validate.numberOnly($event)"
+                                (change)="step3 = OfflineLoanData.loan_amount"/>
+                                <span class="rs-symbol">₹</span>
+							</div>
+						</div>						
+					   <ngx-slider [(value)]="step3" (userChange)="OfflineLoanData.loan_amount = step3" [options]="options21"></ngx-slider>
+					</div>					
+				</div>
+                <div class="step-four stepsdiv space-qt" id="step4">
+					<h5 class="step-heading">Remaining Loan Tenure</h5>
+					<div class="custom-slider">
+						<div class="row align-items-center">
+							<div class="col-lg-8 col-6">
+								<h5 class="mb-0">Tenure (Months)</h5>
+							</div>
+							<div class="col-lg-4 col-6 pos-rel">
+								<input type="text" class="form-control rs-value" [(ngModel)]="OfflineLoanData.tenure" (keypress)="validate.numberOnly($event)" (change)="UpdateBalanceAmount()"/>
+                                <!-- <span class="rs-symbol">₹</span> -->
+							</div>
+						</div>						
+					   <ngx-slider [(value)]="OfflineLoanData.tenure" [options]="options22"></ngx-slider>
+					</div>					
+				</div>
+                <div class="step-five pos-rel stepsdiv space-qt" id="step5">
+                    <h5 class="step-heading">Enter EMI Start date and End Date</h5>
+                    <div class="row">
+                        <div class="col-6">
+                            <input type="date" id="emistartdate" class="form-control custom-formfield" placeholder="Select Date" [(ngModel)]="OfflineLoanData.emi_start_date" (change)="Getemienddate()"/>
+                        </div>
+                        <div class="col-6">
+                            <input type="date" id="emienddate" class="form-control custom-formfield" placeholder="Select Date" [(ngModel)]="OfflineLoanData.emi_end_date" (click)="Getemienddate()"/>
+                        </div>
+                    </div>					
+                </div>
+                <div class="step-six pos-rel stepsdiv space-qt" id="step6">
+                    <h5 class="step-heading">Enter EMI Due date</h5>
+                    <select class="form-control form-select custom-formfield" id="study-input" [(ngModel)]="OfflineLoanData.emi_due_date">
+                        <option value="">Select Emi Due Date</option>
+                        <option value="{{arr}}" *ngFor="let arr of DueDateArray">{{arr}}</option>
+                    </select>
+
+                      <!-- <input type="date" class="form-control custom-formfield" placeholder="Select Date" [(ngModel)]="OfflineLoanData.emi_due_date"/>	 -->
+                </div>
+                <div class="step-seven pos-rel stepsdiv space-qt" id="step7">
+                    <h5 class="step-heading">What is the Current Rate of Interest?</h5>
+                    <input type="text" class="form-control custom-formfield" maxlength="4" placeholder="Enter Rate of Interest" [(ngModel)]="OfflineLoanData.roi" (keypress)="validate.DesimalOnly($event,OfflineLoanData.roi)"/>
+                    <span class="input-value-trans">%</span>                    
+                </div>
+                <div class="step-eight pos-rel stepsdiv space-qt" id="step8">
+                    <h5 class="step-heading">How much EMI are you currently paying?</h5>
+                    <input type="text" class="form-control custom-formfield" placeholder="Current Monthly EMI" maxlength="6" [(ngModel)]="OfflineLoanData.emi_month" (keypress)="validate.numberOnly($event)" />
+                    <span class="input-value-trans">INR</span>                    
+                </div>
+                <div class="step-nine pos-rel stepsdiv space-qt" id="step9">
+                    <h5 class="step-heading">What is the Balance Loan Amount?</h5>
+                    <input type="text" class="form-control custom-formfield" placeholder="Balance Loan Amount" [(ngModel)]="OfflineLoanData.outstanding_loan_amount" />
+                    <span class="input-value-trans">INR</span>                    
+                </div>
+                
+            </div>
+            <button class="btn btn-primary theme-button step-btn" (click)="NextStep()" *ngIf="!ShowEligibility" [style.visibility]="Steps<9 && Steps!=2 && Steps!=9?'visible' : 'hidden'">
+                <img src="assets/img/right-arrow1.png" />
+            </button>
+            <button type="button"  class="btn btn-primary theme-button mt-1" *ngIf="ShowEligibility && Steps==9" (click)="SubmitLoan()">
+               Submit
+            </button>
+        </div>
+    </div>
+</div>

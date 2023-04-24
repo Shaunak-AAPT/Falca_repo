@@ -1,0 +1,697 @@
+<div *ngIf="ShowLoader">
+  <div class="backdrop-loader">
+    <div class="spinner">
+      <p id="loader_msg">Please wait... We are processing your request</p>
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+  </div>
+</div>
+<div *ngIf="!ShowLoader">
+  <div class="container pb-3">
+    <!-- Banners Carousel -->
+    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+      <!-- Indicators/dots -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+        <!-- <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button> -->
+      </div>
+      <!-- The slideshow/carousel -->
+      <div class="carousel-inner">
+        <div class="carousel-item " *ngFor=" let banners of CommonBannerlist; let i=index" [ngClass]="i==0?'active':''">
+          <div class="row align-items-center">
+            <div class="col-12 hidden-lg hidden-sm order-2 order-lg-1">
+
+              <h4 class="slider-head" [innerHTML]="banners?.heading"></h4>
+            </div>
+            <div class="col-lg-8 col-12 order-2 order-lg-1">
+
+              <h4 class="slider-head hidden-xs" [innerHTML]="banners?.heading"></h4>
+
+              <p class="slider-txt" [innerHTML]="banners?.description"></p>
+
+
+              <button id="customer" *ngIf="banners.sortOrder === 1" class="nav-link btn btn-primary theme-button"
+                [innerHTML]="banners?.button" data-toggle="modal" data-target="#bannercustomerModal"
+                (click)="customermodal(banners)">
+                <span class="elementor-button-icon elementor-align-icon-right">
+                  <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">  
+                </span>
+              </button>
+
+              <button id="partner" *ngIf="banners.sortOrder === 2" class="nav-link btn btn-primary theme-button"
+                [innerHTML]="banners?.button" data-toggle="modal" data-target="#bannerpartnerModal"
+                (click)="partnermodal(banners)">
+                <span class="elementor-button-icon elementor-align-icon-right">
+                  <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">  
+                </span>
+              </button>
+
+            </div>
+            <div class="col-lg-4 col-12 order-1 order-lg-2">
+              <img src="{{banners.banner}}" alt="slider1" class="w-100 wd90">
+            </div>
+          </div>
+
+
+         
+
+
+        </div>
+
+
+         <!-- modal part latest for banner customer section-->
+         <div class="modal fade" id="bannercustomerModal" tabindex="-1" role="dialog"
+         aria-labelledby="bannercustomerModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered" role="document">
+           <div class="modal-content">
+             <div class="closeicon">
+               <button type="button" class="close" (click)="hidebannerModal()" data-dismiss="modal"
+                 aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+
+             </div>
+             <div class="modal-body">
+               <div class="row">
+                 <div class="col-lg-4 col-sm-6">
+                   <img src="assets/img/banner_customer_img.svg" class="phydigital_partner_img" alt="about">
+                 </div>
+
+                 <div class="col-lg-8 col-sm-6">
+                   <button class="nav-link btn btn-primary theme-button modalpartnerbtn">INSURANCE</button>
+                   <button class="nav-link btn btn-primary theme-button modalpartnerbtn">INVESTMENT</button>
+
+                 </div>
+
+               </div>
+
+             </div>
+           </div>
+         </div>
+
+       </div>
+
+       <!-- modal part latest for banner partner section-->
+       <div class="modal fade" id="bannerpartnerModal" tabindex="-1" role="dialog"
+         aria-labelledby="bannerpartnerModalLabel" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered" role="document">
+           <div class="modal-content">
+             <div class="closeicon">
+               <button type="button" class="close" (click)="hidebannerModal()" data-dismiss="modal"
+                 aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+               </button>
+
+             </div>
+             <div class="modal-body">
+               <div class="row">
+                 <div class="col-lg-4 col-sm-6">
+                   <img src="assets/img/phydigital_partner_img.svg" class="phydigital_partner_img" alt="about">
+                 </div>
+
+                 <div class="col-lg-8 col-sm-6">
+                   <button class="nav-link btn btn-primary theme-button modalpartnerbtn">INSURANCE</button>
+                   <button class="nav-link btn btn-primary theme-button modalpartnerbtn">INVESTMENT</button>
+
+                 </div>
+
+               </div>
+
+             </div>
+           </div>
+         </div>
+
+       </div>
+
+
+      </div>
+
+    </div>
+
+    <div class="container pt-70 common-pt-50">
+      <div class="slick-carousel index-product">
+        <div class="row mb-producthide">
+          <div class="col col-6" *ngFor="let insurence of InsurencedataList">
+            <div class="loan-type" (click)="InsurancetRouterUrl(insurence)">
+              <img src="{{insurence?.logo}}" alt="l1">
+              <p>{{insurence.name}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-5 common-mt-3">
+      <div class="slick-carousel index-product">
+        <div class="row  mb-producthide">
+          <div class="col col-6" *ngFor="let credit of CreditdataList">
+            <div class="loan-type" (click)="CreditRouterUrl(credit)">
+              <img src="{{credit.logo}}" alt="l1">
+              <p>{{credit.name}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-5 common-mt-3">
+      <div class="slick-carousel index-product">
+        <div class="row mb-producthide">
+          <div class="col col-6" *ngFor="let wealth of wealthdataList?.slice(0,5)">
+            <div class="loan-type" (click)="wealthtRouterUrl(wealth?.path)">
+              <img src="{{wealth.logo}}" alt="l1">
+              <p>{{wealth.name}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container pt-70 why-finizon">
+      <div class="row align-items-center about">
+        <div class="col-lg-8 col-sm-6">
+          <h4 class="title-head mb-4">Why Finizon?</h4>
+          <p>Finizon is India's first comprehensive financial services platform addressing all your financial needs
+            across
+            life stages. We collaborate with finance partners across India to guide you towards financial wellness.</p>
+        </div>
+        <div class="col-lg-4 col-sm-6 hidden-xs">
+          <img src="assets/img/about-img.png" class="w-100" alt="about">
+        </div>
+      </div>
+    </div>
+
+    <!-- meet our partners -->
+
+    <div class="container pt-70 money-invest">
+      <div class="row align-items-center">
+        <div class="col-lg-12">
+          <h4 class="title-head mb-4">Meet Our <span style="color:
+          #00A0AD;">Partners</span>
+          </h4>
+
+          <!-- Carousel -->
+          <div id="meetpartners" class="carousel slide" data-bs-ride="carousel">
+
+            <!-- Indicators/dots -->
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#meetpartners" data-bs-slide-to="0" class="active"></button>
+              <button type="button" data-bs-target="#meetpartners" data-bs-slide-to="1"></button>
+              <button type="button" data-bs-target="#meetpartners" data-bs-slide-to="2"></button>
+              <button type="button" data-bs-target="#meetpartners" data-bs-slide-to="3"></button>
+
+            </div>
+
+            <!-- The slideshow/carousel -->
+            <div class="carousel-inner">
+              <div class="carousel-item" *ngFor=" let banners of meetpartnerslist; let i=index"
+                [ngClass]="i==0?'active':''">
+                <div class="main">
+                  <img class="partnersimg" src="{{banners.image}}" alt="slider1">
+                </div>
+              </div>
+            </div>
+
+            <!-- Left and right controls/icons -->
+
+            <button class="carousel-1-control-prev" type="button" data-bs-target="#meetpartners" data-bs-slide="prev">
+              <!-- <span class="carousel-1-control-prev-icon"></span> -->
+              <!-- <span><img src="../../assets/img/previous.png" alt="previous"></span> -->
+              <span><img src="../../assets/img/icons8-back-24.png" alt="previous"></span>
+
+            </button>
+            <button class="carousel-1-control-next" type="button" data-bs-target="#meetpartners" data-bs-slide="next">
+              <!-- <span class="carousel-1-control-next-icon"></span> -->
+              <!-- <span><img src="../../assets/img/next.png" alt="next"></span> -->
+              <span><img src="../../assets/img/icons8-next-page-24.png" alt="next"></span>
+
+            </button>
+          </div>
+
+          <!-- <div id="meetpartners" class="carousel slide" data-bs-ride="carousel">
+
+
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#meetpartners" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#meetpartners" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#meetpartners" data-bs-slide-to="2"></button>
+
+          </div>
+
+          <div class="carousel-inner">
+            <div class="carousel-item " *ngFor=" let banners of CommonBannerlist; let i=index"
+              [ngClass]="i==0?'active':''">
+              <div class="mop">
+                <img src="{{banners.banner}}" alt="slider1" class="w-100 wd90">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#meetpartners" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#meetpartners" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button> -->
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+        <!-- **********Original code commented by sw as not required now ********** -->
+        <!-- <div class="col">
+        <div class="money-mng" (click)="GoToInsureRight()">
+          <img src="assets/img/protect_right.svg" alt="l1">
+          <p>Insure Right</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="money-mng" routerLink="/create-goal">
+          <img src="assets/img/plan_goals.svg" alt="l1">
+          <p>Plan Goals</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="money-mng" routerLink="/tools-emi">
+          <img src="assets/img/reduce_emi.svg" alt="l1">
+          <p>Reduce EMI</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="money-mng mob-inv">
+          <img src="assets/img/credit_cards.svg" alt="l1">
+          <p>Credit Cards for You</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="money-mng mob-inv">
+          <img src="assets/img/credit_score.png" alt="l1">
+          <p>Free Credit score</p>
+        </div>
+      </div> -->
+        <!-- **********Original code commented by sw as not required now ********** -->
+
+      </div>
+
+    </div>
+
+    <!-- added by sw for phydigitalsection  -->
+    <div class="container pt-70 phydigitalsection">
+      <div class="row">
+        <div class="col-lg-4 col-sm-6">
+          <img src="assets/img/Partnership-bro.svg" class="phydigitalimg" alt="about">
+        </div>
+
+        <div class="col-lg-8 col-sm-6">
+          <div class="widget-container">
+
+            <p class="phydigitalheading">“Launching India’s first<br> <span>phydigital finance
+                experience!”</span></p>
+          </div>
+
+
+          <!-- parent div of 1st,2nd,3rd -->
+          <div class="phydigitalparentdiv">
+            <!-- 1st -->
+            <div
+              class="elementor-element elementor-element-7b422ed animated-slow elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list animated fadeIn">
+              <div class="firstpoint">
+                <link rel="stylesheet"
+                  href="https://finizon.com/wp-content/plugins/elementor/assets/css/widget-icon-list.min.css">
+                <ul class="elementor-icon-list-items">
+                  <li class="elementor-icon-list-item">
+                    <span class="elementor-icon-list-icon">
+
+                      <img src="assets/img/right-arrow.png" class="w-100 right_arrow_img" alt="rightarrow">
+
+                    </span>
+                    <span class="elementor-icon-list-text">Make decisions closely with the
+                      experts</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 2nd -->
+            <div
+              class="elementor-element elementor-element-9354ecf animated-slow elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list animated fadeIn">
+              <div class="elementor-widget-container firstpoint">
+                <ul class="elementor-icon-list-items">
+                  <li class="elementor-icon-list-item">
+                    <span class="elementor-icon-list-icon">
+
+                      <img src="assets/img/right-arrow.png" class="w-100 right_arrow_img" alt="rightarrow">
+
+                    </span>
+                    <span class="elementor-icon-list-text">Find the right financial products and
+                      tools for you</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 3rd -->
+            <div
+              class="elementor-element elementor-element-7df21f2 animated-slow elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list animated fadeIn">
+              <div class="elementor-widget-container firstpoint">
+                <ul class="elementor-icon-list-items">
+                  <li class="elementor-icon-list-item">
+                    <span class="elementor-icon-list-icon">
+
+                      <img src="assets/img/right-arrow.png" class="w-100 right_arrow_img" alt="rightarrow">
+
+                    </span>
+                    <span class="elementor-icon-list-text">Never miss out on the best available
+                      offers</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+
+
+          <!-- partner button -->
+          <div class="col-lg-3 col-12 col-sm-3">
+            <button class="nav-link btn btn-primary theme-button partnerbtn" data-toggle="modal"
+              data-target="#partnerModal" (click)="showPartnerModal()">PARTNER</button>
+          </div>
+
+        </div>
+
+      </div>
+      
+      <!-- modal part latest for phydigital section-->
+      <div class="modal fade" id="partnerModal" tabindex="-1" role="dialog" aria-labelledby="partnerModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="closeicon">
+              <button type="button" class="close" (click)="hidePartnerModal()" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                  <img src="assets/img/phydigital_partner_img.svg" class="phydigital_partner_img" alt="about">
+                </div>
+
+                <div class="col-lg-8 col-sm-6">
+                  <button class="nav-link btn btn-primary theme-button modalpartnerbtn">INSURANCE</button>
+                  <button class="nav-link btn btn-primary theme-button modalpartnerbtn">INVESTMENT</button>
+
+                </div>
+
+              </div>
+              <!-- <div class="modal-footer">
+           
+          </div> -->
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+    <!-- meet foundig section -->
+
+    <div class="container pt-70 founding_team_container">
+      <div class="row align-items-center">
+        <div class="col-lg-12">
+          <div class="title-head mb-4">Meet the <span class="span_team">Founding Team behind Finizon</span></div>
+        </div>
+        <div class="founder-team">
+          <!-- <div class="col-lg-12 pos-rel"> -->
+          <div class="founders-container ">
+            <div class="founder-column hidden-xs hidden-md ">
+              <div *ngFor="let founder of founders.slice(0, 3)">
+                <!-- <img class="clkprofile_Photo" [src]="founder.img"[class.selected]="selectedFounder" (click)="showDetails(founder)" /> -->
+                <img class="clkprofile_Photo" [src]="founder.img" [class.selected]="isSelected(founder)"
+                  (click)="showDetails(founder)" />
+              </div>
+            </div>
+            <div class="founder-column hidden-xs hidden-md ">
+              <div *ngFor="let founder of founders.slice(3)">
+                <img class="clkprofile_Photo" [src]="founder.img" [class.selected]="isSelected(founder)"
+                  (click)="showDetails(founder)" />
+              </div>
+            </div>
+            <div class="founder-row hidden-lg">
+              <div class="founder-row-container">
+                <div *ngFor="let foundermob of foundersmob">
+                  <img class="clkprofile_Photo" [src]="foundermob.img" [class.selected]="isSelected(foundermob)"
+                    (click)="showDetails(foundermob)" />
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- </div> -->
+          <!-- <img src="../../assets/img/founding team member/founder-asish.svg" alt=""> -->
+          <div class=" become-partner">
+            <div class="row align-items-center">
+              <div class="profiling-team">
+
+                <div *ngIf="selectedFounder">
+                  <div class="profile ">
+                    <img class="profile_Photo" [src]="selectedFounder.image" />
+                    <div class="profile_details">
+                      <div class="name">{{ selectedFounder.name }}</div>
+                      <div class="designation">{{ selectedFounder.title }}</div>
+                      <div class="bio">{{ selectedFounder.bio }}</div>
+                      <a href="{{selectedFounder.linkedinLink}}" target="_blank">
+                        <img class="linkedin_logo" [src]="selectedFounder.linkedinImg" alt="LinkedIn Profile">
+                      </a>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class=" become-partner">
+          <div class="row align-items-center">
+            <div class="profiling-team">
+
+              <div *ngIf="selectedFoundermob">
+                <div class="profile ">
+                  <img class="profile_Photo" [src]="selectedFoundermob.image" />
+                  <div class="profile_details">
+                    <div class="name">{{ selectedFoundermob.name }}</div>
+                    <div class="designation">{{ selectedFoundermob.title }}</div>
+                    <div class="bio">{{ selectedFoundermob.bio }}</div>
+                    <a href="{{selectedFoundermob.linkedinLink}}" target="_blank">
+                      <img class="linkedin_logo" [src]="selectedFoundermob.linkedinImg" alt="LinkedIn Profile">
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div> -->
+        </div>
+
+      </div>
+    </div>
+    
+    <div class="container pt-70">
+      <!-- Carousel -->
+      <div id="testimonial" class="carousel slide" data-bs-ride="carousel">
+
+        <!-- Indicators/dots -->
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#testimonial" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#testimonial" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#testimonial" data-bs-slide-to="2"></button>
+        </div>
+
+        <!-- The slideshow/carousel -->
+        <div class="carousel-inner pos-rel pt-50 pb-50">
+          <img src="assets/img/upquote.png" class="upquote" alt="up-quote">
+          <div class="carousel-item " *ngFor=" let testimonial of CommonrTestimonialdata; let i=index"
+            [ngClass]="i==0?'active':''">
+            <div class="row align-items-center">
+              <div class="col-lg-12 text-center">
+                <img src="{{testimonial?.profilePhoto}}" class="user-img" alt="user">
+                <h4>{{testimonial?.firstName}} {{testimonial?.lastName}}</h4>
+                <p>{{testimonial?.profileReview}}</p>
+              </div>
+            </div>
+          </div>
+          <img src="assets/img/downquote.png" class="downquote" alt="down-quote">
+        </div>
+
+        <!-- Left and right controls/icons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonial" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonial" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- clients images -->
+    <div class="container pt-70 client-img">
+      <div class="row align-items-center">
+        <div class="col">
+          <img src="assets/img/aditya-birla-capital-logo.png" class="c1" alt="birla">
+        </div>
+        <div class="col">
+          <img src="assets/img/icici_pru_logo.png" class="c2" alt="icici">
+        </div>
+        <div class="col">
+          <img src="assets/img/digit_logo.png" class="c3" alt="digi">
+        </div>
+        <div class="col">
+          <img src="assets/img/Care_health_insurance_logo.png" class="c4" alt="care">
+        </div>
+        <div class="col">
+          <img src="assets/img/bajaj_logo.png" class="c5" alt="bajaj">
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-1">
+        </div>
+        <!-- <div class="col col-6 hidden-lg">
+			<img src="assets/img/bajaj_logo.png" class="c5">
+		</div> -->
+        <div class="col">
+          <img src="assets/img/sbi_general_logo.png" class="c2" alt="sbi">
+        </div>
+        <div class="col">
+          <img src="assets/img/shriram_capital_logo.png" class="c3" alt="shriram">
+        </div>
+        <div class="col">
+          <img src="assets/img/edelweiss_life_logo.png" class="c4" alt="edelweis">
+        </div>
+        <div class="col">
+          <img src="assets/img/universal_logo.png" class="c4" alt="universal">
+        </div>
+        <!-- <div class="col col-6 hidden-lg">
+			<img src="assets/img/max_life.png" class="c1">
+		</div> -->
+        <div class="col-1">
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col">
+          <img src="assets/img/max_life.png" class="c1" alt="max-life">
+        </div>
+        <div class="col">
+          <img src="assets/img/hdfc_ergo.png" class="c2" alt="hdfc-ergo">
+        </div>
+        <div class="col">
+          <img src="assets/img/icici_lombard_logo.png" class="c3" alt="icici-lombard">
+        </div>
+        <div class="col">
+          <img src="assets/img/tata_aia_logo.png" class="c4" alt="tata">
+        </div>
+        <div class="col">
+          <img src="assets/img/religare_logo.png" class="c5" alt="religare">
+        </div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col text-center">
+          <h5><a href="#" class="view-all"> View All</a></h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blogs -->
+    <div class="container mt-5 pt-50 finance owl-1">
+      <div class="row align-items-center">
+        <div class="col-lg-12">
+          <h4 class="title-head1 mb-4">Become a Financial Guru</h4>
+        </div>
+      </div>
+      <div class="financial-slider fin">
+        <owl-carousel-o [options]="customOptions">
+          <ng-template carouselSlide *ngFor="let blog of BlogList">
+            <div class="finance-news" (click)="GetBlogList()">
+              <a target="_blank" rel="noopener noreferrer" href="{{blog.url}}"><img src="{{blog.blogimage}}"
+                  alt="blog1"></a>
+
+              <p>{{blog.title}}</p>
+
+            </div>
+          </ng-template>
+          <!-- <ng-template carouselSlide>
+        <div class="finance-news">
+          <img src="assets/img/blog_thumnail_1.png">
+          <p>What is the right amount of life insurance cover for me?</p>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="finance-news">
+          <img src="assets/img/blog_thumnail_2.png">
+          <p>Don’t leave anything to chance protect with insurance</p>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="finance-news">
+          <img src="assets/img/blog_thumnail_1.png">
+          <p>What is the right amount of life insurance cover for me?</p>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="finance-news">
+          <img src="assets/img/blog_thumnail_2.png">
+          <p>How to Check Life Insurance Policy Status?</p>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="finance-news">
+          <img src="assets/img/blog_thumnail_1.png">
+          <p>Choose right life insurance plan in 7 easy steps</p>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="finance-news">
+          <img src="assets/img/blog_thumnail_2.png">
+          <p>Choose right life insurance plan in 7 easy steps</p>
+        </div>
+      </ng-template> -->
+        </owl-carousel-o>
+
+      </div>
+
+    </div>
+
+    <div class="container mt-5 pt-50 ">
+      <div class="cta">
+        <div class="row align-items-center">
+          <div class="col-lg-2 col-3 col-sm-2 mob-center">
+            <img src="assets/img/grow_investment_icon.svg" alt="grow">
+          </div>
+          <div class="col-lg-7 col-9 col-sm-7 mob-center">
+            <h3>Grow your family's investment in one place</h3>
+          </div>
+          <div class="col-lg-3 col-12 col-sm-3">
+            <button class="nav-link btn btn-primary theme-button m0-auto">Get Started</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

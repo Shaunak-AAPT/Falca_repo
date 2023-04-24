@@ -1,0 +1,212 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: fontregular;
+    src: url(../../../../assets/fonts/Circular_std_regular.ttf);
+}
+@font-face {
+    font-family: fontmedium;
+    src: url(../../../../assets/fonts/Circular_Std_Medium.ttf);
+}
+@font-face {
+    font-family: fontbold;
+    src: url(../../../../assets/fonts/Circular_Std_Bold.ttf);
+}
+  
+html, body {
+    font-family: fontregular !important;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F7F7F7 100%);
+  }
+.pos-rel{
+    position: relative;
+}
+.transparent-button{
+background: transparent;
+border: 1px solid #00A0AD;
+border-radius: 8px;
+text-transform: uppercase;
+font-size: 16px;
+font-weight: 500;
+color: #00A0AD;
+font-family: fontregular !important;
+}
+
+.transparent-button:hover , .transparent-button:focus {
+    color: #00A0AD;
+    background-color: transparent;
+    border-color: #00A0AD;
+}
+
+.theme-button{
+    background-color: #E27E28;
+    border-color: #E27E28;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-size: 16px;
+   font-weight: 500;
+   font-family: fontregular !important;
+   color: #fff;
+}
+.theme-button:hover , .theme-button:focus {
+    color: #fff;
+    background-color: #E27E28;
+    border-color: #E27E28;
+
+}
+.custom-slider .ngx-slider .ngx-slider-pointer {
+    /* background-color: #e27e28 !important; */
+    background: #F9F9F9 !important;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%), inset 4px -4px 8px -2px rgb(0 0 0 / 25%) !important;
+    width: 25px !important;
+    height: 25px !important;
+    top: -11px !important;
+}
+
+.ngx-slider .ngx-slider-bubble{
+    bottom: -40px !important;
+}
+.ngx-slider {
+      margin: 25px 0 15px !important;
+    }
+.ngx-slider .ngx-slider-bar {      
+        height: 6px !important;
+        background: #afafaf !important;
+        border-radius: 50px !important;
+        box-shadow: inset -12px -12px 12px rgb(255 255 255 / 90%), inset 12px 12px 24px rgb(0 0 0 / 15%)
+ }
+ .ngx-slider .ngx-slider-pointer:after {
+    width: 16px !important;
+    height: 16px !important;
+    top: 5px !important;
+    left: 5px !important;
+    border-radius: 20px !important;
+    background: #e27e28 !important;
+}
+.ngx-slider .ngx-slider-selection {
+    z-index: 4!important;
+    background: #e27e28!important;
+    border-radius: 2px!important;
+    visibility: visible!important;
+    box-shadow: none!important;
+}
+:focus-visible{
+    outline: 0 !important;
+}
+.modal-backdrop.show {
+    opacity: 1;
+}
+.modal-backdrop {
+    backdrop-filter: blur(20px);
+    background-color: rgb(0 0 0 / 50%);
+}
+
+.hidden-lg{
+    display: none;
+}
+.form-control:focus { 
+    border-color: #e27e28;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem #e27e2826;
+}
+@media only screen and (max-width: 767px){
+    .hidden-xs{
+        display: none;
+    }
+    .hidden-lg{
+        display: block!important;
+    }
+}
+.calculate-btn .transparent-button{
+    border: 1px solid #e27e28;  
+    color: #e27e28;
+}
+
+
+.pt-30{
+    padding-top: 30px;
+}
+.main-img{
+    width: 85%;
+}
+.main-title{
+    font-size: 36px;
+    line-height: 50px;
+    color: #333;
+    font-weight: 600;
+}
+.main-title span{
+    color: #00A0AD;
+}
+.main-subhead{
+    font-weight: bold;
+font-size: 36px;
+line-height: 42px;
+text-align: center;
+color: #00A0AD;
+margin-bottom: 35px;
+}
+.mt-7{
+    margin-top: 7%;
+}
+.goal-box{
+    background: linear-gradient(156.65deg, #ECECEC 1.2%, #FFFFFF 98.95%);
+border: 2px solid #F7F7F7;
+box-sizing: border-box;
+box-shadow: 0px 0px 8px #0000001c;
+/* box-shadow: -10px -10px 20px #FFFFFF, 8px 8px 24px rgba(210, 210, 210, 0.5); */
+border-radius: 32px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+padding: 20% 2%;
+cursor: pointer;
+}
+.goal-box p{
+    margin-bottom: 0px;
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 767px){
+    .main-img {
+        width: 100%;
+    }
+    .main-title {
+        font-size: 27px;
+        line-height: 40px;
+        color: #777;
+        font-weight: 600;
+    }
+    .main-subhead {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        text-align: left;
+        color: #00A0AD;
+        margin-bottom: 25px;
+        margin-top: 5%;
+    }
+    .goal-box{
+        margin-bottom: 15%;
+    }
+    .goal-box img {
+        width: 30%;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1100px){
+.main-title {
+    font-size: 24px;
+    line-height: 40px;
+}
+.main-subhead {
+    font-size: 30px;
+    line-height: 42px;
+    margin-bottom: 5%;
+}
+.mt-7 {
+    margin-top: 7%;
+    margin-bottom: 15rem;
+}
+}

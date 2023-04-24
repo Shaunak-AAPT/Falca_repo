@@ -1,0 +1,1819 @@
+<div class="container pb-4 pt-3">
+  <div class="row bread-profile align-items-center">
+    <div class="col-lg-6 col-8">
+      <div class="d-flex align-items-center">
+        <img class="i-icon" src="assets/img/back-arrow.svg" />
+        <div>
+          <p>Welcome Back</p>
+          <h3>{{ApplicantData?.firstName}} {{ApplicantData?.lastName}}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-4 text-end d-flex justify-content-end">
+      <button type="button" class="btn btn-primary transper-btn me-3 hidden-xs" [routerLink]="['/account-details']">
+        View Portfolio </button>
+      <a class="bell-icon cursor-pointer" href="javascript:void(0)" (click)="handleOpenCloseNotif()"><img
+          src="assets/img/notification_icon.svg" /></a>
+    </div>
+  </div>
+  <div class="hidden-xs">
+    <div class="row mt-3">
+      <div class="col-lg-4 col-md-4">
+        <div class="card-div active-card" [routerLink]="['/wealth-dashboard']">
+          <div class="carddiv-title">
+            <div class="title-text">
+              <h5>My Investments</h5>
+              <p>Last Updated : Nov 25, 2021</p>
+            </div>
+            <div class="card-icon">
+              <img src="assets/img/net_worth.svg" />
+            </div>
+          </div>
+          <div class="card-value">
+            <h4>₹ {{InvestmentsCount}}</h4>
+            <button type="button" class="btn btn-primary proceed-btn d-none">Invest Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <div class="card-div" (click)="GotoInsurance('/insurance-dashboard')">
+          <div class="carddiv-title">
+            <div class="title-text">
+              <h5>My Insurance</h5>
+              <p>&nbsp;</p>
+            </div>
+            <div class="card-icon">
+              <img src="assets/img/manthreds.svg" />
+            </div>
+          </div>
+          <div class="card-value">
+            <h4>{{InsuranceCount}} <span>Active Insurance</span></h4>
+            <button type="button" class="btn btn-primary proceed-btn d-none">Insure Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <div class="card-div" [routerLink]="['/credit-dashboard']">
+          <div class="carddiv-title">
+            <div class="title-text">
+              <h5>My Liabilities</h5>
+              <p>&nbsp;</p>
+            </div>
+            <div class="card-icon">
+              <img src="assets/img/liabilities_icon.svg" />
+            </div>
+          </div>
+          <div class="card-value">
+            <h4>₹ {{LiabilitiesCount}}</h4>
+            <button type="button" class="btn btn-primary proceed-btn d-none">Take a Loan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hidden-lg">
+    <div class="row mt-3 ">
+      <div class="mob-card">
+        <div class="mob-cardhead" [routerLink]="['/wealth-dashboard']">
+          <div>
+            <p class="inv-title">My Investments</p>
+            <!-- <p class="inv-date">Last Updated : Nov 25, 2021</p> -->
+            <h5>₹ {{InvestmentsCount}}</h5>
+          </div>
+          <div>
+            <!-- <h5>₹ 55,200</h5> -->
+            <!-- <p class="pos-rel"><i class="fa fa-angle-right"></i></p> -->
+          </div>
+        </div>
+        <div class="mbo-cardbody">
+          <div class="row">
+            <div class="col-6">
+              <p class="pos-rel">My Insurance <i [routerLink]="['/insurance-dashboard']" class="fa fa-angle-right"></i>
+              </p>
+              <h5>{{InsuranceCount}} <span>Insurance</span></h5>
+            </div>
+            <div class="col-6">
+              <p class="pos-rel">My Liabilities <i [routerLink]="['/credit-dashboard']" class="fa fa-angle-right"></i>
+              </p>
+              <h5>₹ {{LiabilitiesCount}}</h5>
+            </div>
+          </div>
+          <!-- <div class="credit-score">
+              <div>
+                <p>My Credit Score</p>
+              </div>
+              <div>
+                <p class="pnt"><span>629</span>/900</p>
+              </div>
+            </div> -->
+        </div>
+        <div class="rfs-btn cursor-pointer">
+          <span><i class="fa fa-sync"></i> Refresh</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Apply For -->
+  <div class="title-text mt-5 ">
+    <h5 class="text-center"> Apply For </h5>
+  </div>
+  <div class="container mt-5 mb-3 common-mt-3 more-product money-invest loan-opt">
+    <div class="row align-items-center justify-content-center">
+      <div class="col" *ngFor="let wealth of WealthFunds">
+        <div class="money-mng" (click)="GotoWealth(wealth?.path)">
+          <img src="{{wealth.logo}}" alt="l1">
+          <p>{{wealth.name}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 mt-4">
+      <h5 class="ofr-head">Offer Recommendations</h5>
+    </div>
+    <!-- <div class="col-12">
+        <ul class="nav nav-tabs" id="offerTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="ofrinvest-tab" (click)="SelectedTab = 1" data-bs-toggle="tab"
+              data-bs-target="#ofr_myinvest" type="button" role="tab" aria-controls="home" aria-selected="true">My
+              Investments</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="ofrinsure-tab" (click)="SelectedTab = 2" data-bs-toggle="tab"
+              data-bs-target="#ofr_myinsure" type="button" role="tab" aria-controls="profile" aria-selected="false">My
+              Insurance</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="ofrliabilities-tab" (click)="SelectedTab = 3" data-bs-toggle="tab"
+              data-bs-target="#ofr_myliabilities" type="button" role="tab" aria-controls="contact"
+              aria-selected="false">My Liabilities</button>
+          </li>
+        </ul>
+      </div> -->
+
+    <div class="tab-content" id="ofrTabContent">
+      <div class="tab-pane fade show active" id="ofr_myinvest" role="tabpanel" aria-labelledby="ofrinvest-tab">
+        <div class=" mt-4 finance owl-1">
+          <div class="financial-slider trendprod ">
+            <owl-carousel-o [options]="customOptions">
+              <ng-template carouselSlide>
+                <div class="trending-product">
+                  <div class="row align-items-center">
+                    <div class="col-lg-3 col-3">
+                      <img src="assets/img/birla.png">
+                    </div>
+                    <div class="col-lg-9 col-9 ps-0">
+                      <p class="trend-name">Aditya Birla Sun Life Digital India Fund Direct Plan Growth</p>
+                    </div>
+                  </div>
+                  <div class="price-tag">
+                    <div class="row align-items-center ">
+                      <div class="col-lg-6 col-6 text-center mb-2">
+                        <p class="trend-name">AUM</p>
+                        <p class="trend-name"><strong>₹675 Cr</strong></p>
+                      </div>
+                      <div class="col-lg-6 col-6 text-center mb-2">
+                        <p class="trend-name">1Y Return<span><img src="assets/img/blueupdown.svg"
+                              class="orange-pencil22"></span></p>
+                        <p class="trend-name "><strong>132.5%</strong></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+              <ng-template carouselSlide>
+                <div class="trending-product">
+                  <div class="row align-items-center">
+                    <div class="col-lg-3 col-3">
+                      <img src="assets/img/quant.png">
+                    </div>
+                    <div class="col-lg-9 col-9 ps-0">
+                      <p class="trend-name">Quant Small Cap Fund Growth Option Direct Plan</p>
+                    </div>
+                  </div>
+                  <div class="price-tag">
+                    <div class="row align-items-center ">
+                      <div class="col-lg-6 col-6 text-center mb-2">
+                        <p class="trend-name">AUM</p>
+                        <p class="trend-name"><strong>₹675 Cr</strong></p>
+                      </div>
+                      <div class="col-lg-6 col-6 text-center mb-2">
+                        <p class="trend-name">1Y Return<span><img src="assets/img/blueupdown.svg"
+                              class="orange-pencil22"></span></p>
+                        <p class="trend-name "><strong>132.5%</strong></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+              <ng-template carouselSlide>
+                <div class="trending-product">
+                  <div class="row align-items-center">
+                    <div class="col-lg-3 col-3">
+                      <img src="assets/img/icici_pru_logo@2x.png">
+                    </div>
+                    <div class="col-lg-9 col-9 ps-0">
+                      <p class="trend-name">ICICI Prudential Commodities Fund Direct Growth</p>
+                    </div>
+                  </div>
+                  <div class="price-tag">
+                    <div class="row align-items-center ">
+                      <div class="col-lg-6 col-6 text-center mb-2">
+                        <p class="trend-name">AUM</p>
+                        <p class="trend-name"><strong>₹675 Cr</strong></p>
+                      </div>
+                      <div class="col-lg-6 col-6 text-center mb-2">
+                        <p class="trend-name">1Y Return<span><img src="assets/img/blueupdown.svg"
+                              class="orange-pencil22"></span>
+                        <p class="trend-name "><strong>132.5%</strong></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+
+
+
+            </owl-carousel-o>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="hidden-xs">
+    <div class="row mt-3">
+      <div class="col-lg-8">
+        <div class="card-div">
+          <div class="d-flex justify-content-between border-btm">
+            <ul class="nav nav-tabs" id="dashboardTab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="invest-tab" data-bs-toggle="tab" data-bs-target="#myinvest"
+                  type="button" role="tab" aria-controls="home" aria-selected="true">My Investments</button>
+              </li>
+            </ul>
+            <!-- <ul class="nav nav-tabs" id="dashboardTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <div class="dropdown menu-btn loondropdownicon">
+                    <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenu1"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="assets/img/loan_filter.svg" />
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <li><a class="dropdown-item" href="javascript:void(0)">Applied loans</a></li>
+                      <li><a class="dropdown-item" href="javascript:void(0)">Active loans</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul> -->
+          </div>
+          <div class="tab-content tabscroll" id="dashTabContent">
+            <div class="tab-pane fade show active" id="myinvest" role="tabpanel" aria-labelledby="invest-tab">
+              <div class="tab1-area" *ngIf="MyFunds">
+                <div class="row table-row">
+                  <div class="col-lg-6 pe-2">
+                    <div class="table-flex">
+                      <div class="bank-logo">
+                        <img src="assets/img/icici-bank.png" />
+                      </div>
+                      <div class="my-bank">
+                        <h5>ICICI Prudential Technology</h5>
+                        <p>
+                          <span>3 <i class="fa fa-star"></i></span>
+                          <span> High Risk</span>
+                          <span> Equity</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 mb-bg-l col-6 ps-2 pe-2">
+                    <div class="returns">
+                      <h5>Absolute Returns</h5>
+                      <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 mb-bg-r col-6 ps-2 pe-2">
+                    <div class="invests">
+                      <h5>Total Investment</h5>
+                      <p>₹ 20,50,200</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-1 ps-2 pe-2 text-center">
+                    <div class="dropdown menu-btn">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-ellipsis-h"></i>
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a class="dropdown-item" href="javascript:void(0)">View Fund</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)">Redeem Fund</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)">Switch Fund</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="row table-row">
+                  <div class="col-lg-6 pe-2">
+                    <div class="table-flex">
+                      <div class="bank-logo">
+                        <img src="assets/img/quant.png" />
+                      </div>
+                      <div class="my-bank">
+                        <h5>Quant Small Cap Fund Growth Option Direct Plan</h5>
+                        <p>
+                          <span>3 <i class="fa fa-star"></i></span>
+                          <span> High Risk</span>
+                          <span> Equity</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 mb-bg-l col-6 ps-2 pe-2">
+                    <div class="returns">
+                      <h5>Absolute Returns</h5>
+                      <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 mb-bg-r col-6 ps-2 pe-2">
+                    <div class="invests">
+                      <h5>Total Investment</h5>
+                      <p>₹ 20,50,200</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-1 ps-2 pe-2 text-center">
+                    <div class="dropdown menu-btn">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-ellipsis-h"></i>
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a class="dropdown-item" href="javascript:void(0)">View Fund</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)">Redeem Fund</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)">Switch Fund</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="row table-row">
+                  <div class="col-lg-6 pe-2">
+                    <div class="table-flex">
+                      <div class="bank-logo">
+                        <img src="assets/img/birla.png" />
+                      </div>
+                      <div class="my-bank">
+                        <h5>Aditya Birla Sun Life Digital India Fund Direct Plan</h5>
+                        <p>
+                          <span>3 <i class="fa fa-star"></i></span>
+                          <span> High Risk</span>
+                          <span> Equity</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 mb-bg-l col-6 ps-2 pe-2">
+                    <div class="returns">
+                      <h5>Absolute Returns</h5>
+                      <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 mb-bg-r col-6 ps-2 pe-2">
+                    <div class="invests">
+                      <h5>Total Investment</h5>
+                      <p>₹ 20,50,200</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-1 ps-2 pe-2 text-center">
+                    <div class="dropdown menu-btn">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-ellipsis-h"></i>
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a class="dropdown-item" href="javascript:void(0)">View Fund</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)">Redeem Fund</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)">Switch Fund</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="row table-row">
+                  <div class="col-lg-6 pe-2">
+                    <div class="table-flex">
+                      <div class="bank-logo">
+                        <img src="assets/img/axis_bank.png" />
+                      </div>
+                      <div class="my-bank">
+                        <h5>Axis Small Cap Fund Direct Growth</h5>
+                        <p>
+                          <span>3 <i class="fa fa-star"></i></span>
+                          <span> High Risk</span>
+                          <span> Equity</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 mb-bg-l col-6 ps-2 pe-2">
+                    <div class="returns">
+                      <h5>Absolute Returns</h5>
+                      <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 mb-bg-r col-6 ps-2 pe-2">
+                    <div class="invests">
+                      <h5>Total Investment</h5>
+                      <p>₹ 20,50,200</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-1 ps-2 pe-2 text-center">
+                    <div class="dropdown menu-btn">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-ellipsis-h"></i>
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a class="dropdown-item" href="javascript:void(0)">View Fund</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)">Redeem Fund</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)">Switch Fund</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="row table-row">
+                  <div class="col-lg-6 pe-2">
+                    <div class="table-flex">
+                      <div class="bank-logo">
+                        <img src="assets/img/icicbank23.png" />
+                      </div>
+                      <div class="my-bank">
+                        <h5>ICICI Prudential Commodities Fund Direct Growth</h5>
+                        <p>
+                          <span>3 <i class="fa fa-star"></i></span>
+                          <span> High Risk</span>
+                          <span> Equity</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 mb-bg-l col-6 ps-2 pe-2">
+                    <div class="returns">
+                      <h5>Absolute Returns</h5>
+                      <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 mb-bg-r col-6 ps-2 pe-2">
+                    <div class="invests">
+                      <h5>Total Investment</h5>
+                      <p>₹ 20,50,200</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-1 ps-2 pe-2 text-center">
+                    <div class="dropdown menu-btn">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-ellipsis-h"></i>
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a class="dropdown-item" href="javascript:void(0)">View Fund</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)">Redeem Fund</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)">Switch Fund</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="row table-row">
+                  <div class="col-lg-6 pe-2">
+                    <div class="table-flex">
+                      <div class="bank-logo">
+                        <img src="assets/img/axis_bank.png" />
+                      </div>
+                      <div class="my-bank">
+                        <h5>Axis Small Cap Fund Direct Growth</h5>
+                        <p>
+                          <span>3 <i class="fa fa-star"></i></span>
+                          <span> High Risk</span>
+                          <span> Equity</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3 mb-bg-l col-6 ps-2 pe-2">
+                    <div class="returns">
+                      <h5>Absolute Returns</h5>
+                      <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 mb-bg-r col-6 ps-2 pe-2">
+                    <div class="invests">
+                      <h5>Total Investment</h5>
+                      <p>₹ 20,50,200</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-1 ps-2 pe-2 text-center">
+                    <div class="dropdown menu-btn">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-ellipsis-h"></i>
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li><a class="dropdown-item" href="javascript:void(0)">View Fund</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)">Redeem Fund</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)">Switch Fund</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="empty-policy" *ngIf="!MyFunds">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <img src="assets/img/empty-policy.png" alt="l1">
+                  </div>
+                  <div class="col-lg-6 empty-policy-right">
+                    <h3 class="header">No Investment</h3>
+                    <p><b>Note:</b>You have no investments to display</p>
+                    <a (click)="GotoWealth('')">
+                      <button type="button" class="btn btn-primary theme-button mt-4">Invest Now</button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card-div mb-2">
+          <div class="score-head d-none">
+            <div>
+              <h5>My Credit Score</h5>
+              <p>Last Updated : 06/11/2021</p>
+            </div>
+            <div class="refresh-sync cursor-pointer">
+              <p><img src="assets/img/refresh_icon.svg" />&nbsp; Refresh</p>
+            </div>
+          </div>
+          <div class="score-head">
+            <div>
+              <h5>Get your latest Credit Report, Free</h5>
+            </div>
+          </div>
+          <div class="score-status d-none">
+            <div>
+              <h5>Very Good</h5>
+            </div>
+            <div>
+              <p>Up 11 points <span> since last month</span></p>
+            </div>
+          </div>
+          <div class="score-indicator">
+            <span class="ind-red"></span>
+            <span class="ind-yellow"></span>
+            <span class="ind-orange">
+              <p class="points">Good</p>
+            </span>
+            <span class="ind-green"></span>
+          </div>
+          <button type="button" class="btn btn-primary theme-button mt-4 w-100">Check Credit Score</button>
+        </div>
+        <div class="row">
+          <div class="col-lg-9 col-9">
+            <h5 class="action-head">Actions Required <span>({{actionslideno}}/3)</span></h5>
+          </div>
+          <!-- <div class="col-lg-3 col-3 leftrightaction">
+                      <img src="assets/img/angle-small-left.svg"/>
+                      <img src="assets/img/angle-small-right.svg"/>
+                  </div> -->
+        </div>
+
+
+        <owl-carousel-o #owlElement class="cust-5" [options]="customOptions6">
+          <ng-template carouselSlide>
+            <div class="card-div caouselcard" id="1" >
+              <div class="warning-head">
+                <div>
+                  <img src="assets/img/warning-sign.svg" />
+                </div>
+                <div>
+                  <h5>Complete your KYC</h5>
+                </div>
+              </div>
+              <div class="warining-content">
+                <p>Complete your KYC Verification to access 100+ investment products.</p>
+              </div>
+              <div class="action-btn">
+                <div>
+                  <h5>Complete KYC</h5>
+                  <!-- <h3 style="display: none">{{a.id}}</h3> -->
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="card-div caouselcard" id="2">
+              <div class="warning-head">
+                <div>
+                  <img src="assets/img/warning-sign.svg" />
+                </div>
+                <div>
+                  <h5>Know your investment</h5>
+                </div>
+              </div>
+              <div class="warining-content">
+                <p>Know your investment risk appetite and see our curated lists for you. Complete Investor Profile.</p>
+              </div>
+              <div class="action-btn">
+                <div>
+                  <h5>Complete Investor Profile</h5>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="card-div caouselcard" id="3">
+              <div class="warning-head">
+                <div>
+                  <img src="assets/img/warning-sign.svg" />
+                </div>
+                <div>
+                  <h5>Track your Cash Flows</h5>
+                </div>
+              </div>
+              <div class="warining-content">
+                <p>SIPs due over next 30 days..</p>
+              </div>
+              <div class="action-btn">
+                <div>
+                  <h5>Done</h5>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
+
+      </div>
+
+
+    </div>
+  </div>
+
+
+  <!---mobile view for Action required-->
+  <div class="col-lg-4 col-12 hidden-lg">
+    <div class="row actionrequiredcss">
+      <div class="col-lg-9 col-9">
+        <h5 class="action-head">Actions Required <span>({{actionslideno}}/3)</span></h5>
+      </div>
+      <!-- <div class="col-lg-3 col-3 leftrightaction">
+                  <img src="assets/img/angle-small-left.svg"/>
+                  <img src="assets/img/angle-small-right.svg"/>
+              </div> -->
+    </div>
+    <owl-carousel-o class="cust-5" [options]="customOptions5">
+      <ng-template carouselSlide>
+        <div class="card-div caouselcard" id="1">
+          <div class="warning-head">
+            <div>
+              <img src="assets/img/warning-sign.svg" />
+            </div>
+            <div>
+              <h5>Complete your KYC</h5>
+            </div>
+          </div>
+          <div class="warining-content">
+            <p>Complete your KYC Verification to access 100+ investment products.</p>
+          </div>
+          <div class="action-btn">
+            <div>
+              <h5>Complete KYC</h5>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="card-div caouselcard" id="2">
+          <div class="warning-head">
+            <div>
+              <img src="assets/img/warning-sign.svg" />
+            </div>
+            <div>
+              <h5>Know your investment</h5>
+            </div>
+          </div>
+          <div class="warining-content">
+            <p>Know your investment risk appetite and see our curated lists for you. Complete Investor Profile.</p>
+          </div>
+          <div class="action-btn">
+            <div>
+              <h5>Complete Investor Profile</h5>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template carouselSlide>
+        <div class="card-div caouselcard" id="3">
+          <div class="warning-head">
+            <div>
+              <img src="assets/img/warning-sign.svg" />
+            </div>
+            <div>
+              <h5>Track your Cash Flows</h5>
+            </div>
+          </div>
+          <div class="warining-content">
+            <p>SIPs due over next 30 days.</p>
+          </div>
+          <div class="action-btn">
+            <div>
+              <h5>Done</h5>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </owl-carousel-o>
+    <!-- <div class="card-div">
+              <div class="warning-head">
+                  <div>
+                      <img src="assets/img/warning-sign.svg"/>
+                  </div>
+                  <div>
+                      <h5>Verify Your Profile</h5>
+                  </div>
+              </div>
+              <div class="warining-content">
+                  <p>Complete your KYC Verification to unlock investment and get pre-approved loans at ease.</p>
+              </div>
+              <div class="action-btn">
+                  <div>
+                      <h5>Complete KYC</h5>
+                  </div>
+                  <div>
+                      <i class="fa fa-arrow-right"></i>
+                  </div>
+              </div>
+          </div> -->
+
+  </div>
+  <!-- <div class="row mt-4">
+      <div class="col-lg-12 col-9 ">
+  
+        <h5 class="ofr-head">My Goals <span> (5)</span> </h5>
+      </div>
+    </div> -->
+  <!-- <div class="col-12 col-lg-12">
+      <div class=" mt-2 finance owl-1">
+  
+        <div class="financial-slider trendprod ">
+          <owl-carousel-o class="cust-3" [options]="customOptions3">
+            <ng-template carouselSlide>
+              <div class="trending-product">
+                <div class="row align-items-center mb-3">
+                  <div class="col-lg-2 col-2 pe-1">
+                    <img src="assets/img/carimage.png">
+                  </div>
+                  <div class="col-lg-8 col-8 ps-0 pe-0">
+                    <p class="trend-name2">Buy A New Car</p>
+                    <p class="sub-desc">in 4 Years at age of 30</p>
+                  </div>
+                  <div class="col-lg-2 col-2 pe-1">
+                    <div class="pr-value startgoal">                       
+                        <div class="pr-max1"><span>₹ 1 Cr</span></div>
+                      </div>
+                    </div>
+                </div>                
+                <div class="row">
+                  <div class="action-btn">
+                    <div>
+                      <h5>Start New Goal</h5>
+                    </div>
+                    <div>
+                      <i class="fa fa-arrow-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+            <ng-template carouselSlide>
+                <div class="trending-product">
+                  <div class="row align-items-center mb-3">
+                    <div class="col-lg-2 col-2 pe-1">
+                      <img src="assets/img/carimage.png">
+                    </div>
+                    <div class="col-lg-8 col-8 ps-0 pe-0">
+                      <p class="trend-name2">Buy A New Car</p>
+                      <p class="sub-desc">in 4 Years at age of 30</p>
+                    </div>
+                    <div class="col-lg-2 col-2 pe-1">
+                      <div class="pr-value startgoal">                       
+                          <div class="pr-max1"><span>₹ 1 Cr</span></div>
+                        </div>
+                      </div>
+                  </div>                
+                  <div class="row">
+                    <div class="action-btn ">
+                      <div>
+                        <h5>Start New Goal</h5>
+                      </div>
+                      <div>
+                        <i class="fa fa-arrow-right"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            <ng-template carouselSlide>
+                <div class="trending-product1 addnew-goal text-center">    
+                  <img src="assets/img/mission.svg">
+                  <h4>+ Start new goals</h4>
+                </div>
+              </ng-template>            
+          </owl-carousel-o>
+
+          <owl-carousel-o class="cust-3" [options]="customOptions7">
+            <ng-template carouselSlide>
+                <div class="trending-product">
+                  <div class="row align-items-center mb-3">
+                    <div class="col-lg-3 col-3">
+                      <img src="assets/img/mynewhome.png">
+                    </div>
+                    <div class="col-lg-9 col-9 ps-0">
+                      <p class="trend-name2">New House</p>
+                      <p class="sub-desc">in 14 Years at age of 40</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="prog-bar pos-rel">
+                      <div class="pr-value">
+                        <div class="pr-min1"><span>₹ 5 L</span></div>
+                        <div class="pr-max1"><span>₹ 1 Cr</span></div>
+                      </div>
+                      <div class="bg-pr">
+                        <div class="fill-pr" style="width: 20%"></div>
+                      </div>
+                      <div class="pr-range">
+                        <div class="pr-min"><span> 5 Months</span></div>
+                        <div class="pr-max"><span>168 Months</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="action-btn">
+                      <div>
+                        <h5>View Goal</h5>
+                      </div>
+                      <div>
+                        <i class="fa fa-arrow-right"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+              <ng-template carouselSlide>
+                <div class="trending-product">
+                  <div class="row align-items-center mb-3">
+                    <div class="col-lg-3 col-3">
+                      <img src="assets/img/mynewhome.png">
+                    </div>
+                    <div class="col-lg-9 col-9 ps-0">
+                      <p class="trend-name2">New House</p>
+                      <p class="sub-desc">in 14 Years at age of 40</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="prog-bar pos-rel">
+                      <div class="pr-value">
+                        <div class="pr-min1"><span>₹ 5 L</span></div>
+                        <div class="pr-max1"><span>₹ 1 Cr</span></div>
+                      </div>
+                      <div class="bg-pr">
+                        <div class="fill-pr" style="width: 20%"></div>
+                      </div>
+                      <div class="pr-range">
+                        <div class="pr-min"><span> 5 Months</span></div>
+                        <div class="pr-max"><span>168 Months</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="action-btn">
+                      <div>
+                        <h5>View Goal</h5>
+                      </div>
+                      <div>
+                        <i class="fa fa-arrow-right"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+
+              <ng-template carouselSlide>
+                <div class="trending-product1 text-center">
+    
+                  <img src="assets/img/mission.svg">
+                  <h4>+ Add new goals</h4>
+                </div>
+              </ng-template>
+          </owl-carousel-o>
+        </div>
+  
+  
+      </div>
+    </div> -->
+
+  <div class="card-div mb-2 hidden-lg">
+    <div class="score-head">
+      <div>
+        <h5>My Credit Score</h5>
+        <p>Last Updated : 06/11/2021</p>
+      </div>
+      <div class="refresh-sync cursor-pointer">
+        <p><i class="fas fa-sync"></i> Refresh</p>
+      </div>
+    </div>
+    <div class="score-status">
+      <div>
+        <h5>Very Good</h5>
+      </div>
+      <div>
+        <p>Up 11 points <span> since last month</span></p>
+      </div>
+    </div>
+    <!--Mobile view--->
+    <div class="score-indicator ">
+      <span class="ind-red"></span>
+      <span class="ind-yellow"></span>
+      <span class="ind-orange">
+        <p class="points">629</p>
+      </span>
+      <span class="ind-green"></span>
+    </div>
+  </div>
+  <!---Mobile View-->
+  <div class="row mt-3 hidden-lg">
+    <div class="col-lg-8">
+      <div class="card-div">
+        <ul class="nav nav-tabs" id="dashboardTab1" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="invest-tab1" data-bs-toggle="tab" data-bs-target="#myinvest1"
+              type="button" role="tab" aria-controls="home" aria-selected="true">My Investments</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="insure-tab1" data-bs-toggle="tab" data-bs-target="#myinsure1" type="button"
+              role="tab" aria-controls="profile" aria-selected="false">My Insurance</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="liabilities-tab1" data-bs-toggle="tab" data-bs-target="#myliabilities1"
+              type="button" role="tab" aria-controls="contact" aria-selected="false">My Liabilities</button>
+          </li>
+        </ul>
+        <div class="tab-content tabscroll" id="dashTabContent">
+          <div class="tab-pane fade show active" id="myinvest1" role="tabpanel" aria-labelledby="invest-tab1">
+            <div class="row table-row">
+              <div class="col-lg-6 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo me-2">
+                    <img src="assets/img/icici-bank.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>ICICI Prudential Technology</h5>
+                    <p>
+                      <span>3 <i class="fa fa-star"></i></span>
+                      <span> High Risk</span>
+                      <span> Equity</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 mb-bg-l col-6 ps-2 pe-2">
+                <div class="returns">
+                  <h5>Absolute Returns</h5>
+                  <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                </div>
+              </div>
+              <div class="col-lg-2 mb-bg-r col-6 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Total Investment</h5>
+                  <p>₹ 20,50,200</p>
+                </div>
+              </div>
+              <div class="col-lg-1 ps-2 pe-2 text-center">
+                <div class="dropdown menu-btn">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-ellipsis-h"></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a class="dropdown-item" href="javascript:void(0)">View Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Redeem Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Switch Fund</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-6 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo me-2">
+                    <img src="assets/img/quant.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>Quant Small Cap Fund Growth Option Direct Plan</h5>
+                    <p>
+                      <span>3 <i class="fa fa-star"></i></span>
+                      <span> High Risk</span>
+                      <span> Equity</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 mb-bg-l col-6 ps-2 pe-2">
+                <div class="returns">
+                  <h5>Absolute Returns</h5>
+                  <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                </div>
+              </div>
+              <div class="col-lg-2 mb-bg-r col-6 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Total Investment</h5>
+                  <p>₹ 20,50,200</p>
+                </div>
+              </div>
+              <div class="col-lg-1 ps-2 pe-2 text-center">
+                <div class="dropdown menu-btn">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-ellipsis-h"></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a class="dropdown-item" href="javascript:void(0)">View Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Redeem Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Switch Fund</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-6 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo me-2">
+                    <img src="assets/img/birla.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>Aditya Birla Sun Life Digital India Fund Direct Plan</h5>
+                    <p>
+                      <span>3 <i class="fa fa-star"></i></span>
+                      <span> High Risk</span>
+                      <span> Equity</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 mb-bg-l col-6 ps-2 pe-2">
+                <div class="returns">
+                  <h5>Absolute Returns</h5>
+                  <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                </div>
+              </div>
+              <div class="col-lg-2 mb-bg-r col-6 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Total Investment</h5>
+                  <p>₹ 20,50,200</p>
+                </div>
+              </div>
+              <div class="col-lg-1 ps-2 pe-2 text-center">
+                <div class="dropdown menu-btn">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-ellipsis-h"></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a class="dropdown-item" href="javascript:void(0)">View Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Redeem Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Switch Fund</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-6 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo me-2">
+                    <img src="assets/img/axis_bank.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>Axis Small Cap Fund Direct Growth</h5>
+                    <p>
+                      <span>3 <i class="fa fa-star"></i></span>
+                      <span> High Risk</span>
+                      <span> Equity</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 mb-bg-l col-6 ps-2 pe-2">
+                <div class="returns">
+                  <h5>Absolute Returns</h5>
+                  <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                </div>
+              </div>
+              <div class="col-lg-2 mb-bg-r col-6 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Total Investment</h5>
+                  <p>₹ 20,50,200</p>
+                </div>
+              </div>
+              <div class="col-lg-1 ps-2 pe-2 text-center">
+                <div class="dropdown menu-btn">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-ellipsis-h"></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a class="dropdown-item" href="javascript:void(0)">View Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Redeem Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Switch Fund</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-6 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo me-2">
+                    <img src="assets/img/icicbank23.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>ICICI Prudential Commodities Fund Direct Growth</h5>
+                    <p>
+                      <span>3 <i class="fa fa-star"></i></span>
+                      <span> High Risk</span>
+                      <span> Equity</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 mb-bg-l col-6 ps-2 pe-2">
+                <div class="returns">
+                  <h5>Absolute Returns</h5>
+                  <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                </div>
+              </div>
+              <div class="col-lg-2 mb-bg-r col-6 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Total Investment</h5>
+                  <p>₹ 20,50,200</p>
+                </div>
+              </div>
+              <div class="col-lg-1 ps-2 pe-2 text-center">
+                <div class="dropdown menu-btn">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-ellipsis-h"></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a class="dropdown-item" href="javascript:void(0)">View Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Redeem Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Switch Fund</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-6 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo me-2">
+                    <img src="assets/img/axis_bank.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>Axis Small Cap Fund Direct Growth</h5>
+                    <p>
+                      <span>3 <i class="fa fa-star"></i></span>
+                      <span> High Risk</span>
+                      <span> Equity</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 mb-bg-l col-6 ps-2 pe-2">
+                <div class="returns">
+                  <h5>Absolute Returns</h5>
+                  <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                </div>
+              </div>
+              <div class="col-lg-2 mb-bg-r col-6 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Total Investment</h5>
+                  <p>₹ 20,50,200</p>
+                </div>
+              </div>
+              <div class="col-lg-1 ps-2 pe-2 text-center">
+                <div class="dropdown menu-btn">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-ellipsis-h"></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a class="dropdown-item" href="javascript:void(0)">View Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Redeem Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Switch Fund</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="tab-pane fade" id="myinsure1" role="tabpanel" aria-labelledby="insure-tab1">
+            <div class="row table-row">
+              <div class="col-lg-2 col-2">
+                <div class="bank-logo">
+                  <img src="assets/img/bajaj2img.png" />
+                </div>
+              </div>
+              <div class="col-lg-8 col-8">
+                <div class="my-bank">
+                  <h5>Bajaj Allianz</h5>
+                  <p>Two-Wheeler Insurance</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-2">
+                <div class="my-bank forwordarrow">
+                  <img src="assets/img/forward_arrow.svg" />
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l1 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Policy Status</h5>
+                  <p>Policy Issued</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l1 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Renewal Due On</h5>
+                  <p>06 May, 2022</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 ins-pre ps-2 pe-2">
+                <div class="premium">
+                  <h5>Policy Premium</h5>
+                  <p>₹ 1,019/<span>Yearly</span></p>
+                </div>
+              </div>
+              <div class="col-lg-1 ins-pre col-6 ps-2 pe-2 text-center">
+                <div class="dwnld">
+                  <button type="button" class="btn btn-primary dwnld-btn hidden-lg "> Download policy</button>
+                </div>
+              </div>
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-2 col-2">
+                <div class="bank-logo">
+                  <img src="assets/img/bharti-agencies.png" />
+                </div>
+              </div>
+              <div class="col-lg-8 col-8">
+                <div class="my-bank">
+                  <h5>Bharti AXA General Insurance</h5>
+                  <p>
+                    Health Insurance
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-2">
+                <div class="my-bank forwordarrow">
+                  <img src="assets/img/forward_arrow.svg" />
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l1 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Policy Status</h5>
+                  <p>Policy Issued</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l1 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Renewal Due On</h5>
+                  <p>06 May, 2022</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 ins-pre ps-2 pe-2">
+                <div class="premium">
+                  <h5>Policy Premium</h5>
+                  <p>₹ 1,019/<span>Yearly</span></p>
+                </div>
+              </div>
+              <div class="col-lg-1 ins-pre col-6 ps-2 pe-2 text-center">
+                <div class="dwnld">
+                  <button type="button" class="btn btn-primary dwnld-btn hidden-lg "> Download policy</button>
+                </div>
+              </div>
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-2 col-2">
+                <div class="bank-logo">
+                  <img src="assets/img/Edelweiss.png" />
+                </div>
+              </div>
+              <div class="col-lg-8 col-8">
+                <div class="my-bank">
+                  <h5>Edelweiss Tokio Life Insurance</h5>
+                  <p>
+                    Health Insurance
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-2">
+                <div class="my-bank forwordarrow">
+                  <img src="assets/img/forward_arrow.svg" />
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l1 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Policy Status</h5>
+                  <p>Policy Issued</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l1 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Renewal Due On</h5>
+                  <p>06 May, 2022</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 ins-pre ps-2 pe-2">
+                <div class="premium">
+                  <h5>Policy Premium</h5>
+                  <p>₹ 1,019/<span>Yearly</span></p>
+                </div>
+              </div>
+              <div class="col-lg-1 ins-pre col-6 ps-2 pe-2 text-center">
+                <div class="dwnld">
+                  <button type="button" class="btn btn-primary dwnld-btn hidden-lg "> Download policy </button>
+                </div>
+              </div>
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-2 col-2">
+                <div class="bank-logo">
+                  <img src="assets/img/sbi-aje.png" />
+                </div>
+              </div>
+              <div class="col-lg-8 col-8">
+                <div class="my-bank">
+                  <h5>SBI General Insurance</h5>
+                  <p>
+                    Two-Wheeler Insurance
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-2">
+                <div class="my-bank forwordarrow">
+                  <img src="assets/img/forward_arrow.svg" />
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l1 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Policy Status</h5>
+                  <p>Policy Issued</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l1 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Renewal Due On</h5>
+                  <p>06 May, 2022</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 ins-pre ps-2 pe-2">
+                <div class="premium">
+                  <h5>Policy Premium</h5>
+                  <p>₹ 1,019/<span>Yearly</span></p>
+                </div>
+              </div>
+              <div class="col-lg-1 ins-pre col-6 ps-2 pe-2 text-center">
+                <div class="dwnld">
+                  <button type="button" class="btn btn-primary dwnld-btn hidden-lg ">Download policy</button>
+                </div>
+              </div>
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-2 col-2">
+                <div class="bank-logo">
+                  <img src="assets/img/hdfcergo.png" />
+                </div>
+              </div>
+              <div class="col-lg-8 col-8">
+                <div class="my-bank">
+                  <h5>HDFC Ergo General Insurance</h5>
+                  <p>
+                    Health Insurance
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-2">
+                <div class="my-bank forwordarrow">
+                  <img src="assets/img/forward_arrow.svg" />
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l1 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Policy Status</h5>
+                  <p>Policy Issued</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l1 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Renewal Due On</h5>
+                  <p>06 May, 2022</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 ins-pre ps-2 pe-2">
+                <div class="premium">
+                  <h5>Policy Premium</h5>
+                  <p>₹ 1,019/ <span> Yearly </span></p>
+                </div>
+              </div>
+              <div class="col-lg-1 ins-pre col-6 ps-2 pe-2 text-center">
+                <div class="dwnld">
+                  <button type="button" class="btn btn-primary dwnld-btn hidden-lg "> Download policy </button>
+                </div>
+              </div>
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-2 col-2">
+                <div class="bank-logo">
+                  <img src="assets/img/iciclombart.png" />
+                </div>
+              </div>
+              <div class="col-lg-8 col-8">
+                <div class="my-bank">
+                  <h5>ICICI lombard</h5>
+                  <p>
+                    Health Insurance
+                  </p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-2">
+                <div class="my-bank forwordarrow">
+                  <img src="assets/img/forward_arrow.svg" />
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l1 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Policy Status</h5>
+                  <p>Policy Issued</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l1 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Renewal Due On</h5>
+                  <p>06 May, 2022</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 ins-pre ps-2 pe-2">
+                <div class="premium">
+                  <h5>Policy Premium</h5>
+                  <p>₹ 1,019/<span>Yearly</span></p>
+                </div>
+              </div>
+              <div class="col-lg-1 ins-pre col-6 ps-2 pe-2 text-center">
+                <div class="dwnld">
+                  <button type="button" class="btn btn-primary dwnld-btn hidden-lg "> Download policy</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="tab-pane fade" id="myliabilities1" role="tabpanel" aria-labelledby="liabilities-tab1">
+            <div class="row table-row ">
+              <div class="col-lg-6 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo me-2">
+                    <img src="assets/img/mhindrafinance.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>Mahindra Finance Bank</h5>
+                    <p>
+                      Home Loan
+                    </p>
+                  </div>
+                </div>
+                <div class="application-status process">
+                  <span>Processing Application</span>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-">
+                <div class="invests">
+                  <h5>Loan Amount</h5>
+                  <p>₹ 50,00,000</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Rate of Interest</h5>
+                  <p>15%</p>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-4 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo me-2">
+                    <img src="assets/img/kotak_bank.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>Kotak Mahindra Bank</h5>
+                    <p>
+                      Personal Loan
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Loan Amount</h5>
+                  <p>₹ 50,00,000</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Rate of Interest</h5>
+                  <p>15%</p>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="row table-row ">
+              <div class="col-lg-6 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo me-2">
+                    <img src="assets/img/icici-bank.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>ICICI Bank</h5>
+                    <p>
+                      Education Loan
+                    </p>
+                  </div>
+                </div>
+                <div class="application-status pass">
+                  <span>Application Approved</span>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Loan Amount</h5>
+                  <p>₹ 50,00,000</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Rate of Interest</h5>
+                  <p>15%</p>
+                </div>
+              </div>
+            </div>
+            <div class="row table-row ">
+              <div class="col-lg-6 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo me-2">
+                    <img src="assets/img/kotak_bank.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>Kotak Mahindra Bank</h5>
+                    <p>
+                      Personal Loan
+                    </p>
+                  </div>
+                </div>
+                <div class="application-status process">
+                  <span>Processing Application</span>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Loan Amount</h5>
+                  <p>₹ 50,00,000</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Rate of Interest</h5>
+                  <p>15%</p>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-4 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo me-2">
+                    <img src="assets/img/icici-bank.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>ICICI Bankk</h5>
+                    <p>
+                      Personal Loan
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Loan Amount</h5>
+                  <p>₹ 50,00,000</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Rate of Interest</h5>
+                  <p>15%</p>
+                </div>
+              </div>
+
+            </div>
+
+
+            <div class="row table-row ">
+              <div class="col-lg-6 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo me-2">
+                    <img src="assets/img/hdfcergo.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>HDFC Bank</h5>
+                    <p>
+                      Home Loan
+                    </p>
+                  </div>
+                </div>
+                <div class="application-status rejected">
+                  <span> Application Rejected</span>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Loan Amount</h5>
+                  <p>₹ 50,00,000</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                <div class="invests">
+                  <h5>Rate of Interest</h5>
+                  <p>15%</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-lg-4">           
+              <div class="card-div mb-2">
+                  <div class="score-head">
+                      <div>
+                          <h5>My Credit Score</h5>
+                          <p>Last Updated : 06/11/2021</p>
+                      </div>
+                      <div class="refresh-sync cursor-pointer">
+                          <p><i class="fas fa-sync"></i> Refresh</p>
+                      </div>
+                  </div>
+                  <div class="score-status">
+                      <div>
+                          <h5>Very Good</h5>
+                      </div>
+                      <div>
+                          <p>Up 11 points <span> since last month</span></p>
+                      </div>
+                  </div>
+                  <div class="score-indicator">
+                      <span class="ind-red"></span>
+                      <span class="ind-yellow"></span>
+                      <span class="ind-orange"><p class="points">629</p></span>
+                      <span class="ind-green"></span>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-lg-9 col-9">
+                      <h5 class="action-head">Actions Rquired <span>(1/3)</span></h5>
+                  </div>
+                  <div class="col-lg-3 col-3 leftrightaction">
+                      <img src="assets/img/angle-small-left.svg"/>
+                      <img src="assets/img/angle-small-right.svg"/>
+                  </div>
+              </div> 
+  
+              <div class="card-div">
+                  <div class="warning-head">
+                      <div>
+                          <img src="assets/img/warning-sign.svg"/>
+                      </div>
+                      <div>
+                          <h5>Verify Your Profile</h5>
+                      </div>
+                  </div>
+                  <div class="warining-content">
+                      <p>Complete your KYC Verification to unlock investment and get pre-approved loans at ease.</p>
+                  </div>
+                  <div class="action-btn">
+                      <div>
+                          <h5>Complete KYC</h5>
+                      </div>
+                      <div>
+                          <i class="fa fa-arrow-right"></i>
+                      </div>
+                  </div>
+              </div>
+          </div> -->
+
+
+  </div>
+
+
+</div>
+
+<!-- Notifications -->
+<div id="notification">
+  <nav class="notif-menu" id="notification-bar" role="navigation">
+    <!-- <span>
+      <a (click)="handleOpenCloseNotif()" class="nav-link nav-toggle show-notif-nav onsidebar cursor-pointer">
+        <i class="fas fa-times"></i>
+      </a>
+    </span> -->
+
+    <div class="d-flex align-items-center">
+      <a (click)="handleOpenCloseNotif()" class="nav-link nav-toggle show-notif-nav onsidebar cursor-pointer">
+        <img class="i-icon" src="assets/img/back-arrow.svg" />
+      </a>
+      <h3 class="notif-header">Notifications</h3>
+    </div>
+
+    <div class="my-3 position-relative notif-search">
+      <i class="fa fa-search" aria-hidden="true"></i>
+      <input type="text" class="form-control search" id="exampleSearch" aria-describedby="Search" placeholder="Search">
+    </div>
+
+    <div class="notif-body mt-3">
+      <div class="single-notification">
+        <img class="i-icon" src="assets/img/test-user.png" />
+        <div class="right-side">
+          <h5>Project Noname</h5>
+          <p>13 minutes ago</p>
+        </div>
+      </div>
+      <div class="single-notification">
+        <img class="i-icon" src="assets/img/education-loan.svg" />
+        <div class="right-side">
+          <h5>Educational Loan</h5>
+          <p>Transaction No - 12458725 is under review</p>
+        </div>
+      </div>
+      <div class="single-notification">
+        <img class="i-icon" src="assets/img/test-user.png" />
+        <div class="right-side">
+          <h5>New members on Payment project</h5>
+          <p>44 minutes ago</p>
+          <button type="button" class="btn btn-primary transper-btn me-3">Send Reminder </button>
+        </div>
+      </div>
+      <div class="single-notification">
+        <img class="i-icon" src="assets/img/business-loan.svg" />
+        <div class="right-side">
+          <h5>Business Loan</h5>
+          <p>Transaction No - 154546 is denied</p>
+        </div>
+      </div>
+      <div class="single-notification">
+        <img class="i-icon" src="assets/img/test-user.png" />
+        <div class="right-side">
+          <h5>Updated activity</h5>
+          <p>2 hours ago</p>
+        </div>
+      </div>
+      <div class="single-notification">
+        <img class="i-icon" src="assets/img/test-user.png" />
+        <div class="right-side">
+          <h5>New chart on page visits</h5>
+          <p>3 hours ago</p>
+          <button type="button" class="btn btn-primary transper-btn me-3">Complete Transaction</button>
+        </div>
+      </div>
+      <div class="single-notification">
+        <img class="i-icon" src="assets/img/personal-loan.svg" />
+        <div class="right-side">
+          <h5>Personal Loan</h5>
+          <p>Transaction No - 145472 is accepted</p>
+        </div>
+      </div>
+    </div>
+
+  </nav>
+</div>
+<!-- Notifications -->

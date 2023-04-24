@@ -1,0 +1,327 @@
+<div class="container mb10per">
+    <div class="row mt-4">
+        <div class="col-lg-12">
+            <h4 class="breadcrumb-title"><span [routerLink]="['/overview']"><i
+                        class="fa fa-arrow-left i-icon"></i></span>Account Details</h4>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="col-lg-3 col-md-4 hidden-xs" id="sidebar-main">
+            <app-account-desktop-menu></app-account-desktop-menu>
+        </div>
+        <div class="col-lg-9 col-md-8 tab-detail">
+            <div class="row align-items-center port-row">
+                <div class="col-12 ">
+                    <h4 class="breadcrumb-title">Profile Details</h4>
+                </div>
+            </div>
+            <div class="row mb-3 align-items-center">
+                <div class=" col-lg-8 col-7">
+                    <div class="uploaded-pic">
+                        <div>
+                            <img src="assets/img/test-user.png" class="" id="profileimg" />
+                        </div>
+                        <div>
+                            <p>Upload picture or click a new picture</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-5 text-end">
+                    <input hidden type="file" #uploader (change)="uploadFile($event);enableSavechanges=false"
+                        accept="image/*" />
+                    <button type="button" (click)="uploader.click(); " class="btn btn-primary upload-btn me-2"> Change
+                        Picture </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-floating mb-3 input-box ">
+                        <input type="text" id="first_name" placeholder="First Name" class="form-control"
+                            [(ngModel)]="ApplicantData.firstName" (keypress)="validate.alphabetOnly($event)"
+                            (keyup)="enableSavechanges=false">
+                        <label for="first_name">First Name</label>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-floating mb-3 input-box ">
+                        <input type="text" id="last_name" placeholder="Last Name" class="form-control"
+                            [(ngModel)]="ApplicantData.lastName" (keypress)="validate.alphabetOnly($event)"
+                            (keyup)="enableSavechanges=false">
+                        <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-floating mb-3 input-box ">
+                        <input type="date" id="dob" placeholder="Date Of Birth" class="form-control"
+                            [(ngModel)]="ApplicantData.dob" (change)="enableSavechanges=false">
+                        <label for="dob">Date of Birth</label>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-floating mb-3 input-box ">
+                        <input type="email" id="email_id" placeholder="Email id" class="form-control"
+                            [(ngModel)]="ApplicantData.email" (keyup)="enableSavechanges=false">
+                        <label for="email_id">Email Id</label>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-3 pe-0">
+                            <select class="form-select country-drop form-select-lg mb-3"
+                                aria-label=".form-select-lg example">
+                                <option selected>+91</option>
+                                <option value="1">+91</option>
+                                <option value="2">+209</option>
+                                <option value="3">+21</option>
+                            </select>
+                        </div>
+                        <div class="col-9 ps-0">
+                            <div class="form-floating mb-3 input-box mobile-input">
+                                <input type="text" id="mobile" placeholder="Mobile Number" class="form-control"
+                                    maxlength="10" [(ngModel)]="ApplicantData.mobileNumber"
+                                    (keypress)="validate.numberOnly($event)" (keyup)="enableSavechanges=false">
+                                <label for="mobile">Mobile Number</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row m-0 mb-3 g-div">
+                        <div class="col-4 m-div" [ngClass]="{'activetxt': ApplicantData.gender === '1'}"
+                            (click)="ApplicantData.gender = '1'; enableSavechanges=false;">
+                            <span>Male</span>
+                        </div>
+                        <div class="col-4 f-div" [ngClass]="{'activetxt': ApplicantData.gender === '2'}"
+                            (click)="ApplicantData.gender = '2'; enableSavechanges=false;">
+                            <span>Female</span>
+                        </div>
+                        <div class="col-4 o-div" [ngClass]="{'activetxt': ApplicantData.gender === '3'}"
+                            (click)="ApplicantData.gender = '3'; enableSavechanges=false;">
+                            <span>Other</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-floating mb-3 input-box ">
+                        <input type="text" id="pancard" placeholder="Pancard Number" class="form-control" maxlength="10"
+                            [(ngModel)]="panCard" [disabled]="isDisabledPancard" (ngModelChange)="panCard = $event.toUpperCase()" (keyup)="enableSavechanges=false">
+                        <!-- (ngModelChange)="ApplicantData.panCard = $event.toUpperCase()" (keyup)="HidePanNumber(); enableSavechanges=false" -->
+                        <label for="pancard">Pancard Number</label>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-floating mb-3 input-box ">
+                        <input type="text" id="Aadharcard" placeholder="Aadharcard Number" class="form-control"
+                            maxlength="12" [(ngModel)]="aadharCard" [disabled]="isDisabledAadharcard" (keypress)="validate.numberOnly($event)" (keyup)="enableSavechanges=false">
+                        <label for="Aadharcard">Aadharcard Number</label>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-12">
+                    <button type="button" [disabled]="enableSavechanges" class="btn btn-primary theme-button mb-3" (click)="ValidateProfileDetails()">Save Changes</button>
+                </div> -->
+            </div>
+
+            <div class="row align-items-center port-row mt-2">
+                <div class="col-12 ">
+                    <h4 class="breadcrumb-title">Billing Address</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-floating mb-3 input-box ">
+                        <input type="text" id="first_name" placeholder="First Name" class="form-control"
+                            [(ngModel)]="ApplicantData.address1" 
+                            (keyup)="enableSavechanges=false">
+                        <label for="first_name">Enter address line 1</label>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-floating mb-3 input-box ">
+                        <input type="text" id="last_name" placeholder="Last Name" class="form-control"
+                            [(ngModel)]="ApplicantData.address2" 
+                            (keyup)="enableSavechanges=false">
+                        <label for="last_name">Enter address line 2</label>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-floating mb-3 input-box ">
+                        <input type="text" id="first_name" placeholder="First Name" class="form-control"
+                            [(ngModel)]="ApplicantData.blZip" (keypress)="validate.numberOnly($event)"
+                            (keyup)="GetCity('blZip'); enableSavechanges=false" maxlength="6">                            
+                            <span class="input-value" *ngIf="!validate.isNullEmptyUndefined(ApplicantData.blCity)">{{ApplicantData.blCity}}</span>
+                        <label for="first_name">Enter Pincode</label>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-floating mb-3 input-box ">
+                        <input type="text" id="last_name" placeholder="Last Name" class="form-control"
+                            [(ngModel)]="ApplicantData.blState" (keypress)="validate.alphabetOnly($event)"
+                            (keyup)="enableSavechanges=false">
+                        <label for="last_name">Enter State</label>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-floating mb-3 input-box ">
+                        <input type="text" id="first_name" placeholder="First Name" class="form-control"
+                            [(ngModel)]="ApplicantData.blCountry" (keypress)="validate.alphabetOnly($event)"
+                            (keyup)="enableSavechanges=false" >
+                        <label for="first_name">Enter Country</label>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row align-items-center port-row mt-2">
+                <div class="col-12 ">
+                    <h4 class="breadcrumb-title">Delivery Address</h4>
+                </div>
+            </div>
+
+
+            <div class="form-check mb-4">
+                <input type="checkbox" id="check1" value="something" name="consent1" class="form-check-input"
+                    [checked]="ApplicantData.same_as_bd == true" (click)="Checked()">
+                <label for="check1" class="form-check-label">Use billing address as delivery address</label>
+            </div>
+
+            <div class="row" *ngIf="!ApplicantData.same_as_bd">
+                <div class="col-lg-6">
+                    <div class="form-floating mb-3 input-box ">
+                        <input type="text" id="first_name" placeholder="First Name" class="form-control"
+                            [(ngModel)]="ApplicantData.dlLine1" 
+                            (keyup)="enableSavechanges=false">
+                        <label for="first_name">Enter address line 1</label>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-floating mb-3 input-box ">
+                        <input type="text" id="last_name" placeholder="Last Name" class="form-control"
+                            [(ngModel)]="ApplicantData.dlLine2" 
+                            (keyup)="enableSavechanges=false">
+                        <label for="last_name">Enter address line 2</label>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-floating mb-3 input-box ">
+                        <input type="text" id="first_name" placeholder="First Name" class="form-control"
+                            [(ngModel)]="ApplicantData.dlZip" (keypress)="validate.numberOnly($event)"
+                            (keyup)="GetCity('dlZip'); enableSavechanges=false" maxlength="6">
+                            <span class="input-value" *ngIf="!validate.isNullEmptyUndefined(ApplicantData.dlCity)">{{ApplicantData.dlCity}}</span>
+                        <label for="first_name">Enter Pincode</label>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-floating mb-3 input-box ">
+                        <input type="text" id="last_name" placeholder="Last Name" class="form-control"
+                            [(ngModel)]="ApplicantData.dlState" (keypress)="validate.alphabetOnly($event)"
+                            (keyup)="enableSavechanges=false">
+                        <label for="last_name">Enter State</label>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-floating mb-3 input-box ">
+                        <input type="text" id="first_name" placeholder="First Name" class="form-control"
+                            [(ngModel)]="ApplicantData.dlCountry" (keypress)="validate.alphabetOnly($event)"
+                            (keyup)="enableSavechanges=false">
+                        <label for="first_name">Enter Country</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <button type="button" [disabled]="enableSavechanges" class="btn btn-primary theme-button mb-3"
+                        (click)="ValidateProfileDetails()">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Update Modal -->
+<div class="modal fade" id="update_changes" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h5>Update Changes?</h5>
+                        <p>Are you sure you want to update your profiles details ?</p>
+                        <!-- <p>Your registered mobile number/email id has been changed, are you sure you want proceed with this action?</p> -->
+                    </div>
+                    <div class="row ms-0 me-0">
+                        <div class="btn-div">
+                            <button type="button" data-bs-dismiss="modal" class="btn btn-primary feature-cancel me-2">
+                                Cancel </button>
+                            <button type="button" class="btn btn-primary feature-apply" (click)="SendOTP()"> Proceed
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Update Modal End -->
+
+
+<!-- otp Modal -->
+<div class="modal fade" id="otp-screen" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                <div class="row">
+                    <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                    <h3 class="otp-title">Enter OTP</h3>
+                    <p class="otp-text">OTP sent on <b>{{PreviousEmail}} </b> <span class="link-text"
+                            (click)="EditNumber()">Edit Email?</span></p>
+                    <div class="col-2">
+                        <input type="number" class="form-control otp-field" maxlength="1" id="otp1" [(ngModel)]="otp1"
+                            (keyup)="keytab(2,$event)" (keypress)="validate.numberOnly($event)" />
+                    </div>
+                    <div class="col-2">
+                        <input type="number" class="form-control otp-field" maxlength="1" id="otp2" [(ngModel)]="otp2"
+                            (keyup)="keytab(3,$event)" (keypress)="validate.numberOnly($event)" />
+                    </div>
+                    <div class="col-2">
+                        <input type="number" class="form-control otp-field" maxlength="1" id="otp3" [(ngModel)]="otp3"
+                            (keyup)="keytab(4,$event)" (keypress)="validate.numberOnly($event)" />
+                    </div>
+                    <div class="col-2">
+                        <input type="number" class="form-control otp-field" maxlength="1" id="otp4" [(ngModel)]="otp4"
+                            (keyup)="keytab(5,$event)" (keypress)="validate.numberOnly($event)" />
+                    </div>
+                    <div class="col-2">
+                        <input type="number" class="form-control otp-field" maxlength="1" id="otp5" [(ngModel)]="otp5"
+                            (keyup)="keytab(6,$event)" (keypress)="validate.numberOnly($event)" />
+                    </div>
+                    <div class="col-2">
+                        <input type="number" class="form-control otp-field" maxlength="1" id="otp6" [(ngModel)]="otp6"
+                            (keypress)="validate.numberOnly($event)" (keyup)="verifyOtp()" />
+                    </div>
+                    <div class="col-12" *ngIf="resendbuttonText != 'Resend OTP'">
+                        <p class="otp-bottomtext">OTP expires in {{resendbuttonText}} s</p>
+                    </div>
+                    <div class="col-12" *ngIf="resendbuttonText == 'Resend OTP'">
+                        <p class="otp-bottomtext">Didn't recieve OTP? <span class="link-text"
+                                (click)="ResendOTP()">Resend OTP</span></p>
+                    </div>
+                </div>
+                <div class="row pr-btn">
+                    <!-- <div class="col-12">
+                <button type="button" (click)="verifyOtp()" class="btn btn-primary theme-button">Submit</button>
+              </div>    -->
+                    <div class="col-12">
+                        <button type="button" data-bs-dismiss="modal" aria-label="Close" class="otp-cancel">
+                            Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

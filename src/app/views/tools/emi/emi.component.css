@@ -1,0 +1,340 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+    font-family: fontregular;
+    src: url(../../../../assets/fonts/Circular_std_regular.ttf);
+}
+@font-face {
+    font-family: fontmedium;
+    src: url(../../../../assets/fonts/Circular_Std_Medium.ttf);
+}
+@font-face {
+    font-family: fontbold;
+    src: url(../../../../assets/fonts/Circular_Std_Bold.ttf);
+}
+  
+html, body {
+    font-family: fontregular !important;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F7F7F7 100%);
+  }
+.pos-rel{
+    position: relative;
+}
+.transparent-button{
+background: transparent;
+border: 1px solid #00A0AD;
+border-radius: 8px;
+text-transform: uppercase;
+font-size: 16px;
+font-weight: 500;
+color: #00A0AD;
+font-family: fontregular !important;
+}
+
+.transparent-button:hover , .transparent-button:focus {
+    color: #00A0AD;
+    background-color: transparent;
+    border-color: #00A0AD;
+}
+
+.theme-button{
+    background-color: #E27E28;
+    border-color: #E27E28;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-size: 16px;
+   font-weight: 500;
+   font-family: fontregular !important;
+   color: #fff;
+}
+.theme-button:hover , .theme-button:focus {
+    color: #fff;
+    background-color: #E27E28;
+    border-color: #E27E28;
+
+}
+.custom-slider .ngx-slider .ngx-slider-pointer {
+    /* background-color: #e27e28 !important; */
+    background: #F9F9F9 !important;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%), inset 4px -4px 8px -2px rgb(0 0 0 / 25%) !important;
+    width: 25px !important;
+    height: 25px !important;
+    top: -11px !important;
+}
+
+.ngx-slider .ngx-slider-bubble{
+    bottom: -40px !important;
+}
+.ngx-slider {
+      margin: 25px 0 15px !important;
+    }
+.ngx-slider .ngx-slider-bar {      
+        height: 6px !important;
+        background: #afafaf !important;
+        border-radius: 50px !important;
+        box-shadow: inset -12px -12px 12px rgb(255 255 255 / 90%), inset 12px 12px 24px rgb(0 0 0 / 15%)
+ }
+ .ngx-slider .ngx-slider-pointer:after {
+    width: 16px !important;
+    height: 16px !important;
+    top: 5px !important;
+    left: 5px !important;
+    border-radius: 20px !important;
+    background: #e27e28 !important;
+}
+.ngx-slider .ngx-slider-selection {
+    z-index: 4!important;
+    background: #e27e28!important;
+    border-radius: 2px!important;
+    visibility: visible!important;
+    box-shadow: none!important;
+}
+:focus-visible{
+    outline: 0 !important;
+}
+.modal-backdrop.show {
+    opacity: 1;
+}
+.modal-backdrop {
+    backdrop-filter: blur(20px);
+    background-color: rgb(0 0 0 / 50%);
+}
+
+.hidden-lg{
+    display: none;
+}
+.form-control:focus { 
+    border-color: #e27e28;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem #e27e2826;
+}
+@media only screen and (max-width: 767px){
+    .hidden-xs{
+        display: none;
+    }
+    .hidden-lg{
+        display: block!important;
+    }
+}
+.calculate-btn .transparent-button{
+    border: 1px solid #e27e28;  
+    color: #e27e28;
+}
+
+
+.main-title{
+    color: #000;
+    font-family: fontmedium;
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 30px;
+}
+.pt-30{
+    padding-top: 30px;
+}
+.main-img{
+    width: 80%;
+    padding-top: 65px;
+}
+.custom-tabs a{
+    font-weight: 500;
+font-size: 16px;
+color: #B4B4B4;
+background: #FFFFFF;
+border: 1px solid #00A0AD;
+border-collapse: collapse;
+line-height: 30px;
+text-transform: capitalize;
+}
+.c-tab{
+    border-left: 0px !important;
+    border-right: 0px !important;
+    border-radius: 0px !important;
+}
+.l-tab{
+border-radius: 4px 0px 0px 4px;
+}
+.r-tab{
+    border-radius: 0px 4px 4px 0px;
+}
+.custom-tabs a.active{
+    background: #00A0AD;
+    color: #FFFFFF;
+}
+.custom-tabs{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.sub-title{
+    color: #555555;
+    font-weight: 500;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+.calculate-box{
+    background: linear-gradient(156.65deg, #ECECEC 1.2%, #FFFFFF 98.95%);
+border: 2px solid #F7F7F7;
+/* box-shadow: -10px -10px 20px #FFFFFF, 8px 8px 24px rgba(210, 210, 210, 0.5); */
+border-radius: 20px;
+padding: 20px 10px;
+margin: 0;
+box-shadow: 0px 0px 8px #0000001c;
+}
+.calculate-box h5{
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 3px;
+}
+.calculate-box p{
+    font-size: 14px;
+    color: #b4b4b4;
+    margin-bottom: 15px;
+}
+.calculate-box h4{
+    font-size: 20px;
+    color: #E27E28;
+    margin-bottom: 0px;
+}
+.br-l-r{
+    border-right: 1px solid #b4b4b4;
+    border-left: 1px solid #b4b4b4;
+}
+.mb-15{
+    margin-bottom: 20px!important;
+}
+.interest-amount{
+    position: relative;
+    width: 100%;
+    background: #00A0AD;
+    border-radius: 50px;
+    height: 25px;
+    color: #FFFFFF;
+    padding-right: 30px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    float: left;
+    text-align: right;
+    justify-content: end;
+    flex-flow: row-reverse;
+}
+@media only screen and (min-width: 1200px){
+    .calculate-box i{
+font-size: 18px;
+    }
+}
+
+.break-up{
+    margin-top: 10%;
+    margin-left: 0;
+    margin-right: 0;
+}
+.break-up h5{
+    padding-left: 0px;
+    margin-bottom: 8%;
+}
+.break-up p{
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+.principal-amonut{
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 60%;
+    background: #E27E28;
+border-radius: 50px;
+height: 25px;
+color: #FFFFFF;
+padding-right: 30px;
+font-size: 14px;
+display: flex;
+align-items: center;
+text-align: right;
+justify-content: center;
+}
+.calculate-btn .btn{
+    width: auto;
+    text-transform: capitalize;
+    font-size: 14px;
+    line-height: 28px;
+}
+.calculate-btn img{
+    margin-top: -3px;
+}
+.calculate-btn{
+    margin-top: 40px;
+    margin-left: 0;
+    margin-right: 0px;
+}
+.custom-slider input{
+    width: 150px;
+    background: #FCFCFC;
+border: 1px solid #858585;
+border-radius: 8px;
+}
+.custom-slider {
+    margin-bottom: 60px;
+}
+.tab-content .sub-title{
+    margin-top: 10px;
+}
+@media only screen and (min-width: 1200px){
+    .calculate-btn .btn{
+        width: 180px;       
+    }
+    .calculate-btn{
+        justify-content: space-between;
+    }
+}
+
+
+@media only screen and (max-width: 767px){
+    .main-img{
+        display: none;
+    }
+    .main-title {
+       font-size: 28px;
+    }
+    .custom-tabs a {
+        font-size: 14px;
+        padding: 8px 5px;
+    }
+    .sub-title {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    .calculate-box .col-4{
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+    .calculate-box h5 {
+        font-size: 12px;
+    }
+    .calculate-box p {
+        font-size: 10px;
+    }
+    .calculate-box h4 {
+        font-size: 14px;
+    }
+    .calculate-btn {
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (min-width: 350px) and (max-width: 365px){
+    .calculate-box p {
+        font-size: 9px;
+    }
+    .mb-15 {
+        margin-bottom: 18px!important;
+    }
+}
+.nav-link{
+    cursor: pointer;
+}
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+    #sidebar-main{
+        display: none;
+    }
+}

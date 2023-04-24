@@ -1,0 +1,1774 @@
+<div class="container pb-4 pt-3">
+  <!-- Header -->
+  <div class="row bread-profile align-items-center">
+    <div class="col-lg-6 col-8">
+      <div class="d-flex align-items-center">
+        <img class="i-icon cursor-pointer" src="assets/img/back-arrow.svg" [routerLink]="['/dashboard']" />
+        <div>
+          <p>Welcome Back</p>
+          <h3>{{ApplicantData?.firstName}} {{ApplicantData?.lastName}}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-4 text-end d-flex justify-content-end">
+      <button type="button" class="btn btn-primary transper-btn me-3 hidden-xs" [routerLink]="['/account-details']">
+        View Portfolio </button>
+      <a class="bell-icon cursor-pointer" class="bell-icon cursor-pointer" href="javascript:void(0)"
+        (click)="handleOpenCloseNotif()">
+        <img src="assets/img/bell.svg" />
+      </a>
+
+    </div>
+  </div>
+  <!-- Header -->
+
+  <!-- 3cards desktop -->
+  <div class="hidden-xs">
+    <div class="row mt-3">
+      <div class="col-lg-4 col-md-4">
+        <div class="card-div" [routerLink]="['/wealth-dashboard']">
+          <div class="carddiv-title">
+            <div class="title-text">
+              <h5>My Investments</h5>
+              <p>Last Updated : Nov 25, 2021</p>
+            </div>
+            <div class="card-icon">
+              <img src="assets/img/pig.svg" />
+            </div>
+          </div>
+          <div class="card-value">
+            <h4>₹ {{InvestmentsCount}}</h4>
+            <button type="button" class="btn btn-primary proceed-btn d-none">Invest Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <div routerLink="['/group-track-insurance']" class="card-div-mid">
+          <div class="carddiv-title">
+            <div class="title-text">
+              <h5>My Insurance</h5>
+              <p>&nbsp;</p>
+            </div>
+            <div class="card-icon">
+              <img src="assets/img/insurance_icon.svg" />
+            </div>
+          </div>
+          <div class="card-value">
+            <h4>{{InsuranceCount}} <span>Active Insurance</span></h4>
+            <button type="button" class="btn btn-primary proceed-btn d-none">Insure Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4">
+        <div class="card-div" [routerLink]="['/credit-dashboard']">
+          <div class="carddiv-title">
+            <div class="title-text">
+              <h5>My Liabilities</h5>
+              <p>&nbsp;</p>
+            </div>
+            <div class="card-icon">
+              <img src="assets/img/liabilities_icon.svg" />
+            </div>
+          </div>
+          <div class="card-value">
+            <h4>₹ {{LiabilitiesCount}}</h4>
+            <button type="button" class="btn btn-primary proceed-btn d-none">Take a Loan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 3cards desktop -->
+  <div class="hidden-lg">
+    <div class="row mt-3 ">
+      <div class="mob-card">
+        <div class="mob-cardhead">
+          <div>
+            <p class="inv-title">My Insurance</p>
+            <h5>{{InsuranceCount}} Active Insurance</h5>
+          </div>
+        </div>
+        <div class="mbo-cardbody">
+          <div class="row">
+            <div class="col-6">
+              <p class="pos-rel">My Investments <i [routerLink]="['/wealth-dashboard']" class="fa fa-angle-right"></i>
+              </p>
+              <h5>₹ {{InvestmentsCount}}</h5>
+            </div>
+            <div class="col-6">
+              <p class="pos-rel">My Liabilities <i [routerLink]="['/credit-dashboard']" class="fa fa-angle-right"></i>
+              </p>
+              <h5>₹ {{LiabilitiesCount}}</h5>
+            </div>
+          </div>
+        </div>
+        <div class="rfs-btn cursor-pointer">
+          <span><i class="fa fa-sync"></i> Refresh</span>
+        </div>
+      </div>
+    </div>
+  </div>
+<div *ngIf="InsurancePendingProductsList?.length>0">
+  <div class="title-text coach text-center mt-5">
+    <h5 class="text-start pt-3"> Pending Products</h5>
+  </div>
+  <div class=" mt-4 finance owl-1">
+    <div class="financial-slider trendprod ">
+      <owl-carousel-o [options]="customOptions">
+
+        <ng-template carouselSlide *ngFor="let product of InsurancePendingProductsList; let i=index">
+          <div class="trending-product">
+            <div class="row align-items-center">
+              <div class="col-lg-3 col-3">
+                <img src="{{product?.insuranceLogoUrl}}">
+              </div>
+              <div class="col-lg-9 col-9 ps-0 pending-products">
+                <h3>{{product?.insuranceCompany}}</h3>
+                <p>{{product?.category_id}} Insurance</p>
+              </div>
+            </div>
+            <div class="price-tag">
+              <div class="row align-items-center ">
+                <div class="col-lg-4 col-4 text-center">
+                  <p class="trend-name">Covers</p>
+                  <p class="trend-name"><strong>₹{{product?.covers}}</strong></p>
+                </div>
+                <div class="col-lg-4 col-4 text-center">
+                  <p class="trend-name">Period</p>
+                  <p class="trend-name "><strong>{{product?.period}} Years</strong></p>
+                </div>
+                <div class="col-lg-4 col-4 text-center">
+                  <p class="trend-name">Premium</p>
+                  <p class="trend-name "><strong>₹{{product?.total_premium}}</strong></p>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+              <button type="button" class="btn btn-primary remove-btn" (click)="discardPendingProduct(product?.id,i)">Discard</button>
+              <div *ngIf="product?.payment_url==''">
+                <!-- <a href="{{pendingRedirection}}" class="redirection"> -->
+                <button class="nav-link btn btn-primary proceed-btn" >Proceed to Pay</button>
+              <!-- </a> -->
+              </div>
+              <div *ngIf="product?.payment_url!=''">
+              <!-- /  <a href="{{generetedUrl}}" class="redirection"> -->
+                  <button class="nav-link btn btn-primary proceed-btn" >Proceed to Pay</button>
+                <!-- </a> -->
+                
+              </div>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template carouselSlide
+              *ngFor="let list of [].constructor(InsurancePendingProductsList.length<3?3-InsurancePendingProductsList.length:0)">
+            </ng-template>
+        <!-- <ng-template carouselSlide>
+          <div class="trending-product">
+            <div class="row align-items-center">
+              <div class="col-lg-3 col-3">
+                <img src="assets/img/Care_health_insurance_logo.png">
+              </div>
+              <div class="col-lg-9 col-9 ps-0 pending-products">
+                <h3>CARE HEALTH</h3>
+                <p>Health Insurance</p>
+              </div>
+            </div>
+            <div class="price-tag">
+              <div class="row align-items-center ">
+                <div class="col-lg-4 col-4 text-center">
+                  <p class="trend-name">Covers</p>
+                  <p class="trend-name"><strong>₹5 Lakhs</strong></p>
+                </div>
+                <div class="col-lg-4 col-4 text-center">
+                  <p class="trend-name">Period</p>
+                  <p class="trend-name "><strong>3 Years</strong></p>
+                </div>
+                <div class="col-lg-4 col-4 text-center">
+                  <p class="trend-name">Premium</p>
+                  <p class="trend-name "><strong>₹12,188</strong></p>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end mt-3">
+              <span class="orange-offer">Pending Application</span>
+              <button class="nav-link btn btn-primary proceed-btn">Proceed to Pay</button>
+            </div>
+          </div>
+        </ng-template> -->
+        <!-- <ng-template carouselSlide>
+          <div class="trending-product">
+            <div class="row align-items-center">
+              <div class="col-lg-3 col-3">
+                <img src="assets/img/Care_health_insurance_logo.png">
+              </div>
+              <div class="col-lg-9 col-9 ps-0 pending-products">
+                <h3>CARE HEALTH</h3>
+                <p>Health Insurance</p>
+              </div>
+            </div>
+            <div class="price-tag">
+              <div class="row align-items-center ">
+                <div class="col-lg-4 col-4 text-center">
+                  <p class="trend-name">Covers</p>
+                  <p class="trend-name"><strong>₹5 Lakhs</strong></p>
+                </div>
+                <div class="col-lg-4 col-4 text-center">
+                  <p class="trend-name">Period</p>
+                  <p class="trend-name "><strong>3 Years</strong></p>
+                </div>
+                <div class="col-lg-4 col-4 text-center">
+                  <p class="trend-name">Premium</p>
+                  <p class="trend-name "><strong>₹12,188</strong></p>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+              <span class="green-offer">Call scheduled at 08 Aug 2022, 10:30 Am</span>
+            </div>
+          </div>
+        </ng-template> -->
+        <!-- <ng-template carouselSlide>
+          <div class="trending-product">
+            <div class="row align-items-center">
+              <div class="col-lg-3 col-3">
+                <img src="assets/img/Care_health_insurance_logo.png">
+              </div>
+              <div class="col-lg-9 col-9 ps-0 pending-products">
+                <h3>CARE HEALTH</h3>
+                <p>Health Insurance</p>
+              </div>
+            </div>
+            <div class="price-tag">
+              <div class="row align-items-center ">
+                <div class="col-lg-4 col-4 text-center">
+                  <p class="trend-name">Covers</p>
+                  <p class="trend-name"><strong>₹5 Lakhs</strong></p>
+                </div>
+                <div class="col-lg-4 col-4 text-center">
+                  <p class="trend-name">Period</p>
+                  <p class="trend-name "><strong>3 Years</strong></p>
+                </div>
+                <div class="col-lg-4 col-4 text-center">
+                  <p class="trend-name">Premium</p>
+                  <p class="trend-name "><strong>₹12,188</strong></p>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-end mt-3">
+              <span class="orange-offer">Pending Application</span>
+              <button class="nav-link btn btn-primary proceed-btn">Proceed to Pay</button>
+            </div>
+          </div>
+        </ng-template> -->
+
+      </owl-carousel-o>
+    </div>
+  </div>
+  </div>
+  <!-- Pending Products -->
+
+  
+
+  <!-- Pending Products -->
+  <!-- <div class="title-text coach text-center mt-3" *ngIf="InsurancePendingProductsList?.length > 0">
+    <h5 class="text-start pt-3"> Pending Products</h5>
+  </div>
+  <div class=" mt-4 finance owl-1" *ngIf="InsurancePendingProductsList?.length > 0">
+    <div class="financial-slider trendprod cred-pend">
+      <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide *ngFor="let product of InsurancePendingProductsList">
+          <div class="trending-product">
+            <div class="row align-items-center">
+              <div class="col-lg-3 col-3">
+                <img src="assets/img/Care_health_insurance_logo.png">
+              </div>
+              <div class="col-lg-9 col-9 ps-0 pending-products">
+                <h3>CARE HEALTH</h3>
+                <p>Health Insurance</p>
+              </div>
+            </div>
+            <div class="price-tag">
+              <div class="row align-items-center ">
+                <div class="col-lg-4 col-4 text-center">
+                  <p class="trend-name">Covers</p>
+                  <p class="trend-name"><strong>₹5 Lakhs</strong></p>
+                </div>
+                <div class="col-lg-4 col-4 text-center">
+                  <p class="trend-name">Period</p>
+                  <p class="trend-name "><strong>3 Years</strong></p>
+                </div>
+                <div class="col-lg-4 col-4 text-center">
+                  <p class="trend-name">Premium</p>
+                  <p class="trend-name "><strong>₹12,188</strong></p>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between mt-3">
+              <button type="button" class="btn btn-primary remove-btn">Discard</button>
+              <button class="nav-link btn btn-primary proceed-btn">Proceed to Pay</button>
+            </div> -->
+            <!-- <div class="d-flex justify-content-end mt-3">
+                <span class="orange-offer">Pending Application</span>
+                <button class="nav-link btn btn-primary proceed-btn">Proceed to Pay</button>
+              </div>
+
+              <div class="d-flex justify-content-between mt-3">
+                <span class="green-offer">Call scheduled at 08 Aug 2022, 10:30 Am</span>
+              </div> -->
+          <!-- </div>
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+  </div> -->
+  <!-- Pending Products -->
+
+  <div class="row mt-3 d-none">
+    <div class="col-lg-8">
+      <div class="card-div">
+        <ul class="nav nav-tabs" id="dashboardTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="invest-tab" data-bs-toggle="tab" data-bs-target="#myinvest"
+              type="button" role="tab" aria-controls="home" aria-selected="true">My Investments</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="insure-tab" data-bs-toggle="tab" data-bs-target="#myinsure" type="button"
+              role="tab" aria-controls="profile" aria-selected="false">My Insurance</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="liabilities-tab" data-bs-toggle="tab" data-bs-target="#myliabilities"
+              type="button" role="tab" aria-controls="contact" aria-selected="false">My Liabilities</button>
+          </li>
+        </ul>
+        <div class="tab-content tabscroll" id="dashTabContent">
+          <div class="tab-pane fade show active" id="myinvest" role="tabpanel" aria-labelledby="invest-tab">
+            <div class="row table-row">
+              <div class="col-lg-6 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo">
+                    <img src="assets/img/icici-bank.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>ICICI Prudential Technology</h5>
+                    <p>
+                      <span>3 <i class="fa fa-star"></i></span>
+                      <span> High Risk</span>
+                      <span> Equity</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-6 ps-3 pe-0">
+                <div class="invests mb-bg-r">
+                  <h5>Total Investment</h5>
+                  <p>₹ 20,50,200</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 ps-0 pe-3">
+                <div class="returns mb-bg-l">
+                  <h5>Absolute Returns</h5>
+                  <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                </div>
+              </div>
+              <div class="col-lg-1 ps-2 pe-2 text-center">
+                <div class="dropdown menu-btn">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-ellipsis-h"></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a class="dropdown-item" href="javascript:void(0)">View Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Redeem Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Switch Fund</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-6 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo">
+                    <img src="assets/img/quant.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>Quant Small Cap Fund Growth Option Direct Plan</h5>
+                    <p>
+                      <span>3 <i class="fa fa-star"></i></span>
+                      <span> High Risk</span>
+                      <span> Equity</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-6 ps-3 pe-0">
+                <div class="invests mb-bg-r">
+                  <h5>Total Investment</h5>
+                  <p>₹ 20,50,200</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 ps-0 pe-3">
+                <div class="returns mb-bg-l">
+                  <h5>Absolute Returns</h5>
+                  <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                </div>
+              </div>
+              <div class="col-lg-1 ps-2 pe-2 text-center">
+                <div class="dropdown menu-btn">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-ellipsis-h"></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a class="dropdown-item" href="javascript:void(0)">View Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Redeem Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Switch Fund</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-6 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo">
+                    <img src="assets/img/birla.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>Aditya Birla Sun Life Digital India Fund Direct Plan</h5>
+                    <p>
+                      <span>3 <i class="fa fa-star"></i></span>
+                      <span> High Risk</span>
+                      <span> Equity</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-6 ps-3 pe-0">
+                <div class="invests mb-bg-r">
+                  <h5>Total Investment</h5>
+                  <p>₹ 20,50,200</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 ps-0 pe-3">
+                <div class="returns mb-bg-l">
+                  <h5>Absolute Returns</h5>
+                  <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                </div>
+              </div>
+              <div class="col-lg-1 ps-2 pe-2 text-center">
+                <div class="dropdown menu-btn">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-ellipsis-h"></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a class="dropdown-item" href="javascript:void(0)">View Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Redeem Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Switch Fund</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-6 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo">
+                    <img src="assets/img/axis_bank.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>Axis Small Cap Fund Direct Growth</h5>
+                    <p>
+                      <span>3 <i class="fa fa-star"></i></span>
+                      <span> High Risk</span>
+                      <span> Equity</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-6 ps-3 pe-0">
+                <div class="invests mb-bg-r">
+                  <h5>Total Investment</h5>
+                  <p>₹ 20,50,200</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 ps-0 pe-3">
+                <div class="returns mb-bg-l">
+                  <h5>Absolute Returns</h5>
+                  <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                </div>
+              </div>
+              <div class="col-lg-1 ps-2 pe-2 text-center">
+                <div class="dropdown menu-btn">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-ellipsis-h"></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a class="dropdown-item" href="javascript:void(0)">View Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Redeem Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Switch Fund</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-6 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo">
+                    <img src="assets/img/icici-bank.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>ICICI Prudential Commodities Fund Direct Growth</h5>
+                    <p>
+                      <span>3 <i class="fa fa-star"></i></span>
+                      <span> High Risk</span>
+                      <span> Equity</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-6 ps-3 pe-0">
+                <div class="invests mb-bg-r">
+                  <h5>Total Investment</h5>
+                  <p>₹ 20,50,200</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 ps-0 pe-3">
+                <div class="returns mb-bg-l">
+                  <h5>Absolute Returns</h5>
+                  <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                </div>
+              </div>
+              <div class="col-lg-1 ps-2 pe-2 text-center">
+                <div class="dropdown menu-btn">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-ellipsis-h"></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a class="dropdown-item" href="javascript:void(0)">View Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Redeem Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Switch Fund</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-6 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo">
+                    <img src="assets/img/axis_bank.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>Axis Small Cap Fund Direct Growth</h5>
+                    <p>
+                      <span>3 <i class="fa fa-star"></i></span>
+                      <span> High Risk</span>
+                      <span> Equity</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-6 ps-3 pe-0">
+                <div class="invests mb-bg-r">
+                  <h5>Total Investment</h5>
+                  <p>₹ 20,50,200</p>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 ps-0 pe-3">
+                <div class="returns mb-bg-l">
+                  <h5>Absolute Returns</h5>
+                  <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                </div>
+              </div>
+              <div class="col-lg-1 ps-2 pe-2 text-center">
+                <div class="dropdown menu-btn">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-ellipsis-h"></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a class="dropdown-item" href="javascript:void(0)">View Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Redeem Fund</a></li>
+                    <li><a class="dropdown-item" href="javascript:void(0)">Switch Fund</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="myinsure" role="tabpanel" aria-labelledby="insure-tab">
+            <div class="row table-row">
+              <div class="col-lg-5 pe-2">
+                <div class="table-flex justify-content-between">
+                  <div class="d-flex">
+                    <div class="bank-logo">
+                      <img src="assets/img/bajaj1img.png" />
+                    </div>
+                    <div class="my-bank">
+                      <h5>Bajaj Allianz</h5>
+                      <p>
+                        Two-Wheeler Insurance
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <img src="assets/img/blue-arrow.svg" />
+                  </div>
+                </div>
+              </div>
+              <div class="mb-bg-l1 d-flex">
+                <div class="col-lg-2 col-6 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Policy Status</h5>
+                    <p>Policy Issued</p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-6  ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Renewal Due On</h5>
+                    <p>06 May, 2022</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 ins-pre ps-2 pe-2">
+                <div class="premium">
+                  <h5>Policy Premium</h5>
+                  <p>₹ 1,019/<span class="year">Yearly</span></p>
+                </div>
+              </div>
+              <div class="col-lg-1 ins-pre col-6 ps-2 pe-2 text-center">
+                <div class="dwnld">
+                  <button type="button" class="btn btn-primary dwnld-btn hidden-lg "> Download Policy </button>
+                </div>
+              </div>
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-5 pe-2">
+                <div class="table-flex justify-content-between">
+                  <div class="d-flex">
+                    <div class="bank-logo">
+                      <img src="assets/img/bharti-agencies.png" />
+                    </div>
+                    <div class="my-bank">
+                      <h5>Bharti AXA General Insurance</h5>
+                      <p>
+                        Health Insurance
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <img src="assets/img/blue-arrow.svg" />
+                  </div>
+                </div>
+              </div>
+              <div class="mb-bg-l1 d-flex">
+                <div class="col-lg-2 col-6  ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Policy Status</h5>
+                    <p>Policy Issued</p>
+                  </div>
+                </div>
+
+                <div class="col-lg-2 col-6 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Renewal Due On</h5>
+                    <p>06 May, 2022</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 ins-pre ps-2 pe-2">
+                <div class="premium">
+                  <h5>Policy Premium</h5>
+                  <p>₹ 1,019/<span class="year">Yearly</span></p>
+                </div>
+              </div>
+
+              <div class="col-lg-1 ins-pre col-6 ps-2 pe-2 text-center">
+                <div class="dwnld">
+                  <button type="button" class="btn btn-primary dwnld-btn hidden-lg "> Download Policy </button>
+                </div>
+              </div>
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-5 pe-2">
+                <div class="table-flex justify-content-between">
+                  <div class="d-flex">
+                    <div class="bank-logo">
+                      <img src="assets/img/Edelweiss.png" />
+                    </div>
+                    <div class="my-bank">
+                      <h5>Edelweiss Tokio Life Insurance</h5>
+                      <p>
+                        Health Insurance
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <img src="assets/img/blue-arrow.svg" />
+                  </div>
+                </div>
+              </div>
+              <div class="mb-bg-l1 d-flex">
+                <div class="col-lg-2 col-6  ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Policy Status</h5>
+                    <p>Policy Issued</p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-6  ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Renewal Due On</h5>
+                    <p>06 May, 2022</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 ins-pre ps-2 pe-2">
+                <div class="premium">
+                  <h5>Policy Premium</h5>
+                  <p>₹ 1,019/<span class="year">Yearly</span></p>
+                </div>
+              </div>
+              <div class="col-lg-1 ins-pre col-6 ps-2 pe-2 text-center">
+                <div class="dwnld">
+                  <button type="button" class="btn btn-primary dwnld-btn hidden-lg "> Download Policy </button>
+                </div>
+              </div>
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-5 pe-2">
+                <div class="table-flex justify-content-between">
+                  <div class="d-flex">
+                    <div class="bank-logo">
+                      <img src="assets/img/sbi-aje.png" />
+                    </div>
+                    <div class="my-bank">
+                      <h5>SBI General Insurance</h5>
+                      <p>
+                        Two-Wheeler Insurance
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <img src="assets/img/blue-arrow.svg" />
+                  </div>
+                </div>
+              </div>
+              <div class="mb-bg-l1 d-flex">
+                <div class="col-lg-2 col-6  ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Policy Status</h5>
+                    <p>Policy Issued</p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-6  ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Renewal Due On</h5>
+                    <p>06 May, 2022</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 ins-pre ps-2 pe-2">
+                <div class="premium">
+                  <h5>Policy Premium</h5>
+                  <p>₹ 1,019/<span class="year">Yearly</span></p>
+                </div>
+              </div>
+              <div class="col-lg-1 ins-pre col-6 ps-2 pe-2 text-center">
+                <div class="dwnld">
+                  <button type="button" class="btn btn-primary dwnld-btn hidden-lg "> Download Policy </button>
+                </div>
+              </div>
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-5 pe-2">
+                <div class="table-flex justify-content-between">
+                  <div class="d-flex">
+                    <div class="bank-logo">
+                      <img src="assets/img/hdfcergo.png" />
+                    </div>
+                    <div class="my-bank">
+                      <h5>HDFC Ergo General Insurance</h5>
+                      <p>
+                        Health Insurance
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <img src="assets/img/blue-arrow.svg" />
+                  </div>
+                </div>
+              </div>
+              <div class="mb-bg-l1 d-flex">
+                <div class="col-lg-2 col-6  ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Policy Status</h5>
+                    <p>Policy Issued</p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-6 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Renewal Due On</h5>
+                    <p>06 May, 2022</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 ins-pre ps-2 pe-2">
+                <div class="premium">
+                  <h5>Policy Premium</h5>
+                  <p>₹ 1,019/<span class="year">Yearly</span></p>
+                </div>
+              </div>
+              <div class="col-lg-1 ins-pre col-6 ps-2 pe-2 text-center">
+                <div class="dwnld">
+                  <button type="button" class="btn btn-primary dwnld-btn hidden-lg "> Download Policy </button>
+                </div>
+              </div>
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-5 pe-2">
+                <div class="table-flex justify-content-between">
+                  <div class="d-flex">
+                    <div class="bank-logo">
+                      <img src="assets/img/icicilombart.png" />
+                    </div>
+                    <div class="my-bank">
+                      <h5>ICICI lombard</h5>
+                      <p>
+                        Health Insurance
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <img src="assets/img/blue-arrow.svg" />
+                  </div>
+                </div>
+              </div>
+              <div class="mb-bg-l1 d-flex">
+                <div class="col-lg-2 col-6 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Policy Status</h5>
+                    <p>Policy Issued</p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-6  ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Renewal Due On</h5>
+                    <p>06 May, 2022</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-2 col-6 ins-pre ps-2 pe-2">
+                <div class="premium">
+                  <h5>Policy Premium</h5>
+                  <p>₹ 1,019/<span class="year">Yearly</span></p>
+                </div>
+              </div>
+              <div class="col-lg-1 ins-pre col-6 ps-2 pe-2 text-center">
+                <div class="dwnld">
+                  <button type="button" class="btn btn-primary dwnld-btn hidden-lg "> Download Policy </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="tab-pane fade" id="myliabilities" role="tabpanel" aria-labelledby="liabilities-tab">
+            <div class="row table-row ">
+              <div class="col-lg-6 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo">
+                    <img src="assets/img/kotak_bank.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>Mahindra Finance Bank</h5>
+                    <p>
+                      Home Loan
+                    </p>
+                  </div>
+                </div>
+                <div class="application-status process">
+                  <span>Processing Application</span>
+                </div>
+              </div>
+              <div class="d-flex mb-bg-l2">
+                <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Loan Amount</h5>
+                    <p>₹ 50,00,000</p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Rate of Interest</h5>
+                    <p>15%</p>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="col-lg-2 col-4 mb-bg-l2 ps-2 pe-2">
+                              <div class="invests">
+                                  <h5>EMI / Month</h5>
+                                  <p>? 12,188</p>
+                              </div>
+                          </div> -->
+
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-4 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo">
+                    <img src="assets/img/kotak_bank.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>Kotak Mahindra Bank</h5>
+                    <p>
+                      Personal Loan
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex mb-bg-l2">
+                <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Loan Amount</h5>
+                    <p>₹ 50,00,000</p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Rate of Interest</h5>
+                    <p>15%</p>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="col-lg-2 col-4 mb-bg-l2 ps-2 pe-2">
+                              <div class="invests">
+                                  <h5>EMI End Date</h5>
+                                  <p>12th Apr, 2024</p>
+                              </div>
+                          </div>-->
+              <div class="col-lg-2 col-12 liable ps-2 pe-2">
+                <div class="premium">
+                  <h5>EMI due on 08 Dec, 2021</h5>
+                  <p>₹ 12,188</p>
+                </div>
+              </div>
+            </div>
+            <div class="row table-row ">
+              <div class="col-lg-6 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo">
+                    <img src="assets/img/icici-bank.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>ICICI Bank</h5>
+                    <p>
+                      Education Loan
+                    </p>
+                  </div>
+                </div>
+                <div class="application-status pass">
+                  <span>Application Approved</span>
+                </div>
+              </div>
+              <div class="d-flex mb-bg-l2">
+                <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Loan Amount</h5>
+                    <p>₹ 50,00,000</p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Rate of Interest</h5>
+                    <p>15%</p>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="col-lg-2 col-4 mb-bg-l2 ps-2 pe-2">
+                              <div class="invests">
+                                  <h5>EMI / Month</h5>
+                                  <p>? 12,188</p>
+                              </div>
+                          </div> -->
+
+            </div>
+            <div class="row table-row ">
+              <div class="col-lg-6 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo">
+                    <img src="assets/img/kotak_bank.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>Kotak Mahindra Bank</h5>
+                    <p>
+                      Personal Loan
+                    </p>
+                  </div>
+                </div>
+                <div class="application-status process">
+                  <span>Processing Application</span>
+                </div>
+              </div>
+              <div class="d-flex mb-bg-l2">
+                <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Loan Amount</h5>
+                    <p>₹ 50,00,000</p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Rate of Interest</h5>
+                    <p>15%</p>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="col-lg-2 col-4 mb-bg-l2 ps-2 pe-2">
+                              <div class="invests">
+                                  <h5>EMI / Month</h5>
+                                  <p>? 12,188</p>
+                              </div>
+                          </div> -->
+
+            </div>
+            <div class="row table-row">
+              <div class="col-lg-4 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo">
+                    <img src="assets/img/icici-bank.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>ICICI Bankk</h5>
+                    <p>
+                      Personal Loan
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex mb-bg-l2">
+                <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Loan Amount</h5>
+                    <p>₹ 50,00,000</p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Rate of Interest</h5>
+                    <p>15%</p>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="col-lg-2 col-4 mb-bg-l2 ps-2 pe-2">
+                              <div class="invests">
+                                  <h5>EMI End Date</h5>
+                                  <p>12th Apr, 2024</p>
+                              </div>
+                          </div> -->
+              <div class="col-lg-2 col-12 liable ps-2 pe-2">
+                <div class="premium">
+                  <h5>EMI due on 08 Dec, 2021</h5>
+                  <p>₹ 8,852</p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row table-row ">
+              <div class="col-lg-6 pe-2">
+                <div class="table-flex">
+                  <div class="bank-logo">
+                    <img src="assets/img/hdfcergo.png" />
+                  </div>
+                  <div class="my-bank">
+                    <h5>HDFC Bank</h5>
+                    <p>
+                      Home Loan
+                    </p>
+                  </div>
+                </div>
+                <div class="application-status rejected">
+                  <span> Application Rejected</span>
+                </div>
+              </div>
+              <div class="d-flex mb-bg-l2">
+                <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Loan Amount</h5>
+                    <p>₹ 50,00,000</p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-6 mb-bg-l2 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Rate of Interest</h5>
+                    <p>15%</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- My Policies -->
+  <div class="row mt-3 ">
+    <div class="col-lg-8 col-12">
+      <div class="card-div title-text min-400">
+        <h5>My Policies</h5>
+        <hr>
+        <div>
+          <!-- slider tabs -->
+          <owl-carousel-o class="policies-tabs" [options]="customOptions6">
+            <ng-template carouselSlide>
+              <button class="btn btn-primary nav-link" id="allinsurancestab" type="button"
+                (click)="ShowContentDiv();InsuranceType = ''; GetInsuranceList();"
+                [class.active]="InsuranceType ===''">All Insurances</button>
+            </ng-template>
+            <ng-template carouselSlide>
+              <button class="btn btn-primary nav-link" id="healthinsurancestab" type="button"
+                (click)="ShowContentDiv();InsuranceType = 'Health'; GetInsuranceList();"
+                [class.active]="InsuranceType ==='Health'">Health Insurance</button>
+            </ng-template>
+            <ng-template carouselSlide>
+              <button class="btn btn-primary nav-link" id="terminsurancestab" type="button"
+                (click)="ShowContentDiv();InsuranceType = 'Term'; GetInsuranceList();"
+                [class.active]="InsuranceType ==='Term'">Term Insurance</button>
+            </ng-template>
+            <ng-template carouselSlide>
+              <button class="btn btn-primary nav-link" id="carinsurancestab" type="button"
+                (click)="ShowContentDiv();InsuranceType = 'motor'; GetInsuranceList();"
+                [class.active]="InsuranceType ==='motor'">4 Wheeler Insurance</button>
+            </ng-template>
+            <ng-template carouselSlide>
+              <button class="btn btn-primary nav-link" id="bikeinsurancestab" type="button"
+                (click)="ShowContentDiv();InsuranceType = 'motor'; GetInsuranceList();"
+                [class.active]="InsuranceType ==='motor'">2 Wheeler Insurance</button>
+            </ng-template>
+            <!-- <ng-template carouselSlide>
+              <button class="btn btn-primary nav-link" id="unitinsurancestab" type="button"
+                (click)="ShowContentDiv();clicked = 6" [class.active]="clicked ===6">Unit Insurance</button>
+            </ng-template>
+            <ng-template carouselSlide>
+              <button class="btn btn-primary nav-link" id="businessinsurancestab" type="button"
+                (click)="ShowContentDiv();clicked = 7" [class.active]="clicked ===7">Business Insurance</button>
+            </ng-template>
+            <ng-template carouselSlide>
+              <button class="btn btn-primary nav-link" id="groupinsurancestab" type="button"
+                (click)="ShowContentDiv();clicked = 8" [class.active]="clicked ===8">Group Insurance</button>
+            </ng-template> -->
+          </owl-carousel-o>
+          <div class="policy-display mt-4" *ngIf="MyInsurance">
+            <div class="tabscroll">
+              <div class="row table-row" *ngFor="let list of InsuranceList">
+                <div class="col-lg-5 pe-2">
+                  <div class="table-flex">
+                    <div class="bank-logo">
+                      <img src="assets/img/bajaj_logo.png" />
+                    </div>
+                    <div class="my-bank">
+                      <h5>{{list?.insurance_company}}</h5>
+                      <p>
+                        Two Wheeler Insurance
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-6 mb-bg-l1 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Policy Status</h5>
+                    <p>{{list?.status}}</p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-6 mb-bg-l1 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Renewal Due On</h5>
+                    <p>{{list?.expiry_date | date}}</p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-6 ins-pre ps-2 pe-2">
+                  <div class="premium">
+                    <h5>Policy Premium</h5>
+                    <p>₹ {{list?.total_premium}}/Yearly</p>
+                  </div>
+                </div>
+                <div class="col-lg-1 ins-pre col-6 ps-2 pe-2 text-center">
+                  <div class="dwnld">
+                    <button type="button" class="btn btn-primary dwnld-btn hidden-lg "> Download Policy </button>
+                    <a href="{{list?.coi}}">
+                      <img src="assets/img/country_code_dropdown.svg" class="download" />
+                    </a>
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="empty-policy" *ngIf="!MyInsurance">
+              <div class="row">
+                <div class="col-lg-6">
+                  <img src="assets/img/empty-policy.png" alt="l1">
+                </div>
+                <div class="col-lg-6 empty-policy-right">
+                  <h3 class="header">No Insurance</h3>
+                  <p><b>Note:</b>You have no policy to display</p>
+                  <a href="{{InsuranceUrl}}" target="_blank">
+                    <button type="button" class="btn btn-primary theme-button mt-4">Purchase Insurance</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- slider tabs -->
+        </div>
+
+        <div class="empty-policy" *ngIf="!MyInsurance">
+          <div class="row">
+            <div class="col-lg-6">
+              <img src="assets/img/empty-policy.png" alt="l1">
+            </div>
+            <div class="col-lg-6 empty-policy-right">
+              <h3 class="header">No Insurance</h3>
+              <p><b>Note:</b>You have no policy to display</p>
+              <a href="{{InsuranceUrl}}" target="_blank">
+                <button type="button" class="btn btn-primary theme-button mt-4">Purchase Insurance</button>
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
+    <div class="col-lg-4 col-12">
+      <!-- <div class="card-div mb-2">
+        <div class="score-head d-none">
+          <div>
+            <h5>My Credit Score</h5>
+            <p>Last Updated : 06/11/2021</p>
+          </div>
+          <div class="refresh-sync">
+            <p><i class="fas fa-sync"></i> Refresh</p>
+          </div>
+        </div>
+        <div class="score-head">
+          <div>
+            <h5>Get your latest Credit Report, Free</h5>
+          </div>
+        </div>
+        <div class="score-status d-none">
+          <div>
+            <h5>Very Good</h5>
+          </div>
+          <div>
+            <p>Up 11 points <span> since last month</span></p>
+          </div>
+        </div>
+        <div class="score-indicator">
+          <span class="ind-red"></span>
+          <span class="ind-yellow"></span>
+          <span class="ind-orange">
+            <p class="points">Good</p>
+          </span>
+          <span class="ind-green"></span>
+        </div>
+
+        <button type="button" class="btn btn-primary theme-button mt-4 w-100">Check Credit Score</button>
+      </div> -->
+
+      <div class="row">
+        <div class="col-lg-9 col-9">
+          <h5 class="action-head">Actions Required <span>({{actionslideno}}/3)</span></h5>
+        </div>
+        <!-- <div class="col-lg-3 col-3 leftrightaction">
+                      <img src="assets/img/angle-small-left.svg"/>
+                      <img src="assets/img/angle-small-right.svg"/>
+                  </div> -->
+      </div>
+      <!-- <div class="card-div hidden-xs">
+                <div class="warning-head">
+                    <div>
+                        <img src="assets/img/warning.svg"/>
+                    </div>
+                    <div>
+                        <h5>Verify Your Profile</h5>
+                    </div>
+                </div>
+                <div class="warining-content">
+                    <p>Complete your KYC Verification to unlock investment and get pre-approved loans at ease.</p>
+                </div>
+                <div class="action-btn">
+                    <div>
+                        <h5>Complete KYC</h5>
+                    </div>
+                    <div>
+                        <i class="fa fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div> -->
+      <owl-carousel-o class="cust-5" [options]="customOptions5">
+        <ng-template carouselSlide>
+          <div class="card-div caouselcard" id="1">
+            <div class="warning-head">
+              <div>
+                <img src="assets/img/warning.svg" />
+              </div>
+              <div>
+                <h5>Complete your KYC</h5>
+              </div>
+            </div>
+            <div class="warining-content">
+              <p>Complete your KYC Verification to access 100+ investment products.</p>
+            </div>
+            <div class="action-btn">
+              <div>
+                <h5>Complete KYC</h5>
+              </div>
+              <div>
+                <img src="assets/img/forward_arrow.svg" />
+              </div>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template carouselSlide>
+          <div class="card-div caouselcard" id="2">
+            <div class="warning-head">
+              <div>
+                <img src="assets/img/warning.svg" />
+              </div>
+
+              <div>
+                <h5>Know your investment</h5>
+              </div>
+            </div>
+            <div class="warining-content">
+              <p>Know your investment risk appetite and see our curated lists for you. Complete Investor Profile.</p>
+            </div>
+            <div class="action-btn">
+              <div>
+                <h5>Complete Investor Profile</h5>
+              </div>
+              <div>
+                <img src="assets/img/forward_arrow.svg" />
+              </div>
+            </div>
+          </div>
+        </ng-template>
+        <ng-template carouselSlide>
+          <div class="card-div caouselcard" id="3">
+            <div class="warning-head">
+              <div>
+                <img src="assets/img/warning.svg" />
+              </div>
+              <div>
+                <h5>Track your Cash Flows</h5>
+              </div>
+            </div>
+            <div class="warining-content">
+              <p>SIPs due over next 30 days..</p>
+            </div>
+            <div class="action-btn">
+              <div>
+                <h5>Done</h5>
+              </div>
+              <div>
+                <img src="assets/img/forward_arrow.svg" />
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+  </div>
+  <!-- My Policies -->
+    <!-- Offer Recommendation Tabs -->
+    <div class="row">
+      <div class="col-12 mt-4">
+        <h5 class="ofr-head">Offer Recommendations</h5>
+      </div>
+      <div class="tab-content" id="ofrTabContent">
+        <div class="financial-slider trendprod ">
+          <owl-carousel-o [options]="customOptions3">
+            <ng-template carouselSlide>
+              <div class="trending-product">
+                <div class="row align-items-center">
+                  <div class="col-lg-3 col-3">
+                    <img src="assets/img/Care_health_insurance_logo@2x.png">
+                  </div>
+                  <div class="col-lg-9 col-9 ps-0">
+                    <p class="trend-name">Care Health - Freedom Plan</p>
+                  </div>
+                </div>
+                <div class="price-tag">
+                  <div class="row align-items-center ">
+                    <div class="col-lg-6 col-6 text-center">
+                      <p class="trend-name1">Starting From</p>
+  
+                    </div>
+                    <div class="col-lg-6 col-6 text-center">
+                      <p class="trend-name"><strong>₹ 2358/-</strong></p>
+  
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+            <ng-template carouselSlide>
+              <div class="trending-product">
+                <div class="row align-items-center">
+                  <div class="col-lg-3 col-3">
+                    <img src="assets/img/product_logo.png">
+                  </div>
+                  <div class="col-lg-9 col-9 ps-0">
+                    <p class="trend-name">National Insurance - Mediclaim Policy</p>
+                  </div>
+                </div>
+                <div class="price-tag">
+                  <div class="row align-items-center ">
+                    <div class="col-lg-6 col-6 text-center">
+                      <p class="trend-name1">Starting From</p>
+                    </div>
+                    <div class="col-lg-6 col-6 text-center">
+                      <p class="trend-name"><strong>₹ 2358/-</strong></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+            <ng-template carouselSlide>
+              <div class="trending-product">
+                <div class="row align-items-center">
+                  <div class="col-lg-3 col-3">
+                    <img src="assets/img/icici_lombard_logo@2x.png">
+                  </div>
+                  <div class="col-lg-9 col-9 ps-0">
+                    <p class="trend-name">ICICI Lombard - Child Care Gift</p>
+                  </div>
+                </div>
+                <div class="price-tag">
+                  <div class="row align-items-center ">
+                    <div class="col-lg-6 col-6 text-center">
+                      <p class="trend-name1">Starting From</p>
+                    </div>
+                    <div class="col-lg-6 col-6 text-center">
+                      <p class="trend-name"><strong>₹ 2358/-</strong></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+            <ng-template carouselSlide>
+              <div class="trending-product">
+                <div class="row align-items-center">
+                  <div class="col-lg-3 col-3">
+                    <img src="assets/img/hdfc_ergo@2x.png">
+                  </div>
+                  <div class="col-lg-9 col-9 ps-0">
+                    <p class="trend-name">HDFC Ergo - General Insurance</p>
+                  </div>
+                </div>
+                <div class="price-tag">
+                  <div class="row align-items-center ">
+                    <div class="col-lg-6 col-6 text-center">
+                      <p class="trend-name1">Starting From</p>
+                    </div>
+                    <div class="col-lg-6 col-6 text-center">
+                      <p class="trend-name"><strong>₹ 2358/-</strong></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+            <ng-template carouselSlide>
+              <div class="trending-product">
+                <div class="row align-items-center">
+                  <div class="col-lg-3 col-3">
+                    <img src="assets/img/sbilife.png">
+                  </div>
+                  <div class="col-lg-9 col-9 ps-0">
+                    <p class="trend-name">National Insurance - Mediclaim Policy</p>
+                  </div>
+                </div>
+                <div class="price-tag">
+                  <div class="row align-items-center ">
+                    <div class="col-lg-6 col-6 text-center">
+                      <p class="trend-name1">Starting From</p>
+                    </div>
+                    <div class="col-lg-6 col-6 text-center">
+                      <p class="trend-name"><strong>₹ 2358/-</strong></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </owl-carousel-o>
+        </div>
+      </div>
+    </div>
+    <!-- Offer Recommendation Tabs -->
+<!-- Apply For -->
+<div class="title-text mt-5 hidden-xs">
+  <h5 class="text-center"> Apply For </h5>
+</div>
+<div class="container hidden-xs mt-5 mb-3 common-mt-3 more-product money-invest loan-opt">
+  <div class="row align-items-center">
+    <div class="col" *ngFor="let insure of InsurancePolicies">
+      <div class="money-mng">
+        <img src="{{insure?.logo}}" alt="l1">
+        <p>{{insure.name}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container hidden-xs pt-70 common-pt-50 money-invest loan-opt">
+  <div class="row align-items-center">
+    <div class="col">
+      <div class="money-mng cursor-default">
+        <img src="assets/img/arogaya_sanjeevni.svg" alt="l1">
+        <p>Arogya Sanjeevni</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="money-mng cursor-default">
+        <img src="assets/img/travel_insurance.svg" alt="l1">
+        <p>Travel Insurance</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="money-mng cursor-default">
+        <img src="assets/img/business_insurance.svg" alt="l1">
+        <p>Business Insurance</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="money-mng" [routerLink]="['/group-applicant-details']">
+        <img src="assets/img/group-ppl.svg" alt="l1">
+        <p>Group Insurance</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="money-mng cursor-default">
+        <img src="assets/img/senior_citizen_plans.svg" alt="l1">
+        <p>Senior Citizen Plans</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container hidden-xs pt-70 common-pt-50 money-invest loan-opt">
+  <div class="row align-items-center">
+    <div class="col">
+      <div class="money-mng cursor-default">
+        <img src="assets/img/tax_saving_plans.svg" alt="l1">
+        <p>Tax Saving Plans</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="money-mng cursor-default">
+        <img src="assets/img/guaranteed_return_plans.svg" alt="l1">
+        <p>Guaranteed Return <br> Plans</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="money-mng cursor-default">
+        <img src="assets/img/critical_illness.svg" alt="l1">
+        <p>Critical Illness</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="money-mng cursor-default">
+        <img src="assets/img/personal_accident.svg" alt="l1">
+        <p>Personal Accident</p>
+      </div>
+    </div>
+    <div class="col">
+      <div class="money-mng mob-inv cursor-default">
+        <img src="assets/img/top_up_plans.svg" alt="l1">
+        <p>Top Up Plans</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container hidden-lg mt-3 mb-3 common-mt-3 more-product money-invest loan-opt">
+  <div class="row align-items-center">
+    <div class="col-4">
+      <div class="money-mng" [routerLink]="['/term-applicant-details']">
+        <img src="assets/img/term_life_insurance.svg" alt="l1">
+        <p>Term Life Insurance</p>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="money-mng" [routerLink]="['/health-select-members']">
+        <img src="assets/img/health_insurance-1.svg" alt="l1">
+        <p>Health Insurance</p>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="money-mng" [routerLink]="['/car-insurance']">
+        <img src="assets/img/health_insurance.svg" alt="l1">
+        <p>Car Insurance</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container hidden-lg mt-5 mb-3 common-mt-3 more-product money-invest loan-opt">
+  <div class="row align-items-center">
+    <div class="col-4">
+      <div class="money-mng" [routerLink]="['/two-wheeler-insurance']">
+        <img src="assets/img/two_wheeler_nsurance.svg" alt="l1">
+        <p>Two Wheeler Insurance</p>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="money-mng" [routerLink]="['/unit-insurance-your-details']">
+        <img src="assets/img/unit_link_insurance.svg" alt="l1">
+        <p>Unit Linked Insurance</p>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="money-mng" [routerLink]="['/group-applicant-details']">
+        <img src="assets/img/group-ppl.svg" alt="l1">
+        <p>Group Insurance</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container hidden-lg mt-5 mb-3 common-mt-3 more-product money-invest loan-opt">
+  <div class="row align-items-center">
+    <div class="col-4">
+      <div class="money-mng cursor-default">
+        <img src="assets/img/business_insurance.svg" alt="l1">
+        <p>Business Insurance</p>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="money-mng cursor-default">
+        <img src="assets/img/arogaya_sanjeevni.svg" alt="l1">
+        <p>Arogya Sanjeevni</p>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="money-mng mob-inv cursor-default">
+        <img src="assets/img/top_up_plans.svg" alt="l1">
+        <p>Top Up Plans</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Apply For -->
+
+
+  <div class="d-none suggest mt-5">
+    <div class="row">
+      <div class="col-2">
+        <img src="assets/img/Group 5913.svg" class="group" />
+      </div>
+      <div class="col-10">
+        <span>Contact your Agent for Detailed suggestions, <br>and better investment.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Explore Our Tools -->
+  <!-- <div class="title-text mt-4 mb-4 hidden-xs">
+      <h5>Explore Our Tools</h5>
+    </div>
+    <div class="hidden-xs explore">
+      <div class="row">
+        <div class="col-md-2">
+          <div class="ms-4">
+            <img src="assets/img/Layer 2.svg" alt="l1" class="emi">
+            <h5 class=" colr pt-4">Tax Optimization</h5>
+          </div>
+        </div>
+        <div class="col-md-4 offset-lg-2">
+          <img src="assets/img/Group 16258.svg" alt="l1" class="loan">
+          <h5 class="text-center colr pt-4">Loan Optimization</h5>
+        </div>
+        <div class="col-md-4">
+          <div class="float-end me-5">
+            <img src="assets/img/Layer 2 (1).svg" alt="l1" class="emi">
+            <h5 class="colr pt-4">EMI Calculator</h5>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  <!-- Explore Our Tools -->
+
+
+</div>
+
+<!-- Notifications -->
+<div id="notification">
+  <nav class="notif-menu" id="notification-bar" role="navigation">
+    <div class="d-flex align-items-center">
+      <a (click)="handleOpenCloseNotif()" class="nav-link nav-toggle show-notif-nav onsidebar cursor-pointer">
+        <img class="i-icon" src="assets/img/back-arrow.svg" />
+      </a>
+      <h3 class="notif-header">Notifications</h3>
+    </div>
+    <div class="my-3 position-relative notif-search">
+      <i class="fa fa-search" aria-hidden="true"></i>
+      <input type="text" class="form-control search" id="exampleSearch" aria-describedby="Search" placeholder="Search">
+    </div>
+    <div class="notif-body mt-3">
+      <div class="single-notification">
+        <img class="i-icon" src="assets/img/test-user.png" />
+        <div class="right-side">
+          <h5>Project Noname</h5>
+          <p>13 minutes ago</p>
+        </div>
+      </div>
+      <div class="single-notification">
+        <img class="i-icon" src="assets/img/education-loan.svg" />
+        <div class="right-side">
+          <h5>Educational Loan</h5>
+          <p>Transaction No - 12458725 is under review</p>
+        </div>
+      </div>
+      <div class="single-notification">
+        <img class="i-icon" src="assets/img/test-user.png" />
+        <div class="right-side">
+          <h5>New members on Payment project</h5>
+          <p>44 minutes ago</p>
+          <button type="button" class="btn btn-primary transper-btn me-3">Send Reminder </button>
+        </div>
+      </div>
+      <div class="single-notification">
+        <img class="i-icon" src="assets/img/business-loan.svg" />
+        <div class="right-side">
+          <h5>Business Loan</h5>
+          <p>Transaction No - 154546 is denied</p>
+        </div>
+      </div>
+      <div class="single-notification">
+        <img class="i-icon" src="assets/img/test-user.png" />
+        <div class="right-side">
+          <h5>Updated activity</h5>
+          <p>2 hours ago</p>
+        </div>
+      </div>
+      <div class="single-notification">
+        <img class="i-icon" src="assets/img/test-user.png" />
+        <div class="right-side">
+          <h5>New chart on page visits</h5>
+          <p>3 hours ago</p>
+          <button type="button" class="btn btn-primary transper-btn me-3">Complete Transaction</button>
+        </div>
+      </div>
+      <div class="single-notification">
+        <img class="i-icon" src="assets/img/personal-loan.svg" />
+        <div class="right-side">
+          <h5>Personal Loan</h5>
+          <p>Transaction No - 145472 is accepted</p>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<!-- Notifications -->

@@ -1,0 +1,770 @@
+<div class="container mgb-10per">
+  <div class="row mt-4" *ngIf="step!=11 && step!=12">
+    <div class="col-lg-12">
+      <h4 class="breadcrumb-title" (click)="BackRouting()"><span class="me-3 cursor-pointer"><i
+            class="fa fa-arrow-left i-icon"></i></span>{{HeadingText}}
+      </h4>
+      <div class="eligibility-progress">
+        <div class="progress-fill" [style.width.%]="StepsWidth"></div>
+      </div>
+      <p class="breadcrumb-sub">It takes hardly 1 minute to complete</p>
+    </div>
+  </div>
+  <div class="row risk1 mt-5">
+    <div class="col-lg-6 hidden-xs" id="sidebar-main">
+      <div class="left-sidebar" id="sidebar">
+        <img *ngIf="step<12 && step != 9 && step != 11 && step != 12" src="assets/img/pan-man.svg" alt="risk-profiling"
+          class="w-75" />
+        <img *ngIf="step==9" src="assets/img/video-verify.svg" alt="risk-profiling" class="w-75" />
+        <img *ngIf="step==11" src="assets/img/video-success.svg" alt="risk-profiling" class="w-75" />
+        <img *ngIf="step==12" src="assets/img/congrats-video.svg" alt="risk-profiling" class="w-75" />
+      </div>
+    </div>
+    <div class="col-lg-6 mb-5 pos-rel pointer">
+      <div class="process-div">
+        <!-- Pan Verification -->
+        <div *ngIf="step==1">
+          <div *ngIf="validate.isNullEmptyUndefined(PancardDetails?.SelectedPancardImage)">
+            <h5 class="upload">Upload a photo of your pan card</h5>
+            <div class="border-dash" (click)="Panuploader.click();">
+              <img src="assets/img/camera_icon.svg" alt="">
+              <input hidden type="file" #Panuploader (change)="uploadFile($event,'pancard')" accept="image/*" />
+              <p class="pt-3">Upload A Picture</p>
+            </div>
+          </div>
+          <div *ngIf="!validate.isNullEmptyUndefined(PancardDetails?.SelectedPancardImage)">
+            <h5 class="upload">Verify pan details and proceed</h5>
+            <div class="row mb-4">
+              <div class="d-flex justify-content-between pt-4">
+                <div class=" d-flex">
+                  <div>
+                    <img src="{{PancardDetails?.SelectedPancardBase64}}" alt="" id="pancardImage" class="uploaded-img">
+                  </div>
+                  <div class="ps-3">
+                    <h6 class="font pt-2">{{PancardDetails?.SelectedPancardImage.name}}</h6>
+                    <span class="photo" (click)="ViewPhoto(PancardDetails?.SelectedPancardBase64)">View Photo</span>
+                  </div>
+                </div>
+                <div class="d-flex" (click)="DeleteFile('pancard')">
+                  <img src="assets/img/delete_icon1.svg" alt="" class="w-75">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-floating mb-3 input-box ">
+                <input type="text" id="first_name" placeholder="Full Name" class="form-control"
+                  [(ngModel)]="PancardDetails.FullName" (keypress)="validate.alphabetOnly($event)"
+                  (ngModelChange)="PancardDetails.FullName = $event.toUpperCase()">
+                <label for="first_name">Full Name</label>
+              </div>
+              <div class="form-floating mb-3 input-box ">
+                <input type="text" id="Father Name" placeholder="Father Name" class="form-control"
+                  [(ngModel)]="PancardDetails.FatherName" (keypress)="validate.alphabetOnly($event)"
+                  (ngModelChange)="PancardDetails.FatherName = $event.toUpperCase()">
+                <label for="father_name">Father Name</label>
+              </div>
+              <div class="form-floating mb-3 input-box">
+                <input type="date" id="Pandob" placeholder="Date Of Birth" class="form-control"
+                  [(ngModel)]="PancardDetails.DOB">
+                <label for="Pandob">Date Of Birth</label>
+              </div>
+              <div class="form-floating mb-3 input-box ">
+                <input type="text" id="Pan Number" placeholder="Pan Number" class="form-control" maxlength="10"
+                  [(ngModel)]="PancardDetails.PanNumber"
+                  (ngModelChange)="PancardDetails.PanNumber = $event.toUpperCase()">
+                <label for="pan_number">Pan Number</label>
+              </div>
+            </div>
+            <button class="btn btn-primary theme-button step-btn" (click)="SubmitPanDetails()">
+              <img src="assets/img/right-arrow1.png" />
+            </button>
+          </div>
+        </div>
+        <!-- Pan Verification -->
+
+        <!-- Adhar Verification -->
+        <div *ngIf="step==2">
+          <h5 class="upload">Capture a photo of your front & back side of your aadhar card</h5>
+          <h5 class="upload pt-3">Front side</h5>
+          <div class="border-dash" (click)="AadharFrontuploader.click();"
+            *ngIf="validate.isNullEmptyUndefined(AadharcardDetails?.SelectedFrontAadharcardImage)">
+            <img src="assets/img/camera_icon.svg" alt="">
+            <input hidden type="file" #AadharFrontuploader (change)="uploadFile($event,'AadharFront')"
+              accept="image/*" />
+            <p class="pt-3">Upload A Picture</p>
+          </div>
+          <div class="row" *ngIf="!validate.isNullEmptyUndefined(AadharcardDetails?.SelectedFrontAadharcardImage)">
+            <div class="d-flex justify-content-between pt-4">
+              <div class=" d-flex">
+                <div>
+                  <img src="{{AadharcardDetails?.SelectedFrontAadharcardBase64}}" alt="" class="uploaded-img">
+                </div>
+                <div class="ps-3">
+                  <h6 class="font pt-2">{{AadharcardDetails?.SelectedFrontAadharcardImage.name}}</h6>
+                  <span class="photo" (click)="ViewPhoto(AadharcardDetails?.SelectedFrontAadharcardBase64)">View
+                    Photo</span>
+                </div>
+              </div>
+              <div class="d-flex" (click)="DeleteFile('AadharFront')">
+                <img src="assets/img/delete_icon1.svg" alt="" class="w-75">
+              </div>
+            </div>
+          </div>
+          <h5 class="upload pt-4">Back side</h5>
+          <div class="border-dash" (click)="AadharBackuploader.click();"
+            *ngIf="validate.isNullEmptyUndefined(AadharcardDetails?.SelectedBackAadharcardImage)">
+            <!-- StepBtn=true; -->
+            <img src="assets/img/camera_icon.svg" alt="">
+            <input hidden type="file" #AadharBackuploader (change)="uploadFile($event,'AadharBack')" accept="image/*" />
+            <p class="pt-3">Upload A Picture</p>
+          </div>
+          <div class="row" *ngIf="!validate.isNullEmptyUndefined(AadharcardDetails?.SelectedBackAadharcardImage)">
+            <div class="d-flex justify-content-between pt-4">
+              <div class=" d-flex">
+                <div>
+                  <img src="{{AadharcardDetails?.SelectedBackAadharcardBase64}}" alt="" class="uploaded-img">
+                </div>
+                <div class="ps-3">
+                  <h6 class="font pt-2">{{AadharcardDetails?.SelectedBackAadharcardImage.name}}</h6>
+                  <span class="photo" (click)="ViewPhoto(AadharcardDetails?.SelectedBackAadharcardBase64)">View
+                    Photo</span>
+                </div>
+              </div>
+              <div class="d-flex" (click)="DeleteFile('AadharBack')">
+                <img src="assets/img/delete_icon1.svg" alt="" class="w-75">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <button class="btn btn-primary theme-button step-btn"
+              *ngIf="!validate.isNullEmptyUndefined(AadharcardDetails?.SelectedFrontAadharcardImage) && !validate.isNullEmptyUndefined(AadharcardDetails?.SelectedBackAadharcardImage) && !AdharVerificationComplete"
+              (click)="AdharVerificationComplete=true;">
+              <img src="assets/img/right-arrow1.png" />
+            </button>
+          </div>
+          <div class="row pt-5" *ngIf="AdharVerificationComplete">
+            <div class="form-floating mb-3 input-box ">
+              <input type="text" placeholder="Full Name" class="form-control" [(ngModel)]="AadharcardDetails.FullName">
+              <label for="first_name">Full Name</label>
+            </div>
+            <div class="form-floating mb-3 input-box ">
+              <input type="date" id="dob" placeholder="Date Of Birth" class="form-control"
+                [(ngModel)]="AadharcardDetails.DOB">
+              <label for="dob">Date Of Birth</label>
+            </div>
+            <div class="col-lg-12">
+              <ul class="nav nav-tabs mb-3" id="genderTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" [ngClass]="AadharcardDetails.Gender == 'MALE' ? 'active' : ''"
+                    (click)="AadharcardDetails.Gender = 'MALE'">Male</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" [ngClass]="AadharcardDetails.Gender == 'FEMALE' ? 'active' : ''"
+                    (click)="AadharcardDetails.Gender = 'FEMALE'">Female</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" [ngClass]="AadharcardDetails.Gender == 'OTHER' ? 'active' : ''"
+                    (click)="AadharcardDetails.Gender = 'OTHER'">Other</button>
+                </li>
+              </ul>
+            </div>
+            <div class="form-floating mb-3 input-box ">
+              <input type="text" placeholder="Aadhar Number" class="form-control" maxlength="12"
+                [(ngModel)]="AadharcardDetails.AadharNumber" (keypress)="validate.numberOnly($event)">
+              <label for="AadharNumber">Aadhar Number</label>
+            </div>
+            <div class="form-floating mb-3 input-box ">
+              <input type="text" placeholder="Residencial Address" class="form-control"
+                [(ngModel)]="AadharcardDetails.ResidencialAddress">
+              <label for="Residencial Address">Residencial Address</label>
+            </div>
+            <div class="col-lg-12">
+              <button class="btn btn-primary theme-button step-btn" (click)="SubmitAadharDetails()">
+                <img src="assets/img/right-arrow1.png" />
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Adhar Verification -->
+
+        <!-- Bank Verification -->
+        <div *ngIf="step==3">
+          <div (click)="Canclecheckuploader.click();"
+            *ngIf="validate.isNullEmptyUndefined(BankDetails?.SelectedCancleChequeImage)">
+            <h5 class="upload">Upload a photo of cancelled cheque</h5>
+            <div class="border-dash">
+              <img src="assets/img/camera_icon.svg" alt="">
+              <input hidden type="file" #Canclecheckuploader (change)="uploadFile($event,'CancleCheque')"
+                accept="image/*" />
+              <p class="pt-3">Upload A Picture</p>
+            </div>
+          </div>
+          <div *ngIf="!validate.isNullEmptyUndefined(BankDetails?.SelectedCancleChequeImage)">
+            <h5 class="upload"> Verify Cheque details and proceed</h5>
+            <div class="row mb-4">
+              <div class="d-flex justify-content-between pt-4">
+                <div class=" d-flex">
+                  <div>
+                    <img src="{{BankDetails?.SelectedCancleChequeBase64}}" alt="" class="uploaded-img">
+                  </div>
+                  <div class="ps-3">
+                    <h6 class="font pt-2">{{BankDetails?.SelectedCancleChequeImage.name}}</h6>
+                    <span class="photo" (click)="ViewPhoto(BankDetails?.SelectedCancleChequeBase64)">View Photo</span>
+                  </div>
+                </div>
+                <div class="d-flex" (click)="DeleteFile('CancleCheque')">
+                  <img src="assets/img/delete_icon1.svg" alt="" class="w-75">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-floating mb-3 input-box">
+                <input type="text" id="first_name" placeholder="Full Name" class="form-control"
+                  [(ngModel)]="BankDetails.AccountNumber" (keypress)="validate.numberOnly($event)">
+                <label for="first_name">Account Number</label>
+              </div>
+              <div class="form-floating mb-3 input-box ">
+                <input type="text" id="Father Name" placeholder="Father Name" class="form-control" maxlength="11"
+                  [(ngModel)]="BankDetails.IFSCCode">
+                <label for="father_name">IFSC Code</label>
+              </div>
+              <div class="form-floating mb-3 input-box ">
+                <input type="text" id="Father Name" placeholder="Father Name" class="form-control"
+                  [(ngModel)]="BankDetails.AccountHolderName">
+                <label for="father_name">Account Holder's Name</label>
+              </div>
+              <div class="form-floating mb-3 input-box ">
+                <input type="text" id="Pan Number" placeholder="Pan Number" class="form-control"
+                  [(ngModel)]="BankDetails.BankName">
+                <label for="pan_number">Bank Name</label>
+              </div>
+              <div class="form-floating mb-3 input-box ">
+                <input type="text" id="Pan Number" placeholder="Pan Number" class="form-control"
+                  [(ngModel)]="BankDetails.BankAddress">
+                <label for="pan_number">Bank Address</label>
+              </div>
+              <div class="row m-0 mobile">
+                <div class="col-3 ps-0 pe-0">
+                  <select class="form-select country-drop form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option selected>+91</option>
+                    <option value="1">+91</option>
+                    <option value="2">+209</option>
+                    <option value="3">+21</option>
+                  </select>
+                </div>
+                <div class="col-9 pe-0 ps-0">
+                  <div class="form-floating mb-3 input-box mobile-input">
+                    <input type="text" id="mobile" placeholder="Mobile Number" class="form-control"
+                      [(ngModel)]="BankDetails.MobileNumber" (keypress)="validate.numberOnly($event)">
+                    <label for="mobile">Mobile Number</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <button class="btn btn-primary theme-button step-btn" (click)="SubmitBankDetails()">
+                <img src="assets/img/right-arrow1.png" />
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Bank Verification -->
+
+        <!-- Personal Details -->
+        <div class="personal" id="personalDetails">
+          <div *ngIf="step==4">
+            <h5 class="upload">We require your personal information to get you KYC Details</h5>
+            <h5 class="pt-5 pb-2">Select Gender</h5>
+            <div class="col-lg-12">
+              <ul class="nav nav-tabs mb-3" id="genderTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" [ngClass]="PersonalDetails.Gender == 'M' ? 'active' : ''"
+                    (click)="PersonalDetails.Gender = 'M'">Male</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" [ngClass]="PersonalDetails.Gender == 'F' ? 'active' : ''"
+                    (click)="PersonalDetails.Gender = 'F'">Female</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" [ngClass]="PersonalDetails.Gender == 'T' ? 'active' : ''"
+                    (click)="PersonalDetails.Gender = 'T'">Other</button>
+                </li>
+              </ul>
+            </div>
+
+            <!-- <h5 class="pt-3 pb-2">Are you Single or Married</h5> -->
+            <h5 class="pt-3 pb-2">Marital status</h5>
+            <div class="col-lg-12">
+              <ul class="nav nav-tabs mb-3" id="StatusTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" [ngClass]="PersonalDetails.MaritalStatus == 'MARRIED' ? 'active' : ''"
+                    (click)="PersonalDetails.MaritalStatus = 'MARRIED'">Married</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" [ngClass]="PersonalDetails.MaritalStatus == 'UNMARRIED' ? 'active' : ''"
+                    (click)="PersonalDetails.MaritalStatus = 'UNMARRIED'">Unmarried</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" [ngClass]="PersonalDetails.MaritalStatus == 'OTHERS' ? 'active' : ''"
+                    (click)="PersonalDetails.MaritalStatus = 'OTHERS'">Others</button>
+                </li>
+
+              </ul>
+            </div>
+
+            <div class="form-floating mb-3 input-box ">
+              <input type="text" placeholder="Name of Father/Spouse" class="form-control"
+                [(ngModel)]="PersonalDetails.NameOfFatherSpouse">
+              <label for="pan_number">Name of Father/Spouse</label>
+            </div>
+
+            <h5 class="pt-3 pb-2">Relationship with Above</h5>
+            <div class="selectbox">
+              <div class="form-floating">
+                <select class="form-select mb-3 w-100" id="floatingSelect" aria-label="Floating label select example"
+                  [(ngModel)]="PersonalDetails.Relation">
+                  <option value="">Select Relation</option>
+                  <option value="0">Father </option>
+                  <option value="1">Spouse</option>
+                </select>
+                <label for="floatingSelect">Relationship</label>
+              </div>
+
+              <div class="form-floating mb-3 input-box">
+                <input type="text" placeholder="Maiden Name" class="form-control"
+                  [(ngModel)]="PersonalDetails.MaidenName">
+                <label for="floatingSelect">Maiden Name(Your Birth Surname)</label>
+              </div>
+
+              <div class="form-floating mb-3 input-box">
+                <input type="text" placeholder="Name of Mother" class="form-control"
+                  [(ngModel)]="PersonalDetails.MotherName">
+                <label for="floatingSelect">Name of Mother</label>
+              </div>
+
+              <div class="mb-3 ms-2">
+                <p class="mb-0 font">PanCard Number</p>
+                <!-- <b>DETCF6789K</b> -->
+                <b>{{PancardDetails?.PanNumber}}</b>
+              </div>
+              <div class="form-floating">
+                <select class="form-select mb-3 w-100" id="floatingSelect" aria-label="Floating label select example"
+                  [(ngModel)]="PersonalDetails.ResidentialStatus">
+                  <option value="">Select Residential Status</option>
+                  <option value="Resident Individual">Resident Individual</option>
+                  <option value="Foreign National">Foreign National</option>
+                  <option value="Person of Indian Origin">Person of Indian Origin</option>
+                </select>
+                <label for="floatingSelect">Residential Status</label>
+              </div>
+            </div>
+
+            <h5 class="pt-3 pb-2">Citizenship</h5>
+            <div class="selectbox">
+              <div class="col-lg-12">
+                <ul class="nav nav-tabs mb-3" id="CitizenShipTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" [ngClass]="PersonalDetails.CitizenShip == '101' ? 'active' : ''"
+                      (click)="PersonalDetails.CitizenShip = '101'">Indian</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" [ngClass]="PersonalDetails.CitizenShip == '003' ? 'active' : ''"
+                      (click)="PersonalDetails.CitizenShip = '003'">Other</button>
+                  </li>
+                </ul>
+              </div>
+              <div class="form-floating mb-3 input-box">
+                <input type="text" placeholder="Email ID" class="form-control" [(ngModel)]="PersonalDetails.EmailId">
+                <label>Email ID</label>
+              </div>
+              <div class="form-floating">
+                <select class="form-select mb-3 w-100" id="floatingSelect" aria-label="Floating label select example"
+                  [(ngModel)]="PersonalDetails.OccupationType">
+                  <option value="">Select Occupation Type</option>
+                  <option value="01">Private Sector</option>
+                  <option value="02">Public Sector</option>
+                  <option value="03">Business</option>
+                  <option value="04">Professional </option>
+                  <option value="06">Retired</option>
+                  <option value="07">Housewife</option>
+                  <option value="08">Student </option>
+                  <option value="10">Government Sector</option>
+                  <option value="99">Others</option>
+                  <option value="11">Self Employed </option>
+                  <option value="12">Not Categorized</option>
+                </select>
+                <label for="floatingSelect">Occupation Type</label>
+              </div>
+              <div class="row mobile">
+                <div class="col-3 pe-0">
+                  <select class="form-select country-drop form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option selected>+91</option>
+                    <option value="1">+91</option>
+                    <option value="2">+209</option>
+                    <option value="3">+21</option>
+                  </select>
+                </div>
+                <div class="col-9 ps-0">
+                  <div class="form-floating mb-3 input-box mobile-input">
+                    <input type="text" id="mobile" placeholder="Mobile Number" class="form-control" maxlength="10"
+                      [(ngModel)]="PersonalDetails.MobileNumber" (keypress)="validate.numberOnly($event)">
+                    <label for="mobile">Mobile Number</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-floating">
+                <select class="form-select mb-3 w-100" id="floatingSelect" aria-label="Floating label select example"
+                  [(ngModel)]="PersonalDetails.CommunicationAddressType">
+                  <option value="">Select Communication Address Type</option>
+                  <option value="01">Residential/Business</option>
+                  <option value="02">Residential</option>
+                  <option value="03">Business</option>
+                  <option value="04">Registered office</option>
+                  <option value="05">Unspecified</option>
+                </select>
+                <label for="floatingSelect">Communication Address Type</label>
+              </div>
+              <div class="form-floating">
+                <select class="form-select mb-3 w-100" id="floatingSelect" aria-label="Floating label select example"
+                  [(ngModel)]="PersonalDetails.PermanentAddressType">
+                  <option value="">Select Permanent Address Type</option>
+                  <option value="01">Residential/Business</option>
+                  <option value="02">Residential</option>
+                  <option value="03">Business</option>
+                  <option value="04">Registered office</option>
+                  <option value="05">Unspecified</option>
+                </select>
+                <label for="floatingSelect">Permanent Address Type</label>
+              </div>
+              <div class="form-floating">
+                <select class="form-select mb-3 w-100" id="floatingSelect" aria-label="Floating label select example"
+                  [(ngModel)]="PersonalDetails.AnnualIncome">
+                  <option value="">Select Annual Income</option>
+                  <option value="31">Below 1 Lac</option>
+                  <option value="32">1-5 Lacs</option>
+                  <option value="33">5-10 Lacs</option>
+                  <option value="34">10-25 Lacs</option>
+                  <option value="35">25 Lacs-1 crore</option>
+                  <option value="36">1 crore</option>
+                </select>
+                <label for="floatingSelect">Annual Income</label>
+              </div>
+              <div class="form-floating mb-3 input-box ">
+                <input type="text" id="Place of Birth" placeholder="Place of Birth" class="form-control"
+                  [(ngModel)]="PersonalDetails.PlaceOfBirth">
+                <label for="Place of Birth">Place of Birth</label>
+              </div>
+            </div>
+
+            <button class="btn btn-primary theme-button step-btn" (click)="SubmitFirstStepPersonalDetails()">
+              <img src="assets/img/right-arrow1.png" />
+            </button>
+
+          </div>
+
+          <div *ngIf="step==5" class="person1">
+            <h5 class="pb-4">Are you a politically exposed person (PEP)?</h5>
+            <div class="select-box pb-4">
+              <span [ngClass]="PersonalDetails.PEP == 'YES' ? 'active' :''"
+                (click)="PersonalDetails.PEP = 'YES'">Yes</span>
+              <span [ngClass]="PersonalDetails.PEP == 'NO' ? 'active' :''"
+                (click)="PersonalDetails.PEP = 'NO'">No</span>
+            </div>
+
+            <h5 class="mt-3 pb-4 ">Are you related to a politically exposed person (PEP)?</h5>
+            <div class="select-box pb-4">
+              <span [ngClass]="PersonalDetails.relatedtoPEP == 'YES' ? 'active' :''"
+                (click)="PersonalDetails.relatedtoPEP = 'YES'">Yes</span>
+              <span [ngClass]="PersonalDetails.relatedtoPEP == 'NO' ? 'active' :''"
+                (click)="PersonalDetails.relatedtoPEP = 'NO'">No</span>
+            </div>
+
+            <h5 class="mt-3 pb-4 ">Are you a residence outside of India?</h5>
+            <div class="select-box pb-3">
+              <span [ngClass]="PersonalDetails.ResidenceOutsideIndia == 'YES' ? 'active' :''"
+                (click)="PersonalDetails.ResidenceOutsideIndia = 'YES'">Yes</span>
+              <span [ngClass]="PersonalDetails.ResidenceOutsideIndia == 'NO' ? 'active' :''"
+                (click)="PersonalDetails.ResidenceOutsideIndia = 'NO'">No</span>
+            </div>
+
+            <div *ngIf="PersonalDetails.ResidenceOutsideIndia == 'YES'">
+              <div class="form-floating mt-3">
+                <select class="form-select mb-3 w-100" id="floatingSelect" aria-label="Floating label select example"
+                  [(ngModel)]="PersonalDetails.ResidingCountry">
+                  <option value="">Select Residing Country </option>
+                  <option value="074">France</option>
+                  <option value="181">Russian Federation</option>
+                  <option value="228">United Arab Emirates</option>
+                  <option value="229">United Kingdom</option>
+                  <option value="230">United States</option>
+                </select>
+                <label for="floatingSelect">Residing Country</label>
+              </div>
+            </div>
+
+            <h5 class="mt-4 pb-4">Are you a related person to this Investor?</h5>
+            <div class="select-box pb-5">
+              <span [ngClass]="PersonalDetails.RelatedToInvestor == 'YES' ? 'active' :''"
+                (click)="PersonalDetails.RelatedToInvestor = 'YES'">Yes</span>
+              <span [ngClass]="PersonalDetails.RelatedToInvestor == 'NO' ? 'active' :''"
+                (click)="PersonalDetails.RelatedToInvestor = 'NO'">No</span>
+
+            </div>
+
+            <div *ngIf="PersonalDetails.RelatedToInvestor == 'YES'">
+              <div class="d-flex justify-content-between identity" (click)="ProofOfIdentityuploader.click();"
+                *ngIf="validate.isNullEmptyUndefined(PersonalDetails?.ProofOfIdentityFile)">
+                <p class="photo mt-3 ps-2">Upload Proof of Identity</p>
+                <img src="assets/img/upload_icon.svg" alt="" class="pe-2 uploadimg">
+                <input hidden type="file" #ProofOfIdentityuploader (change)="uploadFile($event,'ProofOfIdentity')"
+                  accept="image/*" />
+              </div>
+
+              <div class="d-flex justify-content-between"
+                *ngIf="!validate.isNullEmptyUndefined(PersonalDetails?.ProofOfIdentityFile)">
+                <span>
+                  <h6> <b>Proof of Identity</b></h6>
+                  <p>{{PersonalDetails.ProofOfIdentityFile.name}}</p>
+                </span>
+                <span (click)="DeleteFile('ProofOfIdentity')">
+                  <img src="assets/img/delete_icon1.svg" alt="" class=" pt-2">
+                </span>
+              </div>
+            </div>
+
+            <div>
+              <button class="btn btn-primary theme-button step-btn" (click)="SubmitSecondStepPersonalDetails()">
+                <img src="assets/img/right-arrow1.png" />
+              </button>
+            </div>
+
+          </div>
+        </div>
+        <!-- Personal Details -->
+
+        <!-- Signature -->
+        <div *ngIf="step==6">
+          <h5 class="upload">Upload a photo of your Signature</h5>
+          <div (click)="Signatureuploader.click();"
+            *ngIf="validate.isNullEmptyUndefined(PersonalDetails?.SelectedSignatureImage)">
+            <div class="border-dash">
+              <img src="assets/img/camera_icon.svg" alt="">
+              <input hidden type="file" #Signatureuploader (change)="uploadFile($event,'Signature')" accept="image/*" />
+              <p class="pt-3">Upload A Picture</p>
+            </div>
+          </div>
+
+          <div *ngIf="!validate.isNullEmptyUndefined(PersonalDetails?.SelectedSignatureImage)">
+            <div class="signature">
+              <img src="{{PersonalDetails?.SelectedSignatureBase64}}" alt="" class="sign-img">
+              <h5 (click)="DeleteFile('Signature')">Re-take Picture</h5>
+            </div>
+            <div class="form-check mb-4">
+              <input type="checkbox" id="check1" value="something" name="consent1"
+                [checked]="PersonalDetails.consent1 == 1" (click)="Checked('consent1')" class="form-check-input">
+              <label for="check1" class="form-check-label">I am an Indian citizen, born and residing in India.</label>
+            </div>
+            <div class="form-check mb-4">
+              <input type="checkbox" id="check1" value="something" name="consent2"
+                [checked]="PersonalDetails.consent2 == 1" (click)="Checked('consent2')" checked=""
+                class="form-check-input">
+              <label for="check1" class="form-check-label">The declaration asks explicitly to include the USA as a
+                country of residence if you are a US citizen or a green cardholder.</label>
+            </div>
+            <button class="btn btn-primary theme-button step-btn" (click)="SubmitPersonalDetails()">
+              <img src="assets/img/right-arrow1.png" />
+            </button>
+          </div>
+        </div>
+        <!-- Signature -->
+
+        <!-- Photo Verification -->
+        <div *ngIf="step==7">
+          <h5 class="upload">Capture your photo</h5>
+          <div *ngIf="CapturePhoto">
+            <div *ngIf="!IsCameraOn">
+              <div class="border-dash" (click)="IsCameraOn=true">
+                <img src="assets/img/camera_icon.svg" alt="">
+                <p class="pt-3">Capture your photo</p>
+              </div>
+            </div>
+            <div *ngIf="IsCameraOn">
+              <webcam [height]="500" [width]="500" [trigger]="triggerObservable" (imageCapture)="handleImage($event)">
+              </webcam>
+              <button class="btn btn-primary" (click)="triggerSnapshot();">Take A Snapshot</button>
+            </div>
+          </div>
+
+          <!-- <div *ngIf="webcamImage != null">
+            <img src="{{webcamImage.imageAsDataUrl}}" alt="" />
+          </div> -->
+          <div *ngIf="!CapturePhoto">
+            <img src="{{webcamImage.imageAsDataUrl}}" alt="" class="w-75 man-image pt-3">
+            <p class="pt-4" (click)="photo1=true; photo=false">Picture not clear? then
+              <span class="changepic" (click)="CapturePhoto = true; ">Click Again</span>
+            </p>
+
+            <button class="btn btn-primary theme-button step-btn" (click)="SubmitCapturedPhoto()">
+              <img src="assets/img/right-arrow1.png" />
+            </button>
+          </div>
+        </div>
+        <!-- Photo Verification -->
+
+        <!-- video recording 1 -->
+        <div *ngIf="step==8">
+
+          <div>
+            <!-- <div>Video</div> -->
+            <div>
+              <!-- <button class="start-button" *ngIf="!isVideoRecording && !videoBlobUrl" (click)="startVideoRecording()">Start Video Recording</button> -->
+              <!-- <button class="stop-button" *ngIf="isVideoRecording && !videoBlobUrl" (click)="stopVideoRecording()">Stop
+                Video Recording</button> -->
+              <!-- <button class="cancel-button" *ngIf="!isVideoRecording && videoBlobUrl" (click)="clearVideoRecordedData()">Clear Video Recording</button> -->
+              <!-- <button class="download-button" *ngIf="!isVideoRecording && videoBlobUrl"
+                (click)="downloadVideoRecordedData()">Download Video Recording</button>
+              <div id="videoTimer" *ngIf="isVideoRecording && !videoBlobUrl"> {{ videoRecordedTime }} </div> -->
+            </div>
+          </div>
+          <!-- <div class="row">
+            <div class="col-md-12">
+              <div class="text-center">
+                <h3>
+                  <video #videoElement>
+                    <source *ngIf="!isVideoRecording && videoBlobUrl" [src]="videoBlobUrl">
+                  </video>
+                </h3>
+              </div>
+            </div>
+          </div> -->
+
+
+          <div *ngIf="Capture">
+            <h5 class="upload">Keep your face at the center of the recording area</h5>
+          </div>
+          <!-- showvideodiv() -->
+          <div *ngIf="!isVideoRecording && !videoBlobUrl" (click)="GetRandomNumberandStartRecording()">
+            <div class="border-dash">
+              <img src="assets/img/videocam_black.svg" alt="">
+              <p class="pt-3">Click here to start</p>
+            </div>
+          </div>
+          <div id="video">
+            <div class="w-75 man-image pos-rel">
+              <video width="100%" height="400" #videoElement>
+                <source *ngIf="!isVideoRecording && videoBlobUrl" [src]="videoBlobUrl">
+              </video>
+              <!-- <img src="../../../../assets/img/mov_bbb.mp4" alt="" class="w-100 man-image pt-2"> -->
+              <div class="pos" *ngIf="isVideoRecording && !videoBlobUrl">
+                <p>Speak aloud following number</p>
+                <ul>
+                  <li>{{RandomNumber[0]}}</li>
+                  <li>{{RandomNumber[1]}}</li>
+                  <li>{{RandomNumber[2]}}</li>
+                  <li>{{RandomNumber[3]}}</li>
+                  <li>{{RandomNumber[4]}}</li>
+                  <li>{{RandomNumber[5]}}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Verification -->
+        <div *ngIf="step==9">
+          <div>
+            <h4 class="breadcrumb-title1 mt-5">Video Upload Successfull</h4>
+            <p class="color-222">Your video has been successfully uploaded for verification<br> purpose.</p>
+
+            <div class="butn btn-div">
+              <button type="button" class="btn btn-primary dashboard-btn me-2" (click)="RetakeVideo()">
+                Re-take Video </button>
+              <button type="button" class="btn btn-primary video-btn ms-5" (click)="SubmitVideo(); ">
+                <!-- SubmitVideo() SubmitCapturedVideo(); -->
+                Proceed
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Recording 2 -->
+        <div *ngIf="step==10">
+          <div>
+            <h5 class="upload">How would you like to sign the contract?</h5>
+            <div class="esign select-box">
+
+              <span class="w-75 m-0 mt-5" (click)="CreateAadharESign()">Aadhar esign</span>
+              <!-- <span class="w-75 ms-0 mt-4">Smart esign</span> -->
+            </div>
+            <!-- <button class="btn btn-primary theme-button step-btn" (click)="step=11;">
+              <img src="assets/img/right-arrow1.png" />
+            </button> -->
+          </div>
+        </div>
+
+        <!-- Transaction Successful-->
+        <div *ngIf="step==11">
+          <h4 class="breadcrumb-title1">Transaction Successful</h4>
+          <p class="color-222">Your signed contract has been successfully generated.</p>
+          <div class="risk-note">
+            <span>
+              <b>Transaction ID : VADE0B248932ACRAF23DB3C4</b>
+              <p>Timestamp : 22/01/2022, 12:54:00 PM.</p>
+            </span>
+          </div>
+          <div class="butn down btn-div ">
+            <button type="button" class="btn btn-primary dashboard-btn me-5"> Download File</button>
+            <button type="button" class="btn btn-primary video-btn ms-5" (click)="SubmitNow()">Submit Now </button>
+          </div>
+        </div>
+
+        <!-- Congratulations-->
+        <div *ngIf="step==12">
+          <h4 class="breadcrumb-title1 mt-5">Congratulations!</h4>
+          <p class="color-222">Begin investing NOW !</p>
+          <div class="risk-note mb-5">
+            <b>Rejections/Discrepancies will be informed to you in 24-72 hours.</b>
+          </div>
+          <div>
+            <div [routerLink]="['/risk-profiling']">
+              <button type="button" class="btn btn-primary video-btn float-start mt-5">Start Investing</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal -->
+
+
+  <div class="modal fade" id="bank-modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true"
+    *ngIf="BankModall">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="row justify-content-center">
+            <img src="assets/img/Money-received.gif" alt="" class="gif">
+            <h5 class="activetxtModal">We are depositing Rs.1 in your bank</h5>
+            <p class="text-center">This will take 30 secs...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="viewphoto-modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="row justify-content-center">
+            <img src="{{ImagetoView}}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

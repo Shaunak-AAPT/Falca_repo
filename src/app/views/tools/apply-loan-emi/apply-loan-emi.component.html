@@ -1,0 +1,108 @@
+<div class="container pt-30">
+    <div class="row">
+        <div class="col-lg-6">
+            <img src="assets/img/tools/Crypto_portfolio.svg" class="main-img" alt="main-img">
+        </div>
+        <div class="col-lg-6">
+            <h3 class="main-title">Apply for loan</h3>
+            <div class="mt-5">
+                <div class="form-floating mb-4 input-box">
+                    <input type="text" class="form-control" id="full_name" [(ngModel)]="FullName" placeholder="Your Name">
+                    <label for="full_name">Full Name</label>
+                </div>
+                <div class="form-floating mb-4 input-box">
+                    <input type="text" class="form-control" id="mobile_number" maxlength="10" [(ngModel)]="Mobile" placeholder="Your Mobile Number" (keypress)="validation.numberOnly($event)">
+                    <label for="mobile_number">Mobile Number</label>
+                </div>
+                <div class="form-floating mb-4 input-box">
+                    <input type="email" class="form-control" id="email_id" [(ngModel)]="Email" placeholder="name@example.com">
+                    <label for="email_id">Email address</label>
+                </div>
+                <div class="form-floating mb-4 input-box">
+                    <input type="date" class="form-control" id="date_pick" [(ngModel)]="DOB" value="{{this.eighteenYearsAgo}}" max="{{this.eighteenYearsAgo}}" placeholder="DOB">
+                    <label for="date_pick">Date of Birth</label>
+                </div>
+                <!-- <div class="form-floating mb-4 input-box">
+                    <input type="text" class="form-control" id="pan_no" placeholder="PAN Number">
+                    <label for="pan_no">PAN Number</label>
+                </div> -->
+                <div class="form-check mb-4">
+                    <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something" checked>
+                    <label class="form-check-label" for="check1">I agree to the <b>Terms & Conditions</b></label>
+                  </div>
+
+                <div class="row pr-btn">
+                    <button type="button" class="btn btn-primary transparent-button" routerLink="/"><span class="me-2"><img src="assets/img/tools/reset.svg"></span> Back </button>
+                    <button type="button" *ngIf="!submitbtnLoading" class="btn btn-primary theme-button" (click)="submit()">Submit <span class="ms-2"><img src="assets/img/tools/next.svg"></span></button>
+                    <button type="button" *ngIf="submitbtnLoading" class="btn btn-primary theme-button" style="font-size: 10px!important;"><i class="fa fa-spin fa-spinner" style="margin-right: 5px;"></i> Please Wait...</button>
+                 </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- otp Modal -->
+<div class="modal fade" id="otp-screen" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+            <div class="row">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h3 class="otp-title">Enter OTP</h3>
+                <p class="otp-text">OTP sent on <b>{{Email}}. </b> <span class="link-text" data-bs-dismiss="modal">Change?</span></p>
+            <div class="col-2">
+                <input type="text" id="otp1" inputmode="numeric" [(ngModel)]="otp1" class="form-control otp-field" maxlength="1" (keyup)="changeOtpFocus(1,$event)" (keypress)="validation.numberOnly($event)"/>
+            </div>
+            <div class="col-2">
+                <input type="text" id="otp2" inputmode="numeric" [(ngModel)]="otp2" class="form-control otp-field" maxlength="1" (keyup)="changeOtpFocus(2,$event)" (keypress)="validation.numberOnly($event)"/>
+            </div>
+            <div class="col-2">
+                <input type="text" id="otp3" inputmode="numeric" [(ngModel)]="otp3" class="form-control otp-field" maxlength="1" (keyup)="changeOtpFocus(3,$event)" (keypress)="validation.numberOnly($event)"/>
+            </div>
+            <div class="col-2">
+                <input type="text" id="otp4" inputmode="numeric" [(ngModel)]="otp4" class="form-control otp-field" maxlength="1" (keyup)="changeOtpFocus(4,$event)" (keypress)="validation.numberOnly($event)"/>
+            </div>
+            <div class="col-2">
+                <input type="text" id="otp5" inputmode="numeric" [(ngModel)]="otp5" class="form-control otp-field" maxlength="1" (keyup)="changeOtpFocus(5,$event)" (keypress)="validation.numberOnly($event)"/>
+            </div>
+            <div class="col-2">
+                <input type="text" id="otp6" inputmode="numeric" [(ngModel)]="otp6" class="form-control otp-field" maxlength="1" (keyup)="changeOtpFocus(6,$event)" (keypress)="validation.numberOnly($event)"/>
+            </div>
+            <div class="col-5">
+                <p *ngIf="showOtpinterval" class="otp-bottomtext">OTP expires in <br class="hidden-lg"/>{{OtpResendTime}}</p>
+            </div>
+            <div class="col-7 text-end">
+                <p *ngIf="!showOtpinterval && time==0" class="otp-bottomtext">Didn't recieve OTP? <br class="hidden-lg"/> <span class="link-text" (click)="submit()">Resend OTP</span></p>
+            </div>
+            </div>
+          <div class="row pr-btn">
+            <button type="button" class="btn btn-primary transparent-button" data-bs-dismiss="modal"><span class="me-2"><img src="assets/img/tools/reset.svg"></span> Cancel </button>
+            <button type="button" *ngIf="!submitotpbtnLoading" class="btn btn-primary theme-button" (click)="verifyOtp()">Submit <span class="ms-2"><img src="assets/img/tools/next.svg"></span></button>
+            <button type="button" *ngIf="submitotpbtnLoading" class="btn btn-primary theme-button" style="font-size: 10px!important;"><i class="fa fa-spin fa-spinner" style="margin-right: 5px;"></i> Please Wait...</button>
+        </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- thankyou modal -->
+<!-- Modal -->
+<div class="modal fade" id="thank-you" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <div class="modal-body">
+           <div class="row text-center">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h3 class="otp-title">Thank You</h3>
+            <img src="assets/img/tools/7-step.png" class="thank-img" alt="thank-img"/>
+            <p>Thank you for your interest our representative will connect you soon.</p>
+           </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>

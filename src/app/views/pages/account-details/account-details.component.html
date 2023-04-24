@@ -1,0 +1,824 @@
+<div class="container mb10per">
+  <div class="row mt-4">
+    <div class="col-lg-12">
+      <h4 class="breadcrumb-title"><span [routerLink]="['/dashboard']"><i
+            class="fa fa-arrow-left i-icon"></i></span>Account Details</h4>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-lg-3 col-md-4" id="sidebar-main">
+      <app-account-desktop-menu></app-account-desktop-menu>
+    </div>
+    <div class="col-lg-9 col-md-8 tab-detail">
+      <div class="row align-items-center port-row">
+        <div class="col-6 ps-0">
+          <h4 class="breadcrumb-title">Portfolio</h4>
+        </div>
+        <div class="col-6 pe-0 text-end">
+          <select class="form-select port-drop" aria-label=".form-select-lg example">
+            <option selected>Myself</option>
+            <option value="1">Myself</option>
+            <option value="2">Myself</option>
+          </select>
+        </div>
+      </div>
+      <div class="row mt-3 hidden-lg">
+        <div class="mob-card">
+          <div class="mob-cardhead" (click)="GetMyInvestments()">
+            <div>
+              <p class="inv-title">My Investments</p>
+              <p class="inv-date">Last Updated : Nov 25, 2021</p>
+            </div>
+            <div>
+              <h5>₹ {{InvestmentsCount}}</h5>
+            </div>
+          </div>
+          <div class="mbo-cardbody">
+            <div class="row">
+              <div class="col-6">
+                <p class="pos-rel">My Insurances</p>
+                <h5>{{InsuranceCount}} <span>Insurances</span></h5>
+              </div>
+              <div class="col-6">
+                <p class="pos-rel">My Loans</p>
+                <h5>₹ {{LiabilitiesCount}}</h5>
+              </div>
+            </div>
+            <div class="credit-score">
+              <div>
+                <p>Credit Score</p>
+              </div>
+              <div>
+                <p class="pnt"><span>0</span>/0</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="row">
+        <ul class="nav nav-tabs" id="dashboardTab" role="tablist">
+          <li class="nav-item" role="presentation" (click)="GetMyInvestments()">
+            <button class="nav-link active" id="invest-tab" data-bs-toggle="tab" data-bs-target="#myinvest"
+              type="button" role="tab" aria-controls="home" aria-selected="true">
+              <div class="mobiletab">
+                <h5>Investments</h5>
+              </div>
+              <div class="card-div desktab">
+                <div class="carddiv-title">
+                  <div class="title-text">
+                    <h5>My Investments</h5>
+                    <p>Last Updated : Nov 25, 2021</p>
+                  </div>
+                  <div class="card-icon">
+                    <!-- <img src="assets/img/net_worth_icon.svg" /> -->
+                  </div>
+                </div>
+                <div class="card-value">
+                  <h4>₹ {{InvestmentsCount}}</h4>
+                </div>
+              </div>
+            </button>
+          </li>
+          <li class="nav-item" role="presentation" (click)="InsurancetRouterUrl()">
+            <button class="nav-link" id="insure-tab" data-bs-toggle="tab" data-bs-target="#myinsure" type="button"
+              role="tab" aria-controls="profile" aria-selected="false">
+              <div class="mobiletab">
+                <h5>My Insurance</h5>
+              </div>
+              <div class="card-div desktab">
+                <div class="carddiv-title">
+                  <div class="title-text">
+                    <h5>My Insurance</h5>
+                    <p>&nbsp;</p>
+                  </div>
+                  <div class="card-icon">
+                    <!-- <img src="assets/img/insurance_icon.svg" /> -->
+                  </div>
+                </div>
+                <div class="card-value">
+                  <h4>{{InsuranceCount}} <span>Active Insurances</span></h4>
+                </div>
+              </div>
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="liabilities-tab" data-bs-toggle="tab" data-bs-target="#myliabilities"
+              type="button" role="tab" aria-controls="contact" aria-selected="false">
+              <div class="mobiletab">
+                <h5>Loans</h5>
+              </div>
+              <div class="card-div desktab">
+                <div class="carddiv-title">
+                  <div class="title-text">
+                    <h5>My Loans</h5>
+                    <p>&nbsp;</p>
+                  </div>
+                  <div class="card-icon">
+                    <!-- <img src="assets/img/liabilities_icon.svg" /> -->
+                  </div>
+                </div>
+                <div class="card-value">
+                  <h4>₹ {{LiabilitiesCount}}</h4>
+                </div>
+              </div>
+            </button>
+          </li>
+        </ul>
+
+        <div class="scrollable-div">
+          <div class="tab-content tabscroll" id="dashTabContent">
+            <div class="tab-pane fade show active" id="myinvest" role="tabpanel" aria-labelledby="invest-tab">
+              <div class="row">
+                <div class="col-lg-6 col-12" routerLink="/account-mutualfunds-portfolio">
+                  <div class="main-div">
+                    <div class="row outer-bg align-items-center">
+                      <div class="col-lg-2 col-2">
+                        <img src="assets/img/mutual-funds.png" class="img-fluid">
+                      </div>
+                      <div class="col-lg-7 col-7">
+                        <h5>Mutual Funds</h5>
+                      </div>
+                      <div class="col-lg-3 col-3">
+                        <h6>Weights (%)</h6>
+                        <p>24.5%</p>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="bg-pr">
+                          <div class="fill-pr" style="width: 20%"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lb-bg">
+                      <div class="row">
+                        <div class="col-lg-4 col-4 cv">
+                          <h5>Current Value</h5>
+                          <p>₹ 296.16 Cr</p>
+                        </div>
+                        <div class="col-lg-4 col-4 iv">
+                          <h5>Invested Value</h5>
+                          <p>₹ 127.01 Cr</p>
+                        </div>
+                        <div class="col-lg-4 col-4 gl">
+                          <h5>Gain/Loss</h5>
+                          <p>₹ 169.15 Cr <span class="text-green">(133.2%)</span></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-12">
+                  <div class="main-div">
+                    <div class="row outer-bg align-items-center">
+                      <div class="col-lg-2 col-2">
+                        <img src="assets/img/aif.png" class="img-fluid">
+                      </div>
+                      <div class="col-lg-7 col-7">
+                        <h5>AIF <span class="small-text"> (Alternate Investment Funds)</span></h5>
+                      </div>
+                      <div class="col-lg-3 col-3">
+                        <h6>Weights (%)</h6>
+                        <p>24.5%</p>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="bg-pr">
+                          <div class="fill-pr" style="width: 20%"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lb-bg">
+                      <div class="row">
+                        <div class="col-lg-4 col-4 cv">
+                          <h5>Current Value</h5>
+                          <p>₹ 296.16 Cr</p>
+                        </div>
+                        <div class="col-lg-4 col-4 iv">
+                          <h5>Invested Value</h5>
+                          <p>₹ 127.01 Cr</p>
+                        </div>
+                        <div class="col-lg-4 col-4 gl">
+                          <h5>Gain/Loss</h5>
+                          <p>₹ 169.15 Cr (133.2%)</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-12 pt-2">
+                  <div class="main-div">
+                    <div class="row outer-bg align-items-center">
+                      <div class="col-lg-2 col-2">
+                        <img src="assets/img/pms.png" class="img-fluid">
+                      </div>
+                      <div class="col-lg-7 col-7">
+                        <h5>PMS <span class="small-text">(Portfolio Management Services)</span></h5>
+                      </div>
+                      <div class="col-lg-3 col-3">
+                        <h6>Weights (%)</h6>
+                        <p>24.5%</p>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="bg-pr">
+                          <div class="fill-pr" style="width: 20%"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lb-bg">
+                      <div class="row">
+                        <div class="col-lg-4 col-4 cv">
+                          <h5>Current Value</h5>
+                          <p>₹ 296.16 Cr</p>
+                        </div>
+                        <div class="col-lg-4 col-4 iv">
+                          <h5>Invested Value</h5>
+                          <p>₹ 127.01 Cr</p>
+                        </div>
+                        <div class="col-lg-4 col-4 gl">
+                          <h5>Gain/Loss</h5>
+                          <p>₹ 169.15 Cr (133.2%)</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-12 pt-2">
+                  <div class="main-div">
+                    <div class="row outer-bg align-items-center">
+                      <div class="col-lg-2 col-2">
+                        <img src="assets/img/fd.png" class="img-fluid">
+                      </div>
+                      <div class="col-lg-7 col-7">
+                        <h5>Fixed Deposit</h5>
+                      </div>
+                      <div class="col-lg-3 col-3">
+                        <h6>Weights (%)</h6>
+                        <p>24.5%</p>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="bg-pr">
+                          <div class="fill-pr" style="width: 20%"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lb-bg">
+                      <div class="row">
+                        <div class="col-lg-4 col-4 cv">
+                          <h5>Current Value</h5>
+                          <p>₹ 296.16 Cr</p>
+                        </div>
+                        <div class="col-lg-4 col-4 iv">
+                          <h5>Invested Value</h5>
+                          <p>₹ 127.01 Cr</p>
+                        </div>
+                        <div class="col-lg-4 col-4 gl">
+                          <h5>Gain/Loss</h5>
+                          <p>₹ 169.15 Cr (133.2%)</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-12 pt-2">
+                  <div class="main-div">
+                    <div class="row outer-bg align-items-center">
+                      <div class="col-lg-2 col-2">
+                        <img src="assets/img/bond.png" class="img-fluid">
+                      </div>
+                      <div class="col-lg-7 col-7">
+                        <h5>Bonds</h5>
+                      </div>
+                      <div class="col-lg-3 col-3">
+                        <h6>Weights (%)</h6>
+                        <p>21%</p>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="bg-pr">
+                          <div class="fill-pr" style="width: 20%"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lb-bg">
+                      <div class="row">
+                        <div class="col-lg-4 col-4 cv">
+                          <h5>Current Value</h5>
+                          <p>₹ 296.16 Cr</p>
+                        </div>
+                        <div class="col-lg-4 col-4 iv">
+                          <h5>Invested Value</h5>
+                          <p>₹ 127.01 Cr</p>
+                        </div>
+                        <div class="col-lg-4 col-4 gl">
+                          <h5>Gain/Loss</h5>
+                          <p>₹ 169.15 Cr (133.2%)</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-12 pt-2" routerLink="/account-digigold-portfolio">
+                  <div class="main-div">
+                    <div class="row outer-bg align-items-center">
+                      <div class="col-lg-2 col-2">
+                        <img src="assets/img/digital-gold.png" class="img-fluid">
+                      </div>
+                      <div class="col-lg-7 col-7">
+                        <h5>Digital Gold</h5>
+                      </div>
+                      <div class="col-lg-3 col-3">
+                        <h6>Weights (%)</h6>
+                        <p>0</p>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="bg-pr">
+                          <div class="fill-pr" style="width: 20%"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="lb-bg">
+                      <div class="row">
+                        <div class="col-lg-4 col-4 cv">
+                          <h5>Current Value</h5>
+                          <p>{{DiGiGoldDetails?.balQuantity}}</p>
+                        </div>
+                        <div class="col-lg-4 col-4 iv">
+                          <h5>Invested Value</h5>
+                          <p>{{validation.indianRupeeFormat(DiGiGoldDetails?.investAmount)}}</p>
+                        </div>
+                        <div class="col-lg-4 col-4 gl">
+                          <h5>Gain/Loss</h5>
+                          <p>0</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row table-row d-none">
+                <div class="col-lg-6 col-md-12 ps-2 pe-2">
+                  <div class="table-flex">
+                    <div class="bank-logo">
+                      <img src="assets/img/icici-bank.png" alt="icici-bank"/>
+                    </div>
+                    <div class="my-bank">
+                      <h5>ICICI Prudential Technology</h5>
+                      <p>
+                        <span>3 <i class="fa fa-star"></i></span>
+                        <span> High Risk</span>
+                        <span> Equity</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-5 mb-bg-l col-6 ps-2 pe-2">
+                  <div class="returns">
+                    <h5>Absolute Returns</h5>
+                    <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-5 mb-bg-r col-6 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Total Investment</h5>
+                    <p>₹ 20,50,200</p>
+                  </div>
+                </div>
+                <div class="col-lg-1 col-md-2 ps-2 pe-2 text-center">
+                  <div class="dropdown menu-btn">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <li><a class="dropdown-item" href="">View Fund</a></li>
+                      <li><a class="dropdown-item" href="">Redeem Fund</a></li>
+                      <li><a class="dropdown-item" href="">Switch Fund</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="row table-row d-none">
+                <div class="col-lg-6 col-md-12 pe-2">
+                  <div class="table-flex">
+                    <div class="bank-logo">
+                      <img src="assets/img/birla.png" alt="birla"/>
+                    </div>
+                    <div class="my-bank">
+                      <h5>Aditya Birla Sun Life Digital India Fund Direct Plan</h5>
+                      <p>
+                        <span>3 <i class="fa fa-star"></i></span>
+                        <span> High Risk</span>
+                        <span> Equity</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-5 mb-bg-l col-6 ps-2 pe-2">
+                  <div class="returns">
+                    <h5>Absolute Returns</h5>
+                    <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-5 mb-bg-r col-6 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Total Investment</h5>
+                    <p>₹ 20,50,200</p>
+                  </div>
+                </div>
+                <div class="col-lg-1 col-md-2 ps-2 pe-2 text-center">
+                  <div class="dropdown menu-btn">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <li><a class="dropdown-item" href="">View Fund</a></li>
+                      <li><a class="dropdown-item" href="">Redeem Fund</a></li>
+                      <li><a class="dropdown-item" href="">Switch Fund</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="row table-row d-none">
+                <div class="col-lg-6 col-md-12 pe-2">
+                  <div class="table-flex">
+                    <div class="bank-logo">
+                      <img src="assets/img/icici-bank.png" alt="icici"/>
+                    </div>
+                    <div class="my-bank">
+                      <h5>ICICI Prudential Technology</h5>
+                      <p>
+                        <span>3 <i class="fa fa-star"></i></span>
+                        <span> High Risk</span>
+                        <span> Equity</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-5 mb-bg-l col-6 ps-2 pe-2">
+                  <div class="returns">
+                    <h5>Absolute Returns</h5>
+                    <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-5 mb-bg-r col-6 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Total Investment</h5>
+                    <p>₹ 20,50,200</p>
+                  </div>
+                </div>
+                <div class="col-lg-1 col-md-2 ps-2 pe-2 text-center">
+                  <div class="dropdown menu-btn">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <li><a class="dropdown-item" href="">View Fund</a></li>
+                      <li><a class="dropdown-item" href="">Redeem Fund</a></li>
+                      <li><a class="dropdown-item" href="">Switch Fund</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="row table-row d-none">
+                <div class="col-lg-6 col-md-12 pe-2">
+                  <div class="table-flex">
+                    <div class="bank-logo">
+                      <img src="assets/img/birla.png" alt="birla"/>
+                    </div>
+                    <div class="my-bank">
+                      <h5>Aditya Birla Sun Life Digital India Fund Direct Plan</h5>
+                      <p>
+                        <span>3 <i class="fa fa-star"></i></span>
+                        <span> High Risk</span>
+                        <span> Equity</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-5 mb-bg-l col-6 ps-2 pe-2">
+                  <div class="returns">
+                    <h5>Absolute Returns</h5>
+                    <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-5 mb-bg-r col-6 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Total Investment</h5>
+                    <p>₹ 20,50,200</p>
+                  </div>
+                </div>
+                <div class="col-lg-1 col-md-2 ps-2 pe-2 text-center">
+                  <div class="dropdown menu-btn">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <li><a class="dropdown-item" href="">View Fund</a></li>
+                      <li><a class="dropdown-item" href="">Redeem Fund</a></li>
+                      <li><a class="dropdown-item" href="">Switch Fund</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="row table-row d-none">
+                <div class="col-lg-6  col-md-12 pe-2">
+                  <div class="table-flex">
+                    <div class="bank-logo">
+                      <img src="assets/img/birla.png" alt="birla"/>
+                    </div>
+                    <div class="my-bank">
+                      <h5>Aditya Birla Sun Life Digital India Fund Direct Plan</h5>
+                      <p>
+                        <span>3 <i class="fa fa-star"></i></span>
+                        <span> High Risk</span>
+                        <span> Equity</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-5 mb-bg-l col-6 ps-2 pe-2">
+                  <div class="returns">
+                    <h5>Absolute Returns</h5>
+                    <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-5 mb-bg-r col-6 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Total Investment</h5>
+                    <p>₹ 20,50,200</p>
+                  </div>
+                </div>
+                <div class="col-lg-1 col-md-2 ps-2 pe-2 text-center">
+                  <div class="dropdown menu-btn">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <li><a class="dropdown-item" href="">View Fund</a></li>
+                      <li><a class="dropdown-item" href="">Redeem Fund</a></li>
+                      <li><a class="dropdown-item" href="">Switch Fund</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="myinsure" role="tabpanel" aria-labelledby="insure-tab">
+              <div class="row table-row" *ngFor="let list of InsuranceList" (click)="GetActivePraposer(list)">
+                <div class="col-lg-5 col-md-12 pe-2">
+                  <div class="table-flex">
+                    <div class="bank-logo">
+                      <img src="assets/img/hdfc_ergo.png" alt="hdfc"/>
+                    </div>
+                    <div class="my-bank">
+                      <h5>{{list?.insurance_company}}</h5>
+                      <p>
+                        Health Insurance
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-6 mb-bg-l1 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Policy Status</h5>
+                    <p>{{list.status}}</p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-6 mb-bg-l1 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Renewal Due On</h5>
+                    <p>{{list.expiry_date}}</p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-6 ins-pre ps-2 pe-2">
+                  <div class="premium">
+                    <h5>Policy Premium</h5>
+                    <p> {{list?.total_premium}}/Yearly</p>
+                  </div>
+                </div>
+                <div class="col-lg-1 col-md-3 ins-pre col-6 ps-2 pe-2 text-center">
+                  <div class="dwnld">
+                    <button type="button" class="btn btn-primary dwnld-btn hidden-lg "> Download Policy</button>
+                    <a href="{{list?.coi}}">
+                      <img src="assets/img/download_icon.svg" class="hidden-xs">
+                    </a>
+                    
+                    <!-- <i class="fa fa-download hidden-xs"></i> -->
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="row table-row">
+                <div class="col-lg-5 col-md-12 pe-2">
+                  <div class="table-flex">
+                    <div class="bank-logo">
+                      <img src="assets/img/hdfc_ergo.png" />
+                    </div>
+                    <div class="my-bank">
+                      <h5>HDFC Ergo General Insurance</h5>
+                      <p>
+                        Health Insurance
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-6 mb-bg-l1 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Policy Status</h5>
+                    <p>Policy Issued</p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-6 mb-bg-l1 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Renewal Due On</h5>
+                    <p>06 May, 2022</p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-6 ins-pre ps-2 pe-2">
+                  <div class="premium">
+                    <h5>Policy Premium</h5>
+                    <p>₹ 1,019/Yearly</p>
+                  </div>
+                </div>
+                <div class="col-lg-1 col-md-3 ins-pre col-6 ps-2 pe-2 text-center">
+                  <div class="dwnld">
+                    <button type="button" class="btn btn-primary dwnld-btn hidden-lg "> Download Policy </button>
+                    <img src="assets/img/download_icon.svg" class="hidden-xs">
+                    <i class="fa fa-download hidden-xs"></i>
+                  </div>
+                </div>
+              </div> -->
+              <!-- <div class="row table-row">
+                <div class="col-lg-5 col-md-12 pe-2">
+                  <div class="table-flex">
+                    <div class="bank-logo">
+                      <img src="assets/img/hdfc_ergo.png" />
+                    </div>
+                    <div class="my-bank">
+                      <h5>HDFC Ergo General Insurance</h5>
+                      <p>
+                        Health Insurance
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-6 mb-bg-l1 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Policy Status</h5>
+                    <p>Policy Issued</p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-6 mb-bg-l1 ps-2 pe-2">
+                  <div class="invests">
+                    <h5>Renewal Due On</h5>
+                    <p>06 May, 2022</p>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-3 col-6 ins-pre ps-2 pe-2">
+                  <div class="premium">
+                    <h5>Policy Premium</h5>
+                    <p>₹ 1,019/Yearly</p>
+                  </div>
+                </div>
+                <div class="col-lg-1 col-md-3 ins-pre col-6 ps-2 pe-2 text-center">
+                  <div class="dwnld">
+                    <button type="button" class="btn btn-primary dwnld-btn hidden-lg "> Download Policy </button>
+                    <img src="assets/img/download_icon.svg" class="hidden-xs">                  
+                  </div>
+                </div>
+              </div> -->
+            </div>
+            <div class="tab-pane fade" id="myliabilities" role="tabpanel" aria-labelledby="liabilities-tab">
+
+
+              <div class="row align-items-center mb-2">
+                <div class="col-6">
+                  <h5 class="allloan">All Loans</h5>
+                </div>
+                <div class="col-6 text-end">
+                  <div class="dropdown menu-btn filter">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1"
+                      data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="assets/img/filter_icon.svg" alt="filter">
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <li><a class="dropdown-item" href="">Applied Loan</a></li>
+                      <li><a class="dropdown-item" href="">Active Loan</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div *ngFor="let liability of LiabilitiesList" (click)="UpdateOfflineLoan(liability)">
+                <div class="row table-row" >
+                  <div class="col-lg-4 col-md-12 pe-2">
+                    <div class="table-flex">
+                      <div class="bank-logo">
+                        <img src="assets/img/kotak_bank.png" alt="kotak"/>
+                      </div>
+                      <div class="my-bank">
+                        <h5>{{liability?.product_name}}</h5>
+                        <p>{{liability?.product?.name}}</p>
+                        <!-- <p *ngIf="liability?.loan_type == 1">Personal Loan</p>
+                        <p *ngIf="liability?.loan_type == 2">Home Loan</p>
+                        <p *ngIf="liability?.loan_type == 3">Education Loan</p>
+                        <p *ngIf="liability?.loan_type == 4">Business Loan</p>
+                        <p *ngIf="liability?.loan_type == 5">Loan Against Property</p> -->
+                      </div>
+                    </div>                  
+                  </div>
+
+                  <div class="col-lg-2 col-md-3 col-4 mb-bg-l2 ps-2 pe-2">
+                    <div class="invests">
+                      <h5>Loan Amount</h5>
+                      <p>₹ {{liability?.loan_amount_required}}</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 col-md-3 col-4 mb-bg-l2 ps-2 pe-2">
+                    <div class="invests">
+                      <h5>Loan sanctioned</h5>
+                      <p>{{liability?.date_sanctioned}}</p>
+                      <!-- <p>12th Apr, 2021</p> -->
+                    </div>
+                  </div>
+                  <div class="col-lg-2 col-md-3 col-4 mb-bg-l2 ps-2 pe-2">
+                    <div class="invests">
+                      <h5>EMI End Date</h5>
+                      <p>{{liability?.emi_end_date}}</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 col-md-3 col-12 liable ps-2 pe-2">
+                    <div class="premium">
+                      <h5>EMI due on {{liability?.emi_due_date}}</h5>
+                      <p> {{liability?.emi_month}}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- <div class="row table-row" *ngIf="liability?.offline == false">
+                  <div class="col-lg-4 col-md-12 pe-2">
+                    <div class="table-flex">
+                      <div class="bank-logo">
+                        <img src="assets/img/kotak_bank.png" />
+                      </div>
+                      <div class="my-bank">
+                        <h5>{{liability?.product_name}}</h5>
+                        <p *ngIf="liability?.loan_type == 1">Personal Loan</p>
+                        <p *ngIf="liability?.loan_type == 2">Home Loan</p>
+                        <p *ngIf="liability?.loan_type == 3">Education Loan</p>
+                        <p *ngIf="liability?.loan_type == 4">Business Loan</p>
+                        <p *ngIf="liability?.loan_type == 5">Loan Against Property</p>
+                      </div>
+                    </div>
+                    <div class="application-status process" *ngIf="liability?.application_status == 'Pending'">
+                      <span>Processing Application</span>
+                    </div>
+                    <div class="application-status pass" *ngIf="liability?.application_status == 'Approved'">
+                      <span>Application Approved</span>
+                    </div>
+                    <div class="application-status rejected" *ngIf="liability?.application_status == 'Rejected'">
+                      <span> Application Rejected</span>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-2 col-md-3 col-4 mb-bg-l2 ps-2 pe-2">
+                    <div class="invests">
+                    </div>
+                  </div>
+                  <div class="col-lg-2 col-md-3 col-4 mb-bg-l2 ps-2 pe-2">
+                    <div class="invests">
+                      <h5>Loan Amount</h5>
+                      <p>{{liability?.loan_amount}}</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 col-md-3 col-4 mb-bg-l2 ps-2 pe-2">
+                    <div class="invests">
+                      <h5>Rate of Interest</h5>
+                      <p>{{liability?.roi}}%</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-2 col-md-3 col-12 liable ps-2 pe-2">
+                    <div class="invests">
+                      <h5>EMI / Month</h5>
+                      <p>₹ {{liability?.emi_month}}</p>
+                    </div>
+                  </div>
+                </div> -->
+
+              </div>
+
+
+
+              <!-- <div class="sticky-btn" [routerLink]="['/add-new-loan']">
+                <div class="loanadd-circle">
+                  <i class="fa fa-plus"></i>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

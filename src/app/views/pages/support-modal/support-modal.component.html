@@ -1,0 +1,92 @@
+<!-- <div id="support-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Support</h2>
+    <p>Enter your details below to get support:</p>
+    <form>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name"><br><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"><br><br>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message"></textarea><br><br>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div> -->
+<!-- <p>support works</p> -->
+<!-- partner button -->
+<!-- <div class="col-lg-3 col-12 col-sm-3">
+  <button class="nav-link btn btn-primary theme-button partnerbtn" data-toggle="modal" data-target="#partnerModal"(click)="showPartnerModal()">PARTNER</button>
+</div> -->
+
+
+
+
+
+<!-- modal part latest-->
+<div class="modal fade" id="supportModal" tabindex="-1" role="dialog" aria-labelledby="supportModallLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="closeicon">
+        <button type="button" class="close" (click)="hideSupportModal()" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+      </div>
+      <div class="modal-body">
+
+
+        <div class="support-title">Get Additional Support</div>
+        <!-- <div class="container"> -->
+        <form #supportForm="ngForm">
+          <div class="details">
+            <div class="up-in-toggle">
+              <input type="radio" id="switch_left" name="switch_2" value="INSURANCE" [(ngModel)]="usertype" />
+              <label for="switch_left">INSURANCE</label>
+              <input type="radio" id="switch_right" name="switch_2" value="INVESTMENT" [(ngModel)]="usertype" />
+              <label for="switch_right">INVESTMENT</label>
+            </div>
+            <div class="mb-3">
+              <label for="name">Name</label>
+              <input type="text" [(ngModel)]="FormFirstName" (keypress)="validation.alphabetOnly($event)"
+                class="form-control" name="FirstName" placeholder="Enter Name">
+                <div *ngIf="supportForm.submitted && supportForm.controls.FirstName.invalid" class="text-danger">
+                  Name is required.
+                </div>
+            </div>
+            <div class="mb-3">
+              <label for="Email">Email</label>
+              <input type="email" [(ngModel)]="FormEmail" class="form-control" name="email1"
+                placeholder="Enter Email Id">
+                <div *ngIf="supportForm.submitted && supportForm.controls.email1.invalid" class="text-danger">
+                  Email is required and should be a valid email address.
+                </div>
+            </div>
+            <div class="mb-3">
+              <label for="Phone">Phone</label>
+              <input type="text" [(ngModel)]="FormMobileNo" maxlength="10" (keypress)="validation.numberOnly($event)"
+                class="form-control" name="mnumber1" placeholder="Enter Phone Number">
+                <div *ngIf="supportForm.submitted && supportForm.controls.mnumber1.invalid" class="text-danger">
+                  Phone is required and should be a valid phone number.
+                </div>
+            </div>
+            <div class="mb-3 comments">
+              <label for="comments">Comments</label>
+              <textarea type="text" [(ngModel)]="FormComments" class="form-control" name="comments"
+                placeholder="Enter Comments"></textarea>
+                 <div *ngIf="supportForm.submitted && supportForm.controls.comments.invalid" class="text-danger">
+        Comments are required.
+      </div>
+            </div>
+            <div class="mb-3 center ">
+              <button class="btn btn-primary theme-button submit">SUBMIT</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+    <!-- </div>
+  </div> -->

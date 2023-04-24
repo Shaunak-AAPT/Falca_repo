@@ -1,0 +1,154 @@
+<div class="container mb10per">
+  <div class="row mt-4">
+    <div class="col-lg-12">
+      <h4 class="breadcrumb-title"><span [routerLink]="['/dashboard']"><i
+            class="fa fa-arrow-left i-icon"></i></span>Account Details</h4>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col-lg-3 col-md-4" id="sidebar-main">
+      <app-account-desktop-menu></app-account-desktop-menu>
+    </div>
+    <div class="col-lg-9 col-md-8 tab-detail">
+      <div class="row align-items-center port-row">
+        <div class="col-6 ps-0">
+          <h4 class="breadcrumb-title">Portfolio</h4>
+        </div>
+        <div class="col-6 pe-0 text-end">
+          <!-- <select class="form-select port-drop" aria-label=".form-select-lg example">
+            <option selected>Myself</option>
+            <option value="1">Myself</option>
+            <option value="2">Myself</option>
+          </select> -->
+        </div>
+      </div>
+      <div class="row mb-4">
+        <div class="main-div">
+          <div class="row outer-bg align-items-center">
+            <div class="col-lg-1 col-2">
+              <img src="assets/img/digital-gold.png" class="img-fluid">
+            </div>
+            <div class="col-lg-8 col-7">
+              <h5>Digital Gold</h5>
+            </div>
+            <div class="col-lg-3 col-3">
+              <!-- <h6>Weights (%)</h6>
+              <p>24.5%</p> -->
+            </div>
+          </div>
+          <div class="lb-bg">
+            <div class="row">
+              <div class="col-lg-6 col-6 cv">
+                <h5>Invested Value (in gms)</h5>
+                <p> {{DiGiGoldDetails?.balQuantity}}</p>
+              </div>
+              <div class="col-lg-6 col-6 iv">
+                <h5>Invested (in amount)</h5>
+                <p>₹ {{validation.indianRupeeFormat(DiGiGoldDetails?.investAmount)}}</p>
+              </div>
+              <!-- <div class="col-lg-4 col-4 gl">
+                <h5>Gain/Loss</h5>
+                <p>₹ 169.15 Cr <span class="text-green">(133.2%)</span></p>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row table-row mb-3" *ngFor="let list of ListDetails | paginate: { id: 'ListDetailsPageIndex', itemsPerPage: 10, currentPage: ListDetailsPageIndex }">   
+        <div [ngClass]="list?.purchaseType == 'Buy' ? 'status-buy-tag' : 'status-sell-tag'">
+          <h5>{{list?.purchaseType}}</h5>
+        </div> 
+        <div class="col-lg-4 col-md-4 ps-2 pe-2">
+          <div class="table-flex">
+            <div class="bank-logo">
+              <img src="assets/img/digi_gold_logo.png" alt="icici-bank" />
+            </div>
+            <div class="my-bank">
+              <h5>Digi Gold</h5>
+              <!-- <p>
+                <span>3 <i class="fa fa-star"></i></span>
+                <span> High Risk</span>
+                <span> Equity</span>
+              </p> -->
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-lg-2 col-md-2 mb-bg-r col-6 ps-2 pe-2">
+          <div class="invests">
+            <h5>Total Investment</h5>
+            <p>₹ {{validation.indianRupeeFormat(list?.total_amount)}}</p>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-2 mb-bg-r col-6 ps-2 pe-2">
+          <div class="invests">
+            <h5>Gold Weight</h5>
+            <p>{{list?.quantity}}g</p>
+          </div>
+        </div>
+        <!-- <div class="col-lg-2 col-md-2 mb-bg-l col-6 ps-2 pe-2">
+          <div class="returns">
+            <h5>Gain/Loss</h5>
+            <p>+ ₹ 5,001 <span>(+11.29%)</span></p>
+          </div>
+        </div> -->
+        <div class="col-lg-2 col-md-2 mb-bg-r col-6 ps-2 pe-2">
+          <div class="invests">
+            <h5>Date</h5>
+            <p>{{list?.createdAt | date}}</p>
+          </div>
+        </div>       
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 text-center">
+            <pagination-controls id='ListDetailsPageIndex' previousLabel="" nextLabel=""
+                [autoHide]="true" (pageChange)="ListDetailsPageIndex = $event">
+            </pagination-controls>
+        </div>
+    </div>
+
+      <!-- <div class="row table-row mb-3">   
+        <div class="status-sell-tag">
+          <h5>Sell</h5>
+        </div>  
+        <div class="col-lg-4 col-md-4 ps-2 pe-2">
+          <div class="table-flex">
+            <div class="bank-logo">
+              <img src="assets/img/icici-bank.png" alt="icici-bank" />
+            </div>
+            <div class="my-bank">
+              <h5>Digi Gold</h5>              
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-lg-2 col-md-2 mb-bg-r col-6 ps-2 pe-2">
+          <div class="invests">
+            <h5>Total Investment</h5>
+            <p>₹ 20,50,200</p>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-2 mb-bg-r col-6 ps-2 pe-2">
+          <div class="invests">
+            <h5>Gold Weight</h5>
+            <p>200g</p>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-2 mb-bg-l col-6 ps-2 pe-2">
+          <div class="returns loss">
+            <h5>Gain/Loss</h5>
+            <p>- ₹ 5,001 <span>(+11.29%)</span></p>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-2 mb-bg-r col-6 ps-2 pe-2">
+          <div class="invests">
+            <h5>Date</h5>
+            <p>02 Dec 2021</p>
+          </div>
+        </div>       
+      </div> -->
+    </div>
+  </div>
+</div>
