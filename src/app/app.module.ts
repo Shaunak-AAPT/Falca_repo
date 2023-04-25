@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { HttpClientModule } from '@angular/common/http';
@@ -85,6 +86,7 @@ import { SupportModalComponent } from './views/pages/support-modal/support-modal
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
     CarouselModule,

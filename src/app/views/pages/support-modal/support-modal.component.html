@@ -40,53 +40,66 @@
 
         <div class="support-title">Get Additional Support</div>
         <!-- <div class="container"> -->
-        <form #supportForm="ngForm">
+        <form [formGroup]="myForm">  
           <div class="details">
+          
             <div class="up-in-toggle">
-              <input type="radio" id="switch_left" name="switch_2" value="INSURANCE" [(ngModel)]="usertype" />
-              <label for="switch_left">INSURANCE</label>
-              <input type="radio" id="switch_right" name="switch_2" value="INVESTMENT" [(ngModel)]="usertype" />
-              <label for="switch_right">INVESTMENT</label>
+              <input type="radio" id="switch_left" formControlName="category" value="INSURANCE" />
+              <label for="switch_left" >INSURANCE</label>
+              <input type="radio" id="switch_right" formControlName="category" value="INVESTMENT" />
+              <label for="switch_right" >INVESTMENT</label>
+              
             </div>
+            <div class="error" *ngIf="myForm.get('category')?.invalid && (myForm.get('category')?.dirty || myForm.get('category')?.touched)">
+              <div *ngIf="myForm.get('category')?.hasError('required')">Pleae select the option</div>
+            </div>
+          
             <div class="mb-3">
               <label for="name">Name</label>
-              <input type="text" [(ngModel)]="FormFirstName" (keypress)="validation.alphabetOnly($event)"
-                class="form-control" name="FirstName" placeholder="Enter Name">
-                <div *ngIf="supportForm.submitted && supportForm.controls.FirstName.invalid" class="text-danger">
-                  Name is required.
-                </div>
+              <input type="text" formControlName="Name" class="form-control" name="Name" placeholder="Enter Name" >
+              <div class="error" *ngIf="myForm.get('Name')?.invalid && (myForm.get('Name')?.dirty || myForm.get('Name')?.touched)">
+                <div *ngIf="myForm.get('Name')?.hasError('required')">Name is required</div>
+              </div>
             </div>
+          
             <div class="mb-3">
-              <label for="Email">Email</label>
-              <input type="email" [(ngModel)]="FormEmail" class="form-control" name="email1"
-                placeholder="Enter Email Id">
-                <div *ngIf="supportForm.submitted && supportForm.controls.email1.invalid" class="text-danger">
-                  Email is required and should be a valid email address.
-                </div>
+              <label for="name">Email</label>
+              <input type="text" formControlName="Email" class="form-control" name="Email" placeholder="Enter Email">
+              <div class="error" *ngIf="myForm.get('Email')?.invalid && (myForm.get('Email')?.dirty || myForm.get('Email')?.touched)">
+                <div *ngIf="myForm.get('Email')?.hasError('required')">Email is required</div>
+              </div>
             </div>
+          
             <div class="mb-3">
-              <label for="Phone">Phone</label>
-              <input type="text" [(ngModel)]="FormMobileNo" maxlength="10" (keypress)="validation.numberOnly($event)"
-                class="form-control" name="mnumber1" placeholder="Enter Phone Number">
-                <div *ngIf="supportForm.submitted && supportForm.controls.mnumber1.invalid" class="text-danger">
-                  Phone is required and should be a valid phone number.
-                </div>
+              <label for="name">Phone</label>
+              <input type="text" formControlName="mobileNumber" class="form-control" name="mobileNumber"
+                placeholder="Enter Phone">
+              <div class="error"
+                *ngIf="myForm.get('mobileNumber')?.invalid && (myForm.get('mobileNumber')?.dirty || myForm.get('mobileNumber')?.touched)">
+                <div *ngIf="myForm.get('mobileNumber')?.hasError('required')">Phone is required</div>
+              </div>
             </div>
+          
             <div class="mb-3 comments">
-              <label for="comments">Comments</label>
-              <textarea type="text" [(ngModel)]="FormComments" class="form-control" name="comments"
-                placeholder="Enter Comments"></textarea>
-                 <div *ngIf="supportForm.submitted && supportForm.controls.comments.invalid" class="text-danger">
-        Comments are required.
-      </div>
+              <label for="name">comments</label>
+              <textarea type="text" formControlName="Comments" class="form-control" name="Comments"
+                placeholder="Enter comments"></textarea>
+              <div class="error"
+                *ngIf="myForm.get('Comments')?.invalid && (myForm.get('Comments')?.dirty || myForm.get('Comments')?.touched)">
+                <div *ngIf="myForm.get('Comments')?.hasError('required')">comments are required</div>
+              </div>
             </div>
             <div class="mb-3 center ">
-              <button class="btn btn-primary theme-button submit">SUBMIT</button>
+              <button class="btn btn-primary theme-button submit" (click)="Submit()">SUBMIT</button>
             </div>
           </div>
+          <div *ngIf="successMessage" class="alert alert-success">
+            Form submitted successfully!
+          </div>
+        
         </form>
       </div>
-
+     
     </div>
-    <!-- </div>
-  </div> -->
+    </div>
+  </div>
