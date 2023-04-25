@@ -152,6 +152,10 @@ padding: 1.5rem;
 .up-in-toggle label:hover {
   cursor: pointer;
 }
+.insurance{
+  position:relative;
+  left:50px;
+}
 @media (min-width: 576px){
 #headerotp-screen .modal-dialog , #Footerotp-screen .modal-dialog{
   max-width: 400px;
