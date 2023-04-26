@@ -40,53 +40,56 @@
 
         <div class="support-title">Get Additional Support</div>
         <!-- <div class="container"> -->
-        <form [formGroup]="myForm">  
+        <form [formGroup]="myForm">
           <div class="details">
-          
+
             <div class="up-in-toggle">
               <input type="radio" id="switch_left" formControlName="category" value="INSURANCE" />
-              <label for="switch_left" >INSURANCE</label>
+              <label for="switch_left">INSURANCE</label>
               <input type="radio" id="switch_right" formControlName="category" value="INVESTMENT" />
-              <label for="switch_right" >INVESTMENT</label>
-              
+              <label for="switch_right">INVESTMENT</label>
+
             </div>
-            <div class="error" *ngIf="myForm.get('category')?.invalid && (myForm.get('category')?.dirty || myForm.get('category')?.touched)">
-              <div *ngIf="myForm.get('category')?.hasError('required')">Pleae select the option</div>
+            <div class="error"
+              *ngIf="myForm.get('category')?.invalid && (myForm.get('category')?.dirty || myForm.get('category')?.touched)">
+              <div *ngIf="myForm.get('category')?.hasError('required')">Pleae select the option*</div>
             </div>
-          
+
             <div class="mb-3">
               <label for="name">Name</label>
-              <input type="text" formControlName="Name" class="form-control" name="Name" placeholder="Enter Name" >
-              <div class="error" *ngIf="myForm.get('Name')?.invalid && (myForm.get('Name')?.dirty || myForm.get('Name')?.touched)">
-                <div *ngIf="myForm.get('Name')?.hasError('required')">Name is required</div>
+              <input type="text" formControlName="Name" class="form-control" name="Name" placeholder="Enter Name">
+              <div class="error"
+                *ngIf="myForm.get('Name')?.invalid && (myForm.get('Name')?.dirty || myForm.get('Name')?.touched)">
+                <div *ngIf="myForm.get('Name')?.hasError('required')">Name is required*</div>
               </div>
             </div>
-          
+
             <div class="mb-3">
               <label for="name">Email</label>
               <input type="text" formControlName="Email" class="form-control" name="Email" placeholder="Enter Email">
-              <div class="error" *ngIf="myForm.get('Email')?.invalid && (myForm.get('Email')?.dirty || myForm.get('Email')?.touched)">
-                <div *ngIf="myForm.get('Email')?.hasError('required')">Email is required</div>
+              <div class="error"
+                *ngIf="myForm.get('Email')?.invalid && (myForm.get('Email')?.dirty || myForm.get('Email')?.touched)">
+                <div *ngIf="myForm.get('Email')?.hasError('required')">Email is required*</div>
               </div>
             </div>
-          
+
             <div class="mb-3">
               <label for="name">Phone</label>
               <input type="text" formControlName="mobileNumber" class="form-control" name="mobileNumber"
                 placeholder="Enter Phone">
               <div class="error"
                 *ngIf="myForm.get('mobileNumber')?.invalid && (myForm.get('mobileNumber')?.dirty || myForm.get('mobileNumber')?.touched)">
-                <div *ngIf="myForm.get('mobileNumber')?.hasError('required')">Phone is required</div>
+                <div *ngIf="myForm.get('mobileNumber')?.hasError('required')">Phone is required*</div>
               </div>
             </div>
-          
+
             <div class="mb-3 comments">
               <label for="name">comments</label>
               <textarea type="text" formControlName="Comments" class="form-control" name="Comments"
                 placeholder="Enter comments"></textarea>
               <div class="error"
                 *ngIf="myForm.get('Comments')?.invalid && (myForm.get('Comments')?.dirty || myForm.get('Comments')?.touched)">
-                <div *ngIf="myForm.get('Comments')?.hasError('required')">comments are required</div>
+                <div *ngIf="myForm.get('Comments')?.hasError('required')">comments are required*</div>
               </div>
             </div>
             <div class="mb-3 center ">
@@ -96,10 +99,10 @@
           <div *ngIf="successMessage" class="alert alert-success">
             Form submitted successfully!
           </div>
-        
+
         </form>
       </div>
-     
-    </div>
+
     </div>
   </div>
+</div>

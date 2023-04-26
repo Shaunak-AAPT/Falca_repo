@@ -52,12 +52,7 @@ export class SupportModalComponent implements OnInit {
     console.log("reached on", this.myForm)
     if (this.myForm.valid) {
       console.log(this.myForm.value);
-      // let category = null;
-      // if (this.myForm.value.selectoption == "INSURANCE") {
-      //   category = "INSURANCE"
-      // } else if (this.myForm.value.selectoption == "INVESTMENT") {
-      //   category = "INVESTMENT"
-      // }
+    
       let payload = {    //this payload is a json object
 
         name: this.myForm.value.Name, // leftside firstname is exactly same as that of backend API and rightside firstname i.e., ,firstName should be exact same as that of formcontrolname in .html file or same as written above in ngonit 
@@ -70,13 +65,19 @@ export class SupportModalComponent implements OnInit {
       this.api.post("support/", payload, false).subscribe(async response => {
         console.log(response);
 
-      })
+      });
    
       this.myForm.reset();
-      this.successMessage = true;
-      setTimeout(() => {
-        this.successMessage = false;
-      }, 1000);
+     // Show success message for 15 seconds
+     this.successMessage = true;
+     setTimeout(() => {
+       this.successMessage = false;
+
+       // Close the modal after 5 seconds
+       setTimeout(() => {
+         this.hideSupportModal();
+       }, 1000);
+     }, 1500);
     } else {
       // Mark all form controls as touched to display validation errors
       for (const fieldName in this.myForm.controls) {

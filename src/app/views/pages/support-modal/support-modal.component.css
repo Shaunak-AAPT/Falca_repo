@@ -48,7 +48,8 @@
 .modal-content{
   /* border: 1px solid red; */
   max-width:580px !important;
-  height: 700px !important;
+  /* height: 700px !important; */
+  height:100%;
   border-radius: 25px;
 
 
@@ -59,7 +60,8 @@
 
 }
 .details{
-  height: 560px !important;
+  height:100%;
+  /* height: 560px !important; */
   /* margin-top: -% !important; */
   border: 1px solid #f2f0f0;
   padding: 30px 30px 10px 30px;
@@ -167,4 +169,37 @@ textarea.form-control {
 .submit{
   margin-bottom: 10% !important;
   /* margin-top: -15% !important; */
+}
+
+
+@media only screen and (max-width: 767px) {
+  .modal-body{
+
+    padding: 50px 20px 20px 20px;
+  
+  }
+
+  /* .support-title{
+  
+    margin-top: -19% !important;
+    margin-bottom: 10%;
+    font-size: 18px;
+  } */
+  .form-control {
+    border-radius: 5px;
+    height :35px !important;
+  }
+  .center {
+    display: flex;
+    justify-content: center;
+   
+  }
+  textarea.form-control {
+    height: 80px !important;
+  }
+  
+  .submit{
+    margin-bottom: 10% !important;
+    /* margin-top: -15% !important; */
+  }
 }

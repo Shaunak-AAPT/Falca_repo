@@ -4,8 +4,9 @@ export const environment = {
 
 
   // by sw 
-  ServerUrl: "http://65.1.237.83/api/",
-  
+  // ServerUrl: "http://65.1.237.83/api/",
+  ServerUrl: "http://13.126.235.151/api/",
+
 
   // --UAT FINIZON--
 
