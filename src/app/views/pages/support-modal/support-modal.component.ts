@@ -67,7 +67,7 @@ export class SupportModalComponent implements OnInit {
 
       });
    
-      this.myForm.reset();
+      // this.myForm.reset();
      // Show success message for 15 seconds
      this.successMessage = true;
      setTimeout(() => {
@@ -78,26 +78,12 @@ export class SupportModalComponent implements OnInit {
          this.hideSupportModal();
        }, 1000);
      }, 1500);
-    } else {
-      // Mark all form controls as touched to display validation errors
-      for (const fieldName in this.myForm.controls) {
-        if (Object.prototype.hasOwnProperty.call(this.myForm.controls, fieldName)) {
-          const control = this.myForm.controls[fieldName];
-          if (control) {
-            control.markAsTouched();
-          }
-        }
-      }
+    } 
+    else {
+      // alert('Please fill all required fields correctly!');  
     }
   }
 }
 
 
 
-// "data": {
-//   "name": "Tenzing",
-//   "mobileNumber": "7018485591",
-//   "email": "dhugkar@gmail.com",
-//   "category": null,
-//   "comments": null
-// },
