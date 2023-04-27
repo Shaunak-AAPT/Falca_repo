@@ -11,7 +11,7 @@ export const environment = {
   // ServerUrl: "http://127.0.0.1:8000/api/",
 
   // by sw 
-  ServerUrl: "http://65.1.237.83/api",
+  ServerUrl: "http://65.1.237.83/api/",
   
   // ServerUrl: "http://15.206.79.170:8080/api/",
 
