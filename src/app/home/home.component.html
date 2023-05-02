@@ -34,21 +34,23 @@
               <p class="slider-txt" [innerHTML]="banners?.description"></p>
 
 
-              <button id="customer" *ngIf="banners.sortOrder === 1" class="nav-link btn btn-primary theme-button"
-                [innerHTML]="banners?.button" data-toggle="modal" data-target="#bannercustomerModal"
-                (click)="customermodal(banners)">
-                <span class="elementor-button-icon elementor-align-icon-right">
-                  <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">  
-                </span>
-              </button>
-
-              <button id="partner" *ngIf="banners.sortOrder === 2" class="nav-link btn btn-primary theme-button"
+              <button id="partner" *ngIf="banners.sortOrder === 1" class="nav-link btn btn-primary theme-button"
                 [innerHTML]="banners?.button" data-toggle="modal" data-target="#bannerpartnerModal"
                 (click)="partnermodal(banners)">
                 <span class="elementor-button-icon elementor-align-icon-right">
-                  <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">  
+                  <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
                 </span>
               </button>
+
+              <button id="customer" *ngIf="banners.sortOrder === 2" class="nav-link btn btn-primary theme-button"
+                [innerHTML]="banners?.button" data-toggle="modal" data-target="#bannercustomerModal"
+                (click)="customermodal(banners)">
+                <span class="elementor-button-icon elementor-align-icon-right">
+                  <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
+                </span>
+              </button>
+
+
 
             </div>
             <div class="col-lg-4 col-12 order-1 order-lg-2">
@@ -57,75 +59,73 @@
           </div>
 
 
-         
+
 
 
         </div>
 
 
-         <!-- modal part latest for banner customer section-->
-         <div class="modal fade" id="bannercustomerModal" tabindex="-1" role="dialog"
-         aria-labelledby="bannercustomerModalLabel" aria-hidden="true">
-         <div class="modal-dialog modal-dialog-centered" role="document">
-           <div class="modal-content">
-             <div class="closeicon">
-               <button type="button" class="close" (click)="hidebannerModal()" data-dismiss="modal"
-                 aria-label="Close">
-                 <span aria-hidden="true">&times;</span>
-               </button>
+        <!-- modal part latest for banner customer section-->
+        <div class="modal fade" id="bannercustomerModal" tabindex="-1" role="dialog"
+          aria-labelledby="bannercustomerModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="closeicon">
+                <button type="button" class="close" (click)="hidebannerModal()" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
 
-             </div>
-             <div class="modal-body">
-               <div class="row">
-                 <div class="col-lg-4 col-sm-6">
-                   <img src="assets/img/banner_customer_img.svg" class="phydigital_partner_img" alt="about">
-                 </div>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-lg-4 col-sm-6">
+                    <img src="assets/img/banner_customer_img.svg" class="phydigital_partner_img" alt="about">
+                  </div>
 
-                 <div class="col-lg-8 col-sm-6">
-                   <button class="nav-link btn btn-primary theme-button modalpartnerbtn">INSURANCE</button>
-                   <button class="nav-link btn btn-primary theme-button modalpartnerbtn">INVESTMENT</button>
+                  <div class="col-lg-8 col-sm-6">
+                    <button class="nav-link btn btn-primary theme-button modalpartnerbtn">INSURANCE</button>
+                    <button class="nav-link btn btn-primary theme-button modalpartnerbtn">INVESTMENT</button>
 
-                 </div>
+                  </div>
 
-               </div>
+                </div>
 
-             </div>
-           </div>
-         </div>
+              </div>
+            </div>
+          </div>
 
-       </div>
+        </div>
 
-       <!-- modal part latest for banner partner section-->
-       <div class="modal fade" id="bannerpartnerModal" tabindex="-1" role="dialog"
-         aria-labelledby="bannerpartnerModalLabel" aria-hidden="true">
-         <div class="modal-dialog modal-dialog-centered" role="document">
-           <div class="modal-content">
-             <div class="closeicon">
-               <button type="button" class="close" (click)="hidebannerModal()" data-dismiss="modal"
-                 aria-label="Close">
-                 <span aria-hidden="true">&times;</span>
-               </button>
+        <!-- modal part latest for banner partner section-->
+        <div class="modal fade" id="bannerpartnerModal" tabindex="-1" role="dialog"
+          aria-labelledby="bannerpartnerModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="closeicon">
+                <button type="button" class="close" (click)="hidebannerModal()" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
 
-             </div>
-             <div class="modal-body">
-               <div class="row">
-                 <div class="col-lg-4 col-sm-6">
-                   <img src="assets/img/phydigital_partner_img.svg" class="phydigital_partner_img" alt="about">
-                 </div>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-lg-4 col-sm-6">
+                    <img src="assets/img/phydigital_partner_img.svg" class="phydigital_partner_img" alt="about">
+                  </div>
 
-                 <div class="col-lg-8 col-sm-6">
-                   <button class="nav-link btn btn-primary theme-button modalpartnerbtn">INSURANCE</button>
-                   <button class="nav-link btn btn-primary theme-button modalpartnerbtn">INVESTMENT</button>
+                  <div class="col-lg-8 col-sm-6">
+                    <button class="nav-link btn btn-primary theme-button modalpartnerbtn">INSURANCE</button>
+                    <button class="nav-link btn btn-primary theme-button modalpartnerbtn">INVESTMENT</button>
 
-                 </div>
+                  </div>
 
-               </div>
+                </div>
 
-             </div>
-           </div>
-         </div>
+              </div>
+            </div>
+          </div>
 
-       </div>
+        </div>
 
 
       </div>
@@ -134,7 +134,7 @@
 
     <div class="container pt-70 common-pt-50">
       <div class="slick-carousel index-product">
-        <div class="row mb-producthide">
+        <div class="row ">
           <div class="col col-6" *ngFor="let insurence of InsurencedataList">
             <div class="loan-type" (click)="InsurancetRouterUrl(insurence)">
               <img src="{{insurence?.logo}}" alt="l1">
@@ -147,7 +147,7 @@
 
     <div class="container mt-5 common-mt-3">
       <div class="slick-carousel index-product">
-        <div class="row  mb-producthide">
+        <div class="row">
           <div class="col col-6" *ngFor="let credit of CreditdataList">
             <div class="loan-type" (click)="CreditRouterUrl(credit)">
               <img src="{{credit.logo}}" alt="l1">
@@ -392,7 +392,7 @@
         </div>
 
       </div>
-      
+
       <!-- modal part latest for phydigital section-->
       <div class="modal fade" id="partnerModal" tabindex="-1" role="dialog" aria-labelledby="partnerModalLabel"
         aria-hidden="true">
@@ -511,7 +511,7 @@
 
       </div>
     </div>
-    
+
     <div class="container pt-70">
       <!-- Carousel -->
       <div id="testimonial" class="carousel slide" data-bs-ride="carousel">

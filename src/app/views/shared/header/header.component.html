@@ -10,10 +10,10 @@
 
       <form class="d-flex 	">
         <ul class="navbar-nav align-items-center">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" [hidden]="!isLoggedIn" [ngClass]="IsDashboard ? 'active' :''"
               routerLink="/overview">Dashboard</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="https://ins.finizoninsurance.com/user/home" target="_blank">Insure</a>
           </li>
@@ -24,60 +24,47 @@
           <li class="nav-item">
             <a class="nav-link" (click)="GotoWealth()">Wealth</a>
           </li>
-          <!-- <li class="btn-group hidden-xs">
-            <a class="nav-link active btn btn-primary theme-button ms-2 dropdown-toggle" [hidden]="isLoggedIn"
-              data-bs-toggle="dropdown" data-bs-display="dynamic" aria-expanded="false" href="javascript:void(0)">Login
-              / Register</a>
-            <div [hidden]="isLoggedIn" class="login-popup dropdown-menu dropdown-menu-lg-end">
+
+          <!-- *******Customer******* -->
+          <li class="btn-group hidden-xs">
+            <a class="nav-link btn ms-2 "
+              data-bs-toggle="dropdown" data-bs-display="dynamic" aria-expanded="false" href="javascript:void(0)">Customer
+            <span style="margin-left: 10px;"><i class="jet-dropdown-arrow fa fa-angle-down"></i></span></a>
+              
+            <div  class="login-popup dropdown-menu dropdown-menu-lg-end">
               <div class="sign-in">
-                <div class="mb-3">
-                  <input [disabled]="isOTPSent" type="email" name="email" [(ngModel)]="FormEmail" class="form-control"
-                    id="emailmobile" placeholder="Email Id/Mobile No.">
+                <div class="col-lg-8 col-sm-6">
+                  <button class="nav-link active btn btn-primary theme-button modalpartnerbtn">Insurance</button>
+                  <button class="nav-link active btn btn-primary theme-button modalpartnerbtn">Investment</button>
                 </div>
-                <div class="mb-3">
-                  <a [hidden]="isOTPSent" class="btn btn-primary theme-button w-100 font14" href="javascript:void(0)"
-                    (click)="otpToggle($event, 'login')">Send OTP</a>
-                </div>
-                <hr />
-                <p class="ask-title">Not yet on Finizon? <span class="open-signup">Register Now</span></p>
               </div>
-              <div class="sign-up">
-                <div class="up-in-toggle">
-                  <input type="radio" id="switch_left" name="switch_2" value="Customer" [(ngModel)]="usertype" />
-                  <label for="switch_left">Customer</label>
-                  <input type="radio" id="switch_right" name="switch_2" value="Partner" [(ngModel)]="usertype" />
-                  <label for="switch_right">Partner</label>
-                </div>
-                <div class="mb-3">
-                  <input type="text" [(ngModel)]="FormFirstName" (keypress)="validation.alphabetOnly($event)"
-                    class="form-control" name="FirstName" placeholder="First Name">
-                </div>
-                <div class="mb-3">
-                  <input type="text" [(ngModel)]="FormLastName" (keypress)="validation.alphabetOnly($event)"
-                    class="form-control" name="LastName" placeholder="Last Name">
-                </div>
-                <div class="mb-3">
-                  <input type="email" [(ngModel)]="FormEmail" class="form-control" name="email1" placeholder="Email Id">
-                </div>
-                <div class="mb-3">
-                  <input type="text" [(ngModel)]="FormMobileNo" maxlength="10"
-                    (keypress)="validation.numberOnly($event)" class="form-control" name="mnumber1"
-                    placeholder="Mobile Number">
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something" checked>
-                  <label class="form-check-label checklabel">I agree to the <a href="#">Terms & Conditions</a> of
-                    Finizon</label>
-                </div>
-                <div class="mb-3">
-                  <a [hidden]="isOTPSent" class="btn btn-primary theme-button w-100 font14" href="javascript:void(0)"
-                    (click)="otpToggle($event)">Send OTP</a>
-                </div>
-                <hr />
-                <p class="ask-title">Already on Finizon? <span class="open-sigin">Sign In</span></p>
-              </div>
+              
             </div>
-          </li> -->
+          </li>
+          <!-- *******Customer******* -->
+
+          <!-- ********Partner******** -->
+          <li class="btn-group hidden-xs">
+            <a class="nav-link btn ms-2 "
+              data-bs-toggle="dropdown" data-bs-display="dynamic" aria-expanded="false" href="javascript:void(0)">Partner
+              <span style="margin-left: 10px;"><i class="jet-dropdown-arrow fa fa-angle-down"></i></span></a>
+            <div  class="login-popup dropdown-menu dropdown-menu-lg-end">
+              <div class="sign-in">
+                
+
+                <div class="col-lg-8 col-sm-6">
+                  <button class="nav-link active btn btn-primary theme-button modalpartnerbtn">Insurance</button>
+                  <button class="nav-link active btn btn-primary theme-button modalpartnerbtn">Investment</button>
+                </div>
+              </div>
+            
+            </div>
+          </li>
+          <!-- ********Partner******** -->
+
+
+
+
           <li (click)="handleOpenCloseNav()">
             <a class="nav-link active pe-0 nav-toggle" href="javascript:void(0)">
               <img src="assets/img/menu.svg" alt="menu" class="menu-ic">
@@ -105,7 +92,8 @@
       <li [hidden]="!isLoggedIn" [routerLink]="['/profile-details']" (click)="handleOpenCloseNav()"><a>My Profile</a>
       </li>
       <li><a data-bs-toggle="collapse" href="#Toolscollapse" role="button" aria-expanded="false"
-          aria-controls="collapseExample" class="drop-menu">Tools</a></li>
+          aria-controls="collapseExample" class="drop-menu">Tools</a>
+      </li>
       <div class="collapse" id="Toolscollapse">
         <div class="card card-body">
           <ul>

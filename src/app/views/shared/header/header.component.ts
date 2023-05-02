@@ -104,7 +104,7 @@ export class HeaderComponent implements OnInit {
       $(".sign-up").hide();
     });
     $(".body-color").scroll(function () {
-      if ($(".body-color").scrollTop() > 150) {
+      if ($(".body-color").scrollTop()) {
         $(".mobile-sticky").show();
       }
       else {

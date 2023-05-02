@@ -156,6 +156,23 @@ padding: 1.5rem;
   position:relative;
   left:50px;
 }
+
+
+
+/* added by sw for cust,part mobile view */
+.modalpartnerbtn {
+	/* margin-left: 150px; */
+	/* margin-top: 5px; */
+  /* width: 100%; */
+  /* position: relative;
+  top: 10px; */
+	/* width: 60% !important; */
+  /* max-width: 210px !important; */
+  margin: 10px 0px;
+}
+/* added by sw for cust,part mobile view */
+
+
 @media (min-width: 576px){
 #headerotp-screen .modal-dialog , #Footerotp-screen .modal-dialog{
   max-width: 400px;
@@ -219,6 +236,17 @@ border-radius: 18px 18px 0px 0px;
 #mob_signin .modal-body {
 padding: 1.5rem 1.5rem 0;
 }
+
+
+ /* added by sw for cust,part mobile view */
+ #mob_signin .theme-button, #mob_signup .theme-button {
+  width: 100%;
+  padding: 10px 20px;
+  margin-top: 15px;
+}
+/* added by sw for cust,part mobile view */
+
+
 #headerotp-screen .col-2, #Footerotp-screen .col-2{
   padding-left: 5px;
   padding-right: 5px;

@@ -25,13 +25,15 @@
 	  </ul>
 	</div>
   </div>
-<div [hidden]="!MobileSiginBarFlag" class="mobile-sticky">
+
+  <!-- Footer Sticky -->
+<div class="mobile-sticky" [hidden]="!MobileSiginBarFlag">
     <div class="row">
         <div class="col-6">
-            <a class="btn btn-primary theme-button w-100" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#mob_signup">Register</a>
+            <a class="btn btn-primary theme-button w-100" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#mob_signup">Customer</a>
         </div>
         <div class="col-6">
-            <a class="btn btn-primary theme-button w-100" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#mob_signin">Sign In</a>
+            <a class="btn btn-primary theme-button w-100" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#mob_signin">Partner</a>
         </div>
     </div>
 </div>
@@ -41,20 +43,10 @@
     <div class="modal-dialog">
         <div class="modal-content">         
             <div class="modal-body">
-                <div class="modal-topborder"></div>
-                <h3 class="mb-3">Sign In</h3>
-                <div class="mb-3">      
-                    <input type="email" class="form-control" [(ngModel)]="FormEmail" id="exampleFormControlInput1" placeholder="Email Id/Mobile No//.">
-                </div>
-                <!-- <div [hidden]="!isOTPSent" class="mb-3">        
-                    <input type="text" class="form-control" [(ngModel)]="otp1" id="exampleFormControlInput1" placeholder="OTP">
-                </div>
-                <div [hidden]="!isOTPSent" class="mb-3 text-end">
-                    <button (click)="verifyOtpBtn()" class="btn btn-primary theme-button font14" ><i class="fa fa-arrow-right"></i></button>
-                </div> -->
-                <div [hidden]="isOTPSent" class="mb-3 text-end">
-                    <button (click)="otpToggle($event, 'login')" class="btn btn-primary theme-button font14"><i class="fa fa-arrow-right"></i></button>
-                </div>
+                <div class="col-lg-8 col-sm-6">
+					<button class="nav-link active btn btn-primary theme-button modalpartnerbtn">Insurance</button>
+					<button class="nav-link active btn btn-primary theme-button modalpartnerbtn">Investment</button>
+				</div>
             </div>
 
         </div>
@@ -64,39 +56,10 @@
     <div class="modal-dialog">
         <div class="modal-content">         
             <div class="modal-body">
-                <div class="modal-topborder"></div>
-                <h3 class="mb-3">Register</h3>
-                <div class="up-in-toggle">
-                    <input type="radio" id="switch_left1" name="switch_2" value="Customer" [(ngModel)]="usertype" />
-                    <label for="switch_left1">Customer</label>
-                    <input type="radio" id="switch_right1" name="switch_2"  value="Partner" [(ngModel)]="usertype" />
-                    <label for="switch_right1">Partner</label>
-                </div>
-                <div class="mb-3">      
-                    <input type="text" class="form-control" [(ngModel)]="FormFirstName"  (keypress)="validation.alphabetOnly($event)" id="firstName" placeholder="First Name">
-                </div>
-                <div class="mb-3">      
-                    <input type="text" class="form-control" [(ngModel)]="FormLastName"  (keypress)="validation.alphabetOnly($event)" id="lastName" placeholder="Last Name">
-                </div>
-                <div class="mb-3">      
-                    <input type="email" class="form-control" [(ngModel)]="FormEmail" id="exampleFormControlInput1" placeholder="Email Id/Mobile No.">
-                </div>
-                <div class="mb-3">        
-                    <input type="text" class="form-control" [(ngModel)]="FormMobileNo" maxlength="10"  (keypress)="validation.numberOnly($event)" id="exampleFormControlInput1" placeholder="Mobile Number">
-                </div>
-                <!-- <div class="mb-3">        
-                    <input [hidden]="!isOTPSent" type="text" class="form-control" [(ngModel)]="otp1" id="exampleFormControlInput1" placeholder="OTP">
-                </div> -->
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" [(ngModel)]="FormCheckbox"  id="check1" name="option1" value="something" checked>
-                    <label class="form-check-label checklabel">I agree to the <a href="#">Terms & Conditions</a> of Finizon</label>
-                </div>
-                <div [hidden]="isOTPSent" class="mb-3">
-                    <a class="btn btn-primary theme-button w-100 font14" (click)="otpToggle($event)" href="javascript:void(0)">Send OTP</a>
-                </div>
-                <!-- <div [hidden]="!isOTPSent" class="mb-3">
-                    <a class="btn btn-primary theme-button w-100 font14" (click)="verifyOtpBtn()" href="javascript:void(0)">Register</a>
-                </div> -->
+                <div class="col-lg-8 col-sm-6">
+					<button class="nav-link active btn btn-primary theme-button modalpartnerbtn">Insurance</button>
+					<button class="nav-link active btn btn-primary theme-button modalpartnerbtn">Investment</button>
+				  </div>
             </div>
 
         </div>

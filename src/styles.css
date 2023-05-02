@@ -414,6 +414,9 @@ p {
     bottom: 0;
     z-index: 11;
     left: 0;
+
+    /* added by sw */
+    height: 70px;
   }
 
   .modal-backdrop {

@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
   ShowLoader: any = false;
   LOGOUT: any;
   // loginInit: boolean = false;
- 
+
 
   founders = [
     {
@@ -101,7 +101,7 @@ export class HomeComponent implements OnInit {
     },
     {
       id: 2, name: 'Sourabh Kumar', title: 'Cofounder', bio: 'Experienced Leader with a demonstrated track record of leading & scaling organizations in wealth management, Insurance & lending.',
-    
+
       img: '../../assets/img/founding_team_member/founder-sourabh.svg',
       image: '../../assets/img/founding_team_member/Sourabh_profile.png',
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
@@ -116,7 +116,7 @@ export class HomeComponent implements OnInit {
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
       linkedinLink: 'https://www.linkedin.com/in/tarun-taneja-264a3975/'
     },
-   
+
     {
 
       id: 4, name: 'Jaya Singh', title: 'Director, Wealth', bio: 'A leader with deep experience in wealth management across advisory, research, fund diligence, client engagement, and sales',
@@ -142,8 +142,8 @@ export class HomeComponent implements OnInit {
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
       linkedinLink: 'https://www.linkedin.com/in/chandramoulipandya/'
     },
-  
-   
+
+
   ];
 
   selectedFounder = this.founders[0];
@@ -302,7 +302,7 @@ export class HomeComponent implements OnInit {
   getCommonBanner() {
     this.api.get("banner?vertical=0").subscribe((resp) => {
       this.CommonBannerlist = resp.data;
-      console.log("banner data",resp.data);
+      console.log("banner data", resp.data);
     });
   }
 
@@ -310,29 +310,29 @@ export class HomeComponent implements OnInit {
   // sw version
 
   // ***************org code*************
-  customermodal(banners:any){
-    console.log("cust bnrs:- ",banners);
+  partnermodal(banners: any) {
+    console.log("part bnrs:- ", banners);
 
+    console.log("", banners.sortOrder);
+    if (banners.sortOrder == 1) {
+      $("#bannerpartnerModal").modal("show");
+      console.log("btnid:", banners.button);
+      const element = document.getElementById("partner");
+      console.log("element:", element);
+    }
+  }
 
-    console.log("",banners.sortOrder);
-    if(banners.sortOrder == 1 ){
+  customermodal(banners: any) {
+    console.log("cust bnrs:- ", banners);
+    console.log("", banners.sortOrder);
+    if (banners.sortOrder == 2) {
       $("#bannercustomerModal").modal("show");
       console.log("")
     }
-   
+
   }
 
-  partnermodal(banners:any){
-    console.log("part bnrs:- ",banners);
 
-    console.log("",banners.sortOrder);
-    if(banners.sortOrder == 2){
-      $("#bannerpartnerModal").modal("show");
-      console.log("btnid:",banners.button);
-      const element = document.getElementById("partner");
-      console.log("element:",element);
-    }
-  }
   // ***************org code*************
 
 
@@ -348,7 +348,7 @@ export class HomeComponent implements OnInit {
   //     $("#bannercustomerModal").modal("show");
   //     console.log("")
   //   }
-   
+
   // }
 
   // partnermodal(banners:any){
@@ -364,41 +364,41 @@ export class HomeComponent implements OnInit {
   // }
 
 
-//   customermodal(buttonId: string) {
-//     console.log("Showing customer modal for button: ", buttonId);
-//     $("#" + buttonId + "customerModal").modal("show");
-// }
+  //   customermodal(buttonId: string) {
+  //     console.log("Showing customer modal for button: ", buttonId);
+  //     $("#" + buttonId + "customerModal").modal("show");
+  // }
 
-// partnermodal(buttonId: string) {
-//     console.log("Showing partner modal for button: ", buttonId);
-//     $("#" + buttonId + "partnerModal").modal("show");
-// }
+  // partnermodal(buttonId: string) {
+  //     console.log("Showing partner modal for button: ", buttonId);
+  //     $("#" + buttonId + "partnerModal").modal("show");
+  // }
 
-  
 
- 
-  
+
+
+
 
 
   hidebannerModal() {
     $(".modal").modal("hide");
   }
-  
-//   hidebannerModal(banners:any) {
-//   if(banners.sortOrder == 1){
-//     $("#bannerpartnerModal").modal("hide");
-//   } 
-//   else if(banners.sortOrder == 2){
-//     $("#bannercustomerModal").modal("hide");
-//   }
-// }
+
+  //   hidebannerModal(banners:any) {
+  //   if(banners.sortOrder == 1){
+  //     $("#bannerpartnerModal").modal("hide");
+  //   } 
+  //   else if(banners.sortOrder == 2){
+  //     $("#bannercustomerModal").modal("hide");
+  //   }
+  // }
 
   hidebannercustomerrModal() {
     $("#bannercustomerModal").modal("hide");
   }
-  
-  getpartnersbanner(){
-    this.api.get("banner/get-carousel?vertical=0").subscribe((resp) =>{
+
+  getpartnersbanner() {
+    this.api.get("banner/get-carousel?vertical=0").subscribe((resp) => {
       this.meetpartnerslist = resp.data;
     })
   }
@@ -471,7 +471,7 @@ export class HomeComponent implements OnInit {
     this.api.get("banner/get-blog").subscribe(response => {
       // console.log('get-blog', response);
       this.BlogList = response.items;
-      console.log('list of blogs',this.BlogList);
+      console.log('list of blogs', this.BlogList);
 
       for (let i = 0; i < this.BlogList.length; i++) {
         if (this.BlogList[i].content.indexOf('src=\"') > 0) {
@@ -493,21 +493,21 @@ export class HomeComponent implements OnInit {
   }
 
 
-// modal part for phydigital section
-showPartnerModal() {
-  console.log("hello")
+  // modal part for phydigital section
+  showPartnerModal() {
+    console.log("hello")
     $("#partnerModal").modal("show");
-  // console.log("partnerModal:", this.showModal);
-}
+    // console.log("partnerModal:", this.showModal);
+  }
 
-hidePartnerModal() {
-  $("#partnerModal").modal("hide");
-}
+  hidePartnerModal() {
+    $("#partnerModal").modal("hide");
+  }
 
-cancleModal() {
- 
-  $("#headerotp-screen").modal("hide");
-}
+  cancleModal() {
+
+    $("#headerotp-screen").modal("hide");
+  }
 
 
 

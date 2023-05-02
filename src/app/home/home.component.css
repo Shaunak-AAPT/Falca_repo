@@ -1603,6 +1603,17 @@
 	}
 }
 
+
+/* added by sw for responsiveness of images below testimonial section */
+@media only screen and (min-width: 1000px) and (max-width: 1270px) {
+
+	.client-img .col img {
+	  width: 100%;
+	}
+  }
+
+
+
 /*-------------------1280x800-------------*/
 @media only screen and (min-width: 1270px) and (max-width: 1290px) {
 	.slider-head {
@@ -2703,7 +2714,7 @@
 
 @media only screen and (min-width: 1920px) { 
 	.phydigitalsection {
-		margin-left: 20%;
+		/* margin-left: 20%; */
 		
 	}
 

@@ -29,17 +29,20 @@
 	cursor: pointer;
 }
 .login-popup{
-	padding: 30px 20px;
-	background: #ffffff;
-	border-radius: 12px;
-	box-shadow: 0px 4px 8px #0000003d;
-	width: 290px;
-	text-align: center;
-/*	top: 70px;
-	right: 10px;
-	z-index: 11;
-	position: absolute;
-	display: none;*/
+	/* padding: 30px 20px;
+	background: #ffffff; */
+  padding: 15px 10px;
+  background: transparent;
+	/* border-radius: 12px;
+	box-shadow: 0px 4px 8px #0000003d; */
+	/* width: 290px;
+	text-align: center; */
+  width: 220px;
+  height: 160px;
+  text-align: center;
+  border: none;
+
+  
 }
 .login-popup.show{
 	display: block;
@@ -101,6 +104,28 @@
  padding-right: 0px !important;
 }
 
+.modalpartnerbtn {
+	/* margin-left: 150px; */
+	/* margin-top: 5px; */
+  /* width: 100%; */
+  /* position: relative;
+  top: 10px; */
+	/* width: 60% !important; */
+  /* max-width: 210px !important; */
+  margin: 10px 0px;
+}
+
+/* .login-popup {
+  display: none;
+  position: absolute;
+  top: 40px;
+  z-index: 1;
+  
+}
+.btn-group:hover .login-popup  {
+  display: block;
+  
+} */
 
 @media only screen and (max-width: 767px){
 	.navbar-dark .navbar-toggler {
