@@ -3,9 +3,11 @@ export const environment = {
   // ServerUrl: "https://findev.aaptfin.com/api/",
 
 
-  // by sw 
+  // dev
   // ServerUrl: "http://65.1.237.83/api/",
-  ServerUrl: "http://13.126.235.151:8080/api/",
+
+  // uat
+  ServerUrl: "https://dev.finizon.com/api/",
 
 
   // --UAT FINIZON--

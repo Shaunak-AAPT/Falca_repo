@@ -91,16 +91,10 @@ export class SupportModalComponent implements OnInit {
           }
         }
       }
+
     }
   }
 }
 
 
 
-// "data": {
-//   "name": "Tenzing",
-//   "mobileNumber": "7018485591",
-//   "email": "dhugkar@gmail.com",
-//   "category": null,
-//   "comments": null
-// },
