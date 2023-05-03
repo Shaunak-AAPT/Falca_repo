@@ -218,6 +218,10 @@ margin: 0;
 } 
 #mob_signup .modal-content {
 border-radius: 18px 18px 0px 0px;
+
+/* added by sw from insurance ui */
+/* margin-bottom: 70px; */
+
 }
 #mob_signup .modal-body {
 padding: 1.5rem 1.5rem 0;
@@ -232,6 +236,10 @@ align-items: end;
 } 
 #mob_signin .modal-content {
 border-radius: 18px 18px 0px 0px;
+
+/* added by sw from insurance ui */
+/* margin-bottom: 70px; */
+
 }
 #mob_signin .modal-body {
 padding: 1.5rem 1.5rem 0;

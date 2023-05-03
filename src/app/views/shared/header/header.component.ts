@@ -103,14 +103,14 @@ export class HeaderComponent implements OnInit {
       $(".sign-in").show();
       $(".sign-up").hide();
     });
-    $(".body-color").scroll(function () {
-      if ($(".body-color").scrollTop()) {
-        $(".mobile-sticky").show();
-      }
-      else {
-        $(".mobile-sticky").hide();
-      }
-    });
+    // $(".body-color").scroll(function () {
+    //   if ($(".body-color").scrollTop()) {
+    //     $(".mobile-sticky").show();
+    //   }
+    //   else {
+    //     $(".mobile-sticky").hide();
+    //   }
+    // });
   
     var authToken = localStorage.getItem('CustToken') || '';
     if (this.validation.isNullEmptyUndefined(authToken)) {

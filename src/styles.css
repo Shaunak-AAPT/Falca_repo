@@ -405,7 +405,7 @@ p {
   }
 
   .mobile-sticky {
-    display: none;
+    display: block;
     padding: 10px;
     background: #33333366;
     float: left;
