@@ -13,6 +13,9 @@
 }
 .navbar-nav .nav-link.theme-button{
     color: #fff !important;
+
+    /* test */
+    /* width: 160px !important; */
 }
 .menu-ic{
 	width: 30px;
@@ -41,6 +44,10 @@
   height: 160px;
   text-align: center;
   border: none;
+
+
+  /* test */
+  /* width: 180px; */
 
   
 }
@@ -112,7 +119,7 @@
   top: 10px; */
 	/* width: 60% !important; */
   /* max-width: 210px !important; */
-  margin: 10px 0px;
+  margin: 6px 0px;
 }
 
 /* .login-popup {

@@ -5,6 +5,7 @@ import { ApiService } from '../services/api/api.service';
 import { AESCryptoService } from '../services/cryptomanager/aescrypto.service';
 import { environment } from 'src/environments/environment';
 import { ValidateService } from '../services/validate/validate.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 declare var $: any;
 
 declare var bootstrap: any;
@@ -36,34 +37,9 @@ export class HomeComponent implements OnInit {
   LOGOUT: any;
   // loginInit: boolean = false;
 
-
+  // sw code
   founders = [
     {
-      id: 1, name: 'Ashish Mehrotra',
-      title: 'Cofounder',
-      bio: 'Business leader with 25 years of progressively senior experience across retail, commercial sectors banking, and Insurance sectors.',
-      img: '../../assets/img/founding_team_member/founder-asish.svg',
-      image: '../../assets/img/founding_team_member/Ashish.jpg',
-      linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
-      linkedinLink: 'https://in.linkedin.com/in/ashish-mehrotra-9050406'
-    },
-    {
-      id: 5, name: 'Tarun Taneja', title: 'Director, Insurance', bio: 'A seasoned professional with 20 years of experience in building, scaling and leading new business streams in the General & Health Insurance space. He has deep expertise in New Product Development, Business Development, Bancassurance, Portfolio Management & Risk Management.',
-      img: '../../assets/img/founding_team_member/team-tarun.svg',
-      image: '../../assets/img/founding_team_member/tarun-final.jpg',
-      linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
-      linkedinLink: 'https://www.linkedin.com/in/tarun-taneja-264a3975/'
-    },
-
-    {
-
-      id: 6, name: 'Chandramouli Pandya', title: 'CTO', bio: 'Chandramouli, 20+ yrs of work-ex, has managed globally disperse teams to develop, deploy and scale cutting edge Financial tech. Keen tech aficionado and expert in AI and Blockchain, he wears hats of Startup Mentor, CTO and Tech Evangelist.',
-      img: '../../assets/img/founding_team_member/team-chandra.svg',
-      image: '../../assets/img/founding_team_member/ChandraP_profile.png',
-      linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
-      linkedinLink: 'https://www.linkedin.com/in/chandramoulipandya/'
-    },
-    {
       id: 2, name: 'Sourabh Kumar', title: 'Cofounder', bio: 'Experienced Leader with a demonstrated track record of leading & scaling organizations in wealth management, Insurance & lending.',
       img: '../../assets/img/founding_team_member/founder-sourabh.svg',
       image: '../../assets/img/founding_team_member/Sourabh_profile.png',
@@ -71,35 +47,49 @@ export class HomeComponent implements OnInit {
       linkedinLink: 'https://www.linkedin.com/in/sourabh-kumar-755574a3/'
     },
     {
-
+      id: 1, name: 'Ashish Mehrotra',
+      title: 'Investor & Director',
+      bio: 'Business leader with 25 years of progressively senior experience across retail, commercial sectors banking, and Insurance sectors.',
+      img: '../../assets/img/founding_team_member/founder-asish.svg',
+      image: '../../assets/img/founding_team_member/Ashish.jpg',
+      linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+      linkedinLink: 'https://in.linkedin.com/in/ashish-mehrotra-9050406'
+    },
+    {
+      id: 3, name: 'Suraj Gaydhane', title: 'COO', bio: 'An experienced professional with a demonstrated history of working in leadership roles across finance, analytics, product management, and business strategy for banking and life insurance businesses.',
+      img: '../../assets/img/founding_team_member/team-suraj.svg',
+      image: '../../assets/img/founding_team_member/Suraj-Finizon-Pic.png',
+      linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+      linkedinLink: 'https://www.linkedin.com/in/surajgaydhane/'
+    },
+    {
+      id: 5, name: 'Tarun Taneja', title: 'Cofounder & CEO', bio: 'A seasoned professional with 20 years of experience in building, scaling and leading new business streams in the General & Health Insurance space. He has deep expertise in New Product Development, Business Development, Bancassurance, Portfolio Management & Risk Management.',
+      img: '../../assets/img/founding_team_member/team-tarun.svg',
+      image: '../../assets/img/founding_team_member/tarun-final.jpg',
+      linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+      linkedinLink: 'https://www.linkedin.com/in/tarun-taneja-264a3975/'
+    },
+    {
+      id: 6, name: 'Chandramouli Pandya', title: 'CTO', bio: 'Chandramouli, 20+ yrs of work-ex, has managed globally disperse teams to develop, deploy and scale cutting edge Financial tech. Keen tech aficionado and expert in AI and Blockchain, he wears hats of Startup Mentor, CTO and Tech Evangelist.',
+      img: '../../assets/img/founding_team_member/team-chandra.svg',
+      image: '../../assets/img/founding_team_member/ChandraP_profile.png',
+      linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+      linkedinLink: 'https://www.linkedin.com/in/chandramoulipandya/'
+    },
+    {
       id: 4, name: 'Jaya Singh', title: 'Director, Wealth', bio: 'A leader with deep experience in wealth management across advisory, research, fund diligence, client engagement, and sales',
       img: '../../assets/img/founding_team_member/team-jaya.svg',
       image: '../../assets/img/founding_team_member/Jaya.jpg',
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
       linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
     },
-    {
-      id: 3, name: 'Suraj Gaydhane', title: 'COO', bio: 'An experienced professional with a demonstrated history of working in leadership roles across finance, analytics, product management, and business strategy for banking and life insurance businesses.',
-      //  img: '../../assets/img/Suraj.png',
-      img: '../../assets/img/founding_team_member/team-suraj.svg',
-      image: '../../assets/img/founding_team_member/Suraj-Finizon-Pic.png',
 
-      linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
-      linkedinLink: 'https://www.linkedin.com/in/surajgaydhane/'
-    },
   ];
 
+
+  // sw code mobile
   foundersmob = [
     {
-      id: 1, name: 'Ashish Mehrotra',
-      title: 'Cofounder',
-      bio: 'Business leader with 25 years of progressively senior experience across retail, commercial sectors banking, and Insurance sectors.',
-      img: '../../assets/img/founding_team_member/founder-asish.svg',
-      image: '../../assets/img/founding_team_member/Ashish.jpg',
-      linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
-      linkedinLink: 'https://in.linkedin.com/in/ashish-mehrotra-9050406'
-    },
-    {
       id: 2, name: 'Sourabh Kumar', title: 'Cofounder', bio: 'Experienced Leader with a demonstrated track record of leading & scaling organizations in wealth management, Insurance & lending.',
 
       img: '../../assets/img/founding_team_member/founder-sourabh.svg',
@@ -107,23 +97,30 @@ export class HomeComponent implements OnInit {
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
       linkedinLink: 'https://www.linkedin.com/in/sourabh-kumar-755574a3/'
     },
-
     {
 
-      id: 5, name: 'Tarun Taneja', title: 'Director, Insurance', bio: 'A seasoned professional with 20 years of experience in building, scaling and leading new business streams in the General & Health Insurance space. He has deep expertise in New Product Development, Business Development, Bancassurance, Portfolio Management & Risk Management.',
+      id: 5, name: 'Tarun Taneja', title: 'Cofounder & CEO', bio: 'A seasoned professional with 20 years of experience in building, scaling and leading new business streams in the General & Health Insurance space. He has deep expertise in New Product Development, Business Development, Bancassurance, Portfolio Management & Risk Management.',
       img: '../../assets/img/founding_team_member/team-tarun.svg',
       image: '../../assets/img/founding_team_member/tarun-final.jpg',
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
       linkedinLink: 'https://www.linkedin.com/in/tarun-taneja-264a3975/'
     },
-
+    {
+      id: 1, name: 'Ashish Mehrotra',
+      title: 'Investor & Director',
+      bio: 'Business leader with 25 years of progressively senior experience across retail, commercial sectors banking, and Insurance sectors.',
+      img: '../../assets/img/founding_team_member/founder-asish.svg',
+      image: '../../assets/img/founding_team_member/Ashish.jpg',
+      linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+      linkedinLink: 'https://in.linkedin.com/in/ashish-mehrotra-9050406'
+    },
     {
 
-      id: 4, name: 'Jaya Singh', title: 'Director, Wealth', bio: 'A leader with deep experience in wealth management across advisory, research, fund diligence, client engagement, and sales',
-      img: '../../assets/img/founding_team_member/team-jaya.svg',
-      image: '../../assets/img/founding_team_member/Jaya.jpg',
+      id: 6, name: 'Chandramouli Pandya', title: 'CTO', bio: 'Chandramouli, 20+ yrs of work-ex, has managed globally disperse teams to develop, deploy and scale cutting edge Financial tech. Keen tech aficionado and expert in AI and Blockchain, he wears hats of Startup Mentor, CTO and Tech Evangelist.',
+      img: '../../assets/img/founding_team_member/team-chandra.svg',
+      image: '../../assets/img/founding_team_member/ChandraP_profile.png',
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
-      linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
+      linkedinLink: 'https://www.linkedin.com/in/chandramoulipandya/'
     },
     {
 
@@ -133,18 +130,129 @@ export class HomeComponent implements OnInit {
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
       linkedinLink: 'https://www.linkedin.com/in/surajgaydhane/'
     },
-
     {
 
-      id: 6, name: 'Chandramouli Pandya', title: 'CTO', bio: 'Chandramouli, 20+ yrs of work-ex, has managed globally disperse teams to develop, deploy and scale cutting edge Financial tech. Keen tech aficionado and expert in AI and Blockchain, he wears hats of Startup Mentor, CTO and Tech Evangelist.',
-      img: '../../assets/img/founding_team_member/team-chandra.svg',
-      image: '../../assets/img/founding_team_member/ChandraP_profile.png',
+      id: 4, name: 'Jaya Singh', title: 'Director, Wealth', bio: 'A leader with deep experience in wealth management across advisory, research, fund diligence, client engagement, and sales',
+      img: '../../assets/img/founding_team_member/team-jaya.svg',
+      image: '../../assets/img/founding_team_member/Jaya.jpg',
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
-      linkedinLink: 'https://www.linkedin.com/in/chandramoulipandya/'
+      linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
     },
 
 
+
+
   ];
+
+  // pd code desktop **********************
+  // founders = [
+  //   {
+  //     id: 1, name: 'Ashish Mehrotra',
+  //     title: 'Investor & Director',
+  //     bio: 'Business leader with 25 years of progressively senior experience across retail, commercial sectors banking, and Insurance sectors.',
+  //     img: '../../assets/img/founding_team_member/founder-asish.svg',
+  //     image: '../../assets/img/founding_team_member/Ashish.jpg',
+  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+  //     linkedinLink: 'https://in.linkedin.com/in/ashish-mehrotra-9050406'
+  //   },
+  //   {
+  //     id: 5, name: 'Tarun Taneja', title: 'Cofounder & CEO', bio: 'A seasoned professional with 20 years of experience in building, scaling and leading new business streams in the General & Health Insurance space. He has deep expertise in New Product Development, Business Development, Bancassurance, Portfolio Management & Risk Management.',
+  //     img: '../../assets/img/founding_team_member/team-tarun.svg',
+  //     image: '../../assets/img/founding_team_member/tarun-final.jpg',
+  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+  //     linkedinLink: 'https://www.linkedin.com/in/tarun-taneja-264a3975/'
+  //   },
+
+  //   {
+
+  //     id: 6, name: 'Chandramouli Pandya', title: 'CTO', bio: 'Chandramouli, 20+ yrs of work-ex, has managed globally disperse teams to develop, deploy and scale cutting edge Financial tech. Keen tech aficionado and expert in AI and Blockchain, he wears hats of Startup Mentor, CTO and Tech Evangelist.',
+  //     img: '../../assets/img/founding_team_member/team-chandra.svg',
+  //     image: '../../assets/img/founding_team_member/ChandraP_profile.png',
+  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+  //     linkedinLink: 'https://www.linkedin.com/in/chandramoulipandya/'
+  //   },
+  //   {
+  //     id: 2, name: 'Sourabh Kumar', title: 'Cofounder', bio: 'Experienced Leader with a demonstrated track record of leading & scaling organizations in wealth management, Insurance & lending.',
+  //     img: '../../assets/img/founding_team_member/founder-sourabh.svg',
+  //     image: '../../assets/img/founding_team_member/Sourabh_profile.png',
+  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+  //     linkedinLink: 'https://www.linkedin.com/in/sourabh-kumar-755574a3/'
+  //   },
+  //   {
+
+  //     id: 4, name: 'Jaya Singh', title: 'Director, Wealth', bio: 'A leader with deep experience in wealth management across advisory, research, fund diligence, client engagement, and sales',
+  //     img: '../../assets/img/founding_team_member/team-jaya.svg',
+  //     image: '../../assets/img/founding_team_member/Jaya.jpg',
+  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+  //     linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
+  //   },
+  //   {
+  //     id: 3, name: 'Suraj Gaydhane', title: 'COO', bio: 'An experienced professional with a demonstrated history of working in leadership roles across finance, analytics, product management, and business strategy for banking and life insurance businesses.',
+  //     img: '../../assets/img/founding_team_member/team-suraj.svg',
+  //     image: '../../assets/img/founding_team_member/Suraj-Finizon-Pic.png',
+  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+  //     linkedinLink: 'https://www.linkedin.com/in/surajgaydhane/'
+  //   },
+  // ];
+
+
+  // pd code mobile **********************
+  // foundersmob = [
+  //   {
+  //     id: 1, name: 'Ashish Mehrotra',
+  //     title: 'Investor & Director',
+  //     bio: 'Business leader with 25 years of progressively senior experience across retail, commercial sectors banking, and Insurance sectors.',
+  //     img: '../../assets/img/founding_team_member/founder-asish.svg',
+  //     image: '../../assets/img/founding_team_member/Ashish.jpg',
+  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+  //     linkedinLink: 'https://in.linkedin.com/in/ashish-mehrotra-9050406'
+  //   },
+  //   {
+  //     id: 2, name: 'Sourabh Kumar', title: 'Cofounder', bio: 'Experienced Leader with a demonstrated track record of leading & scaling organizations in wealth management, Insurance & lending.',
+
+  //     img: '../../assets/img/founding_team_member/founder-sourabh.svg',
+  //     image: '../../assets/img/founding_team_member/Sourabh_profile.png',
+  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+  //     linkedinLink: 'https://www.linkedin.com/in/sourabh-kumar-755574a3/'
+  //   },
+
+  //   {
+
+  //     id: 5, name: 'Tarun Taneja', title: 'Cofounder & CEO', bio: 'A seasoned professional with 20 years of experience in building, scaling and leading new business streams in the General & Health Insurance space. He has deep expertise in New Product Development, Business Development, Bancassurance, Portfolio Management & Risk Management.',
+  //     img: '../../assets/img/founding_team_member/team-tarun.svg',
+  //     image: '../../assets/img/founding_team_member/tarun-final.jpg',
+  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+  //     linkedinLink: 'https://www.linkedin.com/in/tarun-taneja-264a3975/'
+  //   },
+
+  //   {
+
+  //     id: 4, name: 'Jaya Singh', title: 'Director, Wealth', bio: 'A leader with deep experience in wealth management across advisory, research, fund diligence, client engagement, and sales',
+  //     img: '../../assets/img/founding_team_member/team-jaya.svg',
+  //     image: '../../assets/img/founding_team_member/Jaya.jpg',
+  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+  //     linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
+  //   },
+  //   {
+
+  //     id: 3, name: 'Suraj Gaydhane', title: 'COO', bio: 'An experienced professional with a demonstrated history of working in leadership roles across finance, analytics, product management, and business strategy for banking and life insurance businesses.',
+  //     img: '../../assets/img/founding_team_member/team-suraj.svg',
+  //     image: '../../assets/img/founding_team_member/Suraj-Finizon-Pic.png',
+  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+  //     linkedinLink: 'https://www.linkedin.com/in/surajgaydhane/'
+  //   },
+
+  //   {
+
+  //     id: 6, name: 'Chandramouli Pandya', title: 'CTO', bio: 'Chandramouli, 20+ yrs of work-ex, has managed globally disperse teams to develop, deploy and scale cutting edge Financial tech. Keen tech aficionado and expert in AI and Blockchain, he wears hats of Startup Mentor, CTO and Tech Evangelist.',
+  //     img: '../../assets/img/founding_team_member/team-chandra.svg',
+  //     image: '../../assets/img/founding_team_member/ChandraP_profile.png',
+  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+  //     linkedinLink: 'https://www.linkedin.com/in/chandramoulipandya/'
+  //   },
+
+
+  // ];
 
   selectedFounder = this.founders[0];
 
@@ -210,10 +318,25 @@ export class HomeComponent implements OnInit {
     autoplayTimeout: 5000,
     autoplayHoverPause: true
   }
+// lead modal 
+myForm!: FormGroup;
+  isSubmitted = false;
+  namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{3,15})?(\\s[a-zA-Z]{3,15})?$";
+  emailPattern = "^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
+  successMessage: boolean = false;
+  constructor(public activeRoute: ActivatedRoute, public validation: ValidateService, private api: ApiService, private route: Router, private crypto: AESCryptoService,private fb: FormBuilder) { 
 
+    // lead modal 
+    this.myForm = new FormGroup({
+      category: new FormControl("INSURANCE", Validators.required),
+      Name: new FormControl('', [Validators.required, Validators.pattern(this.namePattern)]),
+      Email: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
+      mobileNumber: new FormControl('', [Validators.required, Validators.pattern("^[6-9]{1}[0-9]{9}$")]),
+      Comments: new FormControl('', Validators.required)
+    });
+  }
 
-  // modal part
-  constructor(public activeRoute: ActivatedRoute, public validation: ValidateService, private api: ApiService, private route: Router, private crypto: AESCryptoService) { }
+ 
 
   ngOnInit(): void {
 
@@ -433,26 +556,37 @@ export class HomeComponent implements OnInit {
     // this.CreditUrl = environment.CreditUrl.replace("{TOKEN}", encodeURIComponent(this.Token));
     // this.CreditUrl = this.CreditUrl.replace("{PATH}", encodeURIComponent(Path));
     // window.location.href = this.CreditUrl;
-
-
-    console.log('credit', credit.path)
-    // this.route.navigate([insurence.path]);
-    window.location.href = credit.path;
+    console.log("name", credit)
+    if (credit.name === "Savings & Insurance") {
+      console.log("begin");
+      $("#leadModal").modal("show");
+      console.log("after");
+    }
+    else {
+      console.log('credit', credit.path)
+      // this.route.navigate([insurence.path]);
+      $("#leadModal").modal("hide");
+      window.location.href = credit.path;
+    }
   }
+
+  
 
   InsurancetRouterUrl(insurence: any) {
-    // debugger
-    // this.Token = localStorage.getItem("CustToken");
-    // this.InsuranceUrl = environment.InsuranceUrl.replace("{TOKEN}", encodeURIComponent(this.Token));
-    // this.InsuranceUrl = this.InsuranceUrl.replace("{PATH}", encodeURIComponent(Path));
-    // window.location.href = this.InsuranceUrl;
-
-
+    console.log("name", insurence)
+    if (insurence.name === "Life Term Insurance") {
+      console.log("begin");
+      $("#leadModal").modal("show");
+      console.log("after");
+    }
+    else {
     console.log('insurence', insurence.path)
     // this.route.navigate([insurence.path]);
+    $("#leadModal").modal("hide");
     window.location.href = insurence.path;
-
+    }
   }
+
   wealthtRouterUrl(Path: any) {
     this.Token = localStorage.getItem("CustToken");
     this.WealthUrl = environment.WealthUrl.replace("{TOKEN}", encodeURIComponent(this.Token));
@@ -494,6 +628,7 @@ export class HomeComponent implements OnInit {
 
 
   // modal part for phydigital section
+ 
   showPartnerModal() {
     console.log("hello")
     $("#partnerModal").modal("show");
@@ -509,6 +644,69 @@ export class HomeComponent implements OnInit {
     $("#headerotp-screen").modal("hide");
   }
 
+
+
+//  modal part of lead form of life term and savings & insurance 
+  // lead modal 
+  showleadModal() {
+
+    $("#leadModal").modal("show");
+    // console.log("showmodel:", this.showModal);
+  }
+
+  hideleadModal() {
+    $("#leadModal").modal("hide");
+  }
+  
+
+Submit() {
+  this.isSubmitted = true;
+  console.log("reached on subit", this.myForm.valid)
+  console.log("reached on", this.myForm)
+  if (this.myForm.valid) {
+    console.log(this.myForm.value);
+
+    let payload = {    //this payload is a json object
+
+      name: this.myForm.value.Name, // leftside firstname is exactly same as that of backend API and rightside firstname i.e., ,firstName should be exact same as that of formcontrolname in .html file or same as written above in ngonit 
+      email: this.myForm.value.Email,
+      phone_no: this.myForm.value.mobileNumber,
+      category: this.myForm.value.category,
+      comments: this.myForm.value.Comments
+
+    }
+    if (this.myForm.value.category === 'INVESTMENT') {
+      payload.category = 'INVESTMENT';
+    }
+    this.api.post("support/", payload, false).subscribe(async response => {
+      console.log(response);
+
+    });
+
+    this.myForm.reset({ category: 'INSURANCE' });
+    // Show success message for 15 seconds
+    this.successMessage = true;
+    setTimeout(() => {
+      this.successMessage = false;
+
+      // Close the modal after 5 seconds
+      setTimeout(() => {
+        this.hideleadModal();
+      }, 1000);
+    }, 1500);
+  } else {
+    // Mark all form controls as touched to display validation errors
+    for (const fieldName in this.myForm.controls) {
+      if (Object.prototype.hasOwnProperty.call(this.myForm.controls, fieldName)) {
+        const control = this.myForm.controls[fieldName];
+        if (control) {
+          control.markAsTouched();
+        }
+      }
+    }
+
+  }
+}
 
 
 }
