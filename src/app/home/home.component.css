@@ -316,9 +316,9 @@
 	align-items: center;
 	overflow-y: hidden !important;
 	max-width: 580px !important;
-  
+
 	/* max-height: 1200px !important; */
-	/* border: 1px solid white; */
+	/* border: 1px solid green; */
 	border-radius: 10px;
   }
   .modal-content{
@@ -331,19 +331,31 @@
   
   }
   .modal-body{
-  
+    /* border: 1px solid yellow; */
 	padding: 60px 60px 60px 60px;
+
+	/* sw changes*/
+	max-width:100% !important;
+	overflow-y: hidden !important;
+
+	max-height:100% !important;
   
   }
-  .details{
-	height:100%;
-	/* height: 560px !important; */
-	/* margin-top: -% !important; */
+  .details{	
 	border: 1px solid #f2f0f0;
-	padding: 30px 30px 10px 30px;
+	padding: 20px 30px 10px 30px;
 	box-shadow: -10px -10px 20px #FFFFFF, 8px 8px 24px rgba(210, 210, 210, 0.5);
 	border-radius: 25px;
-	margin-top: -3%;
+
+	/* height:100% !important; */
+	/* margin-top: -3%; */
+
+	/* sw changes*/
+	height:470px !important;
+	
+	/* height: fit-content; */
+	margin-top: -8%;
+
   
   }
   .support-title{
@@ -441,10 +453,19 @@
   textarea.form-control {
 	height: 100px !important;
   }
-  
+
+  /* sw changes */
+  .submitbtn{
+	position: relative;
+    top: -16%;
+  }
+  /* sw changes */
+
   .submit{
-	margin-bottom: 10% !important;
-	/* margin-top: -15% !important; */
+	/* margin-bottom: 30% !important; */
+	/* margin-top: -8% !important; */
+	/* position: relative;
+    margin-top: -8%; */
   }
   
   
@@ -452,9 +473,38 @@
 	.modal-body{
   
 	  padding: 50px 20px 20px 20px;
+	  	
+	  /* sw changes*/
+	max-width:100% !important;
+	overflow-y: hidden !important;
+
+	max-height:100% !important;
 	
 	}
   
+	  /* sw changes*/
+	.details{	
+	border: 1px solid #f2f0f0;
+	padding: 20px 30px 10px 30px;
+	box-shadow: -10px -10px 20px #FFFFFF, 8px 8px 24px rgba(210, 210, 210, 0.5);
+	border-radius: 25px;
+
+	/* height:100% !important; */
+	/* margin-top: -3%; */
+
+	/* sw changes*/
+	height:440px !important;
+	
+	/* height: fit-content; */
+	margin-top: 0%;
+
+  
+  }
+/* sw changes end*/
+
+
+
+
 	/* .support-title{
 	
 	  margin-top: -19% !important;
@@ -473,9 +523,14 @@
 	textarea.form-control {
 	  height: 80px !important;
 	}
-	
+	 /* sw changes */
+  .submitbtn{
+	position: relative;
+    top:-12px;
+  }
+  /* sw changes */
 	.submit{
-	  margin-bottom: 10% !important;
+	  /* margin-bottom: 10% !important; */
 	  /* margin-top: -15% !important; */
 	}
   }

@@ -136,7 +136,8 @@
       <div class="slick-carousel index-product">
         <div class="row ">
           <div class="col col-6" *ngFor="let insurence of InsurencedataList">
-            <div data-toggle="modal" data-target="#leadModal" class="loan-type" (click)="InsurancetRouterUrl(insurence)">
+            <div data-toggle="modal" data-target="#leadModal" class="loan-type"
+              (click)="InsurancetRouterUrl(insurence)">
               <img src="{{insurence?.logo}}" alt="l1">
               <p>{{insurence.name}}</p>
             </div>
@@ -172,7 +173,7 @@
           </div>
           <div class="modal-body">
 
-            <div class="support-title">Get Additional Support</div>
+            <!-- <div class="support-title">Get Additional Support</div> -->
             <!-- <div class="container"> -->
             <form [formGroup]="myForm">
               <div class="details">
@@ -232,7 +233,7 @@
                     Comments are required*
                   </div>
                 </div>
-                <div class="mb-3 center ">
+                <div class="mb-3 center submitbtn">
                   <button class="btn btn-primary theme-button submit" (click)="Submit()">SUBMIT</button>
                 </div>
               </div>
@@ -246,7 +247,7 @@
         </div>
       </div>
     </div>
-<!-- modal part of lead form of life term and savings & insurance end-->
+    <!-- modal part of lead form of life term and savings & insurance end-->
 
 
 
