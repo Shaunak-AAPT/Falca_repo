@@ -683,7 +683,7 @@ Submit() {
 
     });
 
-    this.myForm.reset({ category: 'INSURANCE' });
+    // this.myForm.reset({ category: 'INSURANCE' });
     // Show success message for 15 seconds
     this.successMessage = true;
     setTimeout(() => {
