@@ -507,4 +507,19 @@ export class HeaderComponent implements OnInit {
     this.isOTPSent = false;
   }
 
+  customerinsurancelink(){
+    window.open("https://ins.finizoninsurance.com/user/home", "_blank");
+
+  }
+
+  customerinvestmentlink(){
+    window.open("https://wealth.finizon.com/client-login","_blank");
+  }
+
+  partnerinsurancelink(){
+    window.open("https://ins.finizoninsurance.com/partner/posp-home","_blank");
+  }
+  partnerinvestmentlink(){
+    window.open("https://wealth.finizon.com/advisor-login", "_blank");
+  }
 }

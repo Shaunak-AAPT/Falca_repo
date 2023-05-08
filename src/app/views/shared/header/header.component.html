@@ -34,8 +34,10 @@
             <div  class="login-popup dropdown-menu dropdown-menu-lg-end">
               <div class="sign-in">
                 <div class="col-lg-8 col-sm-6">
-                  <button class="nav-link active btn btn-primary theme-button modalpartnerbtn">Insurance</button>
-                  <button class="nav-link active btn btn-primary theme-button modalpartnerbtn">Investment</button>
+                    <button class="nav-link active btn btn-primary theme-button modalpartnerbtn" (click)="customerinsurancelink()">Insurance</button>
+
+                    <button class="nav-link active btn btn-primary theme-button modalpartnerbtn" (click)="customerinvestmentlink()">Investment</button>
+                  
                 </div>
               </div>
               
@@ -45,16 +47,17 @@
 
           <!-- ********Partner******** -->
           <li class="btn-group hidden-xs">
-            <a class="nav-link btn ms-2 "
+            <a class="nav-link btn ms-2"
               data-bs-toggle="dropdown" data-bs-display="dynamic" aria-expanded="false" href="javascript:void(0)">Partner
               <span style="margin-left: 10px;"><i class="jet-dropdown-arrow fa fa-angle-down"></i></span></a>
             <div  class="login-popup dropdown-menu dropdown-menu-lg-end">
               <div class="sign-in">
                 
-
                 <div class="col-lg-8 col-sm-6">
-                  <button class="nav-link active btn btn-primary theme-button modalpartnerbtn">Insurance</button>
-                  <button class="nav-link active btn btn-primary theme-button modalpartnerbtn">Investment</button>
+                
+                  <button class="nav-link active btn btn-primary theme-button modalpartnerbtn" (click)="partnerinsurancelink()">Insurance</button>
+
+                  <button class="nav-link active btn btn-primary theme-button modalpartnerbtn" (click)="partnerinvestmentlink()">Investment</button>
                 </div>
               </div>
             

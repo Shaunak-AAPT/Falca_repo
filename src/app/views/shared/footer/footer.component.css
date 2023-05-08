@@ -172,7 +172,6 @@ padding: 1.5rem;
 }
 /* added by sw for cust,part mobile view */
 
-
 @media (min-width: 576px){
 #headerotp-screen .modal-dialog , #Footerotp-screen .modal-dialog{
   max-width: 400px;
