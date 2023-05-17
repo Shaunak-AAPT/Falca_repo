@@ -223,7 +223,7 @@
                 <div class="mb-3">
                   <label for="name">Phone</label>
                   <input type="text" formControlName="mobileNumber" class="form-control" name="mobileNumber"
-                    placeholder="Enter Phone" class="form-control">
+                    placeholder="Enter Phone" class="form-control" maxlength='10'>
                   <div
                     *ngIf="myForm.controls['mobileNumber'].invalid && (myForm.controls['mobileNumber'].touched || isSubmitted)"
                     class="text-danger">
@@ -557,20 +557,20 @@
               <div *ngFor="let founder of founders.slice(0, 3)">
                 <!-- <img class="clkprofile_Photo" [src]="founder.img"[class.selected]="selectedFounder" (click)="showDetails(founder)" /> -->
                 <img class="clkprofile_Photo" [src]="founder.img" [class.selected]="isSelected(founder)"
-                  (click)="showDetails(founder)" />
+                  (click)="showDetails(founder)" alt="founderimg"/>
               </div>
             </div>
             <div class="founder-column hidden-xs hidden-md ">
               <div *ngFor="let founder of founders.slice(3)">
                 <img class="clkprofile_Photo" [src]="founder.img" [class.selected]="isSelected(founder)"
-                  (click)="showDetails(founder)" />
+                  (click)="showDetails(founder)" alt="founderimg"/>
               </div>
             </div>
             <div class="founder-row hidden-lg">
               <div class="founder-row-container">
                 <div *ngFor="let foundermob of foundersmob">
                   <img class="clkprofile_Photo" [src]="foundermob.img" [class.selected]="isSelected(foundermob)"
-                    (click)="showDetails(foundermob)" />
+                    (click)="showDetails(foundermob)" alt="founderimg"/>
                 </div>
               </div>
             </div>
@@ -584,7 +584,7 @@
 
                 <div *ngIf="selectedFounder">
                   <div class="profile ">
-                    <img class="profile_Photo" [src]="selectedFounder.image" />
+                    <img class="profile_Photo" [src]="selectedFounder.image" alt="founderimg"/>
                     <div class="profile_details">
                       <div class="name">{{ selectedFounder.name }}</div>
                       <div class="designation">{{ selectedFounder.title }}</div>

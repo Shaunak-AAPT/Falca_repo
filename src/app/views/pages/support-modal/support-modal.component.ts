@@ -81,16 +81,17 @@ export class SupportModalComponent implements OnInit {
           this.hideSupportModal();
         }, 1000);
       }, 1500);
-    } else {
+    } 
+    else {
       // Mark all form controls as touched to display validation errors
-      for (const fieldName in this.myForm.controls) {
-        if (Object.prototype.hasOwnProperty.call(this.myForm.controls, fieldName)) {
-          const control = this.myForm.controls[fieldName];
-          if (control) {
-            control.markAsTouched();
-          }
-        }
-      }
+      // for (const fieldName in this.myForm.controls) {
+      //   if (Object.prototype.hasOwnProperty.call(this.myForm.controls, fieldName)) {
+      //     const control = this.myForm.controls[fieldName];
+      //     if (control) {
+      //       control.markAsTouched();
+      //     }
+      //   }
+      // }
 
     }
   }

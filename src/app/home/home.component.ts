@@ -65,7 +65,8 @@ export class HomeComponent implements OnInit {
     {
       id: 5, name: 'Tarun Taneja', title: 'Cofounder & CEO', bio: 'A seasoned professional with 20 years of experience in building, scaling and leading new business streams in the General & Health Insurance space. He has deep expertise in New Product Development, Business Development, Bancassurance, Portfolio Management & Risk Management.',
       img: '../../assets/img/founding_team_member/team-tarun.svg',
-      image: '../../assets/img/founding_team_member/tarun-final.jpg',
+      // image: '../../assets/img/founding_team_member/tarun-final.jpg',
+      image: '../../assets/img/founding_team_member/TT.png',
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
       linkedinLink: 'https://www.linkedin.com/in/tarun-taneja-264a3975/'
     },
@@ -91,7 +92,6 @@ export class HomeComponent implements OnInit {
   foundersmob = [
     {
       id: 2, name: 'Sourabh Kumar', title: 'Cofounder', bio: 'Experienced Leader with a demonstrated track record of leading & scaling organizations in wealth management, Insurance & lending.',
-
       img: '../../assets/img/founding_team_member/founder-sourabh.svg',
       image: '../../assets/img/founding_team_member/Sourabh_profile.png',
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
@@ -101,7 +101,8 @@ export class HomeComponent implements OnInit {
 
       id: 5, name: 'Tarun Taneja', title: 'Cofounder & CEO', bio: 'A seasoned professional with 20 years of experience in building, scaling and leading new business streams in the General & Health Insurance space. He has deep expertise in New Product Development, Business Development, Bancassurance, Portfolio Management & Risk Management.',
       img: '../../assets/img/founding_team_member/team-tarun.svg',
-      image: '../../assets/img/founding_team_member/tarun-final.jpg',
+      // image: '../../assets/img/founding_team_member/tarun-final.jpg',
+      image: '../../assets/img/founding_team_member/TT.png',
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
       linkedinLink: 'https://www.linkedin.com/in/tarun-taneja-264a3975/'
     },

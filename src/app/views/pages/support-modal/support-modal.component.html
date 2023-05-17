@@ -55,7 +55,7 @@
             <div class="mb-3">
               <label for="name">Phone</label>
               <input type="text" formControlName="mobileNumber" class="form-control" name="mobileNumber"
-                placeholder="Enter Phone" class="form-control">
+                placeholder="Enter Phone" class="form-control" maxlength='10'>
               <div
                 *ngIf="myForm.controls['mobileNumber'].invalid && (myForm.controls['mobileNumber'].touched || isSubmitted)"
                 class="text-danger">
