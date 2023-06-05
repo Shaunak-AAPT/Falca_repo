@@ -35,6 +35,7 @@ export class HomeComponent implements OnInit {
   WealthUrl = environment.WealthUrl;
   ShowLoader: any = false;
   LOGOUT: any;
+
   // loginInit: boolean = false;
 
   // sw code
@@ -319,13 +320,16 @@ export class HomeComponent implements OnInit {
     autoplayTimeout: 5000,
     autoplayHoverPause: true
   }
-// lead modal 
-myForm!: FormGroup;
+  // lead modal 
+  myForm!: FormGroup;
   isSubmitted = false;
-  namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{3,15})?(\\s[a-zA-Z]{3,15})?$";
+  // namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{3,15})?(\\s[a-zA-Z]{3,15})?$";
+
+  namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{3,15}){1,2}$";
+
   emailPattern = "^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
   successMessage: boolean = false;
-  constructor(public activeRoute: ActivatedRoute, public validation: ValidateService, private api: ApiService, private route: Router, private crypto: AESCryptoService,private fb: FormBuilder) { 
+  constructor(public activeRoute: ActivatedRoute, public validation: ValidateService, private api: ApiService, private route: Router, private crypto: AESCryptoService, private fb: FormBuilder) {
 
     // lead modal 
     this.myForm = new FormGroup({
@@ -337,7 +341,7 @@ myForm!: FormGroup;
     });
   }
 
- 
+
 
   ngOnInit(): void {
 
@@ -527,12 +531,41 @@ myForm!: FormGroup;
     })
   }
 
+  // *****ORG*****
+  // CommonTestimonial() {
+  //   this.api.get("testimonial?vertical=0").subscribe((resp) => {
+  //     this.CommonrTestimonialdata = resp.data;
+
+  //   });
+  // }
+
+
   CommonTestimonial() {
     this.api.get("testimonial?vertical=0").subscribe((resp) => {
-      this.CommonrTestimonialdata = resp.data;
-
+      this.CommonrTestimonialdata = resp.data.map((testimonial: any) => ({
+        ...testimonial,
+        expanded: false
+      }));
     });
   }
+
+  toggleExpanded(testimonial: any) {
+    testimonial.expanded = !testimonial.expanded;
+  }
+
+  displayedText(text: string): string {
+    const maxLength = 300; // Set the desired maximum length
+
+    if (text.length <= maxLength) {
+      return text;
+    }
+
+    const truncatedText = text.slice(0, maxLength);
+    return `<span>${truncatedText}</span><span class="read-more-dots">...</span>`;
+  }
+
+
+
   InsuranceProduct() {
     this.api.get("vertical/product?vertical=1").subscribe((resp) => {
       this.InsurencedataList = resp.data;
@@ -567,11 +600,13 @@ myForm!: FormGroup;
       console.log('credit', credit.path)
       // this.route.navigate([insurence.path]);
       $("#leadModal").modal("hide");
-      window.location.href = credit.path;
+      // window.location.href = credit.path;
+      window.open(credit.path, '_blank');
+
     }
   }
 
-  
+
 
   InsurancetRouterUrl(insurence: any) {
     console.log("name", insurence)
@@ -581,10 +616,11 @@ myForm!: FormGroup;
       console.log("after");
     }
     else {
-    console.log('insurence', insurence.path)
-    // this.route.navigate([insurence.path]);
-    $("#leadModal").modal("hide");
-    window.location.href = insurence.path;
+      console.log('insurence', insurence.path)
+      // this.route.navigate([insurence.path]);
+      $("#leadModal").modal("hide");
+      // window.location.href = insurence.path;
+      window.open(insurence.path, '_blank');
     }
   }
 
@@ -629,7 +665,7 @@ myForm!: FormGroup;
 
 
   // modal part for phydigital section
- 
+
   showPartnerModal() {
     console.log("hello")
     $("#partnerModal").modal("show");
@@ -647,7 +683,7 @@ myForm!: FormGroup;
 
 
 
-//  modal part of lead form of life term and savings & insurance 
+  //  modal part of lead form of life term and savings & insurance 
   // lead modal 
   showleadModal() {
 
@@ -658,56 +694,36 @@ myForm!: FormGroup;
   hideleadModal() {
     $("#leadModal").modal("hide");
   }
-  
 
-Submit() {
-  this.isSubmitted = true;
-  console.log("reached on subit", this.myForm.valid)
-  console.log("reached on", this.myForm)
-  if (this.myForm.valid) {
-    console.log(this.myForm.value);
 
-    let payload = {    //this payload is a json object
+  Submit() {
+    this.isSubmitted = true;
+    console.log("reached on subit", this.myForm.valid)
+    console.log("reached on", this.myForm)
+    if (this.myForm.valid) {
+      console.log(this.myForm.value);
 
-      name: this.myForm.value.Name, // leftside firstname is exactly same as that of backend API and rightside firstname i.e., ,firstName should be exact same as that of formcontrolname in .html file or same as written above in ngonit 
-      email: this.myForm.value.Email,
-      phone_no: this.myForm.value.mobileNumber,
-      category: this.myForm.value.category,
-      comments: this.myForm.value.Comments
+      let payload = {    //this payload is a json object
 
-    }
-    if (this.myForm.value.category === 'INVESTMENT') {
-      payload.category = 'INVESTMENT';
-    }
-    this.api.post("support/", payload, false).subscribe(async response => {
-      console.log(response);
+        name: this.myForm.value.Name, // leftside firstname is exactly same as that of backend API and rightside firstname i.e., ,firstName should be exact same as that of formcontrolname in .html file or same as written above in ngonit 
+        email: this.myForm.value.Email,
+        phone_no: this.myForm.value.mobileNumber,
+        category: this.myForm.value.category,
+        comments: this.myForm.value.Comments
 
-    });
-
-    // this.myForm.reset({ category: 'INSURANCE' });
-    // Show success message for 15 seconds
-    this.successMessage = true;
-    setTimeout(() => {
-      this.successMessage = false;
-
-      // Close the modal after 5 seconds
-      setTimeout(() => {
-        this.hideleadModal();
-      }, 1000);
-    }, 1500);
-  } else {
-    // Mark all form controls as touched to display validation errors
-    for (const fieldName in this.myForm.controls) {
-      if (Object.prototype.hasOwnProperty.call(this.myForm.controls, fieldName)) {
-        const control = this.myForm.controls[fieldName];
-        if (control) {
-          control.markAsTouched();
-        }
       }
-    }
+      if (this.myForm.value.category === 'INVESTMENT') {
+        payload.category = 'INVESTMENT';
+      }
+      this.api.post("support/", payload, false).subscribe(async response => {
+        console.log(response);
 
+      });
+      this.myForm.reset();
+      this.isSubmitted = false;
+
+    } 
   }
-}
 
 
 }

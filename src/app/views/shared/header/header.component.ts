@@ -518,6 +518,7 @@ export class HeaderComponent implements OnInit {
 
   partnerinsurancelink(){
     window.open("https://ins.finizoninsurance.com/partner/posp-home","_blank");
+
   }
   partnerinvestmentlink(){
     window.open("https://wealth.finizon.com/advisor-login", "_blank");

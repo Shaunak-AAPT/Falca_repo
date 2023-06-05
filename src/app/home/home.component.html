@@ -11,7 +11,7 @@
 <div *ngIf="!ShowLoader">
   <div class="container pb-3">
     <!-- Banners Carousel -->
-    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+    <div id="demo" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
 
       <!-- Indicators/dots -->
       <div class="carousel-indicators">
@@ -118,7 +118,10 @@
                   </div>
 
                   <div class="col-lg-8 col-sm-6">
-                    <a style="text-decoration: none;" target="_blank" href="https://ins.finizoninsurance.com/partner/posp-home">
+                    <!-- <a style="text-decoration: none;" target="_blank" href="https://ins.finizoninsurance.com/partner/posp-home">
+                      <button class="nav-link btn btn-primary theme-button modalpartnerbtn">INSURANCE</button>
+                    </a> -->
+                    <a style="text-decoration: none;" target="_blank" href="https://ins.finizoninsurance.com/partner/signup">
                       <button class="nav-link btn btn-primary theme-button modalpartnerbtn">INSURANCE</button>
                     </a>
                     <a style="text-decoration: none;" target="_blank" href="https://forms.gle/t4D9wrpJWNiFVpDS8">
@@ -160,7 +163,7 @@
           <div class="col col-6" *ngFor="let credit of CreditdataList">
             <div data-toggle="modal" data-target="#leadModal" class="loan-type" (click)="CreditRouterUrl(credit)">
               <img src="{{credit.logo}}" alt="l1">
-              <p>{{credit.name}}</p>
+              <p [innerHTML]="credit?.name"></p>
             </div>
           </div>
         </div>
@@ -174,33 +177,20 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="closeicon">
-            <button type="button" class="close" (click)="hideleadModal()" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" (click)="hideleadModal()"aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-
           </div>
-          <div class="modal-body">
+          <!-- <div class="support-title">Please Submit The Below Information</div> -->
 
+          <div class="modal-body">
             <!-- <div class="support-title">Get Additional Support</div> -->
             <!-- <div class="container"> -->
             <form [formGroup]="myForm">
               <div class="details">
 
-                <!-- <div class="up-in-toggle">
-              <input type="radio" id="switch_left" formControlName="category" value="INSURANCE" />
-              <label for="switch_left">INSURANCE</label>
-              <input type="radio" id="switch_right" formControlName="category" value="INVESTMENT" />
-              <label for="switch_right">INVESTMENT</label>
-
-            </div>
-            <div *ngIf="myForm.controls['category'].invalid && (myForm.controls['category'].touched || isSubmitted)"
-              class="text-danger">
-              Pleae select the option*
-             </div> -->
-
-
                 <div class="mb-3">
-                  <label for="name">Name</label>
+                  <label for="name">FullName</label>
                   <input type="text" formControlName="Name" class="form-control" name="Name" placeholder="Enter Name"
                     class="form-control">
 
@@ -303,7 +293,7 @@
           </h4>
 
           <!-- Carousel -->
-          <div id="meetpartners" class="carousel slide" data-bs-ride="carousel">
+          <div id="meetpartners" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
 
             <!-- Indicators/dots -->
             <div class="carousel-indicators">
@@ -519,9 +509,13 @@
                 </div>
 
                 <div class="col-lg-8 col-sm-6">
-                  <a style="text-decoration: none;" target="_blank" href="https://ins.finizoninsurance.com/partner/posp-home">
+                  <!-- <a style="text-decoration: none;" target="_blank" href="https://ins.finizoninsurance.com/partner/posp-home">
                   <button class="nav-link btn btn-primary theme-button modalpartnerbtn">INSURANCE</button>
-                  </a>
+                  </a> -->
+
+                  <a style="text-decoration: none;" target="_blank" href="https://ins.finizoninsurance.com/partner/signup">
+                    <button class="nav-link btn btn-primary theme-button modalpartnerbtn">INSURANCE</button>
+                    </a>
 
                   <a style="text-decoration: none;" target="_blank" href="https://forms.gle/t4D9wrpJWNiFVpDS8">
                   <button class="nav-link btn btn-primary theme-button modalpartnerbtn">INVESTMENT</button>
@@ -645,7 +639,13 @@
               <div class="col-lg-12 text-center">
                 <img src="{{testimonial?.profilePhoto}}" class="user-img" alt="user">
                 <h4>{{testimonial?.firstName}} {{testimonial?.lastName}}</h4>
-                <p>{{testimonial?.profileReview}}</p>
+                <!-- <p [innerHTML]="testimonial?.profileReview"></p> -->
+
+
+                <div [innerHTML]="displayedText(testimonial?.profileReview)"></div>
+                <a href="#" (click)="toggleExpanded(testimonial)">
+                  {{ testimonial.expanded ? 'Read Less...' : 'Read More...' }}
+                </a>
               </div>
             </div>
           </div>

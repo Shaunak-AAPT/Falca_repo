@@ -56,7 +56,10 @@ const routes: Routes = [
   { path: 'kyc-pan-verification', component: KycPanVerificationComponent },
   { path: 'active-insurance', component: ActiveInsuranceComponent },
   { path:'terms-of-use',component:TermsOfUseComponent},
-  { path:'support',component:SupportModalComponent}
+  { path:'support',component:SupportModalComponent},
+
+  { path:'account-profile-details',component:AccountProfileDetailsComponent}
+  
 
 ];
 

@@ -15,7 +15,9 @@ declare var $: any;
 export class SupportModalComponent implements OnInit {
   myForm!: FormGroup;
   isSubmitted = false;
-  namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{3,15})?(\\s[a-zA-Z]{3,15})?$";
+  // namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{3,15})?(\\s[a-zA-Z]{3,15})?$";
+
+  namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{3,15}){1,2}$";
   emailPattern = "^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
   successMessage: boolean = false;
   constructor(public validation: ValidateService, private toastr: ToastrService, private fb: FormBuilder, private api: ApiService,) {
@@ -71,29 +73,19 @@ export class SupportModalComponent implements OnInit {
       });
 
       this.myForm.reset({ category: 'INSURANCE' });
+      this.isSubmitted=false;
       // Show success message for 15 seconds
-      this.successMessage = true;
-      setTimeout(() => {
-        this.successMessage = false;
+      // this.successMessage = true;
+      // setTimeout(() => {
+      //   this.successMessage = false;
 
-        // Close the modal after 5 seconds
-        setTimeout(() => {
-          this.hideSupportModal();
-        }, 1000);
-      }, 1500);
+      //   // Close the modal after 5 seconds
+      //   setTimeout(() => {
+      //     this.hideSupportModal();
+      //   }, 1000);
+      // }, 1500);
     } 
-    else {
-      // Mark all form controls as touched to display validation errors
-      // for (const fieldName in this.myForm.controls) {
-      //   if (Object.prototype.hasOwnProperty.call(this.myForm.controls, fieldName)) {
-      //     const control = this.myForm.controls[fieldName];
-      //     if (control) {
-      //       control.markAsTouched();
-      //     }
-      //   }
-      // }
-
-    }
+   
   }
 }
 

@@ -84,13 +84,16 @@
 .closeicon .close{
   width: 35px;
   height:35px;
-  margin-left: 28px;
-  margin-top: 23px;
+  /* margin-left: 28px;
+  margin-top: 23px; */
   /* padding: 8px; */
   border: 2px solid #F7F7F7;
   background: linear-gradient(156.65deg, #ECECEC 1.2%, #FFFFFF 98.95%);
   border-radius: 100px;
   box-shadow: -10px -10px 20px #FFFFFF, 8px 8px 24px rgba(210, 210, 210, 0.5);
+
+  margin-left: 90%;
+  margin-top: 25px;
 }
 
 /* .modal-body button{
@@ -113,10 +116,13 @@ margin-bottom: 10px;
   color: red;
 }
 .up-in-toggle {
-padding: 5px 0px;
+padding: 5px 5px;
 border: 1px solid #00A3B1;
 border-radius: 8px;
 margin-bottom: 10px;
+
+display: flex; /* Add flex display */
+
 }
 .up-in-toggle input {
 clip: rect(0, 0, 0, 0);
@@ -126,6 +132,7 @@ border: 0;
 overflow: hidden;
 }
 .up-in-toggle input:checked + label {
+  flex-grow: 1;
 background: #bfe6ec !important;
 color: #00A3B1 !important ;
 font-weight: 500 !important;

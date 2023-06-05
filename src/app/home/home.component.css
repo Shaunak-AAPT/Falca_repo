@@ -358,16 +358,18 @@
 	height: 470px !important;
 
 	/* height: fit-content; */
-	margin-top: -8%;
+	margin-top: -7%;
+
 
 
 }
 
 .support-title {
 	text-align: center;
-	margin-top: -19% !important;
-	margin-bottom: 5%;
+	margin-top: -3% !important;
+	/* margin-bottom: 2%; */
 	font-size: 20px;
+	font-weight: 600;
 }
 
 /* .modal.modal-body{
@@ -378,13 +380,16 @@
 .closeicon .close {
 	width: 35px;
 	height: 35px;
-	margin-left: 28px;
-	margin-top: 23px;
+	/* margin-left: 28px;
+	margin-top: 23px; */
 	/* padding: 8px; */
 	border: 2px solid #F7F7F7;
 	background: linear-gradient(156.65deg, #ECECEC 1.2%, #FFFFFF 98.95%);
 	border-radius: 100px;
 	box-shadow: -10px -10px 20px #FFFFFF, 8px 8px 24px rgba(210, 210, 210, 0.5);
+
+	margin-left: 92% !important;
+    margin-top: 23px;
 }
 
 /* .modal-body button{
