@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ApiService } from '../services/api/api.service';
@@ -329,7 +329,7 @@ export class HomeComponent implements OnInit {
 
   emailPattern = "^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
   successMessage: boolean = false;
-  constructor(public activeRoute: ActivatedRoute, public validation: ValidateService, private api: ApiService, private route: Router, private crypto: AESCryptoService, private fb: FormBuilder) {
+  constructor(public activeRoute: ActivatedRoute, public validation: ValidateService, private api: ApiService, private route: Router, private crypto: AESCryptoService, private fb: FormBuilder , private elementRef: ElementRef) {
 
     // lead modal 
     this.myForm = new FormGroup({
@@ -549,19 +549,23 @@ export class HomeComponent implements OnInit {
     });
   }
 
+
   toggleExpanded(testimonial: any) {
     testimonial.expanded = !testimonial.expanded;
   }
 
-  displayedText(text: string): string {
-    const maxLength = 300; // Set the desired maximum length
+  shouldShowReadMore(testimonial: any): boolean {
+    return testimonial?.profileReview?.length > 222;
+  }
 
-    if (text.length <= maxLength) {
-      return text;
+  getReviewContent(testimonial: any): string {
+    if (testimonial.expanded) {
+      return testimonial?.profileReview;
+    } else if (testimonial?.profileReview?.length > 222) {
+      return testimonial?.profileReview?.slice(0, 222) + '...';
+    } else {
+      return testimonial?.profileReview;
     }
-
-    const truncatedText = text.slice(0, maxLength);
-    return `<span>${truncatedText}</span><span class="read-more-dots">...</span>`;
   }
 
 
@@ -724,6 +728,17 @@ export class HomeComponent implements OnInit {
 
     } 
   }
+  // scrollToTop() {
+  //   const headerElement = this.elementRef.nativeElement.querySelector('top');
+  //   if (headerElement) {
+  //     headerElement.scrollIntoView({ behavior: 'smooth' });
+  //   }
+  // }
 
-
+   scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
 }

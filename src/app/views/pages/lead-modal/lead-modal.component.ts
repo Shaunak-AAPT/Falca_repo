@@ -1,18 +1,17 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { registerRequest } from 'src/app/models/registerRequest.model';
-import { ValidateService } from 'src/app/services/validate/validate.service';
-import { ReactiveFormsModule } from '@angular/forms'
 import { ApiService } from 'src/app/services/api/api.service';
+import { ValidateService } from 'src/app/services/validate/validate.service';
 declare var $: any;
-@Component({
-  selector: 'app-support-modal',
-  templateUrl: './support-modal.component.html',
-  styleUrls: ['./support-modal.component.css']
-})
 
-export class SupportModalComponent implements OnInit {
+@Component({
+  selector: 'app-lead-modal',
+  templateUrl: './lead-modal.component.html',
+  styleUrls: ['./lead-modal.component.css']
+})
+export class LeadModalComponent implements OnInit {
+
   myForm!: FormGroup;
   isSubmitted = false;
   // namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{3,15})?(\\s[a-zA-Z]{3,15})?$";
@@ -20,11 +19,13 @@ export class SupportModalComponent implements OnInit {
   namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{3,15}){1,2}$";
   emailPattern = "^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
   successMessage: boolean = false;
+
+
   constructor(public validation: ValidateService, private toastr: ToastrService, private fb: FormBuilder, private api: ApiService,) {
 
 
     this.myForm = new FormGroup({
-      category: new FormControl("INSURANCE", Validators.required),
+      // category: new FormControl("INSURANCE", Validators.required),
       Name: new FormControl('', [Validators.required, Validators.pattern(this.namePattern)]),
       Email: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
       mobileNumber: new FormControl('', [Validators.required, Validators.pattern("^[6-9]{1}[0-9]{9}$")]),
@@ -47,19 +48,23 @@ export class SupportModalComponent implements OnInit {
       input.dispatchEvent(new Event('input'));
     }
   }
+  showleadModal() {
 
-  showSupportModal() {
-
-    $("#supportModal").modal("show");
+    $("#leadModal").modal("show");
     // console.log("showmodel:", this.showModal);
   }
 
-  hideSupportModal() {
-    $("#supportModal").modal("hide");
+  hideleadModal() {
+    $("#leadModal").modal("hide");
+  }
+
+  hideThankYouModal(){
+    $("#thankYouModal").modal("hide");
+
   }
 
   ngOnInit(): void {
-    console.log("support component initialized")
+    console.log("leadsupport component initialized")
   }
 
   Submit() {
@@ -74,22 +79,22 @@ export class SupportModalComponent implements OnInit {
         name: this.myForm.value.Name, // leftside firstname is exactly same as that of backend API and rightside firstname i.e., ,firstName should be exact same as that of formcontrolname in .html file or same as written above in ngonit 
         email: this.myForm.value.Email,
         phone_no: this.myForm.value.mobileNumber,
-        category: this.myForm.value.category,
+        // category: this.myForm.value.category,
         comments: this.myForm.value.Comments
 
       }
-      if (this.myForm.value.category === 'INVESTMENT') {
-        payload.category = 'INVESTMENT';
-      }
+      // if (this.myForm.value.category === 'INVESTMENT') {
+      //   payload.category = 'INVESTMENT';
+      // }
       this.api.post("support/", payload, false).subscribe(async response => {
         console.log(response);
 
       });
 
-      this.myForm.reset({ category: 'INSURANCE' });
+      this.myForm.reset();
       this.isSubmitted=false;
-      $("#supportModal").modal("hide");
-
+      $("#leadModal").modal("hide");
+      $('#thankYouModal').modal('show');
       // Show success message for 15 seconds
       // this.successMessage = true;
       // setTimeout(() => {
@@ -97,13 +102,11 @@ export class SupportModalComponent implements OnInit {
 
       //   // Close the modal after 5 seconds
       //   setTimeout(() => {
-      //     this.hideSupportModal();
+      //     this.hideleadModal();
       //   }, 1000);
       // }, 1500);
     } 
    
   }
 }
-
-
 

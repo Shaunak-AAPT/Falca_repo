@@ -45,6 +45,7 @@ import { AccountMutualfundsPortfolioComponent } from './views/pages/account-mutu
 import { BlogsComponent } from './views/pages/blogs/blogs.component';
 import { TermsOfUseComponent } from './views/pages/terms-of-use/terms-of-use.component';
 import { SupportModalComponent } from './views/pages/support-modal/support-modal.component';
+import { LeadModalComponent } from './views/pages/lead-modal/lead-modal.component';
 
 
 
@@ -81,6 +82,7 @@ import { SupportModalComponent } from './views/pages/support-modal/support-modal
     BlogsComponent,
     TermsOfUseComponent,
     SupportModalComponent,
+    LeadModalComponent,
     
     
   ],

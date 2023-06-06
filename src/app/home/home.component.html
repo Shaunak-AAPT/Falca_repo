@@ -170,91 +170,7 @@
       </div>
     </div>
 
-    <!-- modal part of lead form of life term and savings & insurance start-->
-
-    <div class="modal fade" id="leadModal" tabindex="-1" role="dialog" aria-labelledby="leadModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="closeicon">
-            <button type="button" class="close" (click)="hideleadModal()"aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <!-- <div class="support-title">Please Submit The Below Information</div> -->
-
-          <div class="modal-body">
-            <!-- <div class="support-title">Get Additional Support</div> -->
-            <!-- <div class="container"> -->
-            <form [formGroup]="myForm">
-              <div class="details">
-
-                <div class="mb-3">
-                  <label for="name">FullName</label>
-                  <input type="text" formControlName="Name" class="form-control" name="Name" placeholder="Enter Name"
-                    class="form-control">
-
-                  <div *ngIf="myForm.controls['Name'].invalid && (myForm.controls['Name'].touched || isSubmitted)"
-                    class="text-danger">
-                    Please enter a valid name (3-15 characters, only letters and spaces allowed)
-                  </div>
-                </div>
-
-                <div class="mb-3">
-                  <label for="name">Email</label>
-                  <input type="text" formControlName="Email" class="form-control" name="Email" placeholder="Enter Email"
-                    class="form-control">
-                  <div *ngIf="myForm.controls['Email'].invalid && (myForm.controls['Email'].touched || isSubmitted)"
-                    class="text-danger">
-                    Please enter a valid email address
-                  </div>
-                </div>
-
-                <div class="mb-3">
-                  <label for="name">Phone</label>
-                  <input type="text" formControlName="mobileNumber" class="form-control" name="mobileNumber"
-                    placeholder="Enter Phone" class="form-control" maxlength='10'>
-                  <div
-                    *ngIf="myForm.controls['mobileNumber'].invalid && (myForm.controls['mobileNumber'].touched || isSubmitted)"
-                    class="text-danger">
-                    Please enter a valid 10-digit mobile number starting with 6-9
-                  </div>
-                </div>
-
-                <div class="mb-3 comments">
-                  <label for="name">comments</label>
-                  <textarea type="text" formControlName="Comments" class="form-control" name="Comments"
-                    placeholder="Enter comments" class="form-control"></textarea>
-                  <div
-                    *ngIf="myForm.controls['Comments'].invalid && (myForm.controls['Comments'].touched || isSubmitted)"
-                    class="text-danger">
-                    Comments are required*
-                  </div>
-                </div>
-                <div class="mb-3 center submitbtn">
-                  <button class="btn btn-primary theme-button submit" (click)="Submit()">SUBMIT</button>
-                </div>
-              </div>
-              <div *ngIf="successMessage" class="alert alert-success">
-                Form submitted successfully!
-              </div>
-
-            </form>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <!-- modal part of lead form of life term and savings & insurance end-->
-
-
-
-
-
-
-
-
-
+   
 
     <div class="container mt-5 common-mt-3">
       <div class="slick-carousel index-product">
@@ -642,10 +558,19 @@
                 <!-- <p [innerHTML]="testimonial?.profileReview"></p> -->
 
 
-                <div [innerHTML]="displayedText(testimonial?.profileReview)"></div>
+                <!-- <div [innerHTML]="displayedText(testimonial?.profileReview)"></div>
                 <a href="#" (click)="toggleExpanded(testimonial)">
                   {{ testimonial.expanded ? 'Read Less...' : 'Read More...' }}
-                </a>
+                </a> -->
+                <div *ngIf="shouldShowReadMore(testimonial)">
+                  <p class="testimonialtext" [innerHTML]="getReviewContent(testimonial)"></p>
+                  <a href="#" (click)="toggleExpanded(testimonial)">
+                    {{ testimonial.expanded ? 'Read Less' : 'Read More' }}
+                  </a>
+                </div>
+                <div *ngIf="!shouldShowReadMore(testimonial)">
+                  <p class="testimonialtext">{{ testimonial?.profileReview }}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -789,7 +714,7 @@
 
     </div>
 
-    <div class="container mt-5 pt-50 ">
+    <div class="container mt-5 pt-50 "  id="top">
       <div class="cta">
         <div class="row align-items-center">
           <div class="col-lg-2 col-3 col-sm-2 mob-center">
@@ -799,7 +724,7 @@
             <h3>Grow your family's investment in one place</h3>
           </div>
           <div class="col-lg-3 col-12 col-sm-3">
-            <button class="nav-link btn btn-primary theme-button m0-auto">Get Started</button>
+            <button class="nav-link btn btn-primary theme-button m0-auto" onclick="scrollToTop()">Get Started</button>
           </div>
         </div>
       </div>
@@ -808,3 +733,6 @@
 
   </div>
 </div>
+<app-lead-modal #leadModal >
+  <!-- Add the content for the support modal here -->
+</app-lead-modal>

@@ -27,7 +27,7 @@ import { ActiveInsuranceComponent } from './views/pages/active-insurance/active-
 import { AccountMutualfundsPortfolioComponent } from './views/pages/account-mutualfunds-portfolio/account-mutualfunds-portfolio.component';
 import { TermsOfUseComponent } from './views/pages/terms-of-use/terms-of-use.component';
 import { SupportModalComponent } from './views/pages/support-modal/support-modal.component';
-
+import { LeadModalComponent } from './views/pages/lead-modal/lead-modal.component';
 
 
 const routes: Routes = [
@@ -57,7 +57,7 @@ const routes: Routes = [
   { path: 'active-insurance', component: ActiveInsuranceComponent },
   { path:'terms-of-use',component:TermsOfUseComponent},
   { path:'support',component:SupportModalComponent},
-
+  { path:'lead',component:LeadModalComponent},
   { path:'account-profile-details',component:AccountProfileDetailsComponent}
   
 
