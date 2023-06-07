@@ -453,7 +453,8 @@ export class FooterComponent implements OnInit {
 }
 
 scrollToTerms() {
-  window.location.href= '/terms-of-use#terms-section';
+  // window.location.href= '/terms-of-use#terms-section';
+  window.open('/terms-of-use', '_blank');
 
 }
 }
