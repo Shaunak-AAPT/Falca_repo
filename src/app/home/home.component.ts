@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ApiService } from '../services/api/api.service';
@@ -15,6 +15,8 @@ declare var bootstrap: any;
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  
   CommonBannerlist: any;
   meetpartnerslist: any;
   CommonrTestimonialdata: any;
@@ -35,7 +37,6 @@ export class HomeComponent implements OnInit {
   WealthUrl = environment.WealthUrl;
   ShowLoader: any = false;
   LOGOUT: any;
-
   // loginInit: boolean = false;
 
   // sw code
@@ -329,7 +330,7 @@ export class HomeComponent implements OnInit {
 
   emailPattern = "^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
   successMessage: boolean = false;
-  constructor(public activeRoute: ActivatedRoute, public validation: ValidateService, private api: ApiService, private route: Router, private crypto: AESCryptoService, private fb: FormBuilder , private elementRef: ElementRef) {
+  constructor(public activeRoute: ActivatedRoute, public validation: ValidateService, private api: ApiService, private route: Router, private crypto: AESCryptoService, private fb: FormBuilder , private elementRef: ElementRef,private renderer: Renderer2) {
 
     // lead modal 
     this.myForm = new FormGroup({
@@ -735,10 +736,22 @@ export class HomeComponent implements OnInit {
   //   }
   // }
 
-   scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  }
+  //  scrollToTop() {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: 'smooth'
+  //   });
+  // }
+
+  // scrollToTop() {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: 'smooth' // Smooth scrolling animation
+  //   });
+  // }
+  // scrollToTop() {
+  //   const scrollContainerEl = this.scrollContainer.nativeElement;
+  //   this.renderer.setProperty(scrollContainerEl, 'scrollTop', 0);
+  // }
+
 }

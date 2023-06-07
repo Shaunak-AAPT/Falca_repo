@@ -1,6 +1,5 @@
 <!-- lead modal-->
-<div class="modal fade" id="leadModal" tabindex="-1" role="dialog" aria-labelledby="leadModallLabel"
-  aria-hidden="true">
+<div class="modal fade" id="leadModal" tabindex="-1" role="dialog" aria-labelledby="leadModallLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="closeicon">
@@ -13,10 +12,10 @@
 
 
         <div class="support-title">Please Submit The Below Information</div>
-                <!-- <div class="container"> -->
+        <!-- <div class="container"> -->
         <form [formGroup]="myForm">
           <div class="details">
-<!--    -->
+            <!--    -->
 
 
             <div class="mb-3">
@@ -26,7 +25,8 @@
 
               <div *ngIf="myForm.controls['Name'].invalid && (myForm.controls['Name'].touched || isSubmitted)"
                 class="text-danger">
-                Please enter a valid name (3-15 characters, only letters and spaces allowed & only first name is not allowed)
+                Please enter a valid name (3-15 characters, only letters and spaces allowed & only first name is not
+                allowed)
               </div>
             </div>
 
@@ -43,7 +43,8 @@
             <div class="mb-3">
               <label for="name">Phone</label>
               <input type="text" formControlName="mobileNumber" class="form-control" name="mobileNumber"
-                placeholder="Enter Phone" class="form-control" maxlength='10' (input)="disableSpecialCharacters($event)">
+                placeholder="Enter Phone" class="form-control" maxlength='10'
+                (input)="disableSpecialCharacters($event)">
               <div
                 *ngIf="myForm.controls['mobileNumber'].invalid && (myForm.controls['mobileNumber'].touched || isSubmitted)"
                 class="text-danger">
@@ -89,15 +90,16 @@
       </div>
       <div class="modal-body">
 
-                <!-- <img class="thank-you" src="../../../../assets/img/thank-you.png" alt=""> -->
-      
+        <!-- <img class="thank-you" src="../../../../assets/img/thank-you.png" alt=""> -->
 
-                <div class="modal-body d-flex flex-column align-items-center">
-                  <div class="support-title">Thank you for your interest, our representative will contact you soon</div>
-                  <img class="thank-you" src="../../../../assets/img/thank-you.png" alt="">
-                </div>
-      
 
+        <div class="modal-body d-flex flex-column align-items-center">
+          <div class="support-title">Thank you for your interest, our representative will contact you soon.</div>
+          <img class="thank-you" src="../../../../assets/img/thank-you.png" alt="">
+        </div>
+
+
+      </div>
     </div>
   </div>
 </div>

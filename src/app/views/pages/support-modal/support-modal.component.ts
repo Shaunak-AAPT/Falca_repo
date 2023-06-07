@@ -58,6 +58,11 @@ export class SupportModalComponent implements OnInit {
     $("#supportModal").modal("hide");
   }
 
+  hideThankYousupportModal(){
+    $("#thankYouSupportModal").modal("hide");
+
+  }
+
   ngOnInit(): void {
     console.log("support component initialized")
   }
@@ -89,7 +94,7 @@ export class SupportModalComponent implements OnInit {
       this.myForm.reset({ category: 'INSURANCE' });
       this.isSubmitted=false;
       $("#supportModal").modal("hide");
-
+      $('#thankYouSupportModal').modal('show');
       // Show success message for 15 seconds
       // this.successMessage = true;
       // setTimeout(() => {
