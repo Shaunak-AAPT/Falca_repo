@@ -372,6 +372,17 @@
 		flex-basis: 50%;
 		max-width: 50%;
 	  }
+	  /* .mobile-carousel-row {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+	  }
+	  
+	  .col.col-6 {
+		width: 50%;
+		padding: 5px;
+		box-sizing: border-box;
+	  } */
 }
 
 @media only screen and (min-width: 1350px) and (max-width: 1370px) {
@@ -1449,6 +1460,8 @@
 		grid-template-columns: 1fr 1fr;
 		grid-gap: 15px;
 	  } */
+
+	
 }
 
 
@@ -2038,6 +2051,15 @@
 		margin-top: 20px;
 		margin-bottom: 15px;
 	}
+	.mobile-sticky {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		z-index: 9999;
+		background-color: #ffffff;
+		/* Add other styling properties as needed */
+	  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1000px) {
@@ -2111,7 +2133,9 @@
 .spinner .bounce2 {
 	animation-delay: -0.16s;
 }
-
+.mobile-sticky {
+    display: none;
+  }
 
 @keyframes sk-bouncedelay {
 

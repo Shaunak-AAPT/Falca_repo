@@ -418,6 +418,9 @@ export class FooterComponent implements OnInit {
               }
             }, 1000);
           }
+          $("#mob_signin").modal("hide");
+          $("#mob_signup").modal("hide");
+          this.MobileSiginBarFlag = false;
         }
         else {
           this.toastr.error(response.response.Msg);
