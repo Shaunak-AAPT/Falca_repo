@@ -615,7 +615,7 @@ export class HomeComponent implements OnInit {
 
   InsurancetRouterUrl(insurence: any) {
     console.log("name", insurence)
-    if (insurence.name === "Life Term Insurance") {
+    if (insurence.name === "Life Insurance") {
       console.log("begin");
       $("#leadModal").modal("show");
       console.log("after");
@@ -688,47 +688,9 @@ export class HomeComponent implements OnInit {
 
 
 
-  //  modal part of lead form of life term and savings & insurance 
-  // lead modal 
-  showleadModal() {
-
-    $("#leadModal").modal("show");
-    // console.log("showmodel:", this.showModal);
-  }
-
-  hideleadModal() {
-    $("#leadModal").modal("hide");
-  }
+ 
 
 
-  Submit() {
-    this.isSubmitted = true;
-    console.log("reached on subit", this.myForm.valid)
-    console.log("reached on", this.myForm)
-    if (this.myForm.valid) {
-      console.log(this.myForm.value);
-
-      let payload = {    //this payload is a json object
-
-        name: this.myForm.value.Name, // leftside firstname is exactly same as that of backend API and rightside firstname i.e., ,firstName should be exact same as that of formcontrolname in .html file or same as written above in ngonit 
-        email: this.myForm.value.Email,
-        phone_no: this.myForm.value.mobileNumber,
-        category: this.myForm.value.category,
-        comments: this.myForm.value.Comments
-
-      }
-      if (this.myForm.value.category === 'INVESTMENT') {
-        payload.category = 'INVESTMENT';
-      }
-      this.api.post("support/", payload, false).subscribe(async response => {
-        console.log(response);
-
-      });
-      this.myForm.reset();
-      this.isSubmitted = false;
-
-    } 
-  }
   // scrollToTop() {
   //   const headerElement = this.elementRef.nativeElement.querySelector('top');
   //   if (headerElement) {

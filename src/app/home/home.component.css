@@ -363,6 +363,15 @@
 		flex-direction: column;
 		padding: 30px;
 	}
+	.flex-row {
+		display: flex;
+		flex-wrap: wrap;
+	  }
+	
+	  .flex-row .col {
+		flex-basis: 50%;
+		max-width: 50%;
+	  }
 }
 
 @media only screen and (min-width: 1350px) and (max-width: 1370px) {
@@ -1410,7 +1419,36 @@
 		width: 100% !important;
 	} */
 
-
+	/* .container.pt-70 .row {
+		display: flex;
+		flex-wrap: wrap;
+	  }
+	
+	  .container.pt-70 .col.col-6 {
+		flex-basis: 50%;
+		max-width: 50%;
+	  }
+	
+	  .container.mt-5 .row {
+		display: flex;
+		flex-wrap: wrap;
+	  }
+	
+	  .container.mt-5 .col.col-6 {
+		flex-basis: 50%;
+		max-width: 50%;
+	  } */
+	  /* .container.pt-70 .row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 15px;
+	  }
+	
+	  .container.mt-5 .row {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 15px;
+	  } */
 }
 
 
@@ -1533,6 +1571,10 @@
 	::ng-deep .index-product:hover .owl-nav .owl-prev {
 		opacity: 0.9 !important
 	}
+	/* ::ng-deep .index-product .row .col {
+		flex-basis: 50%;
+		max-width: 50%;
+	  } */
 
 }
 
