@@ -276,6 +276,42 @@
     text-align: justify !important;
 }
 
+/* products */
+.money-mng {
+	text-align: center;
+	cursor: pointer;
+	margin-top: 10% !important;
+  }
+  
+  .money-mng img {
+	width: 35% !important;
+	
+	margin-bottom: 10px;
+  }
+  
+  .money-mng p {
+	margin-bottom: 0px;
+	color: #465A65;
+  }
+  .flow-row {
+	flex-flow: row;
+	margin-top: 30px;
+  }
+  
+  /* .loan-opt .money-mng img {
+	width: 30%;
+  } */
+  
+  .flow-row .money-mng {
+	text-align: center;
+	width: auto;
+	margin: 1%;
+  }
+/*   
+  .flow-row .money-mng img {
+	width: 58%;
+  } */
+
 
 @media only screen and (max-width: 767px) {
 	.navbar-dark .navbar-toggler {
@@ -383,6 +419,25 @@
 		padding: 5px;
 		box-sizing: border-box;
 	  } */
+
+	  /* products */
+
+	  .money-mng p {
+		font-size: 14px;
+	  }
+	
+	  .money-mng img {
+		width: 45%;
+	  }
+	  /* .money-mng.mob-inv img {
+		width: 55%;
+	  } */
+	  .money-mng {
+		margin-bottom: 20px;
+	  }
+	  /* .loan-opt .money-mng img {
+		width: 40%;
+	  } */
 }
 
 @media only screen and (min-width: 1350px) and (max-width: 1370px) {
@@ -431,6 +486,11 @@
 	.profile_details {
 		margin-bottom: 2.5%;
 	}
+
+	.money-mng img {
+		width: 48%;
+	  }
+	
 }
 
 @media (min-width: 576px) {
@@ -506,6 +566,9 @@
 	.profile_details {
 		margin-bottom: 3.2%;
 	}
+	/* .loan-opt .money-mng img {
+		width: 38%;
+	  } */
 }
 
 @media (min-width: 1200px) {
@@ -805,6 +868,7 @@
 }
 
 
+
 @media only screen and (max-width: 767px) {
 	.menu.show-nav {
 		transform: translate3d(-100%, 0, 0);
@@ -824,6 +888,10 @@
 		text-align: right;
 		font-size: 20px;
 	}
+	/* .money-mng img {
+		height:45% !important;
+		width: 45% !important;
+		} */
 
 }
 
@@ -1040,7 +1108,7 @@
 }
 
 .money-mng img {
-	width: 30%;
+	width: 45%;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
@@ -1324,9 +1392,9 @@
 		flex: 1 0 33% !important;
 	}
 
-	.money-mng.mob-inv img {
+	/* .money-mng.mob-inv img {
 		width: 20%;
-	}
+	} */
 
 	.money-mng {
 		margin-bottom: 20px;
@@ -1498,9 +1566,9 @@
 		align-items: baseline !important;
 	}
 
-	.loan-opt .money-mng img {
+	/* .loan-opt .money-mng img {
 		width: 48%;
-	}
+	} */
 
 	.partner-txt p {
 		font-size: 16px;
@@ -1705,6 +1773,14 @@
 		width: 100%;
 	}
 	
+  .money-mng p {
+    color: #465A65;
+    font-size: 18px;
+  }
+
+  .money-mng img {
+    width: 45%;
+  }
 }
 
 
@@ -1761,7 +1837,7 @@
 	}
 
 	.money-mng img {
-		width: 35%;
+		width: 45%;
 	}
 
 	.why-finizon p {
@@ -1814,7 +1890,9 @@
 	}
 
 	.money-mng img {
-		width: 35%;
+		width: 55%;
+		margin-top: 20px;
+		margin-bottom: 15px;
 	}
 
 	.mt-5.common-mt-3 {
@@ -1848,8 +1926,24 @@
 	}
 
 	.client-img .col img {
+		
 		width: 85%;
 	}
+
+	.money-mng p {
+		font-size: 20px;
+	  }
+	
+	  .money-mng img {
+		width: 45%;
+	  }
+	  /* .loan-opt .money-mng img {
+		width: 32%;
+	  }
+	
+	  .flow-row .money-mng img {
+		width: 54%;
+	  } */
 }
 
 /*-------------------1536x864-------------*/
@@ -1918,6 +2012,20 @@
 	.client-img .col img {
 		width: 85%;
 	}
+	/* .loan-opt .money-mng img {
+		width: 32%;
+	  } */
+	
+	  /* .flow-row .money-mng img {
+		width: 62%;
+	  } */
+	  .money-mng img {
+		width: 29%;
+	  }
+	
+	  .money-mng p {
+		font-size: 18px;
+	  }
 }
 
 @media only screen and (min-width: 1590px) and (max-width: 1610px) {
@@ -1999,8 +2107,8 @@
 		text-align: right;
 	}
 
-	.money-mng p,
-	.loan-type p {
+	.money-mng p
+	{
 		font-size: 24px;
 	}
 
@@ -2060,6 +2168,11 @@
 		background-color: #ffffff;
 		/* Add other styling properties as needed */
 	  }
+	  .money-mng p
+	 {
+		font-size: 24px;
+	  }
+	  
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1000px) {

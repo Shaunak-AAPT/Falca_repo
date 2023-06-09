@@ -144,7 +144,9 @@
 
     </div>
 
-    <div class="container pt-70 common-pt-50">
+    <!-- Previous alignment -->
+
+    <!-- <div class="container pt-70 common-pt-50">
       <div class="slick-carousel index-product">
         <div class="row">
           <div class="col col-6" *ngFor="let insurence of InsurencedataList">
@@ -184,12 +186,97 @@
           </div>
         </div>
       </div>
+    </div> -->
+
+
+    <!-- desktop view -->
+
+    <div class="container hidden-xs mt-5 mb-3 common-mt-5 more-product money-invest loan-opt margin">
+      <div class="row align-items-center">
+        <div class="col" *ngFor="let insurence of InsurencedataList" data-toggle="modal" data-target="#leadModal"
+          (click)="InsurancetRouterUrl(insurence)">
+          <div class="money-mng">
+            <img src="{{insurence?.logo}}" alt="l1">
+            <p>{{insurence?.name}}</p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- mobile view -->
+    <div class="container hidden-xs mt-5 mb-3 common-mt-3 more-product money-invest loan-opt">
+      <div class="row align-items-center">
+        <div class="col" *ngFor="let credit of CreditdataList" data-toggle="modal" data-target="#leadModal"
+          (click)="CreditRouterUrl(credit)">
+          <div class="money-mng">
+            <img src="{{credit?.logo}}" alt="l1">
+            <p [innerHTML]="credit?.name"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container hidden-xs mt-5 mb-3 common-mt-3 more-product money-invest loan-opt">
+      <div class="row align-items-center">
+        <div class="col" *ngFor="let wealth of wealthdataList?.slice(0,5)" (click)="wealthtRouterUrl(wealth?.path)">
+          <div class="money-mng">
+            <img src="{{wealth?.logo}}" alt="l1">
+            <p>{{wealth?.name}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- mobile view 3-2 products -->
+
     <!-- <div class="container hidden-lg pt-70 mt-5 mb-3 common-mt-3 more-product money-invest loan-opt">
       <div class="row align-items-center">
-        <div class="col" *ngFor="let insurence of InsurencedataList" data-toggle="modal" data-target="#supportModal"
+
+        <div class="col" *ngFor="let insurence of InsurencedataList.slice(0, 3)" data-toggle="modal"
+          data-target="#supportModal" (click)="InsurancetRouterUrl(insurence)">
+          <div class="money-mng">
+            <img src="{{insurence.logo}}" alt="l1">
+            <p>{{insurence.name}}</p>
+          </div>
+        </div>
+
+        <div class="col-4" *ngFor="let insurence of InsurencedataList.slice(3, 5)" data-toggle="modal"
+          data-target="#supportModal" (click)="InsurancetRouterUrl(insurence)">
+          <div class="money-mng">
+            <img src="{{insurence.logo}}" alt="l1">
+            <p>{{insurence.name}}</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="row align-items-center">
+
+        <div class="col" *ngFor="let credit of CreditdataList.slice(0, 3)" data-toggle="modal"
+          data-target="#supportModal" (click)="InsurancetRouterUrl(credit)">
+          <div class="money-mng">
+            <img src="{{credit.logo}}" alt="l1">
+            <p>{{credit.name}}</p>
+          </div>
+        </div>
+
+        <div class="col-4" *ngFor="let credit of CreditdataList.slice(3, 5)" data-toggle="modal"
+          data-target="#supportModal" (click)="InsurancetRouterUrl(credit)">
+          <div class="money-mng">
+            <img src="{{credit.logo}}" alt="l1">
+            <p [innerHTML]="credit?.name"></p>
+          </div>
+        </div>
+
+      </div>
+    </div> -->
+
+
+
+
+    <!--As per insurance in each line 3 products  -->
+
+    <div class="container hidden-lg pt-70 mt-5 mb-3 common-mt-3 more-product money-invest loan-opt">
+      <div class="row align-items-center">
+        <div class="col" *ngFor="let insurence of InsurencedataList" data-toggle="modal" data-target="#leadModal"
           (click)="InsurancetRouterUrl(insurence)">
           <div class="money-mng">
             <img src="{{insurence.logo}}" alt="l1">
@@ -197,16 +284,40 @@
           </div>
         </div>
 
-        <div class="col" *ngFor="let credit of CreditdataList" data-toggle="modal" data-target="#supportModal"
-        (click)="InsurancetRouterUrl(credit)">
-        <div class="money-mng">
-          <img src="{{credit.logo}}" alt="l1">
-          <p>{{credit.name}}</p>
+        <div class="col" *ngFor="let credit of CreditdataList.slice(0,1)" data-toggle="modal" data-target="#leadModal"
+          (click)="CreditRouterUrl(credit)">
+          <div class="money-mng">
+            <img src="{{credit.logo}}" alt="l1">
+            <p [innerHTML]="credit?.name"></p>
+          </div>
         </div>
-      </div>
-      
+        <div class="col-4" *ngFor="let credit of CreditdataList.slice(1, 4)" data-toggle="modal"
+          data-target="#leadModal" (click)="CreditRouterUrl(credit)">
+          <div class="money-mng">
+            <img src="{{credit.logo}}" alt="l1">
+            <p [innerHTML]="credit?.name"></p>
+          </div>
+        </div>
+        <div class="col-4" *ngFor="let credit of CreditdataList.slice(4, 5)" data-toggle="modal"
+          data-target="#leadModal" (click)="CreditRouterUrl(credit)">
+          <div class="money-mng">
+            <img src="{{credit.logo}}" alt="l1">
+            <p [innerHTML]="credit?.name"></p>
+          </div>
+        </div>
 
-    </div> -->
+        <div class="col" *ngFor="let wealth of wealthdataList?.slice(0,5)" (click)="wealthtRouterUrl(wealth?.path)">
+          <div class="money-mng">
+            <img src="{{wealth.logo}}" alt="l1">
+            <p>{{wealth.name}}</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
 
     <div class="container pt-70 why-finizon">
       <div class="row align-items-center about">
@@ -748,15 +859,14 @@
             <h3>Grow your family's investment in one place</h3>
           </div>
           <div class="col-lg-3 col-12 col-sm-3">
-            <a href="http://65.1.237.83/"class="nav-link btn btn-primary theme-button m0-auto" >Get Started</a>
-            
+            <a href="http://65.1.237.83/" class="nav-link btn btn-primary theme-button m0-auto">Get Started</a>
+
           </div>
         </div>
       </div>
     </div>
-
-
   </div>
+
 </div>
 <app-lead-modal #leadModal>
   <!-- Add the content for the support modal here -->
