@@ -4,13 +4,16 @@ export const environment = {
 
 
   // dev
-  ServerUrl: "http://65.1.237.83/api/",
+  // ServerUrl: "http://65.1.237.83/api/",
+    ServerUrl: "http://13.127.4.232/api/",
+
 
   // uat
   // ServerUrl: "https://dev.finizon.com/api/",
 
 
   // --UAT FINIZON--
+  
 
   CommonUrl: "https://uat.finizon.com/?TOKEN={TOKEN}&PATH={PATH}&TXN={TXN}&FROM={FROM}&LOGOUT={LOGOUT}",
 

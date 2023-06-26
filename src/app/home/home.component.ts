@@ -39,6 +39,7 @@ export class HomeComponent implements OnInit {
   LOGOUT: any;
   // loginInit: boolean = false;
 
+  
   // sw code
   founders = [
     {
@@ -322,24 +323,24 @@ export class HomeComponent implements OnInit {
     autoplayHoverPause: true
   }
   // lead modal 
-  myForm!: FormGroup;
-  isSubmitted = false;
-  // namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{3,15})?(\\s[a-zA-Z]{3,15})?$";
+  // myForm!: FormGroup;
+  // isSubmitted = false;
+  // // namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{3,15})?(\\s[a-zA-Z]{3,15})?$";
 
-  namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{3,15}){1,2}$";
+  // namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{3,15}){1,2}$";
 
-  emailPattern = "^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
-  successMessage: boolean = false;
+  // emailPattern = "^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
+  // successMessage: boolean = false;
   constructor(public activeRoute: ActivatedRoute, public validation: ValidateService, private api: ApiService, private route: Router, private crypto: AESCryptoService, private fb: FormBuilder , private elementRef: ElementRef,private renderer: Renderer2) {
 
     // lead modal 
-    this.myForm = new FormGroup({
-      category: new FormControl("INSURANCE", Validators.required),
-      Name: new FormControl('', [Validators.required, Validators.pattern(this.namePattern)]),
-      Email: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
-      mobileNumber: new FormControl('', [Validators.required, Validators.pattern("^[6-9]{1}[0-9]{9}$")]),
-      Comments: new FormControl('', Validators.required)
-    });
+    // this.myForm = new FormGroup({
+    //   category: new FormControl("INSURANCE", Validators.required),
+    //   Name: new FormControl('', [Validators.required, Validators.pattern(this.namePattern)]),
+    //   Email: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
+    //   mobileNumber: new FormControl('', [Validators.required, Validators.pattern("^[6-9]{1}[0-9]{9}$")]),
+    //   Comments: new FormControl('', Validators.required)
+    // });
   }
 
 

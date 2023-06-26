@@ -1,7 +1,7 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { registerRequest } from 'src/app/models/registerRequest.model';
+// import { registerRequest } from 'src/app/models/registerRequest.model';
 import { ValidateService } from 'src/app/services/validate/validate.service';
 import { ReactiveFormsModule } from '@angular/forms'
 import { ApiService } from 'src/app/services/api/api.service';
