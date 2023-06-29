@@ -9,7 +9,7 @@ export const environment = {
     ServerUrl: "https://finizon.com/api/",
 
 
-  // uat
+
   // ServerUrl: "https://dev.finizon.com/api/",
 
 
