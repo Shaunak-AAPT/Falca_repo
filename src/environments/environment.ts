@@ -72,23 +72,25 @@ export const environment = {
   // --LOCAL--
   InsuranceShare:'"http://agentinsurance.onerooftechnologies.com/pending-products?TOKEN={TOKEN}&PATH={PATH}&QUOTEID={QUOTEID}&PLANID={PLANID}',
 
-  // --UAT FINIZON--
+
+  
+  // --old UAT FINIZON--
 
   //CommonUrl:"https://uat.finizon.com?TOKEN={TOKEN}&PATH={PATH}",
   //CreditUrl:"https://uat.finizon.com/credit?TOKEN={TOKEN}&PATH={PATH}",  
   //InsuranceUrl:"http://uat.finizoninsurance.com?TOKEN={TOKEN}&PATH={PATH}",
   //WealthUrl:"https://uat.finizon.com/wealth?TOKEN={TOKEN}&PATH={PATH}",
 
-  // --UAT FINIZON--
+  // --old UAT FINIZON--
 
-  // --UAT ONEROOFTECH--
+  // --old UAT ONEROOFTECH--
 
   // CommonUrl:"http://finizon.onerooftechnologies.com?TOKEN={TOKEN}&PATH={PATH}",
   // CreditUrl:"http://finizon-credit.onerooftechnologies.com?TOKEN={TOKEN}&PATH={PATH}",
   // InsuranceUrl:"http://finizon-insurance.onerooftechnologies.com?TOKEN={TOKEN}&PATH={PATH}",
   // WealthUrl:"http://finizon-wealth.onerooftechnologies.com?TOKEN={TOKEN}&PATH={PATH}",
 
-  // --UAT ONEROOFTECH--
+  // --old UAT ONEROOFTECH--
 };
 
 /*
