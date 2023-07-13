@@ -10,23 +10,28 @@ export const environment = {
   // duplicate/local version by shaunak
   // ServerUrl: "http://127.0.0.1:8000/api/",
 
-  // dev
+  // dev url
   ServerUrl: "http://65.1.237.83/api/",
   // ServerUrl: "http://13.127.4.232/api/",
   // ServerUrl: "https://dev.finizon.com/api/",
   // ServerUrl: "https://uatnw.finizon.com/api/",
 
 
-  // uat
+  // uat url 
+    // ServerUrl: "https://uatnw.finizon.com/api/",
+
   // ServerUrl: "https://dev.finizon.com/api/",
-  
   // ServerUrl: "http://15.206.79.170:8080/api/",
+
+
+  // prod url 
+  // ServerUrl: "https://finizon.com/api/",
+
 
 
 
   // apiUrl: 'https://cctoolapi-dev.aaptfin.com',
 
-  
   // --LOCAL--
 
   // ng serve --port 4200
