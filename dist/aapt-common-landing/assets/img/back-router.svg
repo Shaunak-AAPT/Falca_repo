@@ -1,0 +1,8 @@
+<svg id="left_arrow" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <rect id="Rectangle_8242" data-name="Rectangle 8242" width="40" height="40" fill="none"/>
+  <g id="Group_16463" data-name="Group 16463" transform="translate(5 6.666)">
+    <rect id="Rectangle_8241" data-name="Rectangle 8241" width="30" height="2.5" rx="1" transform="translate(0 11.667)" fill="#465a65"/>
+    <path id="Line_1368" data-name="Line 1368" d="M.5,13.417a1.25,1.25,0,0,1-.884-2.134L11.283-.384a1.25,1.25,0,0,1,1.768,1.768L1.384,13.051A1.246,1.246,0,0,1,.5,13.417Z" transform="translate(0.75 0.75)" fill="#465a65"/>
+    <path id="Line_1369" data-name="Line 1369" d="M12.167,13.417a1.246,1.246,0,0,1-.884-.366L-.384,1.384A1.25,1.25,0,0,1,1.384-.384L13.051,11.283a1.25,1.25,0,0,1-.884,2.134Z" transform="translate(0.75 12.417)" fill="#465a65"/>
+  </g>
+</svg>
