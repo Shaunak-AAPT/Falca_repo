@@ -131,12 +131,43 @@ export class WealthHomeComponent implements OnInit {
   }
 
 
+  // TestimonialWealth() {
+  //   this.api.get("testimonial?vertical=3").subscribe((resp) => {
+  //     this.tesimonialwealthdata = resp.data;
+  //     // console.log("Testimonial data", this.tesimonialwealthdata);
+  //   });
+  // }
+
   TestimonialWealth() {
     this.api.get("testimonial?vertical=3").subscribe((resp) => {
-      this.tesimonialwealthdata = resp.data;
-      // console.log("Testimonial data", this.tesimonialwealthdata);
+      this.tesimonialwealthdata = resp.data.map((testimonial: any) => ({
+        ...testimonial,
+        expanded: false
+      }));
     });
   }
+
+
+
+  toggleExpanded(testimonial: any) {
+    testimonial.expanded = !testimonial.expanded;
+  }
+
+  shouldShowReadMore(testimonial: any): boolean {
+    return testimonial?.profileReview?.length > 222;
+  }
+
+  getReviewContent(testimonial: any): string {
+    if (testimonial.expanded) {
+      return testimonial?.profileReview;
+    } else if (testimonial?.profileReview?.length > 222) {
+      return testimonial?.profileReview?.slice(0, 222) + '...';
+    } 
+    else {
+      return testimonial?.profileReview;
+    }
+  }
+
   ProductsWealth() {
     this.api.get("vertical/product?vertical=4").subscribe((resp) => {
       this.productwealthdata = resp.data;

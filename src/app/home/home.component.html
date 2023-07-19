@@ -678,6 +678,10 @@
           <button type="button" data-bs-target="#testimonial" data-bs-slide-to="0" class="active"></button>
           <button type="button" data-bs-target="#testimonial" data-bs-slide-to="1"></button>
           <button type="button" data-bs-target="#testimonial" data-bs-slide-to="2"></button>
+
+          <button type="button" data-bs-target="#testimonial" data-bs-slide-to="3"></button>
+          <button type="button" data-bs-target="#testimonial" data-bs-slide-to="4"></button>
+
         </div>
 
         <!-- The slideshow/carousel -->
@@ -698,7 +702,7 @@
                 </a> -->
                 <div *ngIf="shouldShowReadMore(testimonial)">
                   <p class="testimonialtext" [innerHTML]="getReviewContent(testimonial)"></p>
-                  <a href="#" (click)="toggleExpanded(testimonial)">
+                  <a href="javascript:void(0)" (click)="toggleExpanded(testimonial)">
                     {{ testimonial.expanded ? 'Read Less' : 'Read More' }}
                   </a>
                 </div>

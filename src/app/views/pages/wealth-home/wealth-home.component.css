@@ -178,6 +178,11 @@
     right: -6%;
 }
 
+
+
+.testimonialtext{
+    text-align: justify !important;
+}
 .upquote {
     position: absolute;
     top: 0px;
