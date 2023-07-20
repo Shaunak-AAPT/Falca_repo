@@ -10,9 +10,27 @@ export const environment = {
 
 
 
+
   // ServerUrl: "https://dev.finizon.com/api/",
+  // ServerUrl: "https://uatnw.finizon.com/api/",
+
+  DGLoginEmail: "finizonuser@finizon.com",
+  DGLoginPassword: "test2$",
+
+  // uat url 
+    // ServerUrl: "https://uatnw.finizon.com/api/",
+
+    // might not be in use
+  // ServerUrl: "https://dev.finizon.com/api/",
+  // ServerUrl: "http://15.206.79.170:8080/api/",
 
 
+  // prod url 
+  // ServerUrl: "https://finizon.com/api/",
+
+
+
+  
   // --UAT FINIZON--
   
 

@@ -15,17 +15,22 @@ export const environment = {
   // ServerUrl: "http://13.127.4.232/api/",
   ServerUrl: "https://finizon.com/api/",
 
-
+  DGLoginEmail: "finizonuser@finizon.com",
+  DGLoginPassword: "test2$",
   // uat
+
   // ServerUrl: "https://dev.finizon.com/api/",
-  
   // ServerUrl: "http://15.206.79.170:8080/api/",
+
+
+  // prod url 
+  // ServerUrl: "https://finizon.com/api/",
+
 
 
 
   // apiUrl: 'https://cctoolapi-dev.aaptfin.com',
 
-  
   // --LOCAL--
 
   // ng serve --port 4200
@@ -71,23 +76,25 @@ export const environment = {
   // --LOCAL--
   InsuranceShare:'"http://agentinsurance.onerooftechnologies.com/pending-products?TOKEN={TOKEN}&PATH={PATH}&QUOTEID={QUOTEID}&PLANID={PLANID}',
 
-  // --UAT FINIZON--
+
+  
+  // --old UAT FINIZON--
 
   //CommonUrl:"https://uat.finizon.com?TOKEN={TOKEN}&PATH={PATH}",
   //CreditUrl:"https://uat.finizon.com/credit?TOKEN={TOKEN}&PATH={PATH}",  
   //InsuranceUrl:"http://uat.finizoninsurance.com?TOKEN={TOKEN}&PATH={PATH}",
   //WealthUrl:"https://uat.finizon.com/wealth?TOKEN={TOKEN}&PATH={PATH}",
 
-  // --UAT FINIZON--
+  // --old UAT FINIZON--
 
-  // --UAT ONEROOFTECH--
+  // --old UAT ONEROOFTECH--
 
   // CommonUrl:"http://finizon.onerooftechnologies.com?TOKEN={TOKEN}&PATH={PATH}",
   // CreditUrl:"http://finizon-credit.onerooftechnologies.com?TOKEN={TOKEN}&PATH={PATH}",
   // InsuranceUrl:"http://finizon-insurance.onerooftechnologies.com?TOKEN={TOKEN}&PATH={PATH}",
   // WealthUrl:"http://finizon-wealth.onerooftechnologies.com?TOKEN={TOKEN}&PATH={PATH}",
 
-  // --UAT ONEROOFTECH--
+  // --old UAT ONEROOFTECH--
 };
 
 /*

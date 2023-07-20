@@ -367,7 +367,6 @@
             <!-- Left and right controls/icons -->
 
             <button class="carousel-1-control-prev" type="button" data-bs-target="#meetpartners" data-bs-slide="prev">
-              <!-- <span class="carousel-1-control-prev-icon"></span> -->
               <!-- <span><img src="../../assets/img/previous.png" alt="previous"></span> -->
               <span><img src="../../assets/img/icons8-back-24.png" alt="previous"></span>
 
@@ -516,6 +515,7 @@
               <div class="elementor-widget-container firstpoint">
                 <ul class="elementor-icon-list-items" style="list-style: none;">
                   <li class="elementor-icon-list-item">
+
                     <span class="elementor-icon-list-icon">
 
                       <img src="assets/img/right-arrow.png" class="right_arrow_img" alt="rightarrow">
@@ -679,6 +679,10 @@
           <button type="button" data-bs-target="#testimonial" data-bs-slide-to="0" class="active"></button>
           <button type="button" data-bs-target="#testimonial" data-bs-slide-to="1"></button>
           <button type="button" data-bs-target="#testimonial" data-bs-slide-to="2"></button>
+
+          <button type="button" data-bs-target="#testimonial" data-bs-slide-to="3"></button>
+          <button type="button" data-bs-target="#testimonial" data-bs-slide-to="4"></button>
+
         </div>
 
         <!-- The slideshow/carousel -->
@@ -699,7 +703,7 @@
                 </a> -->
                 <div *ngIf="shouldShowReadMore(testimonial)">
                   <p class="testimonialtext" [innerHTML]="getReviewContent(testimonial)"></p>
-                  <a href="#" (click)="toggleExpanded(testimonial)">
+                  <a href="javascript:void(0)" (click)="toggleExpanded(testimonial)">
                     {{ testimonial.expanded ? 'Read Less' : 'Read More' }}
                   </a>
                 </div>
@@ -863,6 +867,8 @@
             <!-- <a href="https://uatnw.finizon.com/" class="nav-link btn btn-primary theme-button m0-auto">Get Started</a> -->
             <a href="https://finizon.com/" class="nav-link btn btn-primary theme-button m0-auto">Get Started</a>
 
+
+         
           </div>
         </div>
       </div>

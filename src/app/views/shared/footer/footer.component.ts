@@ -450,15 +450,15 @@ export class FooterComponent implements OnInit {
   //   window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to the top of the page
   // }
   showSupportModal() {
-  
+
     $("#supportModal").modal("show");
-  // console.log("showmodel:", this.showModal);
-}
+    // console.log("showmodel:", this.showModal);
+  }
 
-scrollToTerms() {
-  window.location.href= '/terms-of-use#terms-section';
-  // window.open('/terms-of-use', '_blank');
+  scrollToTerms() {
+    window.location.href = '/terms-of-use#terms-section';
+    // window.open('/terms-of-use', '_blank');
 
-}
+  }
 }
 

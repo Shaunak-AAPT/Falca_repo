@@ -28,6 +28,7 @@ import { AccountMutualfundsPortfolioComponent } from './views/pages/account-mutu
 import { TermsOfUseComponent } from './views/pages/terms-of-use/terms-of-use.component';
 import { SupportModalComponent } from './views/pages/support-modal/support-modal.component';
 import { LeadModalComponent } from './views/pages/lead-modal/lead-modal.component';
+import { WealthHomeComponent } from './views/pages/wealth-home/wealth-home.component';
 
 
 const routes: Routes = [
@@ -58,8 +59,9 @@ const routes: Routes = [
   { path:'terms-of-use',component:TermsOfUseComponent},
   { path:'support',component:SupportModalComponent},
   { path:'lead',component:LeadModalComponent},
-  { path:'account-profile-details',component:AccountProfileDetailsComponent}
-  
+  { path:'account-profile-details',component:AccountProfileDetailsComponent},
+  { path: 'wealth', component:WealthHomeComponent},
+
 
 ];
 

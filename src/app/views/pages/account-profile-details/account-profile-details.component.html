@@ -104,7 +104,8 @@
                 <div class="col-lg-6">
                     <div class="form-floating mb-3 input-box ">
                         <input type="text" id="pancard" placeholder="Pancard Number" class="form-control" maxlength="10"
-                            [(ngModel)]="panCard" [disabled]="isDisabledPancard" (ngModelChange)="panCard = $event.toUpperCase()" (keyup)="enableSavechanges=false">
+                            [(ngModel)]="panCard" [disabled]="isDisabledPancard"
+                            (ngModelChange)="panCard = $event.toUpperCase()" (keyup)="enableSavechanges=false">
                         <!-- (ngModelChange)="ApplicantData.panCard = $event.toUpperCase()" (keyup)="HidePanNumber(); enableSavechanges=false" -->
                         <label for="pancard">Pancard Number</label>
                     </div>
@@ -112,7 +113,8 @@
                 <div class="col-lg-6">
                     <div class="form-floating mb-3 input-box ">
                         <input type="text" id="Aadharcard" placeholder="Aadharcard Number" class="form-control"
-                            maxlength="12" [(ngModel)]="aadharCard" [disabled]="isDisabledAadharcard" (keypress)="validate.numberOnly($event)" (keyup)="enableSavechanges=false">
+                            maxlength="12" [(ngModel)]="aadharCard" [disabled]="isDisabledAadharcard"
+                            (keypress)="validate.numberOnly($event)" (keyup)="enableSavechanges=false">
                         <label for="Aadharcard">Aadharcard Number</label>
                     </div>
                 </div>
@@ -131,16 +133,14 @@
                 <div class="col-lg-6">
                     <div class="form-floating mb-3 input-box ">
                         <input type="text" id="first_name" placeholder="First Name" class="form-control"
-                            [(ngModel)]="ApplicantData.address1" 
-                            (keyup)="enableSavechanges=false">
+                            [(ngModel)]="ApplicantData.address1" (keyup)="enableSavechanges=false">
                         <label for="first_name">Enter address line 1</label>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-floating mb-3 input-box ">
                         <input type="text" id="last_name" placeholder="Last Name" class="form-control"
-                            [(ngModel)]="ApplicantData.address2" 
-                            (keyup)="enableSavechanges=false">
+                            [(ngModel)]="ApplicantData.address2" (keyup)="enableSavechanges=false">
                         <label for="last_name">Enter address line 2</label>
                     </div>
                 </div>
@@ -148,8 +148,9 @@
                     <div class="form-floating mb-3 input-box ">
                         <input type="text" id="first_name" placeholder="First Name" class="form-control"
                             [(ngModel)]="ApplicantData.blZip" (keypress)="validate.numberOnly($event)"
-                            (keyup)="GetCity('blZip'); enableSavechanges=false" maxlength="6">                            
-                            <span class="input-value" *ngIf="!validate.isNullEmptyUndefined(ApplicantData.blCity)">{{ApplicantData.blCity}}</span>
+                            (keyup)="GetCity('blZip'); enableSavechanges=false" maxlength="6">
+                        <span class="input-value"
+                            *ngIf="!validate.isNullEmptyUndefined(ApplicantData.blCity)">{{ApplicantData.blCity}}</span>
                         <label for="first_name">Enter Pincode</label>
                     </div>
                 </div>
@@ -165,7 +166,7 @@
                     <div class="form-floating mb-3 input-box ">
                         <input type="text" id="first_name" placeholder="First Name" class="form-control"
                             [(ngModel)]="ApplicantData.blCountry" (keypress)="validate.alphabetOnly($event)"
-                            (keyup)="enableSavechanges=false" >
+                            (keyup)="enableSavechanges=false">
                         <label for="first_name">Enter Country</label>
                     </div>
                 </div>
@@ -190,16 +191,14 @@
                 <div class="col-lg-6">
                     <div class="form-floating mb-3 input-box ">
                         <input type="text" id="first_name" placeholder="First Name" class="form-control"
-                            [(ngModel)]="ApplicantData.dlLine1" 
-                            (keyup)="enableSavechanges=false">
+                            [(ngModel)]="ApplicantData.dlLine1" (keyup)="enableSavechanges=false">
                         <label for="first_name">Enter address line 1</label>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="form-floating mb-3 input-box ">
                         <input type="text" id="last_name" placeholder="Last Name" class="form-control"
-                            [(ngModel)]="ApplicantData.dlLine2" 
-                            (keyup)="enableSavechanges=false">
+                            [(ngModel)]="ApplicantData.dlLine2" (keyup)="enableSavechanges=false">
                         <label for="last_name">Enter address line 2</label>
                     </div>
                 </div>
@@ -208,7 +207,8 @@
                         <input type="text" id="first_name" placeholder="First Name" class="form-control"
                             [(ngModel)]="ApplicantData.dlZip" (keypress)="validate.numberOnly($event)"
                             (keyup)="GetCity('dlZip'); enableSavechanges=false" maxlength="6">
-                            <span class="input-value" *ngIf="!validate.isNullEmptyUndefined(ApplicantData.dlCity)">{{ApplicantData.dlCity}}</span>
+                        <span class="input-value"
+                            *ngIf="!validate.isNullEmptyUndefined(ApplicantData.dlCity)">{{ApplicantData.dlCity}}</span>
                         <label for="first_name">Enter Pincode</label>
                     </div>
                 </div>
@@ -277,8 +277,7 @@
                 <div class="row">
                     <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
                     <h3 class="otp-title">Enter OTP</h3>
-                    <p class="otp-text">OTP sent on <b>{{PreviousEmail}} </b> <span class="link-text"
-                            (click)="EditNumber()">Edit Email?</span></p>
+                    <p class="otp-text">OTP sent on <b>{{PreviousEmail}} </b> <span class="link-text" (click)="EditNumber()">Edit Email?</span></p>
                     <div class="col-2">
                         <input type="number" class="form-control otp-field" maxlength="1" id="otp1" [(ngModel)]="otp1"
                             (keyup)="keytab(2,$event)" (keypress)="validate.numberOnly($event)" />
@@ -316,8 +315,7 @@
                 <button type="button" (click)="verifyOtp()" class="btn btn-primary theme-button">Submit</button>
               </div>    -->
                     <div class="col-12">
-                        <button type="button" data-bs-dismiss="modal" aria-label="Close" class="otp-cancel">
-                            Cancel</button>
+                        <button type="button" data-bs-dismiss="modal" aria-label="Close"class="otp-cancel">Cancel</button>
                     </div>
                 </div>
             </div>
