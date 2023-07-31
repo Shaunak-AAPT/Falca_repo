@@ -596,22 +596,23 @@ export class HomeComponent implements OnInit {
     // this.CreditUrl = environment.CreditUrl.replace("{TOKEN}", encodeURIComponent(this.Token));
     // this.CreditUrl = this.CreditUrl.replace("{PATH}", encodeURIComponent(Path));
     // window.location.href = this.CreditUrl;
+    // window.open(credit.path, '_blank');
 
 
-    // console.log("name", credit)
-    // if (credit.name === "Savings & Insurance") {
-    //   console.log("begin");
-    //   $("#leadModal").modal("show");
-    //   console.log("after");
-    // }
-    // else {
-    //   console.log('credit', credit.path)
-    //   // this.route.navigate([insurence.path]);
-    //   $("#leadModal").modal("hide");
-    //   // window.location.href = credit.path;
-    //   window.open(credit.path, '_blank');
+    console.log("name", credit)
+    if (credit.name === "Savings & Insurance") {
+      console.log("begin");
+      $("#leadModal").modal("show");
+      console.log("after");
+    }
+    else {
+      console.log('credit', credit.path)
+      // this.route.navigate([insurence.path]);
+      $("#leadModal").modal("hide");
+      // window.location.href = credit.path;
+      window.open(credit.path, '_blank');
 
-    // }
+    }
   }
 
 
