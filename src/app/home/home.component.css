@@ -307,6 +307,13 @@
 	width: auto;
 	margin: 1%;
   }
+  .wealth img{
+	/* margin-right: 20%; */
+	height: 80px;
+  }
+  /* .wealth p{
+	margin-right: 20%;
+  } */
 /*   
   .flow-row .money-mng img {
 	width: 58%;

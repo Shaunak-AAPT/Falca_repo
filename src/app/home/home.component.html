@@ -205,8 +205,7 @@
 
     <div class="container hidden-xs mt-5 mb-3 common-mt-3 more-product money-invest loan-opt">
       <div class="row align-items-center">
-        <div class="col" *ngFor="let credit of CreditdataList" data-toggle="modal" data-target="#leadModal"
-          (click)="CreditRouterUrl(credit)">
+        <div class="col" *ngFor="let credit of CreditdataList" (click)="CreditRouterUrl(credit)">
           <div class="money-mng">
             <img src="{{credit?.logo}}" alt="l1">
             <p [innerHTML]="credit?.name"></p>
@@ -215,16 +214,53 @@
       </div>
     </div>
 
-    <div class="container hidden-xs mt-5 mb-3 common-mt-3 more-product money-invest loan-opt">
-      <div class="row align-items-center">
-        <div class="col" *ngFor="let wealth of wealthdataList?.slice(0,5)" (click)="wealthtRouterUrl(wealth?.path)">
+    <div class="container hidden-xs mt-5 mb-3 common-mt-3 more-product money-invest loan-opt wealth">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-6 col-sm-4 col-md-3" *ngFor="let wealth of wealthdataList" data-toggle="modal"
+          data-target="#leadModal" (click)="wealthtRouterUrl(wealth)">
+          <div class="money-mng">
+            <img src="{{wealth?.logo}}" alt="l1">
+            <p [innerHTML]="wealth?.name"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 
+    <div class="container hidden-xs pt-1 mb-3 common-pt-50 money-invest loan-opt">
+
+      <div class="row align-items-center custom-row-class">
+        <div class="col">
+          <div class="money-mng cursor-default">
+            <a href="https://tools.finizon.com/insureright" target="_blank">
+              <img class="insureright_img" src="assets/img/insureright.png" alt="l1">
+              <p>Insureright</p>
+            </a>
+  
+          </div>
+        </div>
+  
+        <div class="col">
+          <div class="money-mng" data-toggle="modal" data-target="#leadtModal" >
+            <img class="insureright_img" src="assets/img/savings_&_insurance.svg" alt="l2">
+            <p>Savings & Insurance</p>
+  
+          </div>
+        </div>
+  
+      </div>
+    </div> -->
+
+    <!-- <div class="container pt-70 mb-3  common-pt-50 more-product money-invest loan-opt">
+      <div class="row align-items-center justify-content-center">
+        <div class="col" *ngFor="let wealth of wealthdataList">
           <div class="money-mng">
             <img src="{{wealth?.logo}}" alt="l1">
             <p>{{wealth?.name}}</p>
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!-- mobile view 3-2 products -->
 
@@ -298,18 +334,18 @@
             <p [innerHTML]="credit?.name"></p>
           </div>
         </div>
-        <div class="col-4" *ngFor="let credit of CreditdataList.slice(4, 5)" data-toggle="modal"
-          data-target="#leadModal" (click)="CreditRouterUrl(credit)">
+        <div class="col-4" *ngFor="let credit of CreditdataList.slice(4, 5)" (click)="CreditRouterUrl(credit)">
           <div class="money-mng">
             <img src="{{credit.logo}}" alt="l1">
             <p [innerHTML]="credit?.name"></p>
           </div>
         </div>
 
-        <div class="col" *ngFor="let wealth of wealthdataList?.slice(0,5)" (click)="wealthtRouterUrl(wealth?.path)">
+        <div class="col" *ngFor="let wealth of wealthdataList" data-toggle="modal" data-target="#leadModal"
+          (click)="wealthtRouterUrl(wealth)">
           <div class="money-mng">
             <img src="{{wealth.logo}}" alt="l1">
-            <p>{{wealth.name}}</p>
+            <p [innerHTML]="wealth?.name"></p>
           </div>
         </div>
 
@@ -865,7 +901,7 @@
             <a href="http://65.1.237.83/" class="nav-link btn btn-primary theme-button m0-auto">Get Started</a>
             <!-- <a href="https://uatnw.finizon.com/" class="nav-link btn btn-primary theme-button m0-auto">Get Started</a> -->
 
-         
+
           </div>
         </div>
       </div>

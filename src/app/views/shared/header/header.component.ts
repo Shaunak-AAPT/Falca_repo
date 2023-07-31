@@ -513,8 +513,7 @@ export class HeaderComponent implements OnInit {
   }
 
   customerinvestmentlink(){
-    // window.open("https://wealth.finizon.com/client-login","_blank");
-    window.open("http://65.1.237.83/wealth","_blank");
+    window.open("https://wealth.finizon.com/client-login","_blank");
 
   }
 

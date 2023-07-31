@@ -415,7 +415,7 @@ export class HomeComponent implements OnInit {
     this.creditProduct();
 
     // not in use
-    // this.wealthProduct();
+    this.wealthProduct();
 
     this.GetBlogList();
     this.getpartnersbanner();
@@ -585,31 +585,33 @@ export class HomeComponent implements OnInit {
   }
 
   // not in use
-  // wealthProduct() {
-  //   this.api.get("vertical/product?vertical=3").subscribe((resp) => {
-  //     this.wealthdataList = resp.data;
-  //     // console.log(this.wealthdataList)
-  //   });
-  // }
+  wealthProduct() {
+    this.api.get("vertical/product?vertical=5").subscribe((resp) => {
+      this.wealthdataList = resp.data;
+      console.log(this.wealthdataList)
+    });
+  }
   CreditRouterUrl(credit: any) {
     // this.Token = localStorage.getItem("CustToken");
     // this.CreditUrl = environment.CreditUrl.replace("{TOKEN}", encodeURIComponent(this.Token));
     // this.CreditUrl = this.CreditUrl.replace("{PATH}", encodeURIComponent(Path));
     // window.location.href = this.CreditUrl;
-    console.log("name", credit)
-    if (credit.name === "Savings & Insurance") {
-      console.log("begin");
-      $("#leadModal").modal("show");
-      console.log("after");
-    }
-    else {
-      console.log('credit', credit.path)
-      // this.route.navigate([insurence.path]);
-      $("#leadModal").modal("hide");
-      // window.location.href = credit.path;
-      window.open(credit.path, '_blank');
 
-    }
+
+    // console.log("name", credit)
+    // if (credit.name === "Savings & Insurance") {
+    //   console.log("begin");
+    //   $("#leadModal").modal("show");
+    //   console.log("after");
+    // }
+    // else {
+    //   console.log('credit', credit.path)
+    //   // this.route.navigate([insurence.path]);
+    //   $("#leadModal").modal("hide");
+    //   // window.location.href = credit.path;
+    //   window.open(credit.path, '_blank');
+
+    // }
   }
 
 
@@ -630,11 +632,26 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  wealthtRouterUrl(Path: any) {
-    this.Token = localStorage.getItem("CustToken");
-    this.WealthUrl = environment.WealthUrl.replace("{TOKEN}", encodeURIComponent(this.Token));
-    this.WealthUrl = this.WealthUrl.replace("{PATH}", encodeURIComponent(Path));
-    window.location.href = this.WealthUrl;
+  wealthtRouterUrl(wealth: any) {
+    // this.Token = localStorage.getItem("CustToken");
+    // this.WealthUrl = environment.WealthUrl.replace("{TOKEN}", encodeURIComponent(this.Token));
+    // this.WealthUrl = this.WealthUrl.replace("{PATH}", encodeURIComponent(Path));
+    // window.location.href = this.WealthUrl;
+
+    console.log("name", wealth)
+    if (wealth.name === "Savings & Insurance") {
+      console.log("begin");
+      $("#leadModal").modal("show");
+      console.log("after");
+    }
+    else {
+      console.log('credit', wealth.path)
+      // this.route.navigate([insurence.path]);
+      $("#leadModal").modal("hide");
+      // window.location.href = credit.path;
+      window.open(wealth.path, '_blank');
+
+    }
   }
 
   GetApplicantData() {
