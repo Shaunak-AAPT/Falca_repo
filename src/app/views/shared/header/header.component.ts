@@ -508,25 +508,27 @@ export class HeaderComponent implements OnInit {
   }
 
   customerinsurancelink(){
-    window.open("https://ins.finizoninsurance.com/user/home", "_blank");
-
+    window.open("https://diy.ins.finizoninsurance.com/user/home/", "_blank");
   }
 
   customerinvestmentlink(){
     window.open("https://wealth.finizon.com/client-login","_blank");
-
   }
 
   partnerinsurancelink(){
     window.open("https://ins.finizoninsurance.com/partner/posp-home","_blank");
-    // window.open("https://ins.finizoninsurance.com/partner/signup","_blank");
-
-
-    
+    // window.open("https://ins.finizoninsurance.com/partner/signup","_blank");  
   }
+
   partnerinvestmentlink(){
     window.open("https://wealth.finizon.com/advisor-login", "_blank");
     // window.open("https://docs.google.com/forms/d/e/1FAIpQLSfNgk3MZJANGVd_PwwcUf7PFlsza2GOG-lVp3PYmBcvZyFtAw/viewform", "_blank");
     
+  }
+  insurefitLink(){
+    window.open("https://dev.finizon.com/spprd/wellness?referralid=goqii", "_blank");
+  }
+  shopkeeperLink(){
+    window.open("http://65.1.237.83:5800/spprd/shopkeeper?referralid=godigit", "_blank");
   }
 }
