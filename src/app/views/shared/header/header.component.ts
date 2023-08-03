@@ -526,12 +526,12 @@ export class HeaderComponent implements OnInit {
 
   }
   insurefitLink() {
-    window.open("http://65.1.237.83:5800/spprd/wellness?referralid=goqii", "_blank");
-    // window.open("https://dev.finizon.com/spprd/wellness?referralid=goqii", "_blank");
+    // window.open("http://65.1.237.83:5800/spprd/wellness?referralid=goqii", "_blank");
+    window.open("https://dev.finizon.com/spprd/wellness?referralid=goqii", "_blank");
   }
   
   shopkeeperLink() {
-    window.open("http://65.1.237.83:5800/spprd/shopkeeper?referralid=godigit", "_blank");
-    // window.open("https://dev.finizon.com/spprd/shopkeeper?referralid=godigit", "_blank");
+    // window.open("http://65.1.237.83:5800/spprd/shopkeeper?referralid=godigit", "_blank");
+    window.open("https://dev.finizon.com/spprd/shopkeeper?referralid=godigit", "_blank");
   }
 }
