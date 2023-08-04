@@ -289,10 +289,10 @@
 	margin-bottom: 10px;
   }
 
-  /* .shopkeeper-insurance-width img {
+  .shopkeeper-insurance-width img {
 	width: 5% !important;
 	border:2px solid black;
-  } */
+  }
 
    .money-mng .shopkeeper_logo{
 	object-fit: cover;
@@ -301,9 +301,29 @@
 	/* height:30% !important; */
 	height: auto;
   }
+
+  .title-mng {
+	text-align: center;
+	cursor: pointer;
+	margin-top: 10% !important;
+  }
+  /* .title-mng p {
+	margin-bottom: 2px;
+	color: #465A65;
+  } */
+  .product-name-container {
+	height:20px; 
+	/* overflow: hidden; */
+  }
+  .product-name-container p {
+	color: #465A65;
+	font-size: 18px;
+	margin-top: -7%;
+  }
+/* 
   .money-mng .shopkeeper_name{
 	margin-top: -10%;
-  }
+  } */
   
   .money-mng p {
 	margin-bottom: 0px;
@@ -451,6 +471,7 @@
 	
 	  .money-mng img {
 		width: 50% !important;
+		margin-top: 30% !important;
 	  }
 	  /* .money-mng.mob-inv img {
 		width: 55%;
@@ -468,8 +489,20 @@
 		/* height:30% !important; */
 		/* height: auto; */
 	  }
-	  .money-mng .shopkeeper_name{
+	  /* .money-mng .shopkeeper_name{
 		margin-top: -10%;
+	  } */
+	  .product-name-container {
+		height:10px; 
+		/* overflow: hidden; */
+	  }
+	  .product-name-container p {
+		color: #465A65;
+		font-size: 12px;
+		margin-top: -25%;
+	  }
+	  .title-finizon{
+		margin-top: 20%;
 	  }
 }
 
@@ -531,8 +564,24 @@
 		margin-bottom: 20px;
 	}
 }
+@media (min-width: 500px) and (max-width: 540px) {
+	.money-mng img {
+		width: 40% !important;
+		margin-top: 20% !important;
+	  }
+	  .product-name-container p {
+		color: #465A65;
+		font-size: 15px;
+		margin-top: 10% !important;
+	  }
+}
 
-
+@media (max-width: 280px) {
+	.money-mng img {
+		/* width: 50% !important; */
+		margin-top: 100% !important;
+	  }
+}
 
 /* @media (min-width: 540px) {
 	.profiling-team {

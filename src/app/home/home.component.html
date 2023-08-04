@@ -83,7 +83,8 @@
                   </div>
 
                   <div class="col-lg-8 col-sm-6">
-                    <a style="text-decoration: none;" target="_blank" href="https://diy.ins.finizoninsurance.com/user/home/">
+                    <a style="text-decoration: none;" target="_blank"
+                      href="https://diy.ins.finizoninsurance.com/user/home/">
                       <button class="nav-link btn btn-primary theme-button modalpartnerbtn">INSURANCE</button>
                     </a>
                     <a style="text-decoration: none;" target="_blank" href="https://forms.gle/J1WexoLfsLAoMrAp7">
@@ -197,7 +198,12 @@
           (click)="InsurancetRouterUrl(insurence)">
           <div class="money-mng">
             <img src="{{insurence?.logo}}" alt="l1">
-            <p>{{insurence?.name}}</p>
+            <!-- <p>{{insurence?.name}}</p> -->
+          </div>
+          <div class="title-mng">
+            <div class="product-name-container">
+              <p [innerHTML]="insurence?.name"></p>
+            </div>
           </div>
         </div>
       </div>
@@ -205,18 +211,23 @@
 
     <div class="container hidden-xs mt-5 mb-3 common-mt-3 more-product money-invest loan-opt">
       <div class="row align-items-center">
-        <div class="col" *ngFor="let credit of CreditdataList.slice(0,4)" (click)="CreditRouterUrl(credit)">
+        <div class="col" *ngFor="let credit of CreditdataList" (click)="CreditRouterUrl(credit)">
           <div class="money-mng">
             <img src="{{credit?.logo}}" alt="l1">
-            <p [innerHTML]="credit?.name"></p>
+            <!-- <p [innerHTML]="credit?.name"></p> -->
+          </div>
+          <div class="title-mng">
+            <div class="product-name-container">
+              <p [innerHTML]="credit?.name"></p>
+            </div>
           </div>
         </div>
-        <div class="col" *ngFor="let credit of CreditdataList.slice(4,5)" (click)="CreditRouterUrl(credit)">
+        <!-- <div class="col" *ngFor="let credit of CreditdataList.slice(4,5)" (click)="CreditRouterUrl(credit)">
           <div class="money-mng">
             <img src="{{credit?.logo}}" alt="l1" class="shopkeeper_logo">
             <p [innerHTML]="credit?.name" class="shopkeeper_name"></p>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -228,6 +239,11 @@
             <img src="{{wealth?.logo}}" alt="l1">
             <p [innerHTML]="wealth?.name"></p>
           </div>
+          <!-- <div class="title-mng">
+            <div class="product-name-container">
+              <p [innerHTML]="wealth?.name"></p>
+            </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -322,7 +338,12 @@
           (click)="InsurancetRouterUrl(insurence)">
           <div class="money-mng">
             <img src="{{insurence.logo}}" alt="l1">
-            <p>{{insurence.name}}</p>
+            <!-- <p>{{insurence.name}}</p> -->
+          </div>
+          <div class="title-mng">
+            <div class="product-name-container">
+              <p [innerHTML]="insurence?.name"></p>
+            </div>
           </div>
         </div>
 
@@ -330,20 +351,35 @@
           (click)="CreditRouterUrl(credit)">
           <div class="money-mng">
             <img src="{{credit.logo}}" alt="l1">
-            <p [innerHTML]="credit?.name"></p>
+            <!-- <p [innerHTML]="credit?.name"></p> -->
+          </div>
+          <div class="title-mng">
+            <div class="product-name-container">
+              <p [innerHTML]="credit?.name"></p>
+            </div>
           </div>
         </div>
         <div class="col-4" *ngFor="let credit of CreditdataList.slice(1, 4)" data-toggle="modal"
           data-target="#leadModal" (click)="CreditRouterUrl(credit)">
           <div class="money-mng">
             <img src="{{credit.logo}}" alt="l1">
-            <p [innerHTML]="credit?.name"></p>
+            <!-- <p [innerHTML]="credit?.name"></p> -->
+          </div>
+          <div class="title-mng">
+            <div class="product-name-container">
+              <p [innerHTML]="credit?.name"></p>
+            </div>
           </div>
         </div>
         <div class="col-4" *ngFor="let credit of CreditdataList.slice(4, 5)" (click)="CreditRouterUrl(credit)">
           <div class="money-mng">
             <img src="{{credit.logo}}" alt="l1">
-            <p [innerHTML]="credit?.name"></p>
+            <!-- <p [innerHTML]="credit?.name"></p> -->
+          </div>
+          <div class="title-mng">
+            <div class="product-name-container">
+              <p [innerHTML]="credit?.name"></p>
+            </div>
           </div>
         </div>
 
@@ -351,7 +387,12 @@
           (click)="wealthtRouterUrl(wealth)">
           <div class="money-mng">
             <img src="{{wealth.logo}}" alt="l1">
-            <p [innerHTML]="wealth?.name"></p>
+            <!-- <p [innerHTML]="wealth?.name"></p> -->
+          </div>
+          <div class="title-mng">
+            <div class="product-name-container">
+              <p [innerHTML]="wealth?.name"></p>
+            </div>
           </div>
         </div>
 
@@ -364,7 +405,7 @@
     <div class="container pt-70 why-finizon">
       <div class="row align-items-center about">
         <div class="col-lg-8 col-sm-6">
-          <h4 class="title-head mb-4">Why Finizon?</h4>
+          <h4 class="title-head mb-4 title-finizon">Why Finizon?</h4>
           <p>Finizon is India's first comprehensive financial services platform addressing all your financial needs
             across
             life stages. We collaborate with finance partners across India to guide you towards financial wellness.</p>
@@ -904,8 +945,8 @@
             <h3>Grow your family's investment in one place</h3>
           </div>
           <div class="col-lg-3 col-12 col-sm-3">
-            <!-- <a href="http://65.1.237.83/" class="nav-link btn btn-primary theme-button m0-auto">Get Started</a> -->
-            <a href="https://uatnw.finizon.com/" class="nav-link btn btn-primary theme-button m0-auto">Get Started</a>
+            <a href="http://65.1.237.83/" class="nav-link btn btn-primary theme-button m0-auto">Get Started</a>
+            <!-- <a href="https://uatnw.finizon.com/" class="nav-link btn btn-primary theme-button m0-auto">Get Started</a> -->
 
 
           </div>
