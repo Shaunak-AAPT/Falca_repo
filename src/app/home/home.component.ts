@@ -581,6 +581,7 @@ export class HomeComponent implements OnInit {
   creditProduct() {
     this.api.get("vertical/product?vertical=2").subscribe((resp) => {
       this.CreditdataList = resp.data;
+      console.log('CreditdataList', this.CreditdataList)
     });
   }
 

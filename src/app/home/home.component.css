@@ -288,6 +288,22 @@
 	
 	margin-bottom: 10px;
   }
+
+  /* .shopkeeper-insurance-width img {
+	width: 5% !important;
+	border:2px solid black;
+  } */
+
+   .money-mng .shopkeeper_logo{
+	object-fit: cover;
+	/* border:2px solid black; */
+	width: 100px !important;
+	/* height:30% !important; */
+	height: auto;
+  }
+  .money-mng .shopkeeper_name{
+	margin-top: -10%;
+  }
   
   .money-mng p {
 	margin-bottom: 0px;
@@ -434,7 +450,7 @@
 	  }
 	
 	  .money-mng img {
-		width: 45%;
+		width: 50% !important;
 	  }
 	  /* .money-mng.mob-inv img {
 		width: 55%;
@@ -445,6 +461,16 @@
 	  /* .loan-opt .money-mng img {
 		width: 40%;
 	  } */
+	  .money-mng .shopkeeper_logo{
+		/* object-fit: cover; */
+		/* border:2px solid black; */
+		width: 200px !important;
+		/* height:30% !important; */
+		/* height: auto; */
+	  }
+	  .money-mng .shopkeeper_name{
+		margin-top: -10%;
+	  }
 }
 
 @media only screen and (min-width: 1350px) and (max-width: 1370px) {
