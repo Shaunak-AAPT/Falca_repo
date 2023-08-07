@@ -78,14 +78,14 @@ export class HeaderComponent implements OnInit {
       }
     }
   }
- 
+
 
 
   showSupportModal() {
-  
+
     $("#supportModal").modal("show");
-  // console.log("showmodel:", this.showModal);
-}
+    // console.log("showmodel:", this.showModal);
+  }
   ngOnInit(): void {
 
     // $("body").click(function(){
@@ -111,7 +111,7 @@ export class HeaderComponent implements OnInit {
     //     $(".mobile-sticky").hide();
     //   }
     // });
-  
+
     var authToken = localStorage.getItem('CustToken') || '';
     if (this.validation.isNullEmptyUndefined(authToken)) {
       this.isLoggedIn = false;
@@ -507,27 +507,42 @@ export class HeaderComponent implements OnInit {
     this.isOTPSent = false;
   }
 
-  customerinsurancelink(){
-    window.open("https://ins.finizoninsurance.com/user/home", "_blank");
-
+  customerinsurancelink() {
+    window.open("https://diy.ins.finizoninsurance.com/user/home/", "_blank");
   }
 
-  customerinvestmentlink(){
-    // window.open("https://wealth.finizon.com/client-login","_blank");
-    window.open("https://finizon.com/wealth","_blank");
 
+  customerinvestmentlink() {
+    window.open("https://wealth.finizon.com/client-login", "_blank");
   }
 
-  partnerinsurancelink(){
-    window.open("https://ins.finizoninsurance.com/partner/posp-home","_blank");
-    // window.open("https://ins.finizoninsurance.com/partner/signup","_blank");
-
-
-    
+  partnerinsurancelink() {
+    window.open("https://ins.finizoninsurance.com/partner/posp-home", "_blank");
+    // window.open("https://ins.finizoninsurance.com/partner/signup","_blank");  
   }
-  partnerinvestmentlink(){
+
+  partnerinvestmentlink() {
     window.open("https://wealth.finizon.com/advisor-login", "_blank");
     // window.open("https://docs.google.com/forms/d/e/1FAIpQLSfNgk3MZJANGVd_PwwcUf7PFlsza2GOG-lVp3PYmBcvZyFtAw/viewform", "_blank");
-    
+
   }
+  insurefitLink() {
+    // window.open("http://65.1.237.83:5800/spprd/wellness?referralid=goqii", "_blank");
+    // window.open("https://dev.finizon.com/spprd/wellness?referralid=goqii", "_blank");
+    window.open("https://tools.finizon.com/spprd/wellness?referralid=goqii", "_blank");
+
+  }
+  
+  shopkeeperLink() {
+    // window.open("http://65.1.237.83:5800/spprd/shopkeeper?referralid=godigit", "_blank");
+    // window.open("https://dev.finizon.com/spprd/shopkeeper?referralid=godigit", "_blank");
+    window.open("https://tools.finizon.com/spprd/shopkeeper?referralid=godigit", "_blank");
+
+  }
+ insureLink(){
+  // window.open("http://65.1.237.83:6800", "_blank");
+  // window.open("https://uatnw.finizoninsurance.com", "_blank");
+  window.open("https://finizoninsurance.com", "_blank");
+}
+  
 }
