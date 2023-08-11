@@ -882,6 +882,10 @@ p.trend-name {
 
     .client-img img {
         width: 100%;
+        margin-top: 20%;
+    }
+    .partner5 .col img{
+        width: 50%;
     }
 
     .col-6 {
@@ -1146,9 +1150,14 @@ p.trend-name {
         width: 20%;
 
     }
+    
+    .partner5 .col img{
+        width: 70%;
+    }
 
     .client-img .col img {
         width: 100%;
+        margin-top: 15%;
     }
 
 }
@@ -1165,6 +1174,10 @@ p.trend-name {
     }
     .client-img .col img {
         width: 90%;
+        margin-top: 15%;
+    }
+    .partner5 .col img{
+        width: 70%;
     }
 }
 
@@ -1178,6 +1191,10 @@ p.trend-name {
     }
     .client-img .col img {
         width: 90%;
+        margin-top: 15%;
+    }
+    .partner5 .col img{
+        width: 70%;
     }
 }
 
@@ -1191,7 +1208,12 @@ p.trend-name {
     }
     .client-img .col img {
         width: 90%;
+        margin-top: 15%;
     }
+    .partner5 .col img{
+        width: 70%;
+    }
+
 }
 /* added by sw for partners icon's responsiveness end */
 
@@ -1368,8 +1390,14 @@ p.trend-name {
 
     .client-img .col img {
         width: 85%;
+        margin-top: 15%;
+    }
+    .partner5 .col img{
+        width: 70%;
     }
 }
+
+
 
 /*-------------------1280x800-------------*/
 @media only screen and (min-width: 1270px) and (max-width: 1290px) {
@@ -1444,11 +1472,15 @@ p.trend-name {
 
     .client-img .col img {
         width: 85%;
+        margin-top: 15%;
+    }
+    .partner5 .col img{
+        width: 70%;
     }
 }
 
 /*-------------------1440x900-------------*/
-@media only screen and (min-width: 1430px) and (max-width: 1450px) {
+@media only screen and (min-width: 1400px) and (max-width: 1450px) {
     .slider-head {
         font-size: 40px;
         font-weight: 600;
@@ -1518,8 +1550,11 @@ p.trend-name {
 
     .client-img .col img {
         width: 85%;
+        margin-top: 15%;
     }
-
+    .partner5 .col img{
+        width: 70%;
+    }
     .loan-opt .money-mng img {
         width: 38%;
     }
@@ -1533,9 +1568,18 @@ p.trend-name {
     }
 
 }
+@media only screen and (min-width: 1450px) and (max-width: 1530px) {
+    .client-img .col img {
+        width: 85%;
+        margin-top: 15%;
+    }
+    .partner5 .col img{
+        width: 60%;
+    }
+}
 
 /*-------------------1536x864-------------*/
-@media only screen and (min-width: 1530px) and (max-width: 1540px) {
+@media only screen and (min-width: 1530px) and (max-width: 1550px) {
     .slider-head {
         font-size: 38px;
         font-weight: 600;
@@ -1626,6 +1670,19 @@ p.trend-name {
 
     .client-img .col img {
         width: 85%;
+        margin-top: 15%;
+    }
+    .partner5 .col img{
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 1550px) and (max-width: 1590px) {
+    .client-img .col img {
+        width: 85%;
+        margin-top: 15%;    }
+    .partner5 .col img{
+        width: 60%;
     }
 }
 
@@ -1640,6 +1697,10 @@ p.trend-name {
 
     .client-img .col img {
         width: 85%;
+        margin-top: 15%;
+    }
+    .partner5 .col img{
+        width: 60%;
     }
 }
 
@@ -1757,6 +1818,10 @@ p.trend-name {
 
     .client-img .col img {
         width: 85%;
+        margin-top: 15%;
+    }
+    .partner5 .col img{
+        width: 60%;
     }
 
     .finance-news p {
