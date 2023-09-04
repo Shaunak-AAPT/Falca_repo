@@ -66,6 +66,13 @@ export class HomeComponent implements OnInit {
       linkedinLink: 'https://www.linkedin.com/in/surajgaydhane/'
     },
     {
+      id: 8, name: 'Abhay Rathore', title: 'National Head-Sales', bio: 'Experiences Sales Professional with over 14 years of experience across Insurance sector and start up. Comprehensive background in leading all aspects of Insurance Business and formulate strategic plans & initiatives for large scale Retail and HNI business. Carrying rich experience across diverse areas with successful contributions in Building B2B2C Business distribution model',
+      img: '../../assets/img/abhay.jpg',
+      image: '../../assets/img/abhay.jpg',
+      linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+      // linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
+    },
+    {
       id: 5, name: 'Tarun Taneja', title: 'Cofounder & CEO', bio: 'A seasoned professional with 20 years of experience in building, scaling and leading new business streams in the General & Health Insurance space. He has deep expertise in New Product Development, Business Development, Bancassurance, Portfolio Management & Risk Management.',
       img: '../../assets/img/founding_team_member/team-tarun.svg',
       // image: '../../assets/img/founding_team_member/tarun-final.jpg',
@@ -87,6 +94,14 @@ export class HomeComponent implements OnInit {
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
       linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
     },
+    {
+      id: 7, name: 'Arnab Koley', title: 'COO', bio: 'Enterprising & resourceful professional with 16+ years of experience across Insurance & start-up sector. Comprehensive background in leading Insurance business operations, formulating strategic plans & initiatives for large Retail operations. Successful contributions in building B2B2C distribution model, Business Process Reengineering & building technology product from scratch.',
+      img: '../../assets/img/Arnab1.jpg',
+      image: '../../assets/img/Arnab1.jpg',
+      linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+      // linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
+    },
+   
 
   ];
 
@@ -143,7 +158,20 @@ export class HomeComponent implements OnInit {
       linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
     },
 
-
+    {
+      id: 7, name: 'Abhay Rathore', title: 'National Head-Sales', bio: 'Experiences Sales Professional with over 14 years of experience across Insurance sector and start up. Comprehensive background in leading all aspects of Insurance Business and formulate strategic plans & initiatives for large scale Retail and HNI business. Carrying rich experience across diverse areas with successful contributions in Building B2B2C Business distribution model',
+      img: '../../assets/img/abhay.jpg',
+      image: '../../assets/img/abhay.jpg',
+      linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+      // linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
+    },
+    {
+      id: 8, name: 'Arnab Koley', title: 'COO', bio: 'Enterprising & resourceful professional with 16+ years of experience across Insurance & start-up sector. Comprehensive background in leading Insurance business operations, formulating strategic plans & initiatives for large Retail operations. Successful contributions in building B2B2C distribution model, Business Process Reengineering & building technology product from scratch.',
+      img: '../../assets/img/Arnab1.jpg',
+      image: '../../assets/img/Arnab1.jpg',
+      linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+      // linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
+    },
 
 
   ];
