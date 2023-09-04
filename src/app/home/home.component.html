@@ -682,14 +682,14 @@
           <!-- <div class="col-lg-12 pos-rel"> -->
           <div class="founders-container ">
             <div class="founder-column hidden-xs hidden-md ">
-              <div *ngFor="let founder of founders.slice(0, 3)">
+              <div *ngFor="let founder of founders.slice(0, 4)">
                 <!-- <img class="clkprofile_Photo" [src]="founder.img"[class.selected]="selectedFounder" (click)="showDetails(founder)" /> -->
                 <img class="clkprofile_Photo" [src]="founder.img" [class.selected]="isSelected(founder)"
                   (click)="showDetails(founder)" alt="founderimg" />
               </div>
             </div>
             <div class="founder-column hidden-xs hidden-md ">
-              <div *ngFor="let founder of founders.slice(3)">
+              <div *ngFor="let founder of founders.slice(4)">
                 <img class="clkprofile_Photo" [src]="founder.img" [class.selected]="isSelected(founder)"
                   (click)="showDetails(founder)" alt="founderimg" />
               </div>
@@ -702,7 +702,7 @@
                 </div>
               </div>
             </div>
-
+<!-- <img src="../../assets/img/abhay.jpg" alt=""> -->
           </div>
           <!-- </div> -->
           <!-- <img src="../../assets/img/founding team member/founder-asish.svg" alt=""> -->
