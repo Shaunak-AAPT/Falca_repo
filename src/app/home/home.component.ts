@@ -96,8 +96,8 @@ export class HomeComponent implements OnInit {
     },
     {
       id: 7, name: 'Arnab Koley', title: 'COO', bio: 'Enterprising & resourceful professional with 16+ years of experience across Insurance & start-up sector. Comprehensive background in leading Insurance business operations, formulating strategic plans & initiatives for large Retail operations. Successful contributions in building B2B2C distribution model, Business Process Reengineering & building technology product from scratch.',
-      img: '../../assets/img/Arnab1.jpg',
-      image: '../../assets/img/Arnab1.jpg',
+      img: '../../assets/img/Arnab.jpg',
+      image: '../../assets/img/Arnab2.jpg',
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
       // linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
     },
@@ -167,8 +167,8 @@ export class HomeComponent implements OnInit {
     },
     {
       id: 8, name: 'Arnab Koley', title: 'COO', bio: 'Enterprising & resourceful professional with 16+ years of experience across Insurance & start-up sector. Comprehensive background in leading Insurance business operations, formulating strategic plans & initiatives for large Retail operations. Successful contributions in building B2B2C distribution model, Business Process Reengineering & building technology product from scratch.',
-      img: '../../assets/img/Arnab1.jpg',
-      image: '../../assets/img/Arnab1.jpg',
+      img: '../../assets/img/Arnab2.jpg',
+      image: '../../assets/img/Arnab2.jpg',
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
       // linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
     },
