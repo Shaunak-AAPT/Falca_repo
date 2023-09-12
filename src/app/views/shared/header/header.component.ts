@@ -516,6 +516,9 @@ export class HeaderComponent implements OnInit {
         // window.open("http://localhost:4200/wealth", "_blank");
         window.open("http://65.1.237.83/wealth");
   }
+  wealthlink(){
+        window.open("https://wealth.finizon.com/client-login", "_blank");
+  }
 
   // customerinvestmentlink() {
   //   // Get the current route
