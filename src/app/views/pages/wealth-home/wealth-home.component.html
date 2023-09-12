@@ -75,7 +75,39 @@
           </div>
         </div>
 
+        <div class="modal fade" id="bannercustomerModal" tabindex="-1" role="dialog"
+          aria-labelledby="bannercustomerModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="closeicon">
+                <button type="button" class="close" (click)="hidebannerModal()" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
 
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-lg-4 col-sm-6">
+                    <img src="assets/img/banner_customer_img.svg" class="phydigital_partner_img" alt="about">
+                  </div>
+
+                  <div class="col-lg-8 col-sm-6">
+                    <a style="text-decoration: none;" target="_blank" href="https://wealth.finizon.com/client-login">
+                      <button class="nav-link btn btn-primary theme-button modalpartnerbtn">SIGN IN</button>
+                    </a>
+                    <a style="text-decoration: none;" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSejq8glfhwz7uxHZnSF7Tb6FflIaO7GovsH8Li5fDW76bcZHg/viewform">
+                      <button class="nav-link btn btn-primary theme-button modalpartnerbtn">SIGN UP</button>
+                    </a>
+
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
         <!-- <div class="carousel-item">
                   <div class="row align-items-center">
                       <div class="col-12 hidden-lg hidden-sm">
@@ -124,7 +156,9 @@
         <div class="col" *ngFor="let product of productwealthdata" (click)="GotoRecommendedOffers(product)">
           <div class="money-mng">
             <img src="{{product?.logo}}" alt="l1">
-            <p>{{product?.name}}</p>
+            <!-- <p>{{product?.name}}</p> -->
+            <p [innerHTML]="product?.name"></p>
+
           </div>
         </div>
         <!-- <div class="col">
@@ -176,8 +210,10 @@
           <div class="col-lg-8 col-6 col-sm-8">
             <h4 class="title-head1 mb-0">Goal Planner</h4>
             <div class="br-btm"></div>
-            <p>How far are you from your life goals? <br />Lorem ipsum dolor sit amet,</p>
-            <button class="nav-link btn btn-primary theme-button">Calculate</button>
+            <p>Write to us to have us help you plan your financial goals effectively</p>
+
+            <!-- <p>How far are you from your life goals? <br />Lorem ipsum dolor sit amet,</p> -->
+            <!-- <button class="nav-link btn btn-primary theme-button">Calculate</button> -->
           </div>
           <div class="col-lg-4 col-sm-4 col-4">
             <img src="assets/img/man-up.svg" class="w-100">
@@ -191,8 +227,9 @@
             <img src="assets/img/man-up.svg" class="w-100">
             <h4 class="title-head1 mb-0 mt-5">Goal Planner</h4>
             <div class="br-btm"></div>
-            <p>How far are you from your life goals? <br />Lorem ipsum dolor sit amet,</p>
-            <button class="nav-link btn btn-primary theme-button">Calculate</button>
+            <p>Write to us to have us help you plan your financial goals effectively</p>
+            <!-- <p>How far are you from your life goals? <br />Lorem ipsum dolor sit amet,</p>
+            <button class="nav-link btn btn-primary theme-button">Calculate</button> -->
           </div>
         </div>
       </div>
@@ -347,16 +384,64 @@
 
     <div class="container pt-70">
 
+      
       <div class="row align-items-center about d-none d-sm-flex">
-        <div class="col-lg-8 col-8 col-sm-8">
-          <h4 class="title-head2 mb-4">Regular Investing with SIP</h4>
-          <p class="font18">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy<br
-              class="hidden-xs" />
-            eirmod tempor invidunt ut labore et dolore at vero eos et.</p>
-        </div>
         <div class="col-lg-4 col-sm-4 col-4">
           <img src="assets/img/monthly_sip.svg" class="w-100" alt="insure">
         </div>
+        <div class="col-lg-8 col-8 col-sm-8 ">
+          
+          <h4 class="title-head2 mb-4 text-end ">Regular Investing with SIP</h4>
+          <p class="font18">Investing a small sum of money regularly in equity mutual funds can make your money work
+            with greater power and can have a significant impact on wealth accumulation<br class="hidden-xs" />
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Investment Scenario A
+                </th>
+                <th>Investment Scenario B
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Number of Years</td>
+                <td>15</td>
+                <td>20</td>
+
+              </tr>
+              <tr>
+                <td>Monthly Investment</td>
+                <td>Rs.5000</td>
+                <td>Rs.5000</td>
+              </tr>
+              <tr>
+                <td>Total Amount Invested</td>
+                <td>Rs.9 Lakhs</td>
+                <td>Rs.12 Lakhs</td>
+              </tr>
+              <tr>
+                <td>Assumed Annualized Return</td>
+                <td>18%</td>
+                <td>18%</td>
+              </tr>
+              <tr>
+                <td>Final Corpus</td>
+                <td>Rs.45.96 lakhs</td>
+                <td>Rs.1.17 crs</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="font14">The above illustration is merely indicative in nature and does not in any manner indicate
+            the performance of any particular MF scheme. Please read the SID and SAI carefully before investing.
+
+            <br class="hidden-xs" />
+          </p>
+        </div>
+       
+
       </div>
 
       <!-- mobile -->
@@ -366,17 +451,62 @@
         </div>
         <div class="col-lg-8 col-12 col-sm-12 text-center">
           <h4 class="title-head2 mb-4 mt-5">Regular Investing with SIP</h4>
-          <p class="elementor-icon-list-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+          <!-- <p class="elementor-icon-list-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
             diam
             nonumy<br class="hidden-xs" />
-            eirmod tempor invidunt ut labore et dolore at vero eos et.</p>
+            eirmod tempor invidunt ut labore et dolore at vero eos e.</p> -->
+            <p class="elementor-icon-list-text">Investing a small sum of money regularly in equity mutual funds can make your money work
+              with greater power and can have a significant impact on wealth accumulation<br class="hidden-xs" />
+           </p>
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Investment Scenario A
+                  </th>
+                  <th>Investment Scenario B
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Number of Years</td>
+                  <td>15</td>
+                  <td>20</td>
+  
+                </tr>
+                <tr>
+                  <td>Monthly Investment</td>
+                  <td>Rs.5000</td>
+                  <td>Rs.5000</td>
+                </tr>
+                <tr>
+                  <td>Total Amount Invested</td>
+                  <td>Rs.9 Lakhs</td>
+                  <td>Rs.12 Lakhs</td>
+                </tr>
+                <tr>
+                  <td>Assumed Annualized Return</td>
+                  <td>18%</td>
+                  <td>18%</td>
+                </tr>
+                <tr>
+                  <td>Final Corpus</td>
+                  <td>Rs.45.96 lakhs</td>
+                  <td>Rs.1.17 crs</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="font12">The above illustration is merely indicative in nature and does not in any manner indicate
+              the performance of any particular MF scheme. Please read the SID and SAI carefully before investing.<br class="hidden-xs" />
+            </div>
         </div>
 
       </div>
 
 
       <!-- Desktop -->
-      <div class="row align-items-center about d-none d-sm-flex">
+      <!-- <div class="row align-items-center about d-none d-sm-flex">
         <div class="col-lg-4 col-4 col-sm-4">
           <img src="assets/img/save_tax.svg" class="w-100" alt="insure">
         </div>
@@ -386,10 +516,10 @@
               class="hidden-xs" />
             eirmod tempor invidunt ut labore et dolore at vero eos et.</p>
         </div>
-      </div>
+      </div> -->
 
       <!-- mobile -->
-      <div class="row align-items-center justify-content-center about d-sm-none">
+      <!-- <div class="row align-items-center justify-content-center about d-sm-none">
         <div class="col-lg-4 col-12 col-sm-12 text-center">
           <img src="assets/img/save_tax.svg" class="w-100" alt="insure">
         </div>
@@ -400,16 +530,20 @@
             nonumy<br class="hidden-xs" />
             eirmod tempor invidunt ut labore et dolore at vero eos et.</p>
         </div>
-      </div>
+      </div> -->
 
 
       <!-- Desktop -->
       <div class="row align-items-center about d-none d-sm-flex">
         <div class="col-lg-8 col-8 col-sm-8">
           <h4 class="title-head2 mb-4">Handpicked Corporate Deposits just for You</h4>
-          <p class="font18">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy<br
+          <!-- <p class="font18">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy<br
               class="hidden-xs" />
-            eirmod tempor invidunt ut labore et dolore at vero eos et.</p>
+            eirmod tempor invidunt ut labore et dolore at vero eos et.</p> -->
+          <p class="font18">Finizon offers you a platform to invest in the best corporate deposits , please write to us
+            at__________<br class="hidden-xs" />
+            or send us a msg at_________________to discuss which corporate deposit could work best to meet your
+            financial milestone</p>
         </div>
         <div class="col-lg-4 col-sm-4 col-4">
           <img src="assets/img/save_deposit.svg" class="w-100" alt="insure">
@@ -424,10 +558,14 @@
         </div>
         <div class="col-lg-4 col-12 col-sm-12 text-center">
           <h4 class="title-head2 mb-4 mt-5">Handpicked Corporate Deposits just for You</h4>
-          <p class="elementor-icon-list-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+          <!-- <p class="elementor-icon-list-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
             diam
             nonumy<br class="hidden-xs" />
-            eirmod tempor invidunt ut labore et dolore at vero eos et.</p>
+            eirmod tempor invidunt ut labore et dolore at vero eos et.</p> -->
+          <p class="elementor-icon-list-text">Finizon offers you a platform to invest in the best corporate deposits ,
+            please write to us at__________<br class="hidden-xs" />
+            or send us a msg at_________________to discuss which corporate deposit could work best to meet your
+            financial milestone</p>
         </div>
 
       </div>
@@ -438,11 +576,15 @@
         <div class="col-lg-4 col-4 col-sm-4">
           <img src="assets/img/top_comp.svg" class="w-100" alt="insure">
         </div>
-        <div class="col-lg-8 col-sm-8 col-8 text-end">
-          <h4 class="title-head2 mb-4">Own Top Companies</h4>
-          <p class="font18">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy<br
+        <div class="col-lg-8 col-sm-8 col-8">
+          <h4 class="title-head2 mb-4 text-end">Own Top Companies</h4>
+          <!-- <p class="font18">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy<br
               class="hidden-xs" />
-            eirmod tempor invidunt ut labore et dolore at vero eos et.</p>
+            eirmod tempor invidunt ut labore et dolore at vero eos et.</p> -->
+          <p class="font18">You could invest in some of the companies by investing in Equity Mutual Funds across
+            categories such as Large Cap , Large & Mid Cap , Flexi Cap , Multi Cap and Mid Cap etc , click on the below
+            link to go through some of the funds we recommend<br class="hidden-xs" />
+          </p>
         </div>
       </div>
       <!-- mobile -->
@@ -452,10 +594,14 @@
         </div>
         <div class="col-lg-8 col-12 col-sm-12 text-center">
           <h4 class="title-head2 mb-4 mt-5">Own Top Companies</h4>
-          <p class="elementor-icon-list-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+          <!-- <p class="elementor-icon-list-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
             diam
             nonumy<br class="hidden-xs" />
-            eirmod tempor invidunt ut labore et dolore at vero eos et.</p>
+            eirmod tempor invidunt ut labore et dolore at vero eos et.</p> -->
+          <p class="elementor-icon-list-text">You could invest in some of the companies by investing in Equity Mutual
+            Funds across categories such as Large Cap , Large & Mid Cap , Flexi Cap , Multi Cap and Mid Cap etc , click
+            on the below link to go through some of the funds we recommend<br class="hidden-xs" />
+          </p>
         </div>
       </div>
     </div>
@@ -465,9 +611,14 @@
     <div class="row align-items-center about d-none d-sm-flex">
       <div class="col-lg-8 col-8 col-sm-8">
         <h4 class="title-head2 mb-4">Optimize Returns on Short Term Surplus</h4>
-        <p class="font18">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy<br
+        <!-- <p class="font18">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy<br
             class="hidden-xs" />
-          eirmod tempor invidunt ut labore et dolore at vero eos et.</p>
+          eirmod tempor invidunt ut labore et dolore at vero eos et.</p> -->
+        <p class="font18">To align your short term goal appropriately , we have some of the best debt mutual funds .It
+          is important to align your investment time horizon with the average maturity of the debt mutual funds<br
+            class="hidden-xs" />
+          Please write to us at _______________or msg us at _______________ to initiate a effective conversation with
+          our expert</p>
       </div>
       <div class="col-lg-4 col-sm-4 col-4">
         <img src="assets/img/park_surplus.svg" class="w-100" alt="insure">
@@ -822,21 +973,21 @@
     <div class="row align-items-center">
       <div class="col-1">
       </div>
-      
+
       <div class="col">
         <img src="../../../../assets/img/franklin_wealth.png" class="c5">
       </div>
       <div class="col">
         <img src="../../../../assets/img/invesco_wealth.png" class="c3">
       </div>
-     
+
       <div class="col">
         <img src="../../../../assets/img/pgim_new.png" class="c4">
       </div>
       <div class="col">
         <img src="../../../../assets/img/uti_wealth.png" class="c2">
       </div>
-      
+
       <div class="col-1">
       </div>
     </div>
@@ -857,21 +1008,21 @@
     <div class="row align-items-center partner5">
       <!-- <div class="col-1">
       </div> -->
-    
+
       <div class="col">
         <img src="../../../../assets/img/tata_wealthnew.png" class="c5">
       </div>
       <div class="col">
         <img src="../../../../assets/img/aditya_wealth.png" class="c3" style="height: 220%;">
       </div>
-   
+
       <div class="col">
-        <img src="../../../../assets/img/kotak_wealth.png" class="c4" >
+        <img src="../../../../assets/img/kotak_wealth.png" class="c4">
       </div>
       <!-- <div class="col">
         <img src="../../../../assets/img/kotak_wealth.png" class="c4" >
       </div> -->
-      
+
       <div class="col-1">
       </div>
     </div>
@@ -958,3 +1109,7 @@
     </div>
   </div>
 </div>
+
+<app-lead-modal #leadModal>
+
+</app-lead-modal>

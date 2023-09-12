@@ -90,6 +90,7 @@ import { WealthHomeComponent } from './views/pages/wealth-home/wealth-home.compo
     
   ],
   imports: [
+
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
@@ -100,6 +101,7 @@ import { WealthHomeComponent } from './views/pages/wealth-home/wealth-home.compo
     NgApexchartsModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
+  
     ToastrModule.forRoot({timeOut:3000,preventDuplicates:true}),
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', {

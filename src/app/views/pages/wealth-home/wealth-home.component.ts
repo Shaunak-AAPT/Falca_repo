@@ -174,10 +174,31 @@ export class WealthHomeComponent implements OnInit {
       // console.log("product data", this.productwealthdata);
     });
   }
+  hidebannerModal() {
+    $(".modal").modal("hide");
+  }
   GotoRecommendedOffers(Product: any) {
     // this.route.navigate([Product.path.trim()]);
 
-    window.open(Product.path, '_blank');
+    // window.open(Product.path, '_blank');
+
+    console.log("name", Product);
+    const allowedProductNames = ["Fixed Deposits", "Portfolio Management Services", "Alternate Investing Funds", "Bonds"];
+
+    if (allowedProductNames.includes(Product.name)) {
+    // if (Product.name === "Fixed Deposits") {
+      console.log("begin");
+      $("#leadModal").modal("show");
+      console.log("after");
+    }
+    else if (Product.name === "Mutual Funds") {
+      console.log('credit', Product.path)
+      // this.route.navigate([insurence.path]);
+      $("#bannercustomerModal").modal("show");
+      // window.location.href = credit.path;
+      // window.open(Product.path, '_blank');
+
+    }
   }
 
   GetApplicantData() {
