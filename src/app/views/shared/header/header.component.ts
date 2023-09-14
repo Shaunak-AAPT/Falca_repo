@@ -515,10 +515,14 @@ export class HeaderComponent implements OnInit {
     window.open("https://wealth.finizon.com/client-login", "_blank");
         // window.open("http://localhost:4200/wealth", "_blank");
   }
-  wealthlink(){
-    window.open("http://65.1.237.83/wealth");
+  // wealthlink(){
+  //   window.open("http://65.1.237.83/wealth");
 
-        // window.open("https://wealth.finizon.com/client-login", "_blank");
+  //       // window.open("https://wealth.finizon.com/client-login", "_blank");
+  // }
+  wealthlink() {
+    window.location.href = "http://65.1.237.83/wealth";
+    // or window.location.href = "https://wealth.finizon.com/client-login";
   }
 
   // customerinvestmentlink() {
