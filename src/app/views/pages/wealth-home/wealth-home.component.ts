@@ -42,6 +42,22 @@ export class WealthHomeComponent implements OnInit {
     autoplayHoverPause: true
   }
 
+  customOptions2: OwlOptions = {
+    items: 1,
+    margin: 0,
+    loop: true,
+    nav: true,
+    navText: ["<img src='assets/img/arrow_left.svg'>", "<img src='assets/img/arrow_right.svg'>"],
+    dots: false,
+    dotsEach: true,
+    lazyLoad: false,
+    autoplay: true,
+    autoplaySpeed: 750,
+    navSpeed: 750,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true
+  }
+
   showGrid: boolean = false;
 
   private routeSub: any;
@@ -130,7 +146,17 @@ export class WealthHomeComponent implements OnInit {
     }
   }
 
+  knowMore() {
+    $("#leadModal").modal("show");
 
+    // console.log("cust bnrs:- ", banners);
+    // console.log("", banners.sortOrder);
+    // if (banners.sortOrder == 3) {
+    //   // $("#knowmoreModal").modal("show");
+    //   console.log("")
+    // }
+
+  }
   // TestimonialWealth() {
   //   this.api.get("testimonial?vertical=3").subscribe((resp) => {
   //     this.tesimonialwealthdata = resp.data;
@@ -154,14 +180,14 @@ export class WealthHomeComponent implements OnInit {
   }
 
   shouldShowReadMore(testimonial: any): boolean {
-    return testimonial?.profileReview?.length > 222;
+    return testimonial?.profileReview?.length > 140;
   }
 
   getReviewContent(testimonial: any): string {
     if (testimonial.expanded) {
       return testimonial?.profileReview;
-    } else if (testimonial?.profileReview?.length > 222) {
-      return testimonial?.profileReview?.slice(0, 222) + '...';
+    } else if (testimonial?.profileReview?.length > 140) {
+      return testimonial?.profileReview?.slice(0, 140) + '...';
     } 
     else {
       return testimonial?.profileReview;
@@ -185,7 +211,7 @@ export class WealthHomeComponent implements OnInit {
     console.log("name", Product);
     const allowedProductNames = ["Fixed Deposits", "Portfolio Management Services", "Alternate Investing Funds", "Bonds"];
 
-    if (allowedProductNames.includes(Product.name)) {
+    if (allowedProductNames.includes(Product.name) ) {
     // if (Product.name === "Fixed Deposits") {
       console.log("begin");
       $("#leadModal").modal("show");

@@ -25,28 +25,41 @@
 .carousel-control-next-icon {
     background-image: url('../../../../assets/img/arrow_right.svg');
 }
+/* .carousel-control-prev-icon {
+	background-image: url(../../assets/img/arrow_left.svg);
+}
+
+.carousel-control-next-icon {
+	background-image: url(../../assets/img/arrow_right.svg);
+} */
 
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
     width: 3rem;
     height: 3rem;
+    /* border:2px solid red; */
+    /* background :transparent; */
+    margin-top:-30% !important;
 }
 
-.carousel-control-next,
+/* .carousel-control-next,
 .carousel-control-prev {
-    position: absolute;
-    top: 45%;
-    width: 15%;
-    height: 10%;
-}
+   
+    position: absolute !important;
+	width: 15%;
+	height: 10%;
+	top: 50% !important;
+	transform: translateY(-50%) !important;
+	z-index: 1 !important;
+} */
 
-.carousel-control-prev {
+/* .carousel-control-prev {
     left: -10%;
 }
 
 .carousel-control-next {
     right: -10%;
-}
+} */
 
 #testimonial .carousel-indicators {
     display: none;
@@ -59,6 +72,10 @@
 	border-radius: 50px;
 	border: 0px;
 } */
+
+.carousel-indicators {
+	bottom: -50px;
+}
 .carousel-indicators button {
     width: 42px;
     height: 13px;
@@ -76,6 +93,96 @@
 .carousel-indicators {
     bottom: -50px;
 }
+
+.testimonial-slider {
+    position: relative;
+  }
+  
+  .testimonial-slider .user-img {
+    margin-bottom: 20px;
+    height: 96px;
+    width: 96px;
+  }
+  
+  .testimonial-slider h4 {
+    color: #222222;
+    font-weight: 600;
+    font-size: 30px;
+  }
+  
+  .testimonial-slider p {
+    font-size: 20px;
+    padding: 1% 20%;
+  }
+
+  ::ng-deep .testimonial-slider .owl-prev {
+    left: -4rem;
+    background: transparent !important;
+    z-index: 999;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    height: 3rem !important;
+    width: 3rem !important;
+    top: 8rem;
+    box-shadow: none;
+    opacity: 0.5;
+    /* border:2px solid red; */
+  }
+
+  ::ng-deep .testimonial-slider .owl-prev:hover,
+::ng-deep .testimonial-slider .owl-next:hover {
+  opacity: 1;
+}
+
+::ng-deep .testimonial-slider .owl-next {
+  right: -3rem;
+  background: transparent !important;
+  z-index: 999;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  height: 3rem !important;
+  width: 3rem !important;
+  top: 8rem;
+  box-shadow: none;
+  opacity: 0.5;
+}
+
+::ng-deep .testimonial-slider .owl-nav img {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  ::ng-deep .testimonial-slider .owl-nav {
+      transition: all 0.5s ease;
+  }
+  
+  ::ng-deep .testimonial-slider .owl-theme .owl-dots .owl-dot span {
+    background: #465a65;
+    opacity: 0.5;
+    width: 12px;
+    height: 12px;
+    margin-right: 3px;
+    margin-left: 3px;
+  }
+  ::ng-deep .testimonial-slider .owl-theme .owl-dots .owl-dot.active span,
+  .owl-theme .owl-dots .owl-dot:hover span {
+    background: #465a65;
+    opacity: 1;
+  }
+  .testimonial-slider p {
+    font-size: 20px;
+    padding: 1% 20%;
+  }
+
+  .testimonial-slider h4 {
+    font-size: 24px;
+  }
+
+
 
 .loan-type {
     text-align: center;
@@ -166,23 +273,23 @@
 }
 
 #testimonial p {
-    font-size: 20px;
+    font-size: 18px;
     padding: 1% 20%;
 }
 
 #testimonial .carousel-control-prev {
-    left: -6%;
+    left: -4%;
 }
 
 #testimonial .carousel-control-next {
-    right: -6%;
+    right: -4%;
 }
 
 
 
-.testimonialtext {
+/* .testimonialtext {
     text-align: justify !important;
-}
+} */
 
 .upquote {
     position: absolute;
@@ -244,41 +351,49 @@
 .financial-slider .slick-slide.slick-active{
 	opacity: 1;
 	}*/
-::ng-deep .financial-slider.trendprod .owl-prev {
-    left: -5px;
-    background: #eef8fa !important;
+::ng-deep .financial-slider .owl-prev {
+    left: 5px;
+    /* background: #eef8fa !important; */
+    background: transparent !important;
     z-index: 999;
-    display: flex;
+    display: flex !important;
     position: absolute;
     align-items: center;
     justify-content: center;
-    height: 100px !important;
+    height: 124px !important;
     width: 40px !important;
-    top: 13px;
+    top: 35px;
     box-shadow: 0px 0px 5px #0000001c;
-    opacity: .9;
+    /* opacity: .9; */
+    opacity: 0.5;
+    border:2px solid red;
+
 }
 
-::ng-deep .financial-slider.trendprod .owl-next {
+::ng-deep .financial-slider .owl-next {
+ 
     right: -5px;
     background: #eef8fa !important;
     z-index: 999;
-    display: flex;
+    display: flex !important;
     position: absolute;
     align-items: center;
     justify-content: center;
-    height: 100px !important;
-    width: 40px !important;
-    top: 13px;
+      height: 124px !important;
+	width: 40px !important;
+	top: 35px;
     box-shadow: 0px 0px 5px #0000001c;
-    opacity: .9;
+    /* opacity: .9; */
+    opacity: 0.5;
+    background: transparent !important;
+
 }
 
 ::ng-deep .financial-slider.fin .owl-prev {
     left: -5px;
     background: #eef8fa !important;
     z-index: 999;
-    display: flex;
+    display: flex !important;
     position: absolute;
     align-items: center;
     justify-content: center;
@@ -291,9 +406,9 @@
 
 ::ng-deep .financial-slider.fin .owl-next {
     right: -5px;
-    background: #eef8fa !important;
+    background: #faf2ee !important;
     z-index: 999;
-    display: flex;
+    display: flex !important;
     position: absolute;
     align-items: center;
     justify-content: center;
@@ -305,17 +420,32 @@
 }
 
 ::ng-deep .financial-slider .owl-nav img {
-    width: 70%;
-    opacity: .8;
+    border:2px solid red;
+    width: 3rem !important;
+    height: 3rem !important;
 }
 
-::ng-deep .financial-slider .owl-nav {
-    opacity: 0 !important;
-    transition: all 0.5s ease;
+::ng-deep .financial-slider .owl-nav .owl-prev,
+::ng-deep .financial-slider .owl-nav .owl-next {
+	opacity: 0 !important;
+	transition: all 0.5s ease;
+	margin: 0;
 }
 
-::ng-deep .financial-slider:hover .owl-nav {
-    opacity: 0.9 !important
+::ng-deep .financial-slider:hover .owl-nav .owl-prev,
+::ng-deep .financial-slider:hover .owl-nav .owl-next {
+	opacity: 0.9 !important
+}
+::ng-deep .financial-slide .fin .owl-nav .owl-prev,
+::ng-deep .financial-slider .fin .owl-nav .owl-next {
+	opacity: 0 !important;
+	transition: all 0.5s ease;
+	margin: 0;
+}
+
+::ng-deep .financial-slider .fin:hover .owl-nav .owl-prev,
+::ng-deep .financial-slider .fin:hover .owl-nav .owl-next {
+	opacity: 0.9 !important
 }
 
 .finance-news img {
@@ -335,6 +465,9 @@
     padding-left: 20px;
 }
 
+.financial-slider.fin .slick-initialized .slick-slide {
+    padding-left: 20px;
+}
 .plr-15 {
     padding-left: 15px;
     padding-right: 15px;
@@ -351,7 +484,9 @@
 .financial-slider .slick-initialized .slick-slide {
     padding-left: 20px;
 }
-
+.financial-slider .fin .slick-initialized .slick-slide {
+    padding-left: 20px;
+}
 .cta h3 {
     color: #222222;
     font-size: 42px;
@@ -820,7 +955,7 @@ tbody tr:last-child {
     .carousel-control-next-icon,
     .carousel-control-prev-icon {
         width: 2rem;
-        height: 2rem;
+        height: 6.5rem;
     }
 
     .about p {
@@ -970,6 +1105,7 @@ tbody tr:last-child {
     .finance .title-head1 {
         font-size: 28px;
         text-align: center;
+        /* text-align: left; */
     }
 
     .trending-product {
@@ -991,7 +1127,8 @@ tbody tr:last-child {
     }
 
     .finance-news {
-        margin-left: 0px;
+        /* margin-left: 0px; */
+        margin-left: 10px;
         margin-right: 0px;
     }
 
@@ -1146,7 +1283,13 @@ tbody tr:last-child {
     }
 
     /* modal part responsiveness of phydigital partner button section */
-
+    .testimonial-slider .owl-next {
+        right: 0rem;
+      }
+    
+      .testimonial-slider .owl-prev {
+        left: 0rem;
+      }
 }
 
 @media only screen and (max-width: 991px) and (min-width: 768px) {
@@ -1164,7 +1307,7 @@ tbody tr:last-child {
     .carousel-control-next-icon,
     .carousel-control-prev-icon {
         width: 2.5rem;
-        height: 2.5rem;
+        height: 6.5rem;
     }
 
     #demo .carousel-item .col-lg-5 {
@@ -1441,7 +1584,7 @@ tbody tr:last-child {
     .carousel-control-next-icon,
     .carousel-control-prev-icon {
         width: 2.5rem;
-        height: 2.5rem;
+        height: 6.5rem;
     }
 
     .carousel-item .col-lg-4 {
@@ -1515,7 +1658,7 @@ tbody tr:last-child {
     .carousel-control-next-icon,
     .carousel-control-prev-icon {
         width: 2.5rem;
-        height: 2.5rem;
+        height: 6.5rem;
     }
 
     .carousel-item .col-lg-4 {
@@ -1603,7 +1746,7 @@ tbody tr:last-child {
     .carousel-control-next-icon,
     .carousel-control-prev-icon {
         width: 2.5rem;
-        height: 2.5rem;
+        height: 6.5rem;
     }
 
     .carousel-item .col-lg-4 {
@@ -1727,7 +1870,7 @@ tbody tr:last-child {
     .carousel-control-next-icon,
     .carousel-control-prev-icon {
         width: 2.5rem;
-        height: 2.5rem;
+        height: 6.5rem;
     }
 
     .carousel-item .col-lg-4 {
@@ -1873,13 +2016,23 @@ tbody tr:last-child {
     .carousel-control-next-icon,
     .carousel-control-prev-icon {
         width: 2.5rem;
-        height: 2.5rem;
+        height: 6.5rem;
     }
 
     .carousel-item .col-lg-4 {
         text-align: right;
     }
 
+    .testimonial-slider h4 {
+        color: #222222;
+        font-weight: 600;
+        font-size: 40px;
+      }
+    
+      .testimonial-slider p {
+        font-size: 24px;
+        padding: 1% 20%;
+      }
     .why-finizon p {
         padding-right: 45px;
         font-size: 24px;
@@ -1940,7 +2093,7 @@ tbody tr:last-child {
     }
 
     #testimonial p {
-        font-size: 24px;
+        font-size: 18px;
         padding: 1% 17%;
     }
 

@@ -47,6 +47,7 @@ import { TermsOfUseComponent } from './views/pages/terms-of-use/terms-of-use.com
 import { SupportModalComponent } from './views/pages/support-modal/support-modal.component';
 import { LeadModalComponent } from './views/pages/lead-modal/lead-modal.component';
 import { WealthHomeComponent } from './views/pages/wealth-home/wealth-home.component';
+import { WealthBlogsComponent } from './wealth-blogs/wealth-blogs.component';
 
 
 
@@ -85,6 +86,7 @@ import { WealthHomeComponent } from './views/pages/wealth-home/wealth-home.compo
     SupportModalComponent,
     LeadModalComponent,
     WealthHomeComponent,
+    WealthBlogsComponent,
   
     
     

@@ -49,19 +49,11 @@
                   <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
                 </span>
               </button>
-
-
-
             </div>
             <div class="col-lg-4 col-12 order-1 order-lg-2">
               <img src="{{banners.banner}}" alt="slider1" class="w-100 wd90">
             </div>
           </div>
-
-
-
-
-
         </div>
 
 
@@ -702,7 +694,7 @@
                 </div>
               </div>
             </div>
-<!-- <img src="../../assets/img/abhay.jpg" alt=""> -->
+            <!-- <img src="../../assets/img/abhay.jpg" alt=""> -->
           </div>
           <!-- </div> -->
           <!-- <img src="../../assets/img/founding team member/founder-asish.svg" alt=""> -->
@@ -784,11 +776,20 @@
                 <a href="#" (click)="toggleExpanded(testimonial)">
                   {{ testimonial.expanded ? 'Read Less...' : 'Read More...' }}
                 </a> -->
-                <div *ngIf="shouldShowReadMore(testimonial)">
-                  <p class="testimonialtext" [innerHTML]="getReviewContent(testimonial)"></p>
-                  <a href="javascript:void(0)" (click)="toggleExpanded(testimonial)">
+                <!-- <div *ngIf="shouldShowReadMore(testimonial)" class="testimonial_content">
+                  <div></div>
+                  <p class="testimonialtext" [innerHTML]="getReviewContent(testimonial)"style="display: inline;" ></p>
+                  <a href="javascript:void(0)" (click)="toggleExpanded(testimonial)"style="display: inline;">
                     {{ testimonial.expanded ? 'Read Less' : 'Read More' }}
                   </a>
+                </div> -->
+                <div *ngIf="shouldShowReadMore(testimonial)" class="testimonial_content">
+                  <div class="content-wrapper">
+                    <p class="testimonialtext" [innerHTML]="getReviewContent(testimonial)"></p>
+                    <a href="javascript:void(0)" (click)="toggleExpanded(testimonial)">
+                      {{ testimonial.expanded ? 'Read Less' : 'Read More' }}
+                    </a>
+                  </div>
                 </div>
                 <div *ngIf="!shouldShowReadMore(testimonial)">
                   <p class="testimonialtext">{{ testimonial?.profileReview }}</p>
@@ -800,12 +801,20 @@
         </div>
 
         <!-- Left and right controls/icons -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#testimonial" data-bs-slide="prev">
+        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#testimonial" data-bs-slide="prev">
           <span class="carousel-control-prev-icon"></span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#testimonial" data-bs-slide="next">
           <span class="carousel-control-next-icon"></span>
-        </button>
+        </button> -->
+        <div class="carousel-controls">
+          <button class="carousel-control-prev" type="button" data-bs-target="#testimonial" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#testimonial" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -894,42 +903,7 @@
 
             </div>
           </ng-template>
-          <!-- <ng-template carouselSlide>
-        <div class="finance-news">
-          <img src="assets/img/blog_thumnail_1.png">
-          <p>What is the right amount of life insurance cover for me?</p>
-        </div>
-      </ng-template>
-      <ng-template carouselSlide>
-        <div class="finance-news">
-          <img src="assets/img/blog_thumnail_2.png">
-          <p>Don’t leave anything to chance protect with insurance</p>
-        </div>
-      </ng-template>
-      <ng-template carouselSlide>
-        <div class="finance-news">
-          <img src="assets/img/blog_thumnail_1.png">
-          <p>What is the right amount of life insurance cover for me?</p>
-        </div>
-      </ng-template>
-      <ng-template carouselSlide>
-        <div class="finance-news">
-          <img src="assets/img/blog_thumnail_2.png">
-          <p>How to Check Life Insurance Policy Status?</p>
-        </div>
-      </ng-template>
-      <ng-template carouselSlide>
-        <div class="finance-news">
-          <img src="assets/img/blog_thumnail_1.png">
-          <p>Choose right life insurance plan in 7 easy steps</p>
-        </div>
-      </ng-template>
-      <ng-template carouselSlide>
-        <div class="finance-news">
-          <img src="assets/img/blog_thumnail_2.png">
-          <p>Choose right life insurance plan in 7 easy steps</p>
-        </div>
-      </ng-template> -->
+
         </owl-carousel-o>
 
       </div>

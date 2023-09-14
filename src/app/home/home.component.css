@@ -1066,13 +1066,24 @@
 	height: 3rem;
 }
 
+
+
 .carousel-control-next,
 .carousel-control-prev {
-	position: absolute;
-	top: 45%;
+	position: absolute !important;
 	width: 15%;
 	height: 10%;
+	top: 50% !important;
+	transform: translateY(-50%) !important;
+	z-index: 1 !important;
 }
+
+/* .testimonial_content{
+	display:flex;
+
+} */
+
+
 
 .carousel-control-prev {
 	left: -10%;

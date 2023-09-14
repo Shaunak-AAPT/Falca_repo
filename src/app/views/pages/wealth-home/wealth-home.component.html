@@ -61,8 +61,9 @@
                   <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
                 </span>
               </button>
+
               <button id="customer" *ngIf="banners.sortOrder === 3" class="nav-link btn btn-primary theme-button"
-                [innerHTML]="banners?.button" data-toggle="modal" data-target="#bannercustomerModal">
+                [innerHTML]="banners?.button" data-toggle="modal" data-target="#knowmoreModal" (click)="knowMore()">
                 <span class="elementor-button-icon elementor-align-icon-right">
                   <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
                 </span>
@@ -95,7 +96,8 @@
                     <a style="text-decoration: none;" target="_blank" href="https://wealth.finizon.com/client-login">
                       <button class="nav-link btn btn-primary theme-button modalpartnerbtn">SIGN IN</button>
                     </a>
-                    <a style="text-decoration: none;" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSejq8glfhwz7uxHZnSF7Tb6FflIaO7GovsH8Li5fDW76bcZHg/viewform">
+                    <a style="text-decoration: none;" target="_blank"
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSejq8glfhwz7uxHZnSF7Tb6FflIaO7GovsH8Li5fDW76bcZHg/viewform">
                       <button class="nav-link btn btn-primary theme-button modalpartnerbtn">SIGN UP</button>
                     </a>
 
@@ -108,6 +110,9 @@
           </div>
 
         </div>
+
+
+
         <!-- <div class="carousel-item">
                   <div class="row align-items-center">
                       <div class="col-12 hidden-lg hidden-sm">
@@ -206,11 +211,15 @@
     <div class="container pt-70 ptsm-1">
       <!-- Desktop View -->
       <div class="d-none d-sm-block">
-        <div class="row align-items-center protect">
+        <div class="row align-items-center about">
           <div class="col-lg-8 col-6 col-sm-8">
-            <h4 class="title-head1 mb-0">Goal Planner</h4>
+            <h4 class="title-head2 mb-4">Goal Planner</h4>
             <div class="br-btm"></div>
-            <p>Write to us to have us help you plan your financial goals effectively</p>
+            <p class="font18">Write to us to have us help you plan your financial goals effectively. <br
+                class="hidden-xs" />For effective financial planning its important to assess , investment<br
+                class="hidden-xs" /> objectives and risk matrix . A structured asset allocation & disciplined approach
+              <br class="hidden-xs" /> to investing is am important fctor . We can help you through the journey ,<br
+                class="hidden-xs" /> would request to share with us your details , we will reach out to you.</p>
 
             <!-- <p>How far are you from your life goals? <br />Lorem ipsum dolor sit amet,</p> -->
             <!-- <button class="nav-link btn btn-primary theme-button">Calculate</button> -->
@@ -227,7 +236,10 @@
             <img src="assets/img/man-up.svg" class="w-100">
             <h4 class="title-head1 mb-0 mt-5">Goal Planner</h4>
             <div class="br-btm"></div>
-            <p>Write to us to have us help you plan your financial goals effectively</p>
+            <p>Write to us to have us help you plan your financial goals effectively. For effective financial planning
+              its important to assess , investment objectives and risk matrix . A structured asset allocation &
+              disciplined approach to investing is am important fctor . We can help you through the journey , would
+              request to share with us your details , we will reach out to you</p>
             <!-- <p>How far are you from your life goals? <br />Lorem ipsum dolor sit amet,</p>
             <button class="nav-link btn btn-primary theme-button">Calculate</button> -->
           </div>
@@ -384,16 +396,16 @@
 
     <div class="container pt-70">
 
-      
+
       <div class="row align-items-center about d-none d-sm-flex">
         <div class="col-lg-4 col-sm-4 col-4">
           <img src="assets/img/monthly_sip.svg" class="w-100" alt="insure">
         </div>
         <div class="col-lg-8 col-8 col-sm-8 ">
-          
+
           <h4 class="title-head2 mb-4 text-end ">Regular Investing with SIP</h4>
           <p class="font18">Investing a small sum of money regularly in equity mutual funds can make your money work
-            with greater power and can have a significant impact on wealth accumulation<br class="hidden-xs" />
+            with greater power and can have a significant impact on wealth accumulation.<br class="hidden-xs" />
           </p>
           <table>
             <thead>
@@ -440,7 +452,7 @@
             <br class="hidden-xs" />
           </p>
         </div>
-       
+
 
       </div>
 
@@ -455,51 +467,53 @@
             diam
             nonumy<br class="hidden-xs" />
             eirmod tempor invidunt ut labore et dolore at vero eos e.</p> -->
-            <p class="elementor-icon-list-text">Investing a small sum of money regularly in equity mutual funds can make your money work
-              with greater power and can have a significant impact on wealth accumulation<br class="hidden-xs" />
-           </p>
-            <table>
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>Investment Scenario A
-                  </th>
-                  <th>Investment Scenario B
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Number of Years</td>
-                  <td>15</td>
-                  <td>20</td>
-  
-                </tr>
-                <tr>
-                  <td>Monthly Investment</td>
-                  <td>Rs.5000</td>
-                  <td>Rs.5000</td>
-                </tr>
-                <tr>
-                  <td>Total Amount Invested</td>
-                  <td>Rs.9 Lakhs</td>
-                  <td>Rs.12 Lakhs</td>
-                </tr>
-                <tr>
-                  <td>Assumed Annualized Return</td>
-                  <td>18%</td>
-                  <td>18%</td>
-                </tr>
-                <tr>
-                  <td>Final Corpus</td>
-                  <td>Rs.45.96 lakhs</td>
-                  <td>Rs.1.17 crs</td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="font12">The above illustration is merely indicative in nature and does not in any manner indicate
-              the performance of any particular MF scheme. Please read the SID and SAI carefully before investing.<br class="hidden-xs" />
-            </div>
+          <p class="elementor-icon-list-text">Investing a small sum of money regularly in equity mutual funds can make
+            your money work
+            with greater power and can have a significant impact on wealth accumulation.<br class="hidden-xs" />
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th></th>
+                <th>Investment Scenario A
+                </th>
+                <th>Investment Scenario B
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Number of Years</td>
+                <td>15</td>
+                <td>20</td>
+
+              </tr>
+              <tr>
+                <td>Monthly Investment</td>
+                <td>Rs.5000</td>
+                <td>Rs.5000</td>
+              </tr>
+              <tr>
+                <td>Total Amount Invested</td>
+                <td>Rs.9 Lakhs</td>
+                <td>Rs.12 Lakhs</td>
+              </tr>
+              <tr>
+                <td>Assumed Annualized Return</td>
+                <td>18%</td>
+                <td>18%</td>
+              </tr>
+              <tr>
+                <td>Final Corpus</td>
+                <td>Rs.45.96 lakhs</td>
+                <td>Rs.1.17 crs</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="font12">The above illustration is merely indicative in nature and does not in any manner indicate
+            the performance of any particular MF scheme. Please read the SID and SAI carefully before investing.<br
+              class="hidden-xs" />
+          </div>
         </div>
 
       </div>
@@ -540,10 +554,14 @@
           <!-- <p class="font18">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy<br
               class="hidden-xs" />
             eirmod tempor invidunt ut labore et dolore at vero eos et.</p> -->
-          <p class="font18">Finizon offers you a platform to invest in the best corporate deposits , please write to us
+          <!-- <p class="font18">Finizon offers you a platform to invest in the best corporate deposits , please write to us
             at__________<br class="hidden-xs" />
             or send us a msg at_________________to discuss which corporate deposit could work best to meet your
-            financial milestone</p>
+            financial milestone</p> -->
+          <p class="font18">Finizon offers you a platform to invest in the best corporate deposits.<br
+              class="hidden-xs" />Leave with us your details through the link . We can set up a time to take <br
+              class="hidden-xs" />you through the details , while we stay aligned to your investment objectives. </p>
+          <button class="nav-link btn btn-primary theme-button" (click)="knowMore()">KNOW MORE</button>
         </div>
         <div class="col-lg-4 col-sm-4 col-4">
           <img src="assets/img/save_deposit.svg" class="w-100" alt="insure">
@@ -562,10 +580,14 @@
             diam
             nonumy<br class="hidden-xs" />
             eirmod tempor invidunt ut labore et dolore at vero eos et.</p> -->
-          <p class="elementor-icon-list-text">Finizon offers you a platform to invest in the best corporate deposits ,
+          <!-- <p class="elementor-icon-list-text">Finizon offers you a platform to invest in the best corporate deposits ,
             please write to us at__________<br class="hidden-xs" />
             or send us a msg at_________________to discuss which corporate deposit could work best to meet your
-            financial milestone</p>
+            financial milestone</p> -->
+          <p class="elementor-icon-list-text">Finizon offers you a platform to invest in the best corporate
+            deposits.Leave with us your details through the link . We can set up a time to take you through the details
+            , while we stay aligned to your investment objectives</p>
+          <button class="nav-link btn btn-primary theme-button" (click)="knowMore()">KNOW MORE</button>
         </div>
 
       </div>
@@ -583,8 +605,12 @@
             eirmod tempor invidunt ut labore et dolore at vero eos et.</p> -->
           <p class="font18">You could invest in some of the companies by investing in Equity Mutual Funds across
             categories such as Large Cap , Large & Mid Cap , Flexi Cap , Multi Cap and Mid Cap etc , click on the below
-            link to go through some of the funds we recommend<br class="hidden-xs" />
+            link to go through some of the funds we recommend.<br class="hidden-xs" />
           </p>
+          <!-- <a href="https://drive.google.com/drive/folders/1gWxnK9k_8-hpG11HqFH8e7c1nm-AdgRC?usp=drive_link">Click
+            here</a> -->
+            <a href="https://docs.google.com/spreadsheets/d/1DfxdLWuq_AK_MY4zxiRm12QnqGr2O6Yn/edit#gid=875270254">Click
+              here</a>
         </div>
       </div>
       <!-- mobile -->
@@ -600,8 +626,12 @@
             eirmod tempor invidunt ut labore et dolore at vero eos et.</p> -->
           <p class="elementor-icon-list-text">You could invest in some of the companies by investing in Equity Mutual
             Funds across categories such as Large Cap , Large & Mid Cap , Flexi Cap , Multi Cap and Mid Cap etc , click
-            on the below link to go through some of the funds we recommend<br class="hidden-xs" />
+            on the below link to go through some of the funds we recommend.<br class="hidden-xs" />
           </p>
+          <!-- <a href="https://drive.google.com/drive/folders/1gWxnK9k_8-hpG11HqFH8e7c1nm-AdgRC?usp=drive_link">Click
+            here</a> -->
+            <a href="https://docs.google.com/spreadsheets/d/1DfxdLWuq_AK_MY4zxiRm12QnqGr2O6Yn/edit#gid=875270254">Click
+              here</a>
         </div>
       </div>
     </div>
@@ -614,11 +644,15 @@
         <!-- <p class="font18">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy<br
             class="hidden-xs" />
           eirmod tempor invidunt ut labore et dolore at vero eos et.</p> -->
-        <p class="font18">To align your short term goal appropriately , we have some of the best debt mutual funds .It
+        <!-- <p class="font18">To align your short term goal appropriately , we have some of the best debt mutual funds .It
           is important to align your investment time horizon with the average maturity of the debt mutual funds<br
             class="hidden-xs" />
           Please write to us at _______________or msg us at _______________ to initiate a effective conversation with
-          our expert</p>
+          our expert</p> -->
+        <p class="font18">To align your short term goal appropriately , we have some of the best debt mutual funds .It
+          is important to align your investment time horizon with the average maturity of the debt mutual funds.</p>
+        <button class="nav-link btn btn-primary theme-button" (click)="knowMore()">KNOW MORE</button>
+
       </div>
       <div class="col-lg-4 col-sm-4 col-4">
         <img src="assets/img/park_surplus.svg" class="w-100" alt="insure">
@@ -633,9 +667,11 @@
       </div>
       <div class="col-lg-4 col-12 col-sm-12 text-center">
         <h4 class="title-head2 mb-4 mt-5">Optimize Returns on Short Term Surplus</h4>
-        <p class="elementor-icon-list-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-          nonumy<br class="hidden-xs" />
-          eirmod tempor invidunt ut labore et dolore at vero eos et.</p>
+        <p class="elementor-icon-list-text">To align your short term goal appropriately , we have some of the best debt
+          mutual funds .It
+          is important to align your investment time horizon with the average maturity of the debt mutual funds.</p>
+        <button class="nav-link btn btn-primary theme-button" (click)="knowMore()">KNOW MORE</button>
+
       </div>
 
     </div>
@@ -827,18 +863,18 @@
         </div>
       </div>
     </div> -->
-  <div class="container pt-70">
-    <!-- Carousel -->
+  <!-- <div class="container pt-70">
+
     <div id="testimonial" class="carousel slide" data-bs-ride="carousel">
 
-      <!-- Indicators/dots -->
+
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#testimonial" data-bs-slide-to="0" class="active"></button>
         <button type="button" data-bs-target="#testimonial" data-bs-slide-to="1"></button>
         <button type="button" data-bs-target="#testimonial" data-bs-slide-to="2"></button>
       </div>
 
-      <!-- The slideshow/carousel -->
+
       <div class="carousel-inner pos-rel pt-50 pb-50">
         <img src="assets/img/upquote.png" class="upquote">
         <div class="carousel-item " *ngFor=" let testimonial of tesimonialwealthdata; let i=index"
@@ -847,14 +883,15 @@
             <div class="col-lg-12 text-center">
               <img src="{{testimonial?.profilePhoto}}" class="user-img">
               <h4>{{testimonial?.firstName}} {{testimonial?.lastName}}</h4>
-              <!-- <p>{{testimonial?.profileReview}}</p> -->
 
 
-              <div *ngIf="shouldShowReadMore(testimonial)">
-                <p class="testimonialtext" [innerHTML]="getReviewContent(testimonial)"></p>
-                <a href="javascript:void(0)" (click)="toggleExpanded(testimonial)">
-                  {{ testimonial.expanded ? 'Read Less' : 'Read More' }}
-                </a>
+              <div *ngIf="shouldShowReadMore(testimonial)" class="testimonial_content">
+                <div class="content-wrapper">
+                  <p class="testimonialtext" [innerHTML]="getReviewContent(testimonial)"></p>
+                  <a href="javascript:void(0)" (click)="toggleExpanded(testimonial)">
+                    {{ testimonial.expanded ? 'Read Less' : 'Read More' }}
+                  </a>
+                </div>
               </div>
               <div *ngIf="!shouldShowReadMore(testimonial)">
                 <p class="testimonialtext">{{ testimonial?.profileReview }}</p>
@@ -862,38 +899,53 @@
             </div>
           </div>
         </div>
-        <!-- <div class="carousel-item">
-          <div class="row align-items-center">
-            <div class="col-lg-12 text-center">
-              <img src="assets/img/test-user.png" class="user-img">
-              <h4>Brandon Foster</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua.</p>
-            </div>
-          </div>
-        </div> -->
-        <!-- <div class="carousel-item">
-          <div class="row align-items-center">
-            <div class="col-lg-12 text-center">
-              <img src="assets/img/test-user.png" class="user-img">
-              <h4>Brandon Foster</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua.</p>
-            </div>
-          </div>
-        </div> -->
+
         <img src="assets/img/downquote.png" class="downquote">
       </div>
 
-      <!-- Left and right controls/icons -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#testimonial" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#testimonial" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
+
+      <div class="carousel-controls">
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonial" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonial" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="container pt-70 ptsm-1 mt-5">
+    <div class="testimonial-slider">
+      <img src="assets/img/upquote.png" class="upquote" alt="upquote">
+      <owl-carousel-o [options]="customOptions2">
+        <ng-template carouselSlide *ngFor=" let testimonial of tesimonialwealthdata">
+          <div class="row align-items-center">
+            <div class="col-lg-12 text-center">
+              <div class="d-flex justify-content-center">
+                <img src="{{testimonial?.profilePhoto}}" class="user-img" alt="profilephoto">
+              </div>
+              <h4>{{testimonial?.firstName}} {{testimonial?.lastName}}</h4>
+
+              <div *ngIf="shouldShowReadMore(testimonial)" class="testimonial_content">
+                <div class="content-wrapper">
+                  <p class="testimonialtext" [innerHTML]="getReviewContent(testimonial)"></p>
+                  <a href="javascript:void(0)" (click)="toggleExpanded(testimonial)">
+                    {{ testimonial.expanded ? 'Read Less' : 'Read More' }}
+                  </a>
+                </div>
+              </div>
+              <div *ngIf="!shouldShowReadMore(testimonial)">
+                <p class="testimonialtext">{{ testimonial?.profileReview }}</p>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </owl-carousel-o>
+      <img src="assets/img/downquote.png" class="downquote" alt="downquote">
     </div>
   </div>
+
   <div class="container pt-70 client-img">
     <div class="row align-items-center">
       <div class="col">
@@ -1027,7 +1079,9 @@
       </div>
     </div>
   </div>
-  <div class="container mt-5 pt-50 finance owl-1">
+  <div class="container mt-5 pt-50 finance owl-1 carousel slide" id="testimonial"  data-bs-ride="carousel">
+    
+  
     <div class="row align-items-center">
       <div class="col-lg-12">
         <h4 class="title-head1 mb-4">Here is all you should know about wealth management</h4>
@@ -1036,80 +1090,46 @@
     <div class="financial-slider fin">
       <owl-carousel-o [options]="customOptions">
         <ng-template carouselSlide *ngFor="let blog of BlogList">
-          <!-- <div class="finance-news">
-              <img src="{{blog.blogimage}}">
-              <p>{{blog.title}}</p>
-            </div> -->
           <div class="finance-news" (click)="GetBlogList()">
             <a target="_blank" rel="noopener noreferrer" href="{{blog.url}}"><img src="{{blog.blogimage}}"
                 alt="blog1"></a>
             <p>{{blog.title}}</p>
           </div>
         </ng-template>
-        <!-- <ng-template carouselSlide>
-          <div class="finance-news">
-            <img src="assets/img/blog_thumnail_1.png">
-            <p>Choose right life insurance plan in 7 easy steps</p>
-          </div>
-        </ng-template>
-        <ng-template carouselSlide>
-          <div class="finance-news">
-            <img src="assets/img/blog_thumnail_1.png">
-            <p>What is the right amount of life insurance cover for me?</p>
-          </div>
-        </ng-template>
-        <ng-template carouselSlide>
-          <div class="finance-news">
-            <img src="assets/img/blog_thumnail_2.png">
-            <p>Don’t leave anything to chance protect with insurance</p>
-          </div>
-        </ng-template>
-        <ng-template carouselSlide>
-          <div class="finance-news">
-            <img src="assets/img/blog_thumnail_1.png">
-            <p>What is the right amount of life insurance cover for me?</p>
-          </div>
-        </ng-template>
-        <ng-template carouselSlide>
-          <div class="finance-news">
-            <img src="assets/img/blog_thumnail_2.png">
-            <p>How to Check Life Insurance Policy Status?</p>
-          </div>
-        </ng-template>
-        <ng-template carouselSlide>
-          <div class="finance-news">
-            <img src="assets/img/blog_thumnail_1.png">
-            <p>Choose right life insurance plan in 7 easy steps</p>
-          </div>
-        </ng-template>
-        <ng-template carouselSlide>
-          <div class="finance-news">
-            <img src="assets/img/blog_thumnail_2.png">
-            <p>Choose right life insurance plan in 7 easy steps</p>
-          </div>
-        </ng-template> -->
+       
       </owl-carousel-o>
 
+
+      <!-- Left and right controls/icons -->
+      <!-- <div class="carousel-controls">
+        <button class="carousel-control-prev" href="#testimonial" role="button" data-bs-target="#testimonial" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonial" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div> -->
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonial" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonial" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+      <!-- <button class="owl-prev">
+        <i class="fa fa-chevron-left"></i>
+      </button>
+
+      <button class="owl-next">
+        <i class="fa fa-chevron-right"></i>
+      </button> -->
     </div>
 
   </div>
-  <div class="container mt-5 pt-50 ">
-    <div class="cta">
-      <div class="row align-items-center">
-        <div class="col-lg-2 col-3 col-sm-2 mob-center">
-          <img src="assets/img/grow_investment_icon.svg">
-        </div>
-        <div class="col-lg-7 col-9 col-sm-7 mob-center">
-          <h3>Grow your family's investment in one place</h3>
-        </div>
-        <div class="col-lg-3 col-12 col-sm-3">
-          <button class="nav-link btn btn-primary theme-button m0-auto">Get Started</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<app-lead-modal #leadModal>
 
-</app-lead-modal>
+  <app-lead-modal #leadModal>
+
+  </app-lead-modal>
