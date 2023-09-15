@@ -746,10 +746,8 @@
     </div>
 
     <div class="container pt-70">
-      <!-- Carousel -->
+      
       <div id="testimonial" class="carousel slide" data-bs-ride="carousel">
-
-        <!-- Indicators/dots -->
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#testimonial" data-bs-slide-to="0" class="active"></button>
           <button type="button" data-bs-target="#testimonial" data-bs-slide-to="1"></button>
@@ -760,7 +758,6 @@
 
         </div>
 
-        <!-- The slideshow/carousel -->
         <div class="carousel-inner pos-rel pt-50 pb-50">
           <img src="assets/img/upquote.png" class="upquote" alt="up-quote">
           <div class="carousel-item " *ngFor=" let testimonial of CommonrTestimonialdata; let i=index"
@@ -769,20 +766,7 @@
               <div class="col-lg-12 text-center">
                 <img src="{{testimonial?.profilePhoto}}" class="user-img" alt="user">
                 <h4>{{testimonial?.firstName}} {{testimonial?.lastName}}</h4>
-                <!-- <p [innerHTML]="testimonial?.profileReview"></p> -->
-
-
-                <!-- <div [innerHTML]="displayedText(testimonial?.profileReview)"></div>
-                <a href="#" (click)="toggleExpanded(testimonial)">
-                  {{ testimonial.expanded ? 'Read Less...' : 'Read More...' }}
-                </a> -->
-                <!-- <div *ngIf="shouldShowReadMore(testimonial)" class="testimonial_content">
-                  <div></div>
-                  <p class="testimonialtext" [innerHTML]="getReviewContent(testimonial)"style="display: inline;" ></p>
-                  <a href="javascript:void(0)" (click)="toggleExpanded(testimonial)"style="display: inline;">
-                    {{ testimonial.expanded ? 'Read Less' : 'Read More' }}
-                  </a>
-                </div> -->
+              
                 <div *ngIf="shouldShowReadMore(testimonial)" class="testimonial_content">
                   <div class="content-wrapper">
                     <p class="testimonialtext" [innerHTML]="getReviewContent(testimonial)"></p>
@@ -800,13 +784,7 @@
           <img src="assets/img/downquote.png" class="downquote" alt="down-quote">
         </div>
 
-        <!-- Left and right controls/icons -->
-        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#testimonial" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#testimonial" data-bs-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </button> -->
+      
         <div class="carousel-controls">
           <button class="carousel-control-prev" type="button" data-bs-target="#testimonial" data-bs-slide="prev">
             <span class="carousel-control-prev-icon"></span>
@@ -817,6 +795,38 @@
         </div>
       </div>
     </div>
+
+    <!-- <div class="container pt-70 ptsm-1 mt-5">
+      <div class="testimonial-slider">
+        <img src="assets/img/upquote.png" class="upquote" alt="upquote">
+        <owl-carousel-o [options]="customOptions2">
+          <ng-template carouselSlide *ngFor=" let testimonial of CommonrTestimonialdata">
+            <div class="row align-items-center">
+              <div class="col-lg-12 text-center">
+                <div class="d-flex justify-content-center">
+                  <img src="{{testimonial?.profilePhoto}}" class="user-img" alt="profilephoto">
+                </div>
+                <h4>{{testimonial?.firstName}} {{testimonial?.lastName}}</h4>
+  
+                <div *ngIf="shouldShowReadMore(testimonial)" class="testimonial_content">
+                  <div class="content-wrapper">
+                    <p class="testimonialtext" [innerHTML]="getReviewContent(testimonial)"></p>
+                    <a href="javascript:void(0)" (click)="toggleExpanded(testimonial)">
+                      {{ testimonial.expanded ? 'Read Less' : 'Read More' }}
+                    </a>
+                  </div>
+                </div>
+                <div *ngIf="!shouldShowReadMore(testimonial)">
+                  <p class="testimonialtext">{{ testimonial?.profileReview }}</p>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
+        <img src="assets/img/downquote.png" class="downquote" alt="downquote">
+      </div>
+    </div> -->
+
 
     <!-- clients images -->
     <div class="container pt-70 client-img">

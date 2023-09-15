@@ -352,9 +352,9 @@
 	opacity: 1;
 	}*/
 ::ng-deep .financial-slider .owl-prev {
-    left: 5px;
-    /* background: #eef8fa !important; */
-    background: transparent !important;
+    left: 0px;
+    background: #eef8fa !important;
+    /* background: transparent !important; */
     z-index: 999;
     display: flex !important;
     position: absolute;
@@ -366,13 +366,13 @@
     box-shadow: 0px 0px 5px #0000001c;
     /* opacity: .9; */
     opacity: 0.5;
-    border:2px solid red;
+    /* border:2px solid red; */
 
 }
 
 ::ng-deep .financial-slider .owl-next {
  
-    right: -5px;
+    right: 0px;
     background: #eef8fa !important;
     z-index: 999;
     display: flex !important;
@@ -385,12 +385,12 @@
     box-shadow: 0px 0px 5px #0000001c;
     /* opacity: .9; */
     opacity: 0.5;
-    background: transparent !important;
+    /* background: transparent !important; */
 
 }
 
 ::ng-deep .financial-slider.fin .owl-prev {
-    left: -5px;
+    left: 0px;
     background: #eef8fa !important;
     z-index: 999;
     display: flex !important;
@@ -405,7 +405,7 @@
 }
 
 ::ng-deep .financial-slider.fin .owl-next {
-    right: -5px;
+    right: 0px;
     background: #faf2ee !important;
     z-index: 999;
     display: flex !important;
@@ -420,9 +420,9 @@
 }
 
 ::ng-deep .financial-slider .owl-nav img {
-    border:2px solid red;
-    width: 3rem !important;
-    height: 3rem !important;
+    /* border:2px solid red; */
+    /* width: 3rem !important;
+    height: 3rem !important; */
 }
 
 ::ng-deep .financial-slider .owl-nav .owl-prev,
@@ -1104,8 +1104,8 @@ tbody tr:last-child {
 
     .finance .title-head1 {
         font-size: 28px;
-        text-align: center;
-        /* text-align: left; */
+        /* text-align: center; */
+        text-align: left;
     }
 
     .trending-product {
@@ -2065,11 +2065,11 @@ tbody tr:last-child {
     }
 
     .finance-news p {
-        font-size: 21px;
+        font-size: 24px;
     }
 
     .finance-news {
-        margin-left: 20px;
+        margin-left: 45px;
     }
 
     p.trend-name {

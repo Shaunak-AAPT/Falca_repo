@@ -5,6 +5,9 @@ import { ApiService } from 'src/app/services/api/api.service';
 import { AESCryptoService } from 'src/app/services/cryptomanager/aescrypto.service';
 import { ValidateService } from 'src/app/services/validate/validate.service';
 import { environment } from 'src/environments/environment';
+// import 'slick-carousel';
+
+// import * as $ from 'jquery';
 
 declare var $: any;
 
@@ -19,20 +22,21 @@ export class WealthHomeComponent implements OnInit {
   productwealthdata: any;
   customOptions: OwlOptions = {
     items: 3,
+    stagePadding: 64,
     margin: 3,
     loop: true,
-    stagePadding: 64,
+    // stagePadding: 64,
     responsive: {
       0: { items: 1, stagePadding: 30 },
       480: { items: 1, stagePadding: 30 },
       600: { items: 2, stagePadding: 30 },
-      1000: { items: 3 },
-      1200: { items: 3 }
+      1000: { items: 2},
+      1200: { items: 2}
     },
+
     nav: true,
-    // navText: ['Back','Next'],
     navText: ["<img src='assets/img/arrow_left.svg'>", "<img src='assets/img/arrow_right.svg'>"],
-    dots: false,
+    dots: true,
     dotsEach: true,
     lazyLoad: false,
     autoplay: true,
@@ -58,14 +62,19 @@ export class WealthHomeComponent implements OnInit {
     autoplayHoverPause: true
   }
 
+  BlogList: any[] = []; // Replace with your actual data
+
+
+
+
   showGrid: boolean = false;
 
   private routeSub: any;
   QueryToken: any;
   Path: any;
-  DG:any;
+  DG: any;
   _paramSub: any;
-  BlogList: any;
+  // BlogList: any;
   blogimage: any;
   ShowLoader: any = false;
   DGLoginEmail = environment.DGLoginEmail;
@@ -104,7 +113,7 @@ export class WealthHomeComponent implements OnInit {
       if (!this.validation.isNullEmptyUndefined(this.Path) && this.Path != 'null' && this.Path != "{PATH}") {
 
         if ((!this.validation.isNullEmptyUndefined(this.DG) && this.DG != "null" && this.DG != "{DG}") && (this.DG == "true")) {
-          localStorage.setItem('DGProceed','1');
+          localStorage.setItem('DGProceed', '1');
         }
 
         // if(this.Path == '/digital-gold-product-details'){
@@ -157,6 +166,11 @@ export class WealthHomeComponent implements OnInit {
     // }
 
   }
+
+  clkHere(){
+    window.open("https://drive.google.com/drive/folders/1gWxnK9k_8-hpG11HqFH8e7c1nm-AdgRC?usp=drive_link","_blank");
+
+  }
   // TestimonialWealth() {
   //   this.api.get("testimonial?vertical=3").subscribe((resp) => {
   //     this.tesimonialwealthdata = resp.data;
@@ -188,7 +202,7 @@ export class WealthHomeComponent implements OnInit {
       return testimonial?.profileReview;
     } else if (testimonial?.profileReview?.length > 140) {
       return testimonial?.profileReview?.slice(0, 140) + '...';
-    } 
+    }
     else {
       return testimonial?.profileReview;
     }
@@ -211,8 +225,8 @@ export class WealthHomeComponent implements OnInit {
     console.log("name", Product);
     const allowedProductNames = ["Fixed Deposits", "Portfolio Management Services", "Alternate Investing Funds", "Bonds"];
 
-    if (allowedProductNames.includes(Product.name) ) {
-    // if (Product.name === "Fixed Deposits") {
+    if (allowedProductNames.includes(Product.name)) {
+      // if (Product.name === "Fixed Deposits") {
       console.log("begin");
       $("#leadModal").modal("show");
       console.log("after");

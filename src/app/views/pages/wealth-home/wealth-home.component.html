@@ -219,7 +219,8 @@
                 class="hidden-xs" />For effective financial planning its important to assess , investment<br
                 class="hidden-xs" /> objectives and risk matrix . A structured asset allocation & disciplined approach
               <br class="hidden-xs" /> to investing is am important fctor . We can help you through the journey ,<br
-                class="hidden-xs" /> would request to share with us your details , we will reach out to you.</p>
+                class="hidden-xs" /> would request to share with us your details , we will reach out to you.
+            </p>
 
             <!-- <p>How far are you from your life goals? <br />Lorem ipsum dolor sit amet,</p> -->
             <!-- <button class="nav-link btn btn-primary theme-button">Calculate</button> -->
@@ -609,8 +610,10 @@
           </p>
           <!-- <a href="https://drive.google.com/drive/folders/1gWxnK9k_8-hpG11HqFH8e7c1nm-AdgRC?usp=drive_link">Click
             here</a> -->
-            <a href="https://docs.google.com/spreadsheets/d/1DfxdLWuq_AK_MY4zxiRm12QnqGr2O6Yn/edit#gid=875270254">Click
-              here</a>
+            <button class="nav-link btn btn-primary theme-button" (click)="clkHere()">CLICK HERE</button>
+
+          <!-- <a href="https://docs.google.com/spreadsheets/d/1DfxdLWuq_AK_MY4zxiRm12QnqGr2O6Yn/edit#gid=875270254">Click
+            here</a> -->
         </div>
       </div>
       <!-- mobile -->
@@ -628,10 +631,12 @@
             Funds across categories such as Large Cap , Large & Mid Cap , Flexi Cap , Multi Cap and Mid Cap etc , click
             on the below link to go through some of the funds we recommend.<br class="hidden-xs" />
           </p>
-          <!-- <a href="https://drive.google.com/drive/folders/1gWxnK9k_8-hpG11HqFH8e7c1nm-AdgRC?usp=drive_link">Click
+          <button class="nav-link btn btn-primary theme-button" (click)="clkHere()">CLICK HERE</button>
+<!-- 
+          <a href="https://drive.google.com/drive/folders/1gWxnK9k_8-hpG11HqFH8e7c1nm-AdgRC?usp=drive_link">Click
             here</a> -->
-            <a href="https://docs.google.com/spreadsheets/d/1DfxdLWuq_AK_MY4zxiRm12QnqGr2O6Yn/edit#gid=875270254">Click
-              here</a>
+          <!-- <a href="https://docs.google.com/spreadsheets/d/1DfxdLWuq_AK_MY4zxiRm12QnqGr2O6Yn/edit#gid=875270254">Click
+            here</a> -->
         </div>
       </div>
     </div>
@@ -915,6 +920,7 @@
     </div>
   </div> -->
 
+  
   <div class="container pt-70 ptsm-1 mt-5">
     <div class="testimonial-slider">
       <img src="assets/img/upquote.png" class="upquote" alt="upquote">
@@ -1079,55 +1085,60 @@
       </div>
     </div>
   </div>
-  <div class="container mt-5 pt-50 finance owl-1 carousel slide" id="testimonial"  data-bs-ride="carousel">
+
+
+      <!-- <div class="row align-items-center">
+        <div class="col-lg-12">
+       
+          <h4 class="title-head1 mb-4">Here is all you should know about wealth management</h4>
+        </div>
+      </div>
+      <div class="financial-slider fin">
+        <owl-carousel-o [options]="customOptions">
+          <ng-template carouselSlide *ngFor="let blog of BlogList">
+            <div class="finance-news" (click)="GetBlogList()">
+              <a target="_blank" rel="noopener noreferrer" href="{{blog.url}}"><img src="{{blog.blogimage}}"
+                  alt="blog1"></a>
     
-  
-    <div class="row align-items-center">
-      <div class="col-lg-12">
-        <h4 class="title-head1 mb-4">Here is all you should know about wealth management</h4>
+              <p>{{blog.title}}</p>
+    
+            </div>
+          </ng-template>
+    
+        </owl-carousel-o>
+       
+      </div> -->
+    
+   
+
+    <div class="container mt-5 pt-50 finance owl-1">
+      <div class="row align-items-center">
+        <div class="col-lg-12">
+          <h4 class="title-head1 mb-4">Here is all you should know about wealth management</h4>
+        </div>
+      </div>
+      <div class="financial-slider fin">
+        <owl-carousel-o [options]="customOptions">
+          <ng-template carouselSlide *ngFor="let blog of BlogList">
+            <div class="finance-news" (click)="GetBlogList()">
+              <a target="_blank" rel="noopener noreferrer" href="{{blog.url}}"><img src="{{blog.blogimage}}" alt="blog1"></a>
+              <p>{{blog.title}}</p>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
       </div>
     </div>
-    <div class="financial-slider fin">
-      <owl-carousel-o [options]="customOptions">
-        <ng-template carouselSlide *ngFor="let blog of BlogList">
-          <div class="finance-news" (click)="GetBlogList()">
-            <a target="_blank" rel="noopener noreferrer" href="{{blog.url}}"><img src="{{blog.blogimage}}"
-                alt="blog1"></a>
-            <p>{{blog.title}}</p>
-          </div>
-        </ng-template>
-       
-      </owl-carousel-o>
-
-
-      <!-- Left and right controls/icons -->
-      <!-- <div class="carousel-controls">
-        <button class="carousel-control-prev" href="#testimonial" role="button" data-bs-target="#testimonial" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#testimonial" data-bs-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </button>
-      </div> -->
-
-      <button class="carousel-control-prev" type="button" data-bs-target="#testimonial" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#testimonial" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-      <!-- <button class="owl-prev">
-        <i class="fa fa-chevron-left"></i>
-      </button>
-
-      <button class="owl-next">
-        <i class="fa fa-chevron-right"></i>
-      </button> -->
-    </div>
-
+    
+    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button> -->
   </div>
+
 
 
   <app-lead-modal #leadModal>
