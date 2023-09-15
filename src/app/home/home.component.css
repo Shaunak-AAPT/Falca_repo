@@ -1604,6 +1604,10 @@
 		font-size: 16px;
 		padding: 1% 10%;
 	}
+	.testimonial-slider p{
+		font-size: 16px;
+		padding: 1% 10%;
+	}
 
 	#testimonial h4 {
 		font-size: 24px;
@@ -1777,7 +1781,10 @@
 	top: 6px; */
 }
 /* added by sw for hdfc img end*/
-
+/* .testimonial-slider p{
+	font-size: 16px;
+	padding: 1% 10%;
+} */
 }
 
 @media only screen and (min-width: 768px) {
@@ -1838,7 +1845,10 @@
 		flex-basis: 50%;
 		max-width: 50%;
 	  } */
-
+	  /* .testimonial-slider p{
+		font-size: 16px;
+		padding: 1% 10%;
+	} */
 }
 
 @media (min-width: 1200px) {
@@ -1864,6 +1874,10 @@
 		font-size: 26px;
 	}
 
+	/* .testimonial-slider p{
+		font-size: 16px;
+		padding: 1% 10%;
+	} */
 	::ng-deep .owl-theme .owl-nav [class*=owl-] {
 		display: none;
 	}

@@ -21,7 +21,7 @@ export class WealthHomeComponent implements OnInit {
   tesimonialwealthdata: any;
   productwealthdata: any;
   customOptions: OwlOptions = {
-    items: 3,
+    items: 2,
     stagePadding: 64,
     margin: 3,
     loop: true,
