@@ -1066,13 +1066,24 @@
 	height: 3rem;
 }
 
+
+
 .carousel-control-next,
 .carousel-control-prev {
-	position: absolute;
-	top: 45%;
+	position: absolute !important;
 	width: 15%;
 	height: 10%;
+	top: 50% !important;
+	transform: translateY(-50%) !important;
+	z-index: 1 !important;
 }
+
+/* .testimonial_content{
+	display:flex;
+
+} */
+
+
 
 .carousel-control-prev {
 	left: -10%;
@@ -1297,6 +1308,95 @@
 .financial-slider .slick-slide.slick-active{
 	opacity: 1;
 	}*/
+
+	.testimonial-slider {
+		position: relative;
+	  }
+	  
+	  .testimonial-slider .user-img {
+		margin-bottom: 20px;
+		height: 96px;
+		width: 96px;
+	  }
+	  
+	  .testimonial-slider h4 {
+		color: #222222;
+		font-weight: 600;
+		font-size: 30px;
+	  }
+	  
+	  .testimonial-slider p {
+		font-size: 20px;
+		padding: 1% 20%;
+	  }
+	
+	  ::ng-deep .testimonial-slider .owl-prev {
+		left: -4rem;
+		background: transparent !important;
+		z-index: 999;
+		display: flex;
+		position: absolute;
+		align-items: center;
+		justify-content: center;
+		height: 3rem !important;
+		width: 3rem !important;
+		top: 8rem;
+		box-shadow: none;
+		opacity: 0.5;
+		/* border:2px solid red; */
+	  }
+	
+	  ::ng-deep .testimonial-slider .owl-prev:hover,
+	::ng-deep .testimonial-slider .owl-next:hover {
+	  opacity: 1;
+	}
+	
+	::ng-deep .testimonial-slider .owl-next {
+	  right: -3rem;
+	  background: transparent !important;
+	  z-index: 999;
+	  display: flex;
+	  position: absolute;
+	  align-items: center;
+	  justify-content: center;
+	  height: 3rem !important;
+	  width: 3rem !important;
+	  top: 8rem;
+	  box-shadow: none;
+	  opacity: 0.5;
+	}
+	
+	::ng-deep .testimonial-slider .owl-nav img {
+		width: 3rem;
+		height: 3rem;
+	  }
+	  
+	  ::ng-deep .testimonial-slider .owl-nav {
+		  transition: all 0.5s ease;
+	  }
+	  
+	  ::ng-deep .testimonial-slider .owl-theme .owl-dots .owl-dot span {
+		background: #465a65;
+		opacity: 0.5;
+		width: 12px;
+		height: 12px;
+		margin-right: 3px;
+		margin-left: 3px;
+	  }
+	  ::ng-deep .testimonial-slider .owl-theme .owl-dots .owl-dot.active span,
+	  .owl-theme .owl-dots .owl-dot:hover span {
+		background: #465a65;
+		opacity: 1;
+	  }
+	  .testimonial-slider p {
+		font-size: 20px;
+		padding: 1% 20%;
+	  }
+	
+	  .testimonial-slider h4 {
+		font-size: 24px;
+	  }
+	
 ::ng-deep .financial-slider .owl-prev {
 	left: 0px;
 	background: #eef8fa;
@@ -1504,6 +1604,10 @@
 		font-size: 16px;
 		padding: 1% 10%;
 	}
+	.testimonial-slider p{
+		font-size: 16px;
+		padding: 1% 10%;
+	}
 
 	#testimonial h4 {
 		font-size: 24px;
@@ -1677,7 +1781,10 @@
 	top: 6px; */
 }
 /* added by sw for hdfc img end*/
-
+/* .testimonial-slider p{
+	font-size: 16px;
+	padding: 1% 10%;
+} */
 }
 
 @media only screen and (min-width: 768px) {
@@ -1738,7 +1845,10 @@
 		flex-basis: 50%;
 		max-width: 50%;
 	  } */
-
+	  /* .testimonial-slider p{
+		font-size: 16px;
+		padding: 1% 10%;
+	} */
 }
 
 @media (min-width: 1200px) {
@@ -1764,6 +1874,10 @@
 		font-size: 26px;
 	}
 
+	/* .testimonial-slider p{
+		font-size: 16px;
+		padding: 1% 10%;
+	} */
 	::ng-deep .owl-theme .owl-nav [class*=owl-] {
 		display: none;
 	}

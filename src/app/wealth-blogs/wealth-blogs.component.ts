@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ApiService } from '../services/api/api.service';
 import { AESCryptoService } from '../services/cryptomanager/aescrypto.service';
@@ -8,15 +9,14 @@ import { ValidateService } from '../services/validate/validate.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 declare var $: any;
 
-declare var bootstrap: any;
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-wealth-blogs',
+  templateUrl: './wealth-blogs.component.html',
+  styleUrls: ['./wealth-blogs.component.css']
 })
-export class HomeComponent implements OnInit {
+export class WealthBlogsComponent implements OnInit {
 
-  
+ 
   CommonBannerlist: any;
   meetpartnerslist: any;
   CommonrTestimonialdata: any;
@@ -97,7 +97,6 @@ export class HomeComponent implements OnInit {
     {
       id: 7, name: 'Arnab Koley', title: 'COO', bio: 'Enterprising & resourceful professional with 16+ years of experience across Insurance & start-up sector. Comprehensive background in leading Insurance business operations, formulating strategic plans & initiatives for large Retail operations. Successful contributions in building B2B2C distribution model, Business Process Reengineering & building technology product from scratch.',
       img: '../../assets/img/Arnab.jpg',
-
       image: '../../assets/img/Arnab2.jpg',
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
       // linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
@@ -168,7 +167,6 @@ export class HomeComponent implements OnInit {
     },
     {
       id: 8, name: 'Arnab Koley', title: 'COO', bio: 'Enterprising & resourceful professional with 16+ years of experience across Insurance & start-up sector. Comprehensive background in leading Insurance business operations, formulating strategic plans & initiatives for large Retail operations. Successful contributions in building B2B2C distribution model, Business Process Reengineering & building technology product from scratch.',
-
       img: '../../assets/img/Arnab2.jpg',
       image: '../../assets/img/Arnab2.jpg',
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
@@ -329,27 +327,26 @@ export class HomeComponent implements OnInit {
     autoplayTimeout: 5000,
     autoplayHoverPause: true
   }
-  
   customOptions2: OwlOptions = {
-    items: 1,
-    margin: 0,
+    items: 5,
+    margin: 3,
     loop: true,
-    // responsive: {
-    //   0: { items: 3 },
-    //   480: { items: 3 },
-    //   600: { items: 4 },
-    //   1000: { items: 5 },
-    //   1200: { items: 5 }
-    // },
+    responsive: {
+      0: { items: 3 },
+      480: { items: 3 },
+      600: { items: 4 },
+      1000: { items: 5 },
+      1200: { items: 5 }
+    },
     nav: true,
     // navText: ['Back','Next'],
     navText: ["<img src='assets/img/arrow_left.svg'>", "<img src='assets/img/arrow_right.svg'>"],
     dots: false,
     dotsEach: true,
     lazyLoad: false,
-    autoplay: true,
-    autoplaySpeed: 750,
-    navSpeed: 750,
+    autoplay: false,
+    autoplaySpeed: 500,
+    navSpeed: 500,
     autoplayTimeout: 5000,
     autoplayHoverPause: true
   }
@@ -362,7 +359,7 @@ export class HomeComponent implements OnInit {
 
   // emailPattern = "^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
   // successMessage: boolean = false;
-  constructor(public activeRoute: ActivatedRoute, public validation: ValidateService, private api: ApiService, private route: Router, private crypto: AESCryptoService, private fb: FormBuilder , private elementRef: ElementRef,private renderer: Renderer2) {
+  constructor(public activeRoute: ActivatedRoute, public validation: ValidateService, private api: ApiService, private crypto: AESCryptoService, private fb: FormBuilder , private elementRef: ElementRef,private renderer: Renderer2, private route: Router,) {
 
     // lead modal 
     // this.myForm = new FormGroup({

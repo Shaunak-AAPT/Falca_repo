@@ -514,7 +514,32 @@ export class HeaderComponent implements OnInit {
 
   customerinvestmentlink() {
     window.open("https://wealth.finizon.com/client-login", "_blank");
+    // window.open("http://localhost:4200/wealth", "_blank");
   }
+  // wealthlink(){
+  //   window.open("http://65.1.237.83/wealth");
+
+  //       // window.open("https://wealth.finizon.com/client-login", "_blank");
+  // }
+  wealthlink() {
+    // window.location.href = "http://65.1.237.83/wealth";
+    // window.location.href = "https://uatnw.finizon.com/wealth";
+    window.location.href = "https://finizon.com/wealth";
+
+    // or window.location.href = "https://wealth.finizon.com/client-login";
+  }
+
+  // customerinvestmentlink() {
+  //   // Get the current route
+  //   const currentRoute = this.route.url;
+
+  //   if (currentRoute === '') {
+  //     // Redirect to the home page
+  //     window.location.href = 'https://wealth.finizon.com/client-login', "_blank";
+  //   } else if (currentRoute === '/wealth') {
+  //     // Stay on the wealth page
+  //   }
+  // }
 
   partnerinsurancelink() {
     window.open("https://ins.finizoninsurance.com/partner/posp-home", "_blank");
@@ -532,17 +557,17 @@ export class HeaderComponent implements OnInit {
     window.open("https://tools.finizon.com/spprd/wellness?referralid=goqii", "_blank");
 
   }
-  
+
   shopkeeperLink() {
     // window.open("http://65.1.237.83:5800/spprd/shopkeeper?referralid=godigit", "_blank");
     // window.open("https://dev.finizon.com/spprd/shopkeeper?referralid=godigit", "_blank");
     // window.open("https://tools.finizon.com/spprd/shopkeeper?referralid=godigit", "_blank");
 
   }
- insureLink(){
-  // window.open("http://65.1.237.83:6800", "_blank");
-  // window.open("https://uatnw.finizoninsurance.com", "_blank");
-  window.open("https://finizoninsurance.com", "_blank");
-}
-  
+
+  insureLink() {
+    // window.open("http://65.1.237.83:6800", "_blank");
+    // window.open("https://uatnw.finizoninsurance.com", "_blank");
+    window.open("https://finizoninsurance.com", "_blank");
+  }
 }

@@ -49,19 +49,11 @@
                   <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
                 </span>
               </button>
-
-
-
             </div>
             <div class="col-lg-4 col-12 order-1 order-lg-2">
               <img src="{{banners.banner}}" alt="slider1" class="w-100 wd90">
             </div>
           </div>
-
-
-
-
-
         </div>
 
 
@@ -702,7 +694,9 @@
                 </div>
               </div>
             </div>
+
 <!-- <img src="../../assets/img/abhay.jpg" alt=""> -->
+
           </div>
           <!-- </div> -->
           <!-- <img src="../../assets/img/founding team member/founder-asish.svg" alt=""> -->
@@ -753,11 +747,9 @@
       </div>
     </div>
 
-    <div class="container pt-70">
-      <!-- Carousel -->
+    <!-- <div class="container pt-70">
+      
       <div id="testimonial" class="carousel slide" data-bs-ride="carousel">
-
-        <!-- Indicators/dots -->
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#testimonial" data-bs-slide-to="0" class="active"></button>
           <button type="button" data-bs-target="#testimonial" data-bs-slide-to="1"></button>
@@ -768,7 +760,6 @@
 
         </div>
 
-        <!-- The slideshow/carousel -->
         <div class="carousel-inner pos-rel pt-50 pb-50">
           <img src="assets/img/upquote.png" class="upquote" alt="up-quote">
           <div class="carousel-item " *ngFor=" let testimonial of CommonrTestimonialdata; let i=index"
@@ -777,18 +768,14 @@
               <div class="col-lg-12 text-center">
                 <img src="{{testimonial?.profilePhoto}}" class="user-img" alt="user">
                 <h4>{{testimonial?.firstName}} {{testimonial?.lastName}}</h4>
-                <!-- <p [innerHTML]="testimonial?.profileReview"></p> -->
-
-
-                <!-- <div [innerHTML]="displayedText(testimonial?.profileReview)"></div>
-                <a href="#" (click)="toggleExpanded(testimonial)">
-                  {{ testimonial.expanded ? 'Read Less...' : 'Read More...' }}
-                </a> -->
-                <div *ngIf="shouldShowReadMore(testimonial)">
-                  <p class="testimonialtext" [innerHTML]="getReviewContent(testimonial)"></p>
-                  <a href="javascript:void(0)" (click)="toggleExpanded(testimonial)">
-                    {{ testimonial.expanded ? 'Read Less' : 'Read More' }}
-                  </a>
+              
+                <div *ngIf="shouldShowReadMore(testimonial)" class="testimonial_content">
+                  <div class="content-wrapper">
+                    <p class="testimonialtext" [innerHTML]="getReviewContent(testimonial)"></p>
+                    <a href="javascript:void(0)" (click)="toggleExpanded(testimonial)">
+                      {{ testimonial.expanded ? 'Read Less' : 'Read More' }}
+                    </a>
+                  </div>
                 </div>
                 <div *ngIf="!shouldShowReadMore(testimonial)">
                   <p class="testimonialtext">{{ testimonial?.profileReview }}</p>
@@ -799,15 +786,49 @@
           <img src="assets/img/downquote.png" class="downquote" alt="down-quote">
         </div>
 
-        <!-- Left and right controls/icons -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#testimonial" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#testimonial" data-bs-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </button>
+      
+        <div class="carousel-controls">
+          <button class="carousel-control-prev" type="button" data-bs-target="#testimonial" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#testimonial" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="container pt-70 ptsm-1 mt-5">
+      <div class="testimonial-slider">
+        <img src="assets/img/upquote.png" class="upquote" alt="upquote">
+        <owl-carousel-o [options]="customOptions2">
+          <ng-template carouselSlide *ngFor=" let testimonial of CommonrTestimonialdata">
+            <div class="row align-items-center">
+              <div class="col-lg-12 text-center">
+                <div class="d-flex justify-content-center">
+                  <img src="{{testimonial?.profilePhoto}}" class="user-img" alt="profilephoto">
+                </div>
+                <h4>{{testimonial?.firstName}} {{testimonial?.lastName}}</h4>
+  
+                <div *ngIf="shouldShowReadMore(testimonial)" class="testimonial_content">
+                  <div class="content-wrapper">
+                    <p class="testimonialtext" [innerHTML]="getReviewContent(testimonial)"></p>
+                    <a href="javascript:void(0)" (click)="toggleExpanded(testimonial)">
+                      {{ testimonial.expanded ? 'Read Less' : 'Read More' }}
+                    </a>
+                  </div>
+                </div>
+                <div *ngIf="!shouldShowReadMore(testimonial)">
+                  <p class="testimonialtext">{{ testimonial?.profileReview }}</p>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
+        <img src="assets/img/downquote.png" class="downquote" alt="downquote">
       </div>
     </div>
+
 
     <!-- clients images -->
     <div class="container pt-70 client-img">
@@ -832,8 +853,8 @@
         <div class="col-1">
         </div>
         <!-- <div class="col col-6 hidden-lg">
-			<img src="assets/img/bajaj_logo.png" class="c5">
-		    </div> -->
+      <img src="assets/img/bajaj_logo.png" class="c5">
+        </div> -->
         <div class="col">
           <img src="assets/img/1280px-Reliance_General_Insurance.svg.png" class="c2 relianceimg" alt="reliance">
         </div>
@@ -847,8 +868,8 @@
           <img src="assets/img/universal_logo.png" class="c4" alt="universal">
         </div>
         <!-- <div class="col col-6 hidden-lg">
-			<img src="assets/img/max_life.png" class="c1">
-		    </div> -->
+      <img src="assets/img/max_life.png" class="c1">
+        </div> -->
         <div class="col-1">
         </div>
       </div>
@@ -894,42 +915,7 @@
 
             </div>
           </ng-template>
-          <!-- <ng-template carouselSlide>
-        <div class="finance-news">
-          <img src="assets/img/blog_thumnail_1.png">
-          <p>What is the right amount of life insurance cover for me?</p>
-        </div>
-      </ng-template>
-      <ng-template carouselSlide>
-        <div class="finance-news">
-          <img src="assets/img/blog_thumnail_2.png">
-          <p>Don’t leave anything to chance protect with insurance</p>
-        </div>
-      </ng-template>
-      <ng-template carouselSlide>
-        <div class="finance-news">
-          <img src="assets/img/blog_thumnail_1.png">
-          <p>What is the right amount of life insurance cover for me?</p>
-        </div>
-      </ng-template>
-      <ng-template carouselSlide>
-        <div class="finance-news">
-          <img src="assets/img/blog_thumnail_2.png">
-          <p>How to Check Life Insurance Policy Status?</p>
-        </div>
-      </ng-template>
-      <ng-template carouselSlide>
-        <div class="finance-news">
-          <img src="assets/img/blog_thumnail_1.png">
-          <p>Choose right life insurance plan in 7 easy steps</p>
-        </div>
-      </ng-template>
-      <ng-template carouselSlide>
-        <div class="finance-news">
-          <img src="assets/img/blog_thumnail_2.png">
-          <p>Choose right life insurance plan in 7 easy steps</p>
-        </div>
-      </ng-template> -->
+
         </owl-carousel-o>
 
       </div>
@@ -949,7 +935,6 @@
             <!-- <a href="http://65.1.237.83/" class="nav-link btn btn-primary theme-button m0-auto">Get Started</a> -->
             <!-- <a href="https://uatnw.finizon.com/" class="nav-link btn btn-primary theme-button m0-auto">Get Started</a> -->
             <a href="https://finizon.com/" class="nav-link btn btn-primary theme-button m0-auto">Get Started</a>
-
 
 
           </div>

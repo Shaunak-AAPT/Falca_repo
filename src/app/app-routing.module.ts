@@ -29,6 +29,7 @@ import { TermsOfUseComponent } from './views/pages/terms-of-use/terms-of-use.com
 import { SupportModalComponent } from './views/pages/support-modal/support-modal.component';
 import { LeadModalComponent } from './views/pages/lead-modal/lead-modal.component';
 import { WealthHomeComponent } from './views/pages/wealth-home/wealth-home.component';
+import { WealthBlogsComponent } from './wealth-blogs/wealth-blogs.component';
 
 
 const routes: Routes = [
@@ -56,18 +57,18 @@ const routes: Routes = [
   { path: 'investment/:type', component: InvestmentComponent },
   { path: 'kyc-pan-verification', component: KycPanVerificationComponent },
   { path: 'active-insurance', component: ActiveInsuranceComponent },
-  { path:'terms-of-use',component:TermsOfUseComponent},
-  { path:'support',component:SupportModalComponent},
-  { path:'lead',component:LeadModalComponent},
-  { path:'account-profile-details',component:AccountProfileDetailsComponent},
-  { path: 'wealth', component:WealthHomeComponent},
-
+  { path: 'terms-of-use', component: TermsOfUseComponent },
+  { path: 'support', component: SupportModalComponent },
+  { path: 'lead', component: LeadModalComponent },
+  { path: 'account-profile-details', component: AccountProfileDetailsComponent },
+  { path: 'wealth', component: WealthHomeComponent },
+  { path: 'wealthblog', component: WealthBlogsComponent }
 
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { scrollPositionRestoration: 'top', relativeLinkResolution: 'legacy', onSameUrlNavigation: 'reload',useHash: false }),// useHash: true }),
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'top', relativeLinkResolution: 'legacy', onSameUrlNavigation: 'reload', useHash: false }),// useHash: true }),
     BrowserAnimationsModule
   ],
   exports: [RouterModule]

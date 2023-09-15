@@ -1,0 +1,59 @@
+   <!-- Blogs -->
+   <div class="container mt-5 pt-50 finance owl-1">
+    <div class="row align-items-center">
+      <div class="col-lg-12">
+        <h4 class="title-head1 mb-4">Become a Financial Guru</h4>
+      </div>
+    </div>
+    <div class="financial-slider fin">
+      <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide *ngFor="let blog of BlogList">
+          <div class="finance-news" (click)="GetBlogList()">
+            <a target="_blank" rel="noopener noreferrer" href="{{blog.url}}"><img src="{{blog.blogimage}}"
+                alt="blog1"></a>
+
+            <p>{{blog.title}}</p>
+
+          </div>
+        </ng-template>
+        <!-- <ng-template carouselSlide>
+      <div class="finance-news">
+        <img src="assets/img/blog_thumnail_1.png">
+        <p>What is the right amount of life insurance cover for me?</p>
+      </div>
+    </ng-template>
+    <ng-template carouselSlide>
+      <div class="finance-news">
+        <img src="assets/img/blog_thumnail_2.png">
+        <p>Don’t leave anything to chance protect with insurance</p>
+      </div>
+    </ng-template>
+    <ng-template carouselSlide>
+      <div class="finance-news">
+        <img src="assets/img/blog_thumnail_1.png">
+        <p>What is the right amount of life insurance cover for me?</p>
+      </div>
+    </ng-template>
+    <ng-template carouselSlide>
+      <div class="finance-news">
+        <img src="assets/img/blog_thumnail_2.png">
+        <p>How to Check Life Insurance Policy Status?</p>
+      </div>
+    </ng-template>
+    <ng-template carouselSlide>
+      <div class="finance-news">
+        <img src="assets/img/blog_thumnail_1.png">
+        <p>Choose right life insurance plan in 7 easy steps</p>
+      </div>
+    </ng-template>
+    <ng-template carouselSlide>
+      <div class="finance-news">
+        <img src="assets/img/blog_thumnail_2.png">
+        <p>Choose right life insurance plan in 7 easy steps</p>
+      </div>
+    </ng-template> -->
+      </owl-carousel-o>
+
+    </div>
+
+  </div>

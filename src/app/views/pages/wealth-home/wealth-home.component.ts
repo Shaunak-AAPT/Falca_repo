@@ -5,6 +5,9 @@ import { ApiService } from 'src/app/services/api/api.service';
 import { AESCryptoService } from 'src/app/services/cryptomanager/aescrypto.service';
 import { ValidateService } from 'src/app/services/validate/validate.service';
 import { environment } from 'src/environments/environment';
+// import 'slick-carousel';
+
+// import * as $ from 'jquery';
 
 declare var $: any;
 
@@ -18,21 +21,22 @@ export class WealthHomeComponent implements OnInit {
   tesimonialwealthdata: any;
   productwealthdata: any;
   customOptions: OwlOptions = {
-    items: 3,
+    items: 2,
+    stagePadding: 64,
     margin: 3,
     loop: true,
-    stagePadding: 64,
+    // stagePadding: 64,
     responsive: {
       0: { items: 1, stagePadding: 30 },
       480: { items: 1, stagePadding: 30 },
       600: { items: 2, stagePadding: 30 },
-      1000: { items: 3 },
-      1200: { items: 3 }
+      1000: { items: 2},
+      1200: { items: 2}
     },
+
     nav: true,
-    // navText: ['Back','Next'],
     navText: ["<img src='assets/img/arrow_left.svg'>", "<img src='assets/img/arrow_right.svg'>"],
-    dots: false,
+    dots: true,
     dotsEach: true,
     lazyLoad: false,
     autoplay: true,
@@ -42,14 +46,35 @@ export class WealthHomeComponent implements OnInit {
     autoplayHoverPause: true
   }
 
+  customOptions2: OwlOptions = {
+    items: 1,
+    margin: 0,
+    loop: true,
+    nav: true,
+    navText: ["<img src='assets/img/arrow_left.svg'>", "<img src='assets/img/arrow_right.svg'>"],
+    dots: false,
+    dotsEach: true,
+    lazyLoad: false,
+    autoplay: true,
+    autoplaySpeed: 750,
+    navSpeed: 750,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true
+  }
+
+  BlogList: any[] = []; // Replace with your actual data
+
+
+
+
   showGrid: boolean = false;
 
   private routeSub: any;
   QueryToken: any;
   Path: any;
-  DG:any;
+  DG: any;
   _paramSub: any;
-  BlogList: any;
+  // BlogList: any;
   blogimage: any;
   ShowLoader: any = false;
   DGLoginEmail = environment.DGLoginEmail;
@@ -88,7 +113,7 @@ export class WealthHomeComponent implements OnInit {
       if (!this.validation.isNullEmptyUndefined(this.Path) && this.Path != 'null' && this.Path != "{PATH}") {
 
         if ((!this.validation.isNullEmptyUndefined(this.DG) && this.DG != "null" && this.DG != "{DG}") && (this.DG == "true")) {
-          localStorage.setItem('DGProceed','1');
+          localStorage.setItem('DGProceed', '1');
         }
 
         // if(this.Path == '/digital-gold-product-details'){
@@ -130,7 +155,22 @@ export class WealthHomeComponent implements OnInit {
     }
   }
 
+  knowMore() {
+    $("#leadModal").modal("show");
 
+    // console.log("cust bnrs:- ", banners);
+    // console.log("", banners.sortOrder);
+    // if (banners.sortOrder == 3) {
+    //   // $("#knowmoreModal").modal("show");
+    //   console.log("")
+    // }
+
+  }
+
+  clkHere(){
+    window.open("https://drive.google.com/drive/folders/1gWxnK9k_8-hpG11HqFH8e7c1nm-AdgRC?usp=drive_link","_blank");
+
+  }
   // TestimonialWealth() {
   //   this.api.get("testimonial?vertical=3").subscribe((resp) => {
   //     this.tesimonialwealthdata = resp.data;
@@ -154,15 +194,15 @@ export class WealthHomeComponent implements OnInit {
   }
 
   shouldShowReadMore(testimonial: any): boolean {
-    return testimonial?.profileReview?.length > 222;
+    return testimonial?.profileReview?.length > 140;
   }
 
   getReviewContent(testimonial: any): string {
     if (testimonial.expanded) {
       return testimonial?.profileReview;
-    } else if (testimonial?.profileReview?.length > 222) {
-      return testimonial?.profileReview?.slice(0, 222) + '...';
-    } 
+    } else if (testimonial?.profileReview?.length > 140) {
+      return testimonial?.profileReview?.slice(0, 140) + '...';
+    }
     else {
       return testimonial?.profileReview;
     }
@@ -174,10 +214,31 @@ export class WealthHomeComponent implements OnInit {
       // console.log("product data", this.productwealthdata);
     });
   }
+  hidebannerModal() {
+    $(".modal").modal("hide");
+  }
   GotoRecommendedOffers(Product: any) {
     // this.route.navigate([Product.path.trim()]);
 
-    window.open(Product.path, '_blank');
+    // window.open(Product.path, '_blank');
+
+    console.log("name", Product);
+    const allowedProductNames = ["Fixed Deposits", "Portfolio Management Services", "Alternate Investing Funds", "Bonds"];
+
+    if (allowedProductNames.includes(Product.name)) {
+      // if (Product.name === "Fixed Deposits") {
+      console.log("begin");
+      $("#leadModal").modal("show");
+      console.log("after");
+    }
+    else if (Product.name === "Mutual Funds") {
+      console.log('credit', Product.path)
+      // this.route.navigate([insurence.path]);
+      $("#bannercustomerModal").modal("show");
+      // window.location.href = credit.path;
+      // window.open(Product.path, '_blank');
+
+    }
   }
 
   GetApplicantData() {
