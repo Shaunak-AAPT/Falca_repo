@@ -188,6 +188,10 @@
     text-align: center;
 }
 
+.Monexo img{
+	height: 100px;
+    width:50% !important
+  }
 .loan-type img {
     width: 28%;
     margin: 0 auto;
@@ -1012,6 +1016,10 @@ tbody tr:last-child {
         width: 33%;
     }
 
+    .Monexo img{
+        height: 70px !important;
+        width:20% !important
+      }
     .protect {
         text-align: center;
     }

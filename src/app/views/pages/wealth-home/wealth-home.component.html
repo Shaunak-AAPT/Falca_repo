@@ -158,7 +158,7 @@
     <!-- Desktop -->
     <div class="container pt-70 mb-3  common-pt-50 more-product money-invest loan-opt">
       <div class="row align-items-center justify-content-center">
-        <div class="col" *ngFor="let product of productwealthdata" (click)="GotoRecommendedOffers(product)">
+        <div class="col" *ngFor="let product of productwealthdata.slice(0,6)" (click)="GotoRecommendedOffers(product)">
           <div class="money-mng">
             <img src="{{product?.logo}}" alt="l1">
             <!-- <p>{{product?.name}}</p> -->
@@ -166,6 +166,24 @@
 
           </div>
         </div>
+        <!-- <div class="row align-items-center justify-content-center"> -->
+        <div class="col" *ngFor="let product of productwealthdata.slice(6,7)" (click)="GotoRecommendedOffers(product)">
+          <div class="money-mng Monexo">
+            <img src="{{product?.logo}}" alt="l1">
+            <!-- <p>{{product?.name}}</p> -->
+            <p [innerHTML]="product?.name"></p>
+
+          </div>
+          <!-- <div class="col-4" *ngFor="let product of productwealthdata.slice(6 ,7)" 
+            (click)="GotoRecommendedOffers(product)">
+            <div class="money-mng Monexo">
+              <img src="{{product?.logo}}" alt="l1">
+              <p [innerHTML]="product?.name"></p>
+  
+            </div>
+          </div> -->
+        </div>
+
         <!-- <div class="col">
               <div class="money-mng">
                   <img src="assets/img/fixed_deposits.svg" alt="l1">
@@ -198,6 +216,49 @@
           </div> -->
       </div>
     </div>
+
+    <!-- <div class="container hidden-lg pt-70 mt-5 mb-3 common-mt-3 more-product money-invest loan-opt">
+      <div class="row align-items-center">
+       
+
+        <div class="col" *ngFor="let product of productwealthdata.slice(0,3)" data-toggle="modal" data-target="#leadModal"
+        (click)="GotoRecommendedOffers(product)">
+          <div class="money-mng">
+            <img src="{{product.logo}}" alt="l1">
+          </div>
+          <div class="title-mng">
+            <div class="product-name-container">
+              <p [innerHTML]="product?.name"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-4" *ngFor="let product of productwealthdata.slice(3 ,6)" data-toggle="modal"
+          data-target="#leadModal" (click)="GotoRecommendedOffers(product)">
+          <div class="money-mng monexo">
+            <img src="{{product.logo}}" alt="l1">
+          </div>
+          <div class="title-mng">
+            <div class="product-name-container">
+              <p [innerHTML]="product?.name"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-4" *ngFor="let product of productwealthdata.slice(6 ,7)" data-toggle="modal"
+        data-target="#leadModal" (click)="GotoRecommendedOffers(product)">
+        <div class="money-mng monexo">
+          <img src="{{product.logo}}" alt="l1">
+        </div>
+        <div class="title-mng">
+          <div class="product-name-container">
+            <p [innerHTML]="product?.name"></p>
+          </div>
+        </div>
+      </div>
+      </div>
+
+    </div> -->
+
     <!-- <div class="container pt-1 hidden-xs common-pt-50 money-invest loan-opt">
     <div class="row align-items-center justify-content-center flow-row">
           <div class="money-mng hidden-xs mob-inv">
@@ -610,7 +671,7 @@
           </p>
           <!-- <a href="https://drive.google.com/drive/folders/1gWxnK9k_8-hpG11HqFH8e7c1nm-AdgRC?usp=drive_link">Click
             here</a> -->
-            <button class="nav-link btn btn-primary theme-button" (click)="clkHere()">CLICK HERE</button>
+          <button class="nav-link btn btn-primary theme-button" (click)="clkHere()">CLICK HERE</button>
 
           <!-- <a href="https://docs.google.com/spreadsheets/d/1DfxdLWuq_AK_MY4zxiRm12QnqGr2O6Yn/edit#gid=875270254">Click
             here</a> -->
@@ -632,7 +693,7 @@
             on the below link to go through some of the funds we recommend.<br class="hidden-xs" />
           </p>
           <button class="nav-link btn btn-primary theme-button" (click)="clkHere()">CLICK HERE</button>
-<!-- 
+          <!-- 
           <a href="https://drive.google.com/drive/folders/1gWxnK9k_8-hpG11HqFH8e7c1nm-AdgRC?usp=drive_link">Click
             here</a> -->
           <!-- <a href="https://docs.google.com/spreadsheets/d/1DfxdLWuq_AK_MY4zxiRm12QnqGr2O6Yn/edit#gid=875270254">Click
@@ -920,7 +981,7 @@
     </div>
   </div> -->
 
-  
+
   <div class="container pt-70 ptsm-1 mt-5">
     <div class="testimonial-slider">
       <img src="assets/img/upquote.png" class="upquote" alt="upquote">
@@ -1087,7 +1148,7 @@
   </div>
 
 
-      <!-- <div class="row align-items-center">
+  <!-- <div class="row align-items-center">
         <div class="col-lg-12">
        
           <h4 class="title-head1 mb-4">Here is all you should know about wealth management</h4>
@@ -1108,28 +1169,29 @@
         </owl-carousel-o>
        
       </div> -->
-    
-   
 
-    <div class="container mt-5 pt-50 finance owl-1">
-      <div class="row align-items-center">
-        <div class="col-lg-12">
-          <h4 class="title-head1 mb-4">Here is all you should know about wealth management</h4>
-        </div>
-      </div>
-      <div class="financial-slider fin">
-        <owl-carousel-o [options]="customOptions">
-          <ng-template carouselSlide *ngFor="let blog of BlogList">
-            <div class="finance-news" (click)="GetBlogList()">
-              <a target="_blank" rel="noopener noreferrer" href="{{blog.url}}"><img src="{{blog.blogimage}}" alt="blog1"></a>
-              <p>{{blog.title}}</p>
-            </div>
-          </ng-template>
-        </owl-carousel-o>
+
+
+  <div class="container mt-5 pt-50 finance owl-1">
+    <div class="row align-items-center">
+      <div class="col-lg-12">
+        <h4 class="title-head1 mb-4">Here is all you should know about wealth management</h4>
       </div>
     </div>
-    
-    <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <div class="financial-slider fin">
+      <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide *ngFor="let blog of BlogList">
+          <div class="finance-news" (click)="GetBlogList()">
+            <a target="_blank" rel="noopener noreferrer" href="{{blog.url}}"><img src="{{blog.blogimage}}"
+                alt="blog1"></a>
+            <p>{{blog.title}}</p>
+          </div>
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+  </div>
+
+  <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
@@ -1137,10 +1199,10 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button> -->
-  </div>
+</div>
 
 
 
-  <app-lead-modal #leadModal>
+<app-lead-modal #leadModal>
 
-  </app-lead-modal>
+</app-lead-modal>

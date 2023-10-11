@@ -350,6 +350,18 @@
 	/* margin-right: 20%; */
 	height: 80px;
   }
+  .monexo img{
+	margin-top: -2px !important;
+	width: 40% !important;
+	height: 100px;
+
+	/* border: 1px solid blueviolet !important  */
+ }
+ .monexo p{
+	margin-top: -12px !important;
+
+	/* border: 1px solid blueviolet !important  */
+ }
   /* .wealth p{
 	margin-right: 20%;
   } */
@@ -481,6 +493,12 @@
 	  } */
 	  .money-mng {
 		margin-bottom: 20px;
+	  }
+	  .monexo img{
+		width: 70% !important;
+		height: 30% !important;
+		margin-top: 60%!important
+
 	  }
 	  /* .loan-opt .money-mng img {
 		width: 40%;

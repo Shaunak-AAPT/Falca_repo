@@ -223,7 +223,7 @@
       </div>
     </div>
 
-    <div class="container hidden-xs mt-5 mb-3 common-mt-3 more-product money-invest loan-opt wealth">
+    <!-- <div class="container hidden-xs mt-5 mb-3 common-mt-3 more-product money-invest loan-opt wealth">
       <div class="row align-items-center justify-content-center">
         <div class="col-6 col-sm-4 col-md-3" *ngFor="let wealth of wealthdataList" data-toggle="modal"
           data-target="#leadModal" (click)="wealthtRouterUrl(wealth)">
@@ -231,14 +231,65 @@
             <img src="{{wealth?.logo}}" alt="l1">
             <p [innerHTML]="wealth?.name"></p>
           </div>
-          <!-- <div class="title-mng">
-            <div class="product-name-container">
-              <p [innerHTML]="wealth?.name"></p>
-            </div>
-          </div> -->
+       
+        </div>
+      </div>
+    </div> -->
+
+    <div class="container hidden-xs mt-5 mb-3 common-mt-3 more-product money-invest loan-opt wealth">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-6 col-sm-4 col-md-3" *ngFor="let wealth of wealthdataList.slice(0,2)" data-toggle="modal"
+          data-target="#leadModal" (click)="wealthtRouterUrl(wealth)">
+          <div class="money-mng">
+            <img src="{{wealth?.logo}}" alt="l1">
+            <p [innerHTML]="wealth?.name"></p>
+          </div>
+
+        </div>
+
+
+        <div class="col-6 col-sm-4 col-md-3" *ngFor="let wealth of wealthdataList.slice(2,3)" data-toggle="modal"
+          data-target="#leadModal" (click)="wealthtRouterUrl(wealth)">
+          <div class="money-mng monexo">
+            <img src="{{wealth?.logo}}" alt="l1">
+            <p [innerHTML]="wealth?.name"></p>
+          </div>
+
         </div>
       </div>
     </div>
+    <!-- <div class="container pt-70 mb-3  common-pt-50 more-product money-invest loan-opt wealth">
+      <div class="row align-items-center justify-content-center">
+        <div class="col" *ngFor="let wealth of wealthdataList.slice(0,6)" (click)="wealthtRouterUrl(wealth)">
+          <div class="money-mng">
+            <img src="{{wealth?.logo}}" alt="l1">
+            <p [innerHTML]="wealth?.name"></p>
+
+          </div>
+        </div>
+          <div class="col" *ngFor="let wealth of wealthdataList.slice(6,7)" (click)="wealthtRouterUrl(wealth)">
+            <div class="money-mng">
+              <img class="Monexo" src="{{wealth?.logo}}" alt="l1">
+              <p [innerHTML]="wealth?.name"></p>
+  
+            </div>
+          </div>
+        
+          </div>
+    </div> -->
+    <!--     
+    <div class="container hidden-xs mt-5 mb-3 common-mt-3 more-product money-invest loan-opt wealth">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-6 col-sm-4 col-md-3" *ngFor="let wealth of wealthdataList; let i = index" data-toggle="modal"
+          data-target="#leadModal" (click)="wealthtRouterUrl(wealth)">
+          <div class="money-mng" [ngClass]="{'custom-css-class': i === 2}">
+            <img src="{{wealth?.logo}}" alt="l1">
+            <p [innerHTML]="wealth?.name"></p>
+          </div>
+        </div>
+      </div>
+     
+    </div> -->
 
     <!-- 
     <div class="container hidden-xs pt-1 mb-3 common-pt-50 money-invest loan-opt">
@@ -375,7 +426,7 @@
           </div>
         </div>
 
-        <div class="col" *ngFor="let wealth of wealthdataList" data-toggle="modal" data-target="#leadModal"
+        <div class="col" *ngFor="let wealth of wealthdataList.slice(0,2)" data-toggle="modal" data-target="#leadModal"
           (click)="wealthtRouterUrl(wealth)">
           <div class="money-mng">
             <img src="{{wealth.logo}}" alt="l1">
@@ -388,6 +439,18 @@
           </div>
         </div>
 
+        <div class="col-4" *ngFor="let wealth of wealthdataList.slice(2 ,3)" data-toggle="modal"
+          data-target="#leadModal" (click)="wealthtRouterUrl(wealth)">
+          <div class="money-mng monexo">
+            <img src="{{wealth.logo}}" alt="l1">
+            <!-- <p [innerHTML]="wealth?.name"></p> -->
+          </div>
+          <div class="title-mng">
+            <div class="product-name-container">
+              <p [innerHTML]="wealth?.name"></p>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -678,16 +741,18 @@
                 <!-- <img class="clkprofile_Photo" [src]="founder.img"[class.selected]="selectedFounder" (click)="showDetails(founder)" /> -->
                 <!-- <img class="clkprofile_Photo" [src]="founder.img" [class.selected]="isSelected(founder)"
                   (click)="showDetails(founder)" alt="founderimg" /> -->
-                  <img class="clkprofile_Photo" [src]="founder.img" [ngClass]="{ 'selected-profile': isSelected(founder) }"
-                  (click)="showDetails(founder)" alt="founderimg" />
+                <img class="clkprofile_Photo" [src]="founder.img"
+                  [ngClass]="{ 'selected-profile': isSelected(founder) }" (click)="showDetails(founder)"
+                  alt="founderimg" />
               </div>
             </div>
             <div class="founder-column hidden-xs hidden-md ">
               <div *ngFor="let founder of founders.slice(4)">
                 <!-- <img class="clkprofile_Photo" [src]="founder.img" [class.selected]="isSelected(founder)"
                   (click)="showDetails(founder)" alt="founderimg" /> -->
-                  <img class="clkprofile_Photo" [src]="founder.img" [ngClass]="{ 'selected-profile': isSelected(founder) }"
-                  (click)="showDetails(founder)" alt="founderimg" />
+                <img class="clkprofile_Photo" [src]="founder.img"
+                  [ngClass]="{ 'selected-profile': isSelected(founder) }" (click)="showDetails(founder)"
+                  alt="founderimg" />
               </div>
             </div>
             <div class="founder-row hidden-lg">
@@ -695,8 +760,9 @@
                 <div *ngFor="let foundermob of foundersmob">
                   <!-- <img class="clkprofile_Photo" [src]="foundermob.img" [class.selected]="isSelected(foundermob)"
                     (click)="showDetails(foundermob)" alt="founderimg" /> -->
-                    <img class="clkprofile_Photo" [src]="foundermob.img" [ngClass]="{ 'selected-profile': isSelected(foundermob) }"
-                    (click)="showDetails(foundermob)" alt="founderimg" />
+                  <img class="clkprofile_Photo" [src]="foundermob.img"
+                    [ngClass]="{ 'selected-profile': isSelected(foundermob) }" (click)="showDetails(foundermob)"
+                    alt="founderimg" />
                 </div>
               </div>
             </div>
@@ -813,7 +879,7 @@
                   <img src="{{testimonial?.profilePhoto}}" class="user-img" alt="profilephoto">
                 </div>
                 <h4>{{testimonial?.firstName}} {{testimonial?.lastName}}</h4>
-  
+
                 <div *ngIf="shouldShowReadMore(testimonial)" class="testimonial_content">
                   <div class="content-wrapper">
                     <p class="testimonialtext" [innerHTML]="getReviewContent(testimonial)"></p>
