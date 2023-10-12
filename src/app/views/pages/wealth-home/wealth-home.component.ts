@@ -238,7 +238,11 @@ export class WealthHomeComponent implements OnInit {
       // window.location.href = credit.path;
       // window.open(Product.path, '_blank');
 
+    } else if(Product.name === "Monexo"){
+      window.open(Product.path, '_blank');
+
     }
+
   }
 
   GetApplicantData() {
