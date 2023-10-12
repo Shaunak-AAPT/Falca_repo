@@ -189,7 +189,7 @@
 }
 
 .Monexo img{
-	height: 100px;
+	height: 80px;
     width:50% !important
   }
 .loan-type img {
@@ -1017,7 +1017,7 @@ tbody tr:last-child {
     }
 
     .Monexo img{
-        height: 70px !important;
+        height: 60px !important;
         width:20% !important
       }
     .protect {

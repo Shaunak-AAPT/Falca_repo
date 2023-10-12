@@ -238,7 +238,7 @@ export class WealthHomeComponent implements OnInit {
       // window.location.href = credit.path;
       // window.open(Product.path, '_blank');
 
-    } else if(Product.name === "Monexo"){
+    } else if(Product.name === "P2P Lending<br>(New)"){
       window.open(Product.path, '_blank');
 
     }
