@@ -463,8 +463,8 @@ export class FooterComponent implements OnInit {
 
   }
   knowMore(){
-    window.open("http://65.1.237.83/","_blank");
-    // window.open("https://uatnw.finizon.com","_blank");
+    // window.open("http://65.1.237.83/","_blank");
+    window.open("https://uatnw.finizon.com","_blank");
 
   }
 }
