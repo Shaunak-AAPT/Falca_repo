@@ -23,7 +23,7 @@
       <!-- The slideshow/carousel -->
       <div class="carousel-inner">
         <div class="carousel-item" *ngFor="let banners of wealthbannerList; let i= index" [ngClass]="i==0?'active':''">
-          <div class="row align-items-center">
+          <div class="row align-items-center Banner">
             <!-- <div class="col-12 hidden-lg hidden-sm">
                 <h4 class="slider-head">Plan your <span>Investment</span> to reach your <span>Goals.</span></h4>
               </div> -->
@@ -161,7 +161,6 @@
         <div class="col" *ngFor="let product of productwealthdata.slice(0,6)" (click)="GotoRecommendedOffers(product)">
           <div class="money-mng">
             <img src="{{product?.logo}}" alt="l1">
-            <!-- <p>{{product?.name}}</p> -->
             <p [innerHTML]="product?.name"></p>
 
           </div>
@@ -268,6 +267,59 @@
     </div>
   </div> -->
     <!-- Desktop -->
+
+    <!-- <div class="container hidden-xs mt-5 mb-3 common-mt-5 more-product money-invest loan-opt margin">
+      <div class="row align-items-center justify-content-center">
+        <div class="col" *ngFor="let product of productwealthdata.slice(0,6)" 
+          (click)="GotoRecommendedOffers(product)">
+          <div class="money-mng">
+            <img src="{{product?.logo}}" alt="l1">
+            <p [innerHTML]="product?.name"></p>
+          </div>
+        
+        </div>
+        <div class="col" *ngFor="let product of productwealthdata.slice(6,7)" 
+        (click)="GotoRecommendedOffers(product)">
+        <div class="money-mng Monexo">
+          <img src="{{product?.logo}}" alt="l1">
+          <p [innerHTML]="product?.name"></p>
+
+        </div>
+       
+      </div>
+      </div>
+    </div> -->
+
+
+    <!-- <div class="container hidden-lg pt-70 mt-5 mb-3 common-mt-3 more-product money-invest loan-opt">
+      <div class="row align-items-center">
+        <div class="col" *ngFor="let product of productwealthdata.slice(0,3)"(click)="GotoRecommendedOffers(product)">
+          <div class="money-mng">
+            <img src="{{product.logo}}" alt="l1">
+            <p [innerHTML]="product?.name"></p>
+          </div>
+         
+        </div>
+
+        <div class="col" *ngFor="let product of productwealthdata.slice(3,5)"(click)="GotoRecommendedOffers(product)">
+          <div class="money-mng">
+            <img src="{{product.logo}}" alt="l1">
+            <p [innerHTML]="product?.name"></p>
+
+          </div>
+         
+        </div>
+        <div class="col-4" *ngFor="let product of productwealthdata.slice(5, 7)"(click)="GotoRecommendedOffers(product)">
+          <div class="money-mng">
+            <img src="{{product.logo}}" alt="l1">
+            <p [innerHTML]="product?.name"></p>
+
+          </div>
+         </div>
+    
+      </div>
+
+    </div> -->
 
     <div class="container pt-70 ptsm-1">
       <!-- Desktop View -->
