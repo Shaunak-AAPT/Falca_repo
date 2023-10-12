@@ -298,11 +298,11 @@
   }
 
    .money-mng .shopkeeper_logo{
-	object-fit: cover;
+	/* object-fit: cover; */
 	/* border:2px solid black; */
 	width: 100px !important;
 	/* height:30% !important; */
-	height: auto;
+	height: 80px;
   }
 
   .title-mng {
@@ -350,6 +350,31 @@
 	/* margin-right: 20%; */
 	height: 80px;
   }
+  .monexo img{
+	margin-top: -2px !important;
+	width: 40% !important;
+	height: 100px;
+
+	/* border: 1px solid blueviolet !important  */
+ }
+
+ .monexo p{
+	margin-top: -12px !important;
+
+	/* border: 1px solid blueviolet !important  */
+ }
+ .shopkeeper img{
+	margin-top: 50px !important;
+	width: 40% !important;
+	height: 85px;
+
+	/* border: 1px solid blueviolet !important  */
+ }
+  .shopkeeper p{
+	/* margin-top:2px !important; */
+
+	/* border: 1px solid blueviolet !important  */
+ }
   /* .wealth p{
 	margin-right: 20%;
   } */
@@ -482,16 +507,23 @@
 	  .money-mng {
 		margin-bottom: 20px;
 	  }
+	  .monexo img{
+		width: 70% !important;
+		height: 30% !important;
+		margin-top: 60%!important
+
+	  }
 	  /* .loan-opt .money-mng img {
 		width: 40%;
 	  } */
 	  .money-mng .shopkeeper_logo{
 		/* object-fit: cover; */
 		/* border:2px solid black; */
-		width: 200px !important;
+		/* width: 200px !important; */
 		/* height:30% !important; */
 		/* height: auto; */
 	  }
+	  
 	  /* .money-mng .shopkeeper_name{
 		margin-top: -10%;
 	  } */
@@ -654,6 +686,33 @@
 	/* .loan-opt .money-mng img {
 		width: 38%;
 	  } */
+
+
+	  .shopkeeper img{
+		margin-top: 15px !important;
+		width: 40% !important;
+		height: 50px;
+	
+		/* border: 1px solid blueviolet !important  */
+	 }
+	  .shopkeeper p{
+		/* margin-top:2px !important; */
+	
+		/* border: 1px solid blueviolet !important  */
+	 }
+	 .monexo img{
+		/* margin-top: -2px !important; */
+		width: 40% !important;
+		height: 65px;
+	
+		/* border: 1px solid blueviolet !important  */
+	 }
+	
+	 .monexo p{
+		margin-top: 12px !important;
+	
+		/* border: 1px solid blueviolet !important  */
+	 }
 }
 
 @media (min-width: 1200px) {

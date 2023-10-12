@@ -560,10 +560,14 @@ export class HeaderComponent implements OnInit {
 
   shopkeeperLink() {
     // window.open("http://65.1.237.83:5800/spprd/shopkeeper?referralid=godigit", "_blank");
-    // window.open("https://dev.finizon.com/spprd/shopkeeper?referralid=godigit", "_blank");
-    // window.open("https://tools.finizon.com/spprd/shopkeeper?referralid=godigit", "_blank");
 
+    window.open("https://dev.finizon.com/spprd/shopkeeper?referralid=godigit", "_blank");
   }
+  monexoLink() {
+    // window.open("http://65.1.237.83:5800/monexo?referralid=monexo", "_blank");
+    window.open("https://dev.finizon.com/monexo?referralid=monexo", "_blank");
+  }
+
 
   insureLink() {
     // window.open("http://65.1.237.83:6800", "_blank");
