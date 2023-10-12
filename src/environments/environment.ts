@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   // ServerUrl: "https://findev.aaptfin.com/api/",
 
-  ServerUrl: "http://65.1.237.83/api/",
+  // ServerUrl: "http://65.1.237.83/api/",
 
   // duplicate/local version by shaunak
   // ServerUrl: "http://127.0.0.1:8000/api/",
@@ -16,7 +16,7 @@ export const environment = {
 
 
 
-  // ServerUrl: "https://finizon.com/api/",
+  ServerUrl: "https://finizon.com/api/",
 
   DGLoginEmail: "finizonuser@finizon.com",
   DGLoginPassword: "test2$",
