@@ -4,10 +4,10 @@ export const environment = {
 
 
   // dev
-  ServerUrl: "http://65.1.237.83/api/",
+  // ServerUrl: "http://65.1.237.83/api/",
 
   // ServerUrl: "https://dev.finizon.com/api/",
-  // ServerUrl: "https://uatnw.finizon.com/api/",
+  ServerUrl: "https://uatnw.finizon.com/api/",
   // ServerUrl: "https://uatnw.finizon.com/api/",
 
 
