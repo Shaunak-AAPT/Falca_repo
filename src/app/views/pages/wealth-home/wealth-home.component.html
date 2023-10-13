@@ -155,8 +155,55 @@
       </div>
     </div>
 
-    <!-- Desktop -->
-    <div class="container pt-70 mb-3  common-pt-50 more-product money-invest loan-opt">
+    <!-- Desktop  work in 767 and above--->
+    <div class="container pt-70 mb-3  common-pt-50 more-product money-invest loan-opt mob-hidden">
+      <div class="row align-items-center justify-content-center">
+        <div class="col" *ngFor="let product of productwealthdata.slice(0,5)" (click)="GotoRecommendedOffers(product)">
+          <div class="money-mng">
+            <img src="{{product?.logo}}" alt="l1">
+            <p [innerHTML]="product?.name"></p>
+
+          </div>
+        </div>
+       
+      </div>
+      <div class="row align-items-center justify-content-center">
+        <div class="col " *ngFor="let product of productwealthdata.slice(5)" (click)="GotoRecommendedOffers(product)">
+          <div class="money-mng Monexo">
+            <img src="{{product?.logo}}" alt="l1">
+            <p [innerHTML]="product?.name"></p>
+
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+
+    <!-- <div class="container pt-70 mb-3  common-pt-50 more-product money-invest loan-opt ">
+      <div class="row align-items-center justify-content-center">
+        <div class="col" *ngFor="let product of productwealthdata.slice(0,6)" (click)="GotoRecommendedOffers(product)">
+          <div class="money-mng">
+            <img src="{{product?.logo}}" alt="l1">
+            <p [innerHTML]="product?.name"></p>
+
+          </div>
+        </div>
+          <div class="col" *ngFor="let product of productwealthdata.slice(6,7)" (click)="GotoRecommendedOffers(product)">
+            <div class="money-mng Monexo">
+              <img src="{{product?.logo}}" alt="l1">
+              <p [innerHTML]="product?.name"></p>
+
+            </div>
+
+          </div>
+
+
+     </div>
+    </div> -->
+
+    <div class="container pt-70 mb-3  common-pt-50 more-product money-invest loan-opt desk-pad-hidden">
       <div class="row align-items-center justify-content-center">
         <div class="col" *ngFor="let product of productwealthdata.slice(0,6)" (click)="GotoRecommendedOffers(product)">
           <div class="money-mng">
@@ -216,6 +263,52 @@
       </div>
     </div>
 
+       
+
+    <!-- For iPad View  need to align for mobile view-->
+    <!-- <div class="container pt-70 mb-3 common-pt-50 more-product money-invest loan-opt">
+      <div class="row align-items-center justify-content-center">
+        <div class="col" *ngFor="let product of productwealthdata.slice(0,5)" (click)="GotoRecommendedOffers(product)">
+          <div class="money-mng">
+            <img src="{{product?.logo}}" alt="l1">
+            <p [innerHTML]="product?.name"></p>
+          </div>
+        </div>
+      </div>
+      <div class="row align-items-center justify-content-center">
+        <div class="col-4" *ngFor="let product of productwealthdata.slice(5)" (click)="GotoRecommendedOffers(product)">
+          <div class="money-mng">
+            <img src="{{product?.logo}}" alt="l1">
+            <p [innerHTML]="product?.name"></p>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+    <!-- For Screens Between 777px and 1200px -->
+    <!-- For Screens 768px and Above 5-2-->
+    <!-- <div class="container pt-70 mb-3 common-pt-50 more-product money-invest loan-opt hidden-xs">
+      <div class="row align-items-center justify-content-center">
+        <div class="col" *ngFor="let product of productwealthdata.slice(0,5)" (click)="GotoRecommendedOffers(product)">
+          <div class="money-mng">
+            <img src="{{product?.logo}}" alt="l1">
+            <p [innerHTML]="product?.name"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row align-items-center justify-content-center">
+        <div class="col" *ngFor="let product of productwealthdata.slice(5)" (click)="GotoRecommendedOffers(product)">
+          <div class="money-mng">
+            <img src="{{product?.logo}}" alt="l1">
+            <p [innerHTML]="product?.name"></p>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
     <!-- <div class="container hidden-lg pt-70 mt-5 mb-3 common-mt-3 more-product money-invest loan-opt">
       <div class="row align-items-center">
        
@@ -266,7 +359,10 @@
           </div>
     </div>
   </div> -->
-    <!-- Desktop -->
+
+
+
+    <!-- Desktop  after 1200 work propery-->
 
     <!-- <div class="container hidden-xs mt-5 mb-3 common-mt-5 more-product money-invest loan-opt margin">
       <div class="row align-items-center justify-content-center">
@@ -291,35 +387,7 @@
     </div> -->
 
 
-    <!-- <div class="container hidden-lg pt-70 mt-5 mb-3 common-mt-3 more-product money-invest loan-opt">
-      <div class="row align-items-center">
-        <div class="col" *ngFor="let product of productwealthdata.slice(0,3)"(click)="GotoRecommendedOffers(product)">
-          <div class="money-mng">
-            <img src="{{product.logo}}" alt="l1">
-            <p [innerHTML]="product?.name"></p>
-          </div>
-         
-        </div>
 
-        <div class="col" *ngFor="let product of productwealthdata.slice(3,5)"(click)="GotoRecommendedOffers(product)">
-          <div class="money-mng">
-            <img src="{{product.logo}}" alt="l1">
-            <p [innerHTML]="product?.name"></p>
-
-          </div>
-         
-        </div>
-        <div class="col-4" *ngFor="let product of productwealthdata.slice(5, 7)"(click)="GotoRecommendedOffers(product)">
-          <div class="money-mng">
-            <img src="{{product.logo}}" alt="l1">
-            <p [innerHTML]="product?.name"></p>
-
-          </div>
-         </div>
-    
-      </div>
-
-    </div> -->
 
     <div class="container pt-70 ptsm-1">
       <!-- Desktop View -->
@@ -624,7 +692,8 @@
               </tr>
             </tbody>
           </table>
-          <div class="font12">The above illustration is merely indicative in nature and does not in any manner indicate
+          <div class="font12">The above illustration is merely indicative in nature and does not in any manner
+            indicate
             the performance of any particular MF scheme. Please read the SID and SAI carefully before investing.<br
               class="hidden-xs" />
           </div>
@@ -699,7 +768,8 @@
             or send us a msg at_________________to discuss which corporate deposit could work best to meet your
             financial milestone</p> -->
           <p class="elementor-icon-list-text">Finizon offers you a platform to invest in the best corporate
-            deposits.Leave with us your details through the link . We can set up a time to take you through the details
+            deposits.Leave with us your details through the link . We can set up a time to take you through the
+            details
             , while we stay aligned to your investment objectives</p>
           <button class="nav-link btn btn-primary theme-button" (click)="knowMore()">KNOW MORE</button>
         </div>
@@ -718,7 +788,8 @@
               class="hidden-xs" />
             eirmod tempor invidunt ut labore et dolore at vero eos et.</p> -->
           <p class="font18">You could invest in some of the companies by investing in Equity Mutual Funds across
-            categories such as Large Cap , Large & Mid Cap , Flexi Cap , Multi Cap and Mid Cap etc , click on the below
+            categories such as Large Cap , Large & Mid Cap , Flexi Cap , Multi Cap and Mid Cap etc , click on the
+            below
             link to go through some of the funds we recommend.<br class="hidden-xs" />
           </p>
           <!-- <a href="https://drive.google.com/drive/folders/1gWxnK9k_8-hpG11HqFH8e7c1nm-AdgRC?usp=drive_link">Click
@@ -741,7 +812,8 @@
             nonumy<br class="hidden-xs" />
             eirmod tempor invidunt ut labore et dolore at vero eos et.</p> -->
           <p class="elementor-icon-list-text">You could invest in some of the companies by investing in Equity Mutual
-            Funds across categories such as Large Cap , Large & Mid Cap , Flexi Cap , Multi Cap and Mid Cap etc , click
+            Funds across categories such as Large Cap , Large & Mid Cap , Flexi Cap , Multi Cap and Mid Cap etc ,
+            click
             on the below link to go through some of the funds we recommend.<br class="hidden-xs" />
           </p>
           <button class="nav-link btn btn-primary theme-button" (click)="clkHere()">CLICK HERE</button>
@@ -785,7 +857,8 @@
       </div>
       <div class="col-lg-4 col-12 col-sm-12 text-center">
         <h4 class="title-head2 mb-4 mt-5">Optimize Returns on Short Term Surplus</h4>
-        <p class="elementor-icon-list-text">To align your short term goal appropriately , we have some of the best debt
+        <p class="elementor-icon-list-text">To align your short term goal appropriately , we have some of the best
+          debt
           mutual funds .It
           is important to align your investment time horizon with the average maturity of the debt mutual funds.</p>
         <button class="nav-link btn btn-primary theme-button" (click)="knowMore()">KNOW MORE</button>

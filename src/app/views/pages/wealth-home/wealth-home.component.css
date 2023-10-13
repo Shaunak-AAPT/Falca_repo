@@ -22,13 +22,14 @@
     background-image: url('../../../../assets/img/arrow_left.svg');
 }
 
-.Banner{
+.Banner {
     margin-top: 7rem !important;
 }
 
 .carousel-control-next-icon {
     background-image: url('../../../../assets/img/arrow_right.svg');
 }
+
 /* .carousel-control-prev-icon {
 	background-image: url(../../assets/img/arrow_left.svg);
 }
@@ -43,7 +44,7 @@
     height: 3rem;
     /* border:2px solid red; */
     /* background :transparent; */
-    margin-top:-30% !important;
+    margin-top: -30% !important;
 }
 
 /* .carousel-control-next,
@@ -78,8 +79,9 @@
 } */
 
 .carousel-indicators {
-	bottom: -50px;
+    bottom: -50px;
 }
+
 .carousel-indicators button {
     width: 42px;
     height: 13px;
@@ -100,26 +102,26 @@
 
 .testimonial-slider {
     position: relative;
-  }
-  
-  .testimonial-slider .user-img {
+}
+
+.testimonial-slider .user-img {
     margin-bottom: 20px;
     height: 96px;
     width: 96px;
-  }
-  
-  .testimonial-slider h4 {
+}
+
+.testimonial-slider h4 {
     color: #222222;
     font-weight: 600;
     font-size: 30px;
-  }
-  
-  .testimonial-slider p {
+}
+
+.testimonial-slider p {
     font-size: 20px;
     padding: 1% 20%;
-  }
+}
 
-  ::ng-deep .testimonial-slider .owl-prev {
+::ng-deep .testimonial-slider .owl-prev {
     left: -4rem;
     background: transparent !important;
     z-index: 999;
@@ -133,58 +135,60 @@
     box-shadow: none;
     opacity: 0.5;
     /* border:2px solid red; */
-  }
+}
 
-  ::ng-deep .testimonial-slider .owl-prev:hover,
+::ng-deep .testimonial-slider .owl-prev:hover,
 ::ng-deep .testimonial-slider .owl-next:hover {
-  opacity: 1;
+    opacity: 1;
 }
 
 ::ng-deep .testimonial-slider .owl-next {
-  right: -3rem;
-  background: transparent !important;
-  z-index: 999;
-  display: flex;
-  position: absolute;
-  align-items: center;
-  justify-content: center;
-  height: 3rem !important;
-  width: 3rem !important;
-  top: 8rem;
-  box-shadow: none;
-  opacity: 0.5;
+    right: -3rem;
+    background: transparent !important;
+    z-index: 999;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    height: 3rem !important;
+    width: 3rem !important;
+    top: 8rem;
+    box-shadow: none;
+    opacity: 0.5;
 }
 
 ::ng-deep .testimonial-slider .owl-nav img {
     width: 3rem;
     height: 3rem;
-  }
-  
-  ::ng-deep .testimonial-slider .owl-nav {
-      transition: all 0.5s ease;
-  }
-  
-  ::ng-deep .testimonial-slider .owl-theme .owl-dots .owl-dot span {
+}
+
+::ng-deep .testimonial-slider .owl-nav {
+    transition: all 0.5s ease;
+}
+
+::ng-deep .testimonial-slider .owl-theme .owl-dots .owl-dot span {
     background: #465a65;
     opacity: 0.5;
     width: 12px;
     height: 12px;
     margin-right: 3px;
     margin-left: 3px;
-  }
-  ::ng-deep .testimonial-slider .owl-theme .owl-dots .owl-dot.active span,
-  .owl-theme .owl-dots .owl-dot:hover span {
+}
+
+::ng-deep .testimonial-slider .owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span {
     background: #465a65;
     opacity: 1;
-  }
-  .testimonial-slider p {
+}
+
+.testimonial-slider p {
     font-size: 20px;
     padding: 1% 20%;
-  }
+}
 
-  .testimonial-slider h4 {
+.testimonial-slider h4 {
     font-size: 24px;
-  }
+}
 
 
 
@@ -192,10 +196,11 @@
     text-align: center;
 }
 
-.Monexo img{
-	height: 80px;
-    width:50% !important
-  }
+.Monexo img {
+    height: 80px;
+    width: 50% !important
+}
+
 .loan-type img {
     width: 28%;
     margin: 0 auto;
@@ -296,7 +301,7 @@
 
 .testimonialtext {
     text-align: justify !important;
-} 
+}
 
 .upquote {
     position: absolute;
@@ -378,7 +383,7 @@
 }
 
 ::ng-deep .financial-slider .owl-next {
- 
+
     right: 0px;
     background: #eef8fa !important;
     z-index: 999;
@@ -386,9 +391,9 @@
     position: absolute;
     align-items: center;
     justify-content: center;
-      height: 124px !important;
-	width: 40px !important;
-	top: 35px;
+    height: 124px !important;
+    width: 40px !important;
+    top: 35px;
     box-shadow: 0px 0px 5px #0000001c;
     /* opacity: .9; */
     opacity: 0.5;
@@ -434,25 +439,26 @@
 
 ::ng-deep .financial-slider .owl-nav .owl-prev,
 ::ng-deep .financial-slider .owl-nav .owl-next {
-	opacity: 0 !important;
-	transition: all 0.5s ease;
-	margin: 0;
+    opacity: 0 !important;
+    transition: all 0.5s ease;
+    margin: 0;
 }
 
 ::ng-deep .financial-slider:hover .owl-nav .owl-prev,
 ::ng-deep .financial-slider:hover .owl-nav .owl-next {
-	opacity: 0.9 !important
+    opacity: 0.9 !important
 }
+
 ::ng-deep .financial-slide .fin .owl-nav .owl-prev,
 ::ng-deep .financial-slider .fin .owl-nav .owl-next {
-	opacity: 0 !important;
-	transition: all 0.5s ease;
-	margin: 0;
+    opacity: 0 !important;
+    transition: all 0.5s ease;
+    margin: 0;
 }
 
 ::ng-deep .financial-slider .fin:hover .owl-nav .owl-prev,
 ::ng-deep .financial-slider .fin:hover .owl-nav .owl-next {
-	opacity: 0.9 !important
+    opacity: 0.9 !important
 }
 
 .finance-news img {
@@ -475,6 +481,7 @@
 .financial-slider.fin .slick-initialized .slick-slide {
     padding-left: 20px;
 }
+
 .plr-15 {
     padding-left: 15px;
     padding-right: 15px;
@@ -491,9 +498,11 @@
 .financial-slider .slick-initialized .slick-slide {
     padding-left: 20px;
 }
+
 .financial-slider .fin .slick-initialized .slick-slide {
     padding-left: 20px;
 }
+
 .cta h3 {
     color: #222222;
     font-size: 42px;
@@ -553,6 +562,7 @@ p.trend-name {
 .font18 {
     font-size: 18px;
 }
+
 .font14 {
     font-size: 14px;
 }
@@ -920,7 +930,8 @@ tbody tr:last-child {
     .testimonial-slider p {
         font-size: 16px;
         padding: 1% 20%;
-      }
+    }
+
     .slider-head {
         /* font-size: 25px;
 			font-weight: 600;
@@ -974,7 +985,8 @@ tbody tr:last-child {
         font-size: 15px;
         /* font-weight: 600; */
     }
-    .about .font12{
+
+    .about .font12 {
         text-align: justify;
         font-size: 12px;
         color: #707070;
@@ -1020,10 +1032,11 @@ tbody tr:last-child {
         width: 33%;
     }
 
-    .Monexo img{
+    .Monexo img {
         height: 60px !important;
-        width:20% !important
-      }
+        width: 20% !important
+    }
+
     .protect {
         text-align: center;
     }
@@ -1161,6 +1174,31 @@ tbody tr:last-child {
     }
 }
 
+@media (max-width: 767px) {
+    .mob-hidden {
+        display: none !important;
+        /* Use !important to ensure the style takes precedence */
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 2000px) {
+    .desk-pad-hidden {
+        display: none !important;
+        /* Use !important to ensure the style takes precedence */
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+    .Monexo img {
+        width: 20% !important;
+
+    }
+
+    /* .custom-col {
+     justify-content: left;
+    } */
+}
+
 @media only screen and (min-width: 576px) and (max-width: 991px) {
     .elementor-icon-list-text {
         font-size: 17px;
@@ -1207,7 +1245,8 @@ tbody tr:last-child {
 
         letter-spacing: 0.45px;
     }
-    .elementor-icon-list-text .font12{
+
+    .elementor-icon-list-text .font12 {
         font-size: 12px !important;
     }
 
@@ -1300,12 +1339,36 @@ tbody tr:last-child {
     /* modal part responsiveness of phydigital partner button section */
     .testimonial-slider .owl-next {
         right: 0rem;
-      }
-    
-      .testimonial-slider .owl-prev {
+    }
+
+    .testimonial-slider .owl-prev {
         left: 0rem;
-      }
+    }
 }
+
+/* Apply this style for screens between 777px and 1200px */
+/* @media (min-width: 777px) and (max-width: 1200px) {
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .col {
+      width: calc(10%); 
+    }
+  } */
+
+/*   
+  @media (max-width: 767px) {
+    .container {
+      display: none;
+    }
+  } */
+
+
+
+
+
 
 @media only screen and (max-width: 991px) and (min-width: 768px) {
     #demo .slider-head {
@@ -2042,12 +2105,13 @@ tbody tr:last-child {
         color: #222222;
         font-weight: 600;
         font-size: 40px;
-      }
-    
-      .testimonial-slider p {
+    }
+
+    .testimonial-slider p {
         font-size: 24px;
         padding: 1% 20%;
-      }
+    }
+
     .why-finizon p {
         padding-right: 45px;
         font-size: 24px;
