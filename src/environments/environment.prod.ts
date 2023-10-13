@@ -4,10 +4,12 @@ export const environment = {
 
 
   // dev
-  // ServerUrl: "http://65.1.237.83/api/",
+  ServerUrl: "http://65.1.237.83/api/",
 
   // ServerUrl: "https://dev.finizon.com/api/",
   // ServerUrl: "https://uatnw.finizon.com/api/",
+  // ServerUrl: "https://uatnw.finizon.com/api/",
+
 
   DGLoginEmail: "finizonuser@finizon.com",
   DGLoginPassword: "test2$",
@@ -21,7 +23,7 @@ export const environment = {
 
 
   // prod url 
-  ServerUrl: "https://finizon.com/api/",
+  // ServerUrl: "https://finizon.com/api/",
 
 
 
