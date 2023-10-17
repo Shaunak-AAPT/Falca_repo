@@ -14,9 +14,9 @@
             <a class="nav-link" [hidden]="!isLoggedIn" [ngClass]="IsDashboard ? 'active' :''"
               routerLink="/overview">Dashboard</a>
           </li> -->
-          <li class="nav-item">
+          <li class="nav-item hidden-xs ">
 
-            <a class="nav-link" (click)="insureLink()">Insure</a>
+            <a class="nav-link hide-list" (click)="insureLink()">Insure</a>
 
           </li>
           <!--ORG code-->     
@@ -25,8 +25,8 @@
           </li> -->
 
           <!-- below is temporary redirection of wealth-->
-          <li class="nav-item">
-            <a class="nav-link" (click)="wealthlink()">Wealth</a>
+          <li class="nav-item hidden-xs">
+            <a class="nav-link hide-list" (click)="wealthlink()">Wealth</a>
           </li>
 
           <!-- *******Customer******* -->
@@ -98,9 +98,12 @@
     <ul class="hidden-xs hidden-sm scrollmenu">
       <li [hidden]="!isLoggedIn" [routerLink]="['/profile-details']" (click)="handleOpenCloseNav()"><a>My Profile</a>
       </li>
-      <li><a data-bs-toggle="collapse" href="#Toolscollapse" role="button" aria-expanded="false"
+      <!-- <li><a data-bs-toggle="collapse" href="#Toolscollapse" role="button" aria-expanded="false"
           aria-controls="collapseExample" class="drop-menu">Tools</a>
-      </li>
+      </li> -->
+      <li><a data-bs-toggle="collapse" href="#Toolscollapse" role="button" aria-expanded="false"
+        aria-controls="collapseExample" class="drop-menu">Tools</a>
+    </li>
       <div class="collapse" id="Toolscollapse">
         <div class="card card-body">
           <ul>
@@ -124,16 +127,16 @@
 
       <li><a href="#">About Us</a></li>
       <li><a href="#">Knowledge Center</a></li>
-      <li><a data-toggle="modal" data-target="#supportModal"(click)="showSupportModal()">Support</a></li>
+      <li style="cursor: pointer;"><a data-toggle="modal" data-target="#supportModal"(click)="showSupportModal()">Support</a></li>
 
       <li (click)="Logout()" [hidden]="!isLoggedIn"><a>Logout</a></li>
     </ul>
     <ul class="hidden-lg scrollmenu">
       <li [hidden]="!isLoggedIn" [routerLink]="['/profile-details']"><a>My Profile</a></li>
 
-      <li class="mobile"><a (click)="insureLink()">Insure</a></li>
+      <li class="mobile hidden-tablet"><a (click)="insureLink()">Insure</a></li>
       <!-- <li class="mobile"><a (click)="GotoWealth()">Wealth</a></li> -->
-      <li class="mobile"><a  (click)="wealthlink()">Wealth</a></li>
+      <li class="mobile hidden-tablet"><a  (click)="wealthlink()">Wealth</a></li>
 
       <li class="mobile"><a data-bs-toggle="collapse" href="#Toolscollapse1" role="button" aria-expanded="false"
           aria-controls="collapseExample" class="drop-menu">Tools</a></li>
@@ -161,7 +164,7 @@
       <li class="mobile"><a href="#">Knowledge Center</a></li>
       <!-- <li><a href="#">Support</a></li> -->
       <!-- <li (click)="openSupportModal()">Support</li> -->
-      <li class="mobile"><a data-toggle="modal" data-target="#supportModal"(click)="showSupportModal()">Support</a></li>
+      <li class="mobile" style="cursor: pointer;"><a data-toggle="modal" data-target="#supportModal"(click)="showSupportModal()">Support</a></li>
       <li routerLink="/overview" [hidden]="!isLoggedIn"><a>Dashboard</a></li>
       <li (click)="Logout()" [hidden]="!isLoggedIn"><a>Logout</a></li>
     </ul>
