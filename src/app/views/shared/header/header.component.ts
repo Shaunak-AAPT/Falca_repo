@@ -522,8 +522,8 @@ export class HeaderComponent implements OnInit {
   //       // window.open("https://wealth.finizon.com/client-login", "_blank");
   // }
   wealthlink() {
-    // window.location.href = "http://65.1.237.83/wealth";
-    window.location.href = "https://uatnw.finizon.com/wealth";
+    window.location.href = "http://65.1.237.83/wealth";
+    // window.location.href = "https://uatnw.finizon.com/wealth";
     // window.location.href = "https://finizon.com/wealth";
 
     // or window.location.href = "https://wealth.finizon.com/client-login";
@@ -552,30 +552,30 @@ export class HeaderComponent implements OnInit {
 
   }
   insurefitLink() {
-    // window.open("http://65.1.237.83:5800/spprd/wellness?referralid=goqii", "_blank");
-    window.open("https://dev.finizon.com/spprd/wellness?referralid=goqii", "_blank");
+    window.open("http://65.1.237.83:5800/spprd/wellness?referralid=goqii", "_blank");
+    // window.open("https://dev.finizon.com/spprd/wellness?referralid=goqii", "_blank");
     // window.open("https://tools.finizon.com/spprd/wellness?referralid=goqii", "_blank");
 
   }
 
   shopkeeperLink() {
-    // window.open("http://65.1.237.83:5800/spprd/shopkeeper?referralid=godigit", "_blank");
+    window.open("http://65.1.237.83:5800/spprd/shopkeeper?referralid=godigit", "_blank");
 
-    window.open("https://dev.finizon.com/spprd/shopkeeper?referralid=godigit", "_blank");
+    // window.open("https://dev.finizon.com/spprd/shopkeeper?referralid=godigit", "_blank");
     // window.open("https://tools.finizon.com/spprd/shopkeeper?referralid=godigit", "_blank");
 
   }
   monexoLink() {
-    // window.open("http://65.1.237.83:5800/monexo?referralid=monexo", "_blank");
-    window.open("https://dev.finizon.com/monexo?referralid=monexo", "_blank");
+    window.open("http://65.1.237.83:5800/monexo?referralid=monexo", "_blank");
+    // window.open("https://dev.finizon.com/monexo?referralid=monexo", "_blank");
     // window.open("https://tools.finizon.com/monexo?referralid=monexo", "_blank");
 
   }
 
 
   insureLink() {
-    // window.open("http://65.1.237.83:6800", "_blank");
-    window.open("https://uatnw.finizoninsurance.com", "_blank");
+    window.open("http://65.1.237.83:6800", "_blank");
+    // window.open("https://uatnw.finizoninsurance.com", "_blank");
     // window.open("https://finizoninsurance.com", "_blank");
   }
 }

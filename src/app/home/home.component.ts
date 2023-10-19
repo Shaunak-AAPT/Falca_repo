@@ -649,10 +649,20 @@ export class HomeComponent implements OnInit {
       $("#leadModal").modal("show");
       console.log("after");
     }
+    else if (credit.name === "Mutual Funds") {
+      console.log('credit', credit.path)
+      // this.route.navigate([insurence.path]);
+      $("#mutualFundModal").modal("show");
+      // window.location.href = credit.path;
+      // window.open(Product.path, '_blank');
+
+    }
     else {
       console.log('credit', credit.path)
       // this.route.navigate([insurence.path]);
       $("#leadModal").modal("hide");
+      $("#mutualFundModal").modal("hide");
+
       // window.location.href = credit.path;
       window.open(credit.path, '_blank');
 
