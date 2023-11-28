@@ -101,11 +101,10 @@
             
 
           <!-- added by sw -->
-            <li><a target="_blank" href="https://tools.finizon.com/insureright">Insureright</a></li>
-            <li><a target="_blank" href="https://tools.finizon.com/spprd/hospicash?referralid=care">Hospicash</a></li>
-            <li><a target="_blank" href="https://tools.finizon.com/spprd/wellness?referralid=svaas">Wellness</a></li>
+            <li><a target="_blank" href="http://65.1.237.83:5800/insureright">Insureright</a></li>
+            <li><a target="_blank" href="http://65.1.237.83:5800/spprd/hospicash?referralid=care">Hospicash</a></li>
+            <li><a target="_blank" href="http://65.1.237.83:5800/spprd/wellness?referralid=svaas">Wellness</a></li>
             <li style="cursor:pointer;" ><a (click)="insurefitLink()">InsureFit 360</a></li>
-
             <li style="cursor:pointer;" ><a (click)="shopkeeperLink()">Shopkeeper Insurance</a></li>
             <li style="cursor:pointer;" ><a (click)="monexoLink()">P2P Lending</a></li>
 
@@ -129,11 +128,10 @@
         <div class="card card-body">
           <ul>
             <!-- added by sw -->
-            <li><a target="_blank" href="https://tools.finizon.com/insureright">Insureright</a></li>
-            <li><a target="_blank" href="https://tools.finizon.com/spprd/hospicash?referralid=care">Hospicash</a></li>
-            <li><a target="_blank" href="https://tools.finizon.com/spprd/wellness?referralid=svaas">Wellness</a></li>
+            <li><a target="_blank" href="http://65.1.237.83:5800/insureright">Insureright</a></li>
+            <li><a target="_blank" href="http://65.1.237.83:5800/spprd/hospicash?referralid=care">Hospicash</a></li>
+            <li><a target="_blank" href="http://65.1.237.83:5800/spprd/wellness?referralid=svaas">Wellness</a></li>
             <li style="cursor:pointer;" ><a (click)="insurefitLink()">InsureFit 360</a></li>
-
             <li style="cursor:pointer;" ><a (click)="shopkeeperLink()">Shopkeeper Insurance</a></li>
             <li style="cursor:pointer;" ><a (click)="monexoLink()">P2P Lending</a></li>
 
@@ -178,62 +176,7 @@
 
 
 <!-- otp Modal -->
-<div class="modal fade" id="headerotp-screen" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-  aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog  modal-dialog-centered">
-    <div class="modal-content">
 
-      <div class="modal-body">
-        <div class="row">
-          <h3 class="otp-title">Enter OTP</h3>
-          <p class="otp-text">OTP sent on <b>{{FormEmail}} </b>
-          </p>
-          <div class="col-2">
-            <input type="text" class="form-control otp-field" maxlength="1" id="headotp1" [(ngModel)]="headotp1"
-              (keyup)="keytab(2,$event)" (keypress)="validation.numberOnly($event)" />
-          </div>
-          <div class="col-2">
-            <input type="text" class="form-control otp-field" maxlength="1" id="headotp2" [(ngModel)]="headotp2"
-              (keyup)="keytab(3,$event)" (keypress)="validation.numberOnly($event)" />
-          </div>
-          <div class="col-2">
-            <input type="text" class="form-control otp-field" maxlength="1" id="headotp3" [(ngModel)]="headotp3"
-              (keyup)="keytab(4,$event)" (keypress)="validation.numberOnly($event)" />
-          </div>
-          <div class="col-2">
-            <input type="text" class="form-control otp-field" maxlength="1" id="headotp4" [(ngModel)]="headotp4"
-              (keyup)="keytab(5,$event)" (keypress)="validation.numberOnly($event)" />
-          </div>
-          <div class="col-2">
-            <input type="text" class="form-control otp-field" maxlength="1" id="headotp5" [(ngModel)]="headotp5"
-              (keyup)="keytab(6,$event)" (keypress)="validation.numberOnly($event)" />
-          </div>
-          <div class="col-2">
-            <input type="text" class="form-control otp-field" maxlength="1" id="headotp6" [(ngModel)]="headotp6"
-              (keypress)="validation.numberOnly($event)" (keyup)="verifyOtpBtn()" />
-          </div>
-          <div class="col-12" *ngIf="resendbuttonText != 'Resend OTP'">
-            <p class="otp-bottomtext">OTP expires in {{resendbuttonText}} s</p>
-          </div>
-          <div class="col-12" *ngIf="resendbuttonText == 'Resend OTP'">
-            <p class="otp-bottomtext">Didn't recieve OTP? <span class="link-text" (click)="ResendOTP()">Resend
-                OTP</span></p>
-          </div>
-        </div>
-        <div class="row pr-btn">
-          
-          <div class="col-12">
-            <button type="button" data-bs-dismiss="modal" aria-label="Close" class="otp-cancel "
-              (click)="cancleModal()"> Cancel</button>
-          </div>
-
-
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
 
 <app-support-modal #supportModal>
 </app-support-modal>
