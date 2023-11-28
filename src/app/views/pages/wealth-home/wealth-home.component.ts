@@ -5,11 +5,9 @@ import { ApiService } from 'src/app/services/api/api.service';
 import { AESCryptoService } from 'src/app/services/cryptomanager/aescrypto.service';
 import { ValidateService } from 'src/app/services/validate/validate.service';
 import { environment } from 'src/environments/environment';
-// import 'slick-carousel';
 
-// import * as $ from 'jquery';
 
-declare var $: any;
+declare let $: any;
 
 @Component({
   selector: 'app-wealth-home',
@@ -86,12 +84,10 @@ export class WealthHomeComponent implements OnInit {
 
 
     this._paramSub = this.activeRoute.queryParams.subscribe(async params => {
-      // console.log(params);
       this.QueryToken = params.TOKEN;
       this.Path = params.PATH;
       this.DG = params.DG;
-      // console.log("QueryToken", this.QueryToken);
-      // console.log("Path", this.Path);
+     
     });
 
     this._paramSub.unsubscribe();
@@ -101,11 +97,9 @@ export class WealthHomeComponent implements OnInit {
     }
 
     if (!this.validation.isNullEmptyUndefined(this.QueryToken) && this.QueryToken != 'null' && this.QueryToken != "{TOKEN}") {
-      // debugger;
       this.QueryToken = decodeURIComponent(this.QueryToken);
       localStorage.setItem("CustToken", this.QueryToken);
       this.api.get("auth/customer/user", true).subscribe(async response => {
-        // console.log('ApplicantData',response)
         localStorage.setItem("ApplicantData", this.crypto.Encrypt(response.data));
       })
     }
@@ -116,15 +110,12 @@ export class WealthHomeComponent implements OnInit {
           localStorage.setItem('DGProceed', '1');
         }
 
-        // if(this.Path == '/digital-gold-product-details'){
-        //   localStorage.setItem('DGProceed','1');
-        // }
+       
         this.route.navigate([this.Path]);
         this.ShowLoader = false;
       }
       else {
-        // commmented by sw as while merging the code it was refreshing the /wealth route and redirecting to commonui home/landing page  
-        // this.route.navigate(['']);
+       
         this.ShowLoader = false;
       }
     }, 1000);
@@ -157,27 +148,12 @@ export class WealthHomeComponent implements OnInit {
 
   knowMore() {
     $("#leadModal").modal("show");
-
-    // console.log("cust bnrs:- ", banners);
-    // console.log("", banners.sortOrder);
-    // if (banners.sortOrder == 3) {
-    //   // $("#knowmoreModal").modal("show");
-    //   console.log("")
-    // }
-
   }
 
   clkHere(){
     window.open("https://drive.google.com/drive/folders/1gWxnK9k_8-hpG11HqFH8e7c1nm-AdgRC?usp=drive_link","_blank");
 
   }
-  // TestimonialWealth() {
-  //   this.api.get("testimonial?vertical=3").subscribe((resp) => {
-  //     this.tesimonialwealthdata = resp.data;
-  //     // console.log("Testimonial data", this.tesimonialwealthdata);
-  //   });
-  // }
-
   TestimonialWealth() {
     this.api.get("testimonial?vertical=3").subscribe((resp) => {
       this.tesimonialwealthdata = resp.data.map((testimonial: any) => ({
@@ -211,33 +187,23 @@ export class WealthHomeComponent implements OnInit {
   ProductsWealth() {
     this.api.get("vertical/product?vertical=4").subscribe((resp) => {
       this.productwealthdata = resp.data;
-      // console.log("product data", this.productwealthdata);
     });
   }
   hidebannerModal() {
     $(".modal").modal("hide");
   }
   GotoRecommendedOffers(Product: any) {
-    // this.route.navigate([Product.path.trim()]);
-
-    // window.open(Product.path, '_blank');
-
     console.log("name", Product);
     const allowedProductNames = ["Fixed Deposits", "Portfolio Management Services", "Alternate Investing Funds", "Bonds"];
 
     if (allowedProductNames.includes(Product.name)) {
-      // if (Product.name === "Fixed Deposits") {
       console.log("begin");
       $("#leadModal").modal("show");
       console.log("after");
     }
     else if (Product.name === "Mutual Funds") {
       console.log('credit', Product.path)
-      // this.route.navigate([insurence.path]);
       $("#bannercustomerModal").modal("show");
-      // window.location.href = credit.path;
-      // window.open(Product.path, '_blank');
-
     } else if(Product.name === "P2P Lending<br>(New)"){
       window.open(Product.path, '_blank');
 
@@ -254,32 +220,26 @@ export class WealthHomeComponent implements OnInit {
   GetBlogList() {
 
     this.api.get("banner/get-blog?labels=Wealth").subscribe(response => {
-      // console.log('get-blog', response);
       this.BlogList = response.items;
-      // console.log('list', this.BlogList);
-      for (let i = 0; i < this.BlogList.length; i++) {
-        if (this.BlogList[i].content.indexOf('src=\"') > 0) {
-          this.blogimage = this.BlogList[i].content.split('src=\"');
+      for (const element of this.BlogList) {
+        if (element.content.indexOf('src=\"') > 0) {
+          this.blogimage = element.content.split('src=\"');
           this.blogimage = this.blogimage[1].split('" width');
           this.blogimage = this.blogimage[0].replace('"', '');
-          this.BlogList[i].blogimage = this.blogimage;
+          element.blogimage = this.blogimage;
         }
         else {
-          // this.BlogList[i].blogimage = 'assets/img/blog_thumnail_1.png';
-          this.BlogList[i].blogimage = 'assets/img/no-blog.png';
+          element.blogimage = 'assets/img/no-blog.png';
 
         }
       }
-      // console.log('updated list', this.BlogList);
     })
 
   }
 
-  // modal part for phydigital section
   showPartnerModal() {
 
     $("#partnerModal").modal("show");
-    // console.log("partnerModal:", this.showModal);
   }
 
   hidePartnerModal() {

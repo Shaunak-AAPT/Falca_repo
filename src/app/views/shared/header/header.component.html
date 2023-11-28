@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-dark header-nav ">
+<nav aria-label="" class="navbar navbar-expand-sm navbar-dark header-nav ">
   <div class="container pos-rel">
     <a class="navbar-brand" [routerLink]="['/']">
       <img src="assets/img/finizon_logo.png" class="logo" alt="logo">
@@ -10,19 +10,14 @@
 
       <form class="d-flex 	">
         <ul class="navbar-nav align-items-center">
-          <!-- <li class="nav-item">
-            <a class="nav-link" [hidden]="!isLoggedIn" [ngClass]="IsDashboard ? 'active' :''"
-              routerLink="/overview">Dashboard</a>
-          </li> -->
+          
           <li class="nav-item hidden-xs ">
 
             <a class="nav-link hide-list" (click)="insureLink()">Insure</a>
 
           </li>
           <!--ORG code-->     
-          <!-- <li class="nav-item">
-            <a class="nav-link" (click)="GotoWealth()">Wealth</a>
-          </li> -->
+         
 
           <!-- below is temporary redirection of wealth-->
           <li class="nav-item hidden-xs">
@@ -89,27 +84,21 @@
 
 <div id="site-wrapper">
   <div id="site-backdrop"></div>
-  <nav class="menu" id="site-wrapper-menu" role="navigation">
+  <nav aria-label="" class="menu" id="site-wrapper-menu" role="navigation">
     <span>
       <a (click)="handleOpenCloseNav()" class="nav-link nav-toggle show-nav onsidebar">
         <i class="fas fa-times"></i>
       </a>
     </span>
     <ul class="hidden-xs hidden-sm scrollmenu">
-      <li [hidden]="!isLoggedIn" [routerLink]="['/profile-details']" (click)="handleOpenCloseNav()"><a>My Profile</a>
-      </li>
-      <!-- <li><a data-bs-toggle="collapse" href="#Toolscollapse" role="button" aria-expanded="false"
-          aria-controls="collapseExample" class="drop-menu">Tools</a>
-      </li> -->
+     
       <li><a data-bs-toggle="collapse" href="#Toolscollapse" role="button" aria-expanded="false"
         aria-controls="collapseExample" class="drop-menu">Tools</a>
     </li>
       <div class="collapse" id="Toolscollapse">
         <div class="card card-body">
           <ul>
-            <!-- <li><a routerLink="/tools-sip" (click)="handleOpenCloseNav()">SIP Calculator</a></li>
-            <li><a routerLink="/tools-emi" (click)="handleOpenCloseNav()">EMI Calculator</a></li>
-            <li><a routerLink="/create-goal" (click)="handleOpenCloseNav()">Goal Planning</a></li> -->
+            
 
           <!-- added by sw -->
             <li><a target="_blank" href="https://tools.finizon.com/insureright">Insureright</a></li>
@@ -117,7 +106,6 @@
             <li><a target="_blank" href="https://tools.finizon.com/spprd/wellness?referralid=svaas">Wellness</a></li>
             <li style="cursor:pointer;" ><a (click)="insurefitLink()">InsureFit 360</a></li>
 
-            <!-- <li><a target="_blank" href="https://tools.finizon.com/spprd/hospicash?referralid=care">Hospicash</a></li> -->
             <li style="cursor:pointer;" ><a (click)="shopkeeperLink()">Shopkeeper Insurance</a></li>
             <li style="cursor:pointer;" ><a (click)="monexoLink()">P2P Lending</a></li>
 
@@ -129,13 +117,10 @@
       <li><a href="#">Knowledge Center</a></li>
       <li style="cursor: pointer;"><a data-toggle="modal" data-target="#supportModal"(click)="showSupportModal()">Support</a></li>
 
-      <li (click)="Logout()" [hidden]="!isLoggedIn"><a>Logout</a></li>
     </ul>
     <ul class="hidden-lg scrollmenu">
-      <li [hidden]="!isLoggedIn" [routerLink]="['/profile-details']"><a>My Profile</a></li>
 
       <li class="mobile hidden-tablet"><a (click)="insureLink()">Insure</a></li>
-      <!-- <li class="mobile"><a (click)="GotoWealth()">Wealth</a></li> -->
       <li class="mobile hidden-tablet"><a  (click)="wealthlink()">Wealth</a></li>
 
       <li class="mobile"><a data-bs-toggle="collapse" href="#Toolscollapse1" role="button" aria-expanded="false"
@@ -143,17 +128,12 @@
       <div class="collapse" id="Toolscollapse1">
         <div class="card card-body">
           <ul>
-            <!-- <li><a routerLink="/tools-sip">SIP Calculator</a></li>
-            <li><a routerLink="/tools-emi">EMI Calculator</a></li>
-            <li><a routerLink="/create-goal">Goal Planning</a></li> -->
-
             <!-- added by sw -->
             <li><a target="_blank" href="https://tools.finizon.com/insureright">Insureright</a></li>
             <li><a target="_blank" href="https://tools.finizon.com/spprd/hospicash?referralid=care">Hospicash</a></li>
             <li><a target="_blank" href="https://tools.finizon.com/spprd/wellness?referralid=svaas">Wellness</a></li>
             <li style="cursor:pointer;" ><a (click)="insurefitLink()">InsureFit 360</a></li>
 
-            <!-- <li><a target="_blank" href="https://tools.finizon.com/spprd/hospicash?referralid=care">Hospicash</a></li> -->
             <li style="cursor:pointer;" ><a (click)="shopkeeperLink()">Shopkeeper Insurance</a></li>
             <li style="cursor:pointer;" ><a (click)="monexoLink()">P2P Lending</a></li>
 
@@ -162,18 +142,12 @@
       </div>
       <li class="mobile"><a href="#">About Us</a></li>
       <li class="mobile"><a href="#">Knowledge Center</a></li>
-      <!-- <li><a href="#">Support</a></li> -->
-      <!-- <li (click)="openSupportModal()">Support</li> -->
       <li class="mobile" style="cursor: pointer;"><a data-toggle="modal" data-target="#supportModal"(click)="showSupportModal()">Support</a></li>
-      <li routerLink="/overview" [hidden]="!isLoggedIn"><a>Dashboard</a></li>
-      <li (click)="Logout()" [hidden]="!isLoggedIn"><a>Logout</a></li>
     </ul>
     <div class="nav-footer">
       <div class="d-flex term-link">
         <span>Share & Refer</span>
         <span><a routerLink="/terms-of-use" target="_blank">Terms & Conditions</a> </span>
-        <!-- <span><a  routerLink="/terms-of-use#top">Terms & Conditions</a> </span> -->
-
       </div>
       <ul class="nav-social">
         <li>
@@ -198,7 +172,6 @@
     </div>
   </nav>
 
-  <!-- <a href="#" class="nav-toggle"><span class="fa fa-bars"></span></a> -->
 
 </div>
 
@@ -212,10 +185,8 @@
 
       <div class="modal-body">
         <div class="row">
-          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
           <h3 class="otp-title">Enter OTP</h3>
           <p class="otp-text">OTP sent on <b>{{FormEmail}} </b>
-            <!-- <span class="link-text" (click)="EditNumber()">Edit Email?</span> -->
           </p>
           <div class="col-2">
             <input type="text" class="form-control otp-field" maxlength="1" id="headotp1" [(ngModel)]="headotp1"
@@ -250,9 +221,7 @@
           </div>
         </div>
         <div class="row pr-btn">
-          <!-- <div class="col-12">
-              <button type="button" (click)="verifyOtp()" class="btn btn-primary theme-button">Submit</button>
-            </div>    -->
+          
           <div class="col-12">
             <button type="button" data-bs-dismiss="modal" aria-label="Close" class="otp-cancel "
               (click)="cancleModal()"> Cancel</button>

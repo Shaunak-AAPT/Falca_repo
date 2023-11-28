@@ -1,14 +1,14 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ApiService } from '../services/api/api.service';
 import { AESCryptoService } from '../services/cryptomanager/aescrypto.service';
 import { environment } from 'src/environments/environment';
 import { ValidateService } from '../services/validate/validate.service';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-declare var $: any;
+import { FormBuilder } from '@angular/forms';
+declare let $: any;
 
-declare var bootstrap: any;
+declare let bootstrap: any;
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -16,7 +16,7 @@ declare var bootstrap: any;
 })
 export class HomeComponent implements OnInit {
 
-  
+
   CommonBannerlist: any;
   meetpartnerslist: any;
   CommonrTestimonialdata: any;
@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
   LOGOUT: any;
   // loginInit: boolean = false;
 
-  
+
   // sw code
   founders = [
     {
@@ -108,7 +108,7 @@ export class HomeComponent implements OnInit {
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
       // linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
     },
-   
+
 
   ];
 
@@ -190,115 +190,7 @@ export class HomeComponent implements OnInit {
 
   ];
 
-  // pd code desktop **********************
-  // founders = [
-  //   {
-  //     id: 1, name: 'Ashish Mehrotra',
-  //     title: 'Investor & Director',
-  //     bio: 'Business leader with 25 years of progressively senior experience across retail, commercial sectors banking, and Insurance sectors.',
-  //     img: '../../assets/img/founding_team_member/founder-asish.svg',
-  //     image: '../../assets/img/founding_team_member/Ashish.jpg',
-  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
-  //     linkedinLink: 'https://in.linkedin.com/in/ashish-mehrotra-9050406'
-  //   },
-  //   {
-  //     id: 5, name: 'Tarun Taneja', title: 'Cofounder & CEO', bio: 'A seasoned professional with 20 years of experience in building, scaling and leading new business streams in the General & Health Insurance space. He has deep expertise in New Product Development, Business Development, Bancassurance, Portfolio Management & Risk Management.',
-  //     img: '../../assets/img/founding_team_member/team-tarun.svg',
-  //     image: '../../assets/img/founding_team_member/tarun-final.jpg',
-  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
-  //     linkedinLink: 'https://www.linkedin.com/in/tarun-taneja-264a3975/'
-  //   },
 
-  //   {
-
-  //     id: 6, name: 'Chandramouli Pandya', title: 'CTO', bio: 'Chandramouli, 20+ yrs of work-ex, has managed globally disperse teams to develop, deploy and scale cutting edge Financial tech. Keen tech aficionado and expert in AI and Blockchain, he wears hats of Startup Mentor, CTO and Tech Evangelist.',
-  //     img: '../../assets/img/founding_team_member/team-chandra.svg',
-  //     image: '../../assets/img/founding_team_member/ChandraP_profile.png',
-  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
-  //     linkedinLink: 'https://www.linkedin.com/in/chandramoulipandya/'
-  //   },
-  //   {
-  //     id: 2, name: 'Sourabh Kumar', title: 'Cofounder', bio: 'Experienced Leader with a demonstrated track record of leading & scaling organizations in wealth management, Insurance & lending.',
-  //     img: '../../assets/img/founding_team_member/founder-sourabh.svg',
-  //     image: '../../assets/img/founding_team_member/Sourabh_profile.png',
-  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
-  //     linkedinLink: 'https://www.linkedin.com/in/sourabh-kumar-755574a3/'
-  //   },
-  //   {
-
-  //     id: 4, name: 'Jaya Singh', title: 'Director, Wealth', bio: 'A leader with deep experience in wealth management across advisory, research, fund diligence, client engagement, and sales',
-  //     img: '../../assets/img/founding_team_member/team-jaya.svg',
-  //     image: '../../assets/img/founding_team_member/Jaya.jpg',
-  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
-  //     linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
-  //   },
-  //   {
-  //     id: 3, name: 'Suraj Gaydhane', title: 'COO', bio: 'An experienced professional with a demonstrated history of working in leadership roles across finance, analytics, product management, and business strategy for banking and life insurance businesses.',
-  //     img: '../../assets/img/founding_team_member/team-suraj.svg',
-  //     image: '../../assets/img/founding_team_member/Suraj-Finizon-Pic.png',
-  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
-  //     linkedinLink: 'https://www.linkedin.com/in/surajgaydhane/'
-  //   },
-  // ];
-
-
-  // pd code mobile **********************
-  // foundersmob = [
-  //   {
-  //     id: 1, name: 'Ashish Mehrotra',
-  //     title: 'Investor & Director',
-  //     bio: 'Business leader with 25 years of progressively senior experience across retail, commercial sectors banking, and Insurance sectors.',
-  //     img: '../../assets/img/founding_team_member/founder-asish.svg',
-  //     image: '../../assets/img/founding_team_member/Ashish.jpg',
-  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
-  //     linkedinLink: 'https://in.linkedin.com/in/ashish-mehrotra-9050406'
-  //   },
-  //   {
-  //     id: 2, name: 'Sourabh Kumar', title: 'Cofounder', bio: 'Experienced Leader with a demonstrated track record of leading & scaling organizations in wealth management, Insurance & lending.',
-
-  //     img: '../../assets/img/founding_team_member/founder-sourabh.svg',
-  //     image: '../../assets/img/founding_team_member/Sourabh_profile.png',
-  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
-  //     linkedinLink: 'https://www.linkedin.com/in/sourabh-kumar-755574a3/'
-  //   },
-
-  //   {
-
-  //     id: 5, name: 'Tarun Taneja', title: 'Cofounder & CEO', bio: 'A seasoned professional with 20 years of experience in building, scaling and leading new business streams in the General & Health Insurance space. He has deep expertise in New Product Development, Business Development, Bancassurance, Portfolio Management & Risk Management.',
-  //     img: '../../assets/img/founding_team_member/team-tarun.svg',
-  //     image: '../../assets/img/founding_team_member/tarun-final.jpg',
-  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
-  //     linkedinLink: 'https://www.linkedin.com/in/tarun-taneja-264a3975/'
-  //   },
-
-  //   {
-
-  //     id: 4, name: 'Jaya Singh', title: 'Director, Wealth', bio: 'A leader with deep experience in wealth management across advisory, research, fund diligence, client engagement, and sales',
-  //     img: '../../assets/img/founding_team_member/team-jaya.svg',
-  //     image: '../../assets/img/founding_team_member/Jaya.jpg',
-  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
-  //     linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
-  //   },
-  //   {
-
-  //     id: 3, name: 'Suraj Gaydhane', title: 'COO', bio: 'An experienced professional with a demonstrated history of working in leadership roles across finance, analytics, product management, and business strategy for banking and life insurance businesses.',
-  //     img: '../../assets/img/founding_team_member/team-suraj.svg',
-  //     image: '../../assets/img/founding_team_member/Suraj-Finizon-Pic.png',
-  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
-  //     linkedinLink: 'https://www.linkedin.com/in/surajgaydhane/'
-  //   },
-
-  //   {
-
-  //     id: 6, name: 'Chandramouli Pandya', title: 'CTO', bio: 'Chandramouli, 20+ yrs of work-ex, has managed globally disperse teams to develop, deploy and scale cutting edge Financial tech. Keen tech aficionado and expert in AI and Blockchain, he wears hats of Startup Mentor, CTO and Tech Evangelist.',
-  //     img: '../../assets/img/founding_team_member/team-chandra.svg',
-  //     image: '../../assets/img/founding_team_member/ChandraP_profile.png',
-  //     linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
-  //     linkedinLink: 'https://www.linkedin.com/in/chandramoulipandya/'
-  //   },
-
-
-  // ];
 
   selectedFounder = this.founders[0];
 
@@ -309,14 +201,8 @@ export class HomeComponent implements OnInit {
     this.selectedFounder = founder;
   }
 
-  // selectedFoundermob = this.foundersmob[0];
 
-  // isSelectedmob(founder: any) {
-  //   return this.selectedFoundermob === founder;
-  // }
-  // showDetailsmob(founder: any) {
-  //   this.selectedFoundermob = founder;
-  // }
+
   customOptions: OwlOptions = {
     items: 3,
     margin: 3,
@@ -341,7 +227,7 @@ export class HomeComponent implements OnInit {
     autoplayTimeout: 5000,
     autoplayHoverPause: true
   }
-  
+
   customOptions2: OwlOptions = {
     items: 1,
     margin: 0,
@@ -370,11 +256,9 @@ export class HomeComponent implements OnInit {
   // isSubmitted = false;
   // // namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{3,15})?(\\s[a-zA-Z]{3,15})?$";
 
-  // namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{3,15}){1,2}$";
 
-  // emailPattern = "^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
-  // successMessage: boolean = false;
-  constructor(public activeRoute: ActivatedRoute, public validation: ValidateService, private api: ApiService, private route: Router, private crypto: AESCryptoService, private fb: FormBuilder , private elementRef: ElementRef,private renderer: Renderer2) {
+
+  constructor(public activeRoute: ActivatedRoute, public validation: ValidateService, private api: ApiService, private route: Router, private crypto: AESCryptoService, private fb: FormBuilder, private elementRef: ElementRef, private renderer: Renderer2) {
 
     // lead modal 
     // this.myForm = new FormGroup({
@@ -390,65 +274,63 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this._paramSub = this.activeRoute.queryParams.subscribe(async params => {
-      // debugger
-      this.QueryToken = params.TOKEN;
-      this.Path = params.PATH;
-      this.Transaction = params.TXN;
-      this.FromPath = params.FROM;
-      this.LOGOUT = params.LOGOUT;
-    });
+    // this._paramSub = this.activeRoute.queryParams.subscribe(async params => {
+    //   // debugger
+    //   this.QueryToken = params.TOKEN;
+    //   this.Path = params.PATH;
+    //   this.Transaction = params.TXN;
+    //   this.FromPath = params.FROM;
+    //   this.LOGOUT = params.LOGOUT;
+    // });
 
-    this._paramSub.unsubscribe();
+    // this._paramSub.unsubscribe();
 
-    if ((!this.validation.isNullEmptyUndefined(this.LOGOUT) && this.LOGOUT != "null" && this.LOGOUT != "{LOGOUT}") && (this.LOGOUT == "true")) {
-      console.log(this.LOGOUT)
-      localStorage.clear();
-      window.location.href = '/';
-      // this.route.navigate(['/']);
-    }
-    else {
+    // if ((!this.validation.isNullEmptyUndefined(this.LOGOUT) && this.LOGOUT != "null" && this.LOGOUT != "{LOGOUT}") && (this.LOGOUT == "true")) {
+    //   console.log(this.LOGOUT)
+    //   localStorage.clear();
+    //   window.location.href = '/';
+    // }
+    // else {
 
-      if (!this.validation.isNullEmptyUndefined(this.Path) && this.Path != "null" && this.Path != "{PATH}") {
-        this.ShowLoader = true;
-      }
+    //   if (!this.validation.isNullEmptyUndefined(this.Path) && this.Path != "null" && this.Path != "{PATH}") {
+    //     this.ShowLoader = true;
+    //   }
 
-      if (!this.validation.isNullEmptyUndefined(this.QueryToken) && this.QueryToken != 'null' && this.QueryToken != "{TOKEN}") {
-        this.QueryToken = decodeURIComponent(this.QueryToken);
-        localStorage.setItem("CustToken", this.QueryToken);
-        this.api.get("auth/customer/user", true).subscribe(async response => {
-          // debugger
-          localStorage.setItem("ApplicantData", this.crypto.Encrypt(response.data));
-        })
-      }
+    //   if (!this.validation.isNullEmptyUndefined(this.QueryToken) && this.QueryToken != 'null' && this.QueryToken != "{TOKEN}") {
+    //     this.QueryToken = decodeURIComponent(this.QueryToken);
+    //     localStorage.setItem("CustToken", this.QueryToken);
+    //     this.api.get("auth/customer/user", true).subscribe(async response => {
+    //       localStorage.setItem("ApplicantData", this.crypto.Encrypt(response.data));
+    //     });
 
-      if (!this.validation.isNullEmptyUndefined(this.Transaction) && this.Transaction != 'null' && this.Transaction != "{TXN}") {
-        this.Transaction = decodeURIComponent(this.Transaction);
-        // console.log('txn',this.Transaction);
-        if (this.Transaction == 1) {
-          localStorage.setItem('Transaction', this.crypto.Encrypt(this.Transaction))
-        }
-      }
+    //   }
 
-      if (!this.validation.isNullEmptyUndefined(this.FromPath) && this.FromPath != 'null' && this.FromPath != "{FROM}") {
-        this.FromPath = decodeURIComponent(this.FromPath);
-        console.log('FromPath', this.FromPath);
-        localStorage.setItem('FromPath', this.crypto.Encrypt(this.FromPath))
-      }
+    //   if (!this.validation.isNullEmptyUndefined(this.Transaction) && this.Transaction != 'null' && this.Transaction != "{TXN}") {
+    //     this.Transaction = decodeURIComponent(this.Transaction);
+    //     if (this.Transaction == 1) {
+    //       localStorage.setItem('Transaction', this.crypto.Encrypt(this.Transaction))
+    //     }
+    //   }
 
-      setTimeout(() => {
-        if (!this.validation.isNullEmptyUndefined(this.Path) && this.Path != "null" && this.Path != "{PATH}") {
-          // debugger
-          this.route.navigate([this.Path]);
-          this.ShowLoader = false;
-        }
-        else {
-          this.route.navigate(['']);
-          this.ShowLoader = false;
-        }
-      }, 1000);
+    //   if (!this.validation.isNullEmptyUndefined(this.FromPath) && this.FromPath != 'null' && this.FromPath != "{FROM}") {
+    //     this.FromPath = decodeURIComponent(this.FromPath);
+    //     console.log('FromPath', this.FromPath);
+    //     localStorage.setItem('FromPath', this.crypto.Encrypt(this.FromPath))
+    //   }
 
-    }
+    //   setTimeout(() => {
+    //     if (!this.validation.isNullEmptyUndefined(this.Path) && this.Path != "null" && this.Path != "{PATH}") {
+    //       // debugger
+    //       this.route.navigate([this.Path]);
+    //       this.ShowLoader = false;
+    //     }
+    //     else {
+    //       this.route.navigate(['']);
+    //       this.ShowLoader = false;
+    //     }
+    //   }, 1000);
+
+    // }
 
 
 
@@ -463,7 +345,6 @@ export class HomeComponent implements OnInit {
     this.GetBlogList();
     this.getpartnersbanner();
 
-    // this.initCarousel();
   }
   // handleOpenCloseNav(){
   //   if (document.getElementById("site-wrapper-menu")!.classList.contains("show-nav")) {
@@ -516,25 +397,14 @@ export class HomeComponent implements OnInit {
   //   console.log("cust bnrs:- ",banners);
 
 
-  //   console.log("",banners.sortOrder);
-  //   if(banners.sortOrder == 1 ){
-  //     $("#bannercustomerModal").modal("show");
-  //     console.log("")
-  //   }
+
 
   // }
 
   // partnermodal(banners:any){
   //   console.log("part bnrs:- ",banners);
 
-  //   console.log("",banners.sortOrder);
-  //   if(banners.sortOrder == 2){
-  //     $("#bannerpartnerModal").modal("show");
-  //     console.log("btnid:",banners.button);
-  //     const element = document.getElementById("partner");
-  //     console.log("element:",element);
-  //   }
-  // }
+
 
 
   //   customermodal(buttonId: string) {
@@ -636,11 +506,7 @@ export class HomeComponent implements OnInit {
     });
   }
   CreditRouterUrl(credit: any) {
-    // this.Token = localStorage.getItem("CustToken");
-    // this.CreditUrl = environment.CreditUrl.replace("{TOKEN}", encodeURIComponent(this.Token));
-    // this.CreditUrl = this.CreditUrl.replace("{PATH}", encodeURIComponent(Path));
-    // window.location.href = this.CreditUrl;
-    // window.open(credit.path, '_blank');
+
 
 
     console.log("name", credit)
@@ -651,19 +517,15 @@ export class HomeComponent implements OnInit {
     }
     else if (credit.name === "Mutual Funds") {
       console.log('credit', credit.path)
-      // this.route.navigate([insurence.path]);
       $("#mutualFundModal").modal("show");
-      // window.location.href = credit.path;
-      // window.open(Product.path, '_blank');
+
 
     }
     else {
       console.log('credit', credit.path)
-      // this.route.navigate([insurence.path]);
       $("#leadModal").modal("hide");
       $("#mutualFundModal").modal("hide");
 
-      // window.location.href = credit.path;
       window.open(credit.path, '_blank');
 
     }
@@ -680,18 +542,13 @@ export class HomeComponent implements OnInit {
     }
     else {
       console.log('insurence', insurence.path)
-      // this.route.navigate([insurence.path]);
       $("#leadModal").modal("hide");
-      // window.location.href = insurence.path;
       window.open(insurence.path, '_blank');
     }
   }
 
   wealthtRouterUrl(wealth: any) {
-    // this.Token = localStorage.getItem("CustToken");
-    // this.WealthUrl = environment.WealthUrl.replace("{TOKEN}", encodeURIComponent(this.Token));
-    // this.WealthUrl = this.WealthUrl.replace("{PATH}", encodeURIComponent(Path));
-    // window.location.href = this.WealthUrl;
+
 
     console.log("name", wealth)
     if (wealth.name === "Savings & Insurance") {
@@ -701,16 +558,13 @@ export class HomeComponent implements OnInit {
     }
     else {
       console.log('credit', wealth.path)
-      // this.route.navigate([insurence.path]);
       $("#leadModal").modal("hide");
-      // window.location.href = credit.path;
       window.open(wealth.path, '_blank');
 
     }
   }
 
   GetApplicantData() {
-    // debugger
     this.api.get("auth/customer/user", true).subscribe(response => {
       localStorage.setItem("ApplicantData", this.crypto.Encrypt(response.data));
     })
@@ -718,22 +572,20 @@ export class HomeComponent implements OnInit {
 
   GetBlogList() {
     this.api.get("banner/get-blog").subscribe(response => {
-      // console.log('get-blog', response);
       this.BlogList = response.items;
       console.log('list of blogs', this.BlogList);
 
-      for (let i = 0; i < this.BlogList.length; i++) {
-        if (this.BlogList[i].content.indexOf('src=\"') > 0) {
-          this.blogimage = this.BlogList[i].content.split('src=\"');
+      for (const element of this.BlogList) {
+        if (element.content.indexOf('src=\"') > 0) {
+          this.blogimage = element.content.split('src=\"');
           this.blogimage = this.blogimage[1].split('" width');
           this.blogimage = this.blogimage[0].replace('"', '');
-          this.BlogList[i].blogimage = this.blogimage;
+          element.blogimage = this.blogimage;
         }
         else {
-          this.BlogList[i].blogimage = 'assets/img/no-blog.png';
+          element.blogimage = 'assets/img/no-blog.png';
         }
       }
-      // console.log('updated list', this.BlogList);
     })
   }
 
@@ -742,12 +594,10 @@ export class HomeComponent implements OnInit {
   }
 
 
-  // modal part for phydigital section
 
   showPartnerModal() {
     console.log("hello")
     $("#partnerModal").modal("show");
-    // console.log("partnerModal:", this.showModal);
   }
 
   hidePartnerModal() {
@@ -761,7 +611,7 @@ export class HomeComponent implements OnInit {
 
 
 
- 
+
 
 
   // scrollToTop() {

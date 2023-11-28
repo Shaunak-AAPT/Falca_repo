@@ -1,15 +1,14 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component,OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { registerRequest } from 'src/app/models/registerRequest.model';
+// import { registerRequest } from 'src/app/models/registerRequest.model';
 import { ApiService } from 'src/app/services/api/api.service';
 import { AESCryptoService } from 'src/app/services/cryptomanager/aescrypto.service';
 import { EligibilityService } from 'src/app/services/eligibility/eligibility.service';
 import { ValidateService } from 'src/app/services/validate/validate.service';
 import { environment } from 'src/environments/environment';
-import { SupportModalComponent } from '../../pages/support-modal/support-modal.component';
 
-declare var $: any;
+declare let $: any;
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -64,7 +63,7 @@ export class HeaderComponent implements OnInit {
 
   ngDoCheck(): void {
     this.CheckDashboard();
-    var objToken = this.eligibility.getSessionParams('CustToken');
+    let objToken = this.eligibility.getSessionParams('CustToken');
     if (!this.validation.isNullEmptyUndefined(objToken)) {
       this.newToken = objToken.token;
     }
@@ -84,14 +83,8 @@ export class HeaderComponent implements OnInit {
   showSupportModal() {
 
     $("#supportModal").modal("show");
-    // console.log("showmodel:", this.showModal);
   }
   ngOnInit(): void {
-
-    // $("body").click(function(){
-    //   $(".login-popup").addClass("show");
-    // });
-
     $(".login-popup").on('click', function (e: any) {
       e.stopPropagation();
     });
@@ -103,34 +96,21 @@ export class HeaderComponent implements OnInit {
       $(".sign-in").show();
       $(".sign-up").hide();
     });
-    // $(".body-color").scroll(function () {
-    //   if ($(".body-color").scrollTop()) {
-    //     $(".mobile-sticky").show();
-    //   }
-    //   else {
-    //     $(".mobile-sticky").hide();
-    //   }
-    // });
+    
 
-    var authToken = localStorage.getItem('CustToken') || '';
+    let authToken = localStorage.getItem('CustToken') ?? '';
     if (this.validation.isNullEmptyUndefined(authToken)) {
       this.isLoggedIn = false;
     }
     else {
       this.isLoggedIn = true;
     }
-    var self = this;
+    let self = this;
     $("#site-backdrop").click(function () {
       self.handleOpenCloseNav();
     });
   }
 
-
-  // GotoCredit() {
-  //   this.Token = localStorage.getItem("CustToken");
-  //   this.CreditUrl = environment.CreditUrl.replace("{TOKEN}", encodeURIComponent(this.Token));
-  //   window.location.href = this.CreditUrl;
-  // }
   GotoInsurance() {
     this.Token = localStorage.getItem("CustToken");
     this.InsuranceUrl = environment.InsuranceUrl.replace("{TOKEN}", encodeURIComponent(this.Token));
@@ -156,7 +136,7 @@ export class HeaderComponent implements OnInit {
 
   CheckDashboard() {
     setTimeout(() => {
-      var URL = this.route.url;
+      let URL = this.route.url;
       if (URL == '/overview' || URL == '/wealth-dashboard' || URL == '/insurance-dashboard' || URL == '/credit-dashboard') {
         this.IsDashboard = true;
       }
@@ -177,115 +157,110 @@ export class HeaderComponent implements OnInit {
   }
 
   otpToggle(event: Event, calltype?: any) {
-    event.stopPropagation();
-    if (this.validation.isNullEmptyUndefined(this.FormEmail)) {
-      this.toastr.error("Please enter a valid email");
-    }
-    else if (!this.validation.validateEmail(this.FormEmail)) {
-      this.toastr.error("Please enter valid Email id");
-    }
-    else {
+    // event.stopPropagation();
+    // if (this.validation.isNullEmptyUndefined(this.FormEmail)) {
+    //   this.toastr.error("Please enter a valid email");
+    // }
+    // else if (!this.validation.validateEmail(this.FormEmail)) {
+    //   this.toastr.error("Please enter valid Email id");
+    // }
+    // else {
 
-      this.ResetOTP();
-      setTimeout(() => {
-        if (calltype == 'login') {
-          this.calltype = 'login';
-          this.Login(event);
-        }
-        else {
-          this.calltype = 'register';
-          this.RegisterCust(event);
-        }
-      }, 0);
+    //   this.ResetOTP();
+    //   setTimeout(() => {
+    //     if (calltype == 'login') {
+    //       this.calltype = 'login';
+    //       this.Login(event);
+    //     }
+    //     else {
+    //       this.calltype = 'register';
+    //       this.RegisterCust(event);
+    //     }
+    //   }, 0);
 
-    }
+    // }
   }
 
   Login(event: Event) {
-    try {
-      event.stopImmediatePropagation();
-      let loginData = new FormData();
-      loginData.append('email', this.FormEmail);
-      this.api.post('auth/customer/login', loginData, false).subscribe(async response => {
-        if (response.response.n == 1) {
-          this.isOTPSent = true;
-          $("#headerotp-screen").modal("show");
-          this.resendbuttonText = "0:60"
-          this.countdown();
-          // console.log('response', response)
-          this.toastr.success(response.response.Msg);
-        }
-        else {
-          this.toastr.error(response.response.Msg);
-          this.isOTPSent = false;
-          // localStorage.clear();
-          // this.route.navigate(['/']);
-        }
-      });
-    }
-    catch (ex) {
-    }
+    // try {
+    //   event.stopImmediatePropagation();
+    //   let loginData = new FormData();
+    //   loginData.append('email', this.FormEmail);
+    //   this.api.post('auth/customer/login', loginData, false).subscribe(async response => {
+    //     if (response.response.n == 1) {
+    //       this.isOTPSent = true;
+    //       $("#headerotp-screen").modal("show");
+    //       this.resendbuttonText = "0:60"
+    //       this.countdown();
+    //       // console.log('response', response)
+    //       this.toastr.success(response.response.Msg);
+    //     }
+    //     else {
+    //       this.toastr.error(response.response.Msg);
+    //       this.isOTPSent = false;
+         
+    //     }
+    //   });
+    // }
+    // catch (ex) {
+    // }
   }
 
   RegisterCust(event: Event) {
 
-    if (this.validation.isNullEmptyUndefined(this.FormFirstName)) {
-      this.toastr.error("First Name is Mandatory");
-    }
-    else if (this.validation.isNullEmptyUndefined(this.FormLastName)) {
-      this.toastr.error("Last Name is Mandatory");
-    }
-    else if (this.validation.isNullEmptyUndefined(this.FormEmail)) {
-      this.toastr.error("Email id is Mandatory");
-    }
-    else if (!this.validation.validateEmail(this.FormEmail)) {
-      this.toastr.error("Please enter valid Email id");
-    }
-    else if (this.validation.isNullEmptyUndefined((this.FormMobileNo.toString()).trim())) {
-      this.toastr.error("Mobile Number is Mandatory");
-    }
-    else if (!this.validation.validateMobileNumber(this.FormMobileNo.trim())) {
-      this.toastr.error("Please enter valid Mobile number");
-    }
-    else {
-      if (this.usertype == 'Customer') {
-        this.UrlRegister = 'auth/customer/register';
-      }
-      else if (this.usertype == 'Partner') {
-        this.UrlRegister = 'auth/agent/register';
-      }
+    // if (this.validation.isNullEmptyUndefined(this.FormFirstName)) {
+    //   this.toastr.error("First Name is Mandatory");
+    // }
+    // else if (this.validation.isNullEmptyUndefined(this.FormLastName)) {
+    //   this.toastr.error("Last Name is Mandatory");
+    // }
+    // else if (this.validation.isNullEmptyUndefined(this.FormEmail)) {
+    //   this.toastr.error("Email id is Mandatory");
+    // }
+    // else if (!this.validation.validateEmail(this.FormEmail)) {
+    //   this.toastr.error("Please enter valid Email id");
+    // }
+    // else if (this.validation.isNullEmptyUndefined((this.FormMobileNo.toString()).trim())) {
+    //   this.toastr.error("Mobile Number is Mandatory");
+    // }
+    // else if (!this.validation.validateMobileNumber(this.FormMobileNo.trim())) {
+    //   this.toastr.error("Please enter valid Mobile number");
+    // }
+    // else {
+    //   if (this.usertype == 'Customer') {
+    //     this.UrlRegister = 'auth/customer/register';
+    //   }
+    //   else if (this.usertype == 'Partner') {
+    //     this.UrlRegister = 'auth/agent/register';
+    //   }
 
-      try {
-        event.stopImmediatePropagation();
-        let registerData = new registerRequest();
-        registerData.mobileNumber = this.FormMobileNo;
-        registerData.email = this.FormEmail;
-        registerData.firstName = this.FormFirstName;
-        registerData.lastName = this.FormLastName;
-        registerData.consent_id = 1;
-        registerData.ip_address = '192.168.0.1';
-        // registerData.agentType = 2;
-        registerData.gender = 1;
+    //   try {
+    //     event.stopImmediatePropagation();
+    //     let registerData = new registerRequest();
+    //     registerData.mobileNumber = this.FormMobileNo;
+    //     registerData.email = this.FormEmail;
+    //     registerData.firstName = this.FormFirstName;
+    //     registerData.lastName = this.FormLastName;
+    //     registerData.consent_id = 1;
+    //     registerData.ip_address = '192.168.0.1';
+    //     registerData.gender = 1;
 
-        this.api.post(this.UrlRegister, registerData, false).subscribe(async response => {
-          // console.log(response);
-          if (response.response.n == 1) {
-            this.isOTPSent = true;
-            $("#headerotp-screen").modal("show");
-            this.resendbuttonText = "0:60"
-            this.countdown();
-            this.toastr.success(response.response.Msg);
-          }
-          else {
-            this.toastr.error(response.response.Msg);
-            this.isOTPSent = false;
-            // localStorage.clear();
-            // this.route.navigate(['/']);
-          }
-        });
-      } catch (ex) {
-      }
-    }
+    //     this.api.post(this.UrlRegister, registerData, false).subscribe(async response => {
+    //       if (response.response.n == 1) {
+    //         this.isOTPSent = true;
+    //         $("#headerotp-screen").modal("show");
+    //         this.resendbuttonText = "0:60"
+    //         this.countdown();
+    //         this.toastr.success(response.response.Msg);
+    //       }
+    //       else {
+    //         this.toastr.error(response.response.Msg);
+    //         this.isOTPSent = false;
+    //       }
+    //     });
+    //   } catch (ex) {
+    //   }
+    // }
   }
 
   Logout() {
@@ -298,51 +273,49 @@ export class HeaderComponent implements OnInit {
   }
 
   ResendOTP() {
-    if (this.usertype == 'Customer') {
-      this.UrlSendOTP = 'auth/customer/send-otp';
-    }
-    else if (this.usertype == 'Partner') {
-      this.UrlSendOTP = 'auth/agent/loginWithOtp';
-    }
+    // if (this.usertype == 'Customer') {
+    //   this.UrlSendOTP = 'auth/customer/send-otp';
+    // }
+    // else if (this.usertype == 'Partner') {
+    //   this.UrlSendOTP = 'auth/agent/loginWithOtp';
+    // }
 
-    this.ResetOTP();
-    const data = new FormData();
-    data.append("email", this.FormEmail);
-    this.api.post(this.UrlSendOTP, data, false).subscribe(response => {
-      if (response.response.n == 1) {
-        // console.log(response.data.otp);
-        // this.toastr.success(response.data.otp);
-        this.resendbuttonText = "0:60";
-        this.countdown();
-      }
-      else {
-        this.toastr.error(response.response.Msg);
-      }
-    })
+    // this.ResetOTP();
+    // const data = new FormData();
+    // data.append("email", this.FormEmail);
+    // this.api.post(this.UrlSendOTP, data, false).subscribe(response => {
+    //   if (response.response.n == 1) {
+    //     this.resendbuttonText = "0:60";
+    //     this.countdown();
+    //   }
+    //   else {
+    //     this.toastr.error(response.response.Msg);
+    //   }
+    // })
   }
 
   countdown() {
-    clearInterval(this.interval);
-    this.interval = setInterval(() => {
-      var timer: any = this.resendbuttonText;
-      timer = timer.split(':');
-      var minutes = timer[0];
-      var seconds = timer[1];
-      seconds -= 1;
-      if (minutes < 0) return;
-      else if (seconds < 0 && minutes != 0) {
-        minutes -= 1;
-        seconds = 59;
-      }
-      else if (seconds < 10 && seconds.length != 2) {
-        seconds = '0' + seconds
-      };
-      this.resendbuttonText = minutes + ':' + seconds;
-      if (minutes == 0 && seconds == 0) {
-        clearInterval(this.interval)
-        this.resendbuttonText = 'Resend OTP';
-      };
-    }, 1000);
+    // clearInterval(this.interval);
+    // this.interval = setInterval(() => {
+    //   let timer: any = this.resendbuttonText;
+    //   timer = timer.split(':');
+    //   let minutes = timer[0];
+    //   let seconds = timer[1];
+    //   seconds -= 1;
+    //   if (minutes < 0) return;
+    //   else if (seconds < 0 && minutes != 0) {
+    //     minutes -= 1;
+    //     seconds = 59;
+    //   }
+    //   else if (seconds < 10 && seconds.length != 2) {
+    //     seconds = '0' + seconds
+    //   }
+    //   this.resendbuttonText = minutes + ':' + seconds;
+    //   if (minutes == 0 && seconds == 0) {
+    //     clearInterval(this.interval)
+    //     this.resendbuttonText = 'Resend OTP';
+    //   };
+    // }, 1000);
   }
 
   ResetOTP() {
@@ -355,32 +328,32 @@ export class HeaderComponent implements OnInit {
   }
 
   keytab(nextTabId: number, event: any) {
-    let actionFlag = false;
-    const charCode = (event.which) ? event.which : event.keyCode;
-    if (charCode > 31 && (charCode < 48 || charCode > 57) && (charCode < 96 || charCode > 105)) {
-    }
-    else if (charCode == 8) {
-      // nextTabId--;
-      if (nextTabId < 1) {
-        nextTabId = 1;
-      }
-      nextTabId -= 2;
-      actionFlag = true;
-    }
-    else {
-      if (nextTabId > 6) {
-        nextTabId = 6;
-      }
-      actionFlag = true;
-    }
-    // console.log("OTPfssf0",$('#headotp'+(nextTabId -1)).val().length)
-    if (actionFlag && $('#headotp' + (nextTabId - 1)).val().length == 1) {
-      const field = document.getElementById("headotp" + nextTabId);
-      if (field) {
-        field.focus();
-        field.click();
-      }
-    }
+    // let actionFlag = false;
+    // const charCode = (event.which) ? event.which : event.keyCode;
+    // if (charCode > 31 && (charCode < 48 || charCode > 57) && (charCode < 96 || charCode > 105)) {
+    // console.log("empty");
+    // }
+    // else if (charCode == 8) {
+    //   if (nextTabId < 1) {
+    //     nextTabId = 1;
+    //   }
+    //   nextTabId -= 2;
+    //   actionFlag = true;
+    // }
+    // else {
+    //   if (nextTabId > 6) {
+    //     nextTabId = 6;
+    //   }
+    //   actionFlag = true;
+    // }
+    // // console.log("OTPfssf0",$('#headotp'+(nextTabId -1)).val().length)
+    // if (actionFlag && $('#headotp' + (nextTabId - 1)).val().length == 1) {
+    //   const field = document.getElementById("headotp" + nextTabId);
+    //   if (field) {
+    //     field.focus();
+    //     field.click();
+    //   }
+    // }
   }
 
   async verifyOtpBtn() {
@@ -388,104 +361,95 @@ export class HeaderComponent implements OnInit {
   }
 
   async verifyOtp() {
-    if (this.usertype == 'Customer') {
-      this.urlValidateOTP = 'auth/customer/ValidateOTP';
-    }
-    else if (this.usertype == 'Partner') {
-      this.urlValidateOTP = 'auth/agent/loginOtpValidator';
-    }
+    // if (this.usertype == 'Customer') {
+    //   this.urlValidateOTP = 'auth/customer/ValidateOTP';
+    // }
+    // else if (this.usertype == 'Partner') {
+    //   this.urlValidateOTP = 'auth/agent/loginOtpValidator';
+    // }
 
-    return new Promise(async (resolve, reject) => {
-      var otp = this.headotp1.toString() + this.headotp2.toString() + this.headotp3.toString() + this.headotp4.toString() + this.headotp5.toString() + this.headotp6.toString();
+    // return new Promise(async (resolve, reject) => {
+    //   let otp = this.headotp1.toString() + this.headotp2.toString() + this.headotp3.toString() + this.headotp4.toString() + this.headotp5.toString() + this.headotp6.toString();
 
-      if (!this.validation.isNullEmptyUndefined(this.FormEmail) && otp.length == 6) {
-        const data = new FormData();
-        data.append("email", this.FormEmail);
-        data.append("otp", otp); //this.otp1 + this.otp2 + this.otp3 + this.otp4 + this.otp5 + this.otp6);
-        let sOTP = otp;
+    //   if (!this.validation.isNullEmptyUndefined(this.FormEmail) && otp.length == 6) {
+    //     const data = new FormData();
+    //     data.append("email", this.FormEmail);
+    //     data.append("otp", otp); //this.otp1 + this.otp2 + this.otp3 + this.otp4 + this.otp5 + this.otp6);
 
-        this.api.post(this.urlValidateOTP, data).subscribe(async response => {
-          if (response.response.n == 1) {
-            // console.log('signin', response);
-            this.toastr.success("OTP Validation Success");
-            $("#headerotp-screen").modal("hide");
-            this.isLoggedIn = true;
-            if (!this.validation.isNullEmptyUndefined(response.data.token.customer)) {
-              var encryptedTokenCustomer = { "token": response.data.token.customer };
-              localStorage.setItem("CustToken", this.cryptoManager.Encrypt(encryptedTokenCustomer));
-            }
-            if (!this.validation.isNullEmptyUndefined(response.data.token.agent)) {
-              var encryptedTokenAgent = { "token": response.data.token.agent };
-              localStorage.setItem("AgentToken", this.cryptoManager.Encrypt(encryptedTokenAgent));
-            }
-            // this.route.navigate(['/overview']);
-            this.ResetModal();
-            this.GetApplicantData();
-            if (!this.validation.isNullEmptyUndefined(response.data.token.agent)) {
-              // if (this.calltype == 'register') {
-              //   this.GoToAgent('/agent-type')
-              // }
-              // else if (this.calltype == 'login') {
-              //   this.GoToAgent('/overview');
-              // }
-              if (response.agentType.Insurance == true && (response.agentType.credit == true || response.agentType.wealth == true)) {
-                this.GoToAgentCommon('agent-overview');
-              }
-              else if (response.agentType.Insurance == true) {
-                if (response.agentKyc.Insurance == true) {
-                  this.GoToAgentInsurance('/agent-insurance-dashboard');
-                }
-                else {
-                  this.GoToAgentInsurance('/agent-insurance-onboarding');
-                }
-              }
-              else if (response.agentType.Insurance != true) {
+    //     this.api.post(this.urlValidateOTP, data).subscribe(async response => {
+    //       if (response.response.n == 1) {
+    //         this.toastr.success("OTP Validation Success");
+    //         $("#headerotp-screen").modal("hide");
+    //         this.isLoggedIn = true;
+    //         if (!this.validation.isNullEmptyUndefined(response.data.token.customer)) {
+    //           let encryptedTokenCustomer = { "token": response.data.token.customer };
+    //           localStorage.setItem("CustToken", this.cryptoManager.Encrypt(encryptedTokenCustomer));
+    //         }
+    //         if (!this.validation.isNullEmptyUndefined(response.data.token.agent)) {
+    //           let encryptedTokenAgent = { "token": response.data.token.agent };
+    //           localStorage.setItem("AgentToken", this.cryptoManager.Encrypt(encryptedTokenAgent));
+    //         }
+    //         this.ResetModal();
+    //         this.GetApplicantData();
+    //         if (!this.validation.isNullEmptyUndefined(response.data.token.agent)) {
+              
+    //           if (response.agentType.Insurance == true && (response.agentType.credit == true || response.agentType.wealth == true)) {
+    //             this.GoToAgentCommon('agent-overview');
+    //           }
+    //           else if (response.agentType.Insurance == true) {
+    //             if (response.agentKyc.Insurance == true) {
+    //               this.GoToAgentInsurance('/agent-insurance-dashboard');
+    //             }
+    //             else {
+    //               this.GoToAgentInsurance('/agent-insurance-onboarding');
+    //             }
+    //           }
+    //           else if (response.agentType.Insurance != true) {
 
-                if (response.agentType.credit == true && response.agentType.wealth == true) {
-                  this.GoToAgentCommon('agent-overview');
-                }
-                else if (response.agentType.credit == true) {
-                  if (response.agentKyc.credit == true) {
-                    this.GoToAgentCommon('agent-credit-dashboard');
-                  }
-                  else {
-                    this.GoToAgentCommon('agent-credit-onboarding');
-                  }
-                }
-                else if (response.agentType.wealth == true) {
-                  if (response.agentKyc.wealth == true) {
-                    this.GoToAgentCommon('agent-wealth-dashboard');
-                  }
-                  else {
-                    this.GoToAgentCommon('agent-wealth-onboarding');
-                  }
-                }
-                else {
-                  this.GoToAgentCommon('agent-type');
-                }
-              }
-            }
-            else if (this.validation.isNullEmptyUndefined(response.data.token.agent)) {
-              setTimeout(() => {
-                // console.log('route url', this.route.url);
-                if (this.route.url == '/') {
-                  this.route.navigate(['/overview']);
-                }
-              }, 1000);
-            }
+    //             if (response.agentType.credit == true && response.agentType.wealth == true) {
+    //               this.GoToAgentCommon('agent-overview');
+    //             }
+    //             else if (response.agentType.credit == true) {
+    //               if (response.agentKyc.credit == true) {
+    //                 this.GoToAgentCommon('agent-credit-dashboard');
+    //               }
+    //               else {
+    //                 this.GoToAgentCommon('agent-credit-onboarding');
+    //               }
+    //             }
+    //             else if (response.agentType.wealth == true) {
+    //               if (response.agentKyc.wealth == true) {
+    //                 this.GoToAgentCommon('agent-wealth-dashboard');
+    //               }
+    //               else {
+    //                 this.GoToAgentCommon('agent-wealth-onboarding');
+    //               }
+    //             }
+    //             else {
+    //               this.GoToAgentCommon('agent-type');
+    //             }
+    //           }
+    //         }
+    //         else if (this.validation.isNullEmptyUndefined(response.data.token.agent)) {
+    //           setTimeout(() => {
+    //             if (this.route.url == '/') {
+    //               this.route.navigate(['/overview']);
+    //             }
+    //           }, 1000);
+    //         }
 
-            resolve(response);
-          }
-          else {
-            this.toastr.error(response.response.Msg);
-            reject(response);
-          }
-        });
-      } else {
-        this.toastr.error("Please enter valid OTP.");
-        reject(0);
-      }
-    });
+    //         resolve(response);
+    //       }
+    //       else {
+    //         this.toastr.error(response.response.Msg);
+    //         reject(response);
+    //       }
+    //     });
+    //   } else {
+    //     this.toastr.error("Please enter valid OTP.");
+    //     reject(0);
+    //   }
+    // });
   }
 
   ResetModal() {
@@ -503,7 +467,6 @@ export class HeaderComponent implements OnInit {
   }
 
   cancleModal() {
-    // $(".login-popup").addClass('show');
     this.isOTPSent = false;
   }
 
@@ -514,68 +477,36 @@ export class HeaderComponent implements OnInit {
 
   customerinvestmentlink() {
     window.open("https://wealth.finizon.com/client-login", "_blank");
-    // window.open("http://localhost:4200/wealth", "_blank");
   }
-  // wealthlink(){
-  //   window.open("http://65.1.237.83/wealth");
-
-  //       // window.open("https://wealth.finizon.com/client-login", "_blank");
-  // }
+  
   wealthlink() {
-    // window.location.href = "http://65.1.237.83/wealth";
-    window.location.href = "https://uatnw.finizon.com/wealth";
-    // window.location.href = "https://finizon.com/wealth";
-
-    // or window.location.href = "https://wealth.finizon.com/client-login";
+    window.location.href = "http://65.1.237.83/wealth";
+   
   }
 
-  // customerinvestmentlink() {
-  //   // Get the current route
-  //   const currentRoute = this.route.url;
-
-  //   if (currentRoute === '') {
-  //     // Redirect to the home page
-  //     window.location.href = 'https://wealth.finizon.com/client-login', "_blank";
-  //   } else if (currentRoute === '/wealth') {
-  //     // Stay on the wealth page
-  //   }
-  // }
 
   partnerinsurancelink() {
     window.open("https://ins.finizoninsurance.com/partner/posp-home", "_blank");
-    // window.open("https://ins.finizoninsurance.com/partner/signup","_blank");  
   }
 
   partnerinvestmentlink() {
     window.open("https://wealth.finizon.com/advisor-login", "_blank");
-    // window.open("https://docs.google.com/forms/d/e/1FAIpQLSfNgk3MZJANGVd_PwwcUf7PFlsza2GOG-lVp3PYmBcvZyFtAw/viewform", "_blank");
 
   }
   insurefitLink() {
-    // window.open("http://65.1.237.83:5800/spprd/wellness?referralid=goqii", "_blank");
-    window.open("https://dev.finizon.com/spprd/wellness?referralid=goqii", "_blank");
-    // window.open("https://tools.finizon.com/spprd/wellness?referralid=goqii", "_blank");
-
+    window.open("http://65.1.237.83:5800/spprd/wellness?referralid=goqii", "_blank");
   }
 
   shopkeeperLink() {
-    // window.open("http://65.1.237.83:5800/spprd/shopkeeper?referralid=godigit", "_blank");
-
-    window.open("https://dev.finizon.com/spprd/shopkeeper?referralid=godigit", "_blank");
-    // window.open("https://tools.finizon.com/spprd/shopkeeper?referralid=godigit", "_blank");
-
+    window.open("http://65.1.237.83:5800/spprd/shopkeeper?referralid=godigit", "_blank");
   }
   monexoLink() {
-    // window.open("http://65.1.237.83:5800/monexo?referralid=monexo", "_blank");
-    window.open("https://dev.finizon.com/monexo?referralid=monexo", "_blank");
-    // window.open("https://tools.finizon.com/monexo?referralid=monexo", "_blank");
-
+    window.open("http://65.1.237.83:5800/monexo?referralid=monexo", "_blank");
   }
 
 
   insureLink() {
-    // window.open("http://65.1.237.83:6800", "_blank");
-    window.open("https://uatnw.finizoninsurance.com", "_blank");
-    // window.open("https://finizoninsurance.com", "_blank");
+    window.open("http://65.1.237.83:6800", "_blank");
+    
   }
 }

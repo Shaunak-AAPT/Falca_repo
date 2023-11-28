@@ -12,12 +12,8 @@
 
 
         <div class="support-title">Please fill the form below</div>
-        <!-- <div class="container"> -->
         <form [formGroup]="myForm">
           <div class="details">
-            <!--    -->
-
-
             <div class="mb-3">
               <label for="name">Full Name</label>
               <input type="text" formControlName="Name" class="form-control" name="Name" placeholder="Enter Full Name"
@@ -65,10 +61,6 @@
               <button class="btn btn-primary theme-button submit" (click)="Submit()">SUBMIT</button>
             </div>
           </div>
-          <!-- <div *ngIf="successMessage" class="alert alert-success">
-            Form submitted successfully!
-          </div> -->
-
         </form>
       </div>
 
@@ -89,10 +81,6 @@
 
       </div>
       <div class="modal-body">
-
-        <!-- <img class="thank-you" src="../../../../assets/img/thank-you.png" alt=""> -->
-
-
         <div class="modal-body d-flex flex-column align-items-center">
           <div class="support-title">Thank you for your interest, our representative will contact you soon.</div>
           <img class="thank-you" src="../../../../assets/img/green tick thankyou.png" alt="">
@@ -103,4 +91,3 @@
     </div>
   </div>
 </div>
-

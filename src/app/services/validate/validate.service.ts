@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class ValidateService {
 
-  constructor() { }
   numberOnly(event: KeyboardEvent): boolean {
     const charCode = (event.which) ? event.which : event.keyCode;
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
@@ -14,7 +13,7 @@ export class ValidateService {
     return true;
   }
   alphabetOnly(event: any): boolean {
-    var keyCode = (event.which) ? event.which : event.keyCode
+    let keyCode = (event.which) ? event.which : event.keyCode
     if ((keyCode < 65 || keyCode > 90) && (keyCode < 97 || keyCode > 123) && keyCode != 32) {
       return false;
     }
@@ -68,10 +67,10 @@ export class ValidateService {
       AfterDecimal = valueDecimalSeprated[1];
       value = valueDecimalSeprated[0];
     }
-    value = value.replace(/,/g, '').split('').reverse().join('');//value.replace(',','');
+    value = value.replace(/,/g, '').split('').reverse().join('');
     let valueLen = value.length;
     let pointer = 0;
-    var str = new String(value);
+    let str = new String(value);
     let LastChar = str.charAt(0);
     value = value.substring(1);
     for (let i = 0; i < valueLen; i++) {
@@ -94,10 +93,10 @@ export class ValidateService {
   }
 
   hidePancardDigits(value: any) {
-    var mainStr = value,
+    let mainStr = value,
       vis = mainStr.slice(-2),
       countNum = '';
-    for (var i = (mainStr.length) - 2; i > 0; i--) {
+    for (let i = (mainStr.length) - 2; i > 0; i--) {
       countNum += 'X';
     }
     value = countNum + vis;

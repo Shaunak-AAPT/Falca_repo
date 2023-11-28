@@ -42,11 +42,7 @@
 	box-shadow: 0px 4px 8px #0000003d;
 	width: 290px;
 	text-align: center;
-	/*	top: 70px;
-	right: 10px;
-	z-index: 11;
-	position: absolute;
-	display: none;*/
+	
 }
 
 .login-popup.show {
@@ -147,10 +143,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	/* justify-content: space-between;
-    align-items: flex-start; */
-	/* margin-top: 20px; */
-	/* border:2px solid black */
+
 }
 
 .founders-container {
@@ -158,7 +151,6 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
-	/* margin-left:20% */
 }
 
 
@@ -166,8 +158,7 @@
 	flex: 1;
 	width: 100%;
 	height: 100%;
-	/* object-fit: cover;
-    object-position: center; */
+	
 	filter: brightness(50%);
 	max-width: 100px;
 	max-height: 100px;
@@ -185,25 +176,18 @@
 	flex: 1;
 	margin-left: 22%;
 	margin-top: -40%;
-	/* flex:1; */
-	/* border:1px solid grey; */
+	
 	border-radius: 15px;
-	/* background-color: transparent; */
-	/* background-color:#ececec; */
+	
 	background: linear-gradient(to top, #ececec, 20%, #ffff);
 
-	/* padding: 30px; */
-	/* width: 80% */
-	/* background-image: linear-gradient(180deg, #ececec 0%, var #ffff 100%); */
 }
 
 .profile {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	/* width: 100%; */
-	/* height: 100%; */
-	/* max-width: 6000px; */
+	
 	height: 415px;
 }
 
@@ -216,7 +200,6 @@
 	max-width: 300px !important;
 	max-height: 300px !important;
 	border-radius: 10px;
-	/* border: 1px solid #00A3B1 */
 	margin: 0% 0% 0% 5%;
 }
 
@@ -282,7 +265,6 @@
     text-align: justify !important;
 }
 
-/* products */
 .money-mng {
 	text-align: center;
 	cursor: pointer;
@@ -301,10 +283,8 @@
   }
 
    .money-mng .shopkeeper_logo{
-	/* object-fit: cover; */
-	/* border:2px solid black; */
+	
 	width: 100px !important;
-	/* height:30% !important; */
 	height: 80px;
   }
 
@@ -313,23 +293,16 @@
 	cursor: pointer;
 	margin-top: 10% !important;
   }
-  /* .title-mng p {
-	margin-bottom: 2px;
-	color: #465A65;
-  } */
+
   .product-name-container {
 	height:20px; 
-	/* overflow: hidden; */
   }
   .product-name-container p {
 	color: #465A65;
 	font-size: 18px;
 	margin-top: -7%;
   }
-/* 
-  .money-mng .shopkeeper_name{
-	margin-top: -10%;
-  } */
+
   
   .money-mng p {
 	margin-bottom: 0px;
@@ -340,9 +313,6 @@
 	margin-top: 30px;
   }
   
-  /* .loan-opt .money-mng img {
-	width: 30%;
-  } */
   
   .flow-row .money-mng {
 	text-align: center;
@@ -350,7 +320,6 @@
 	margin: 1%;
   }
   .wealth img{
-	/* margin-right: 20%; */
 	height: 80px;
   }
   .monexo img{
@@ -358,33 +327,20 @@
 	width: 40% !important;
 	height: 100px;
 
-	/* border: 1px solid blueviolet !important  */
  }
 
  .monexo p{
 	margin-top: -12px !important;
 
-	/* border: 1px solid blueviolet !important  */
  }
  .shopkeeper img{
 	margin-top: 50px !important;
 	width: 40% !important;
 	height: 85px;
 
-	/* border: 1px solid blueviolet !important  */
  }
-  .shopkeeper p{
-	/* margin-top:2px !important; */
-
-	/* border: 1px solid blueviolet !important  */
- }
-  /* .wealth p{
-	margin-right: 20%;
-  } */
-/*   
-  .flow-row .money-mng img {
-	width: 58%;
-  } */
+ 
+ 
 
 
 @media only screen and (max-width: 767px) {
@@ -416,9 +372,10 @@
 
 
 	.profiling-team {
-		/* width: 100%; */
 		margin-left: 2%;
 		margin-right: 2%;
+		margin-top: 20px;
+
 
 	}
 
@@ -448,9 +405,7 @@
 		margin-bottom: 25px;
 	}
 
-	.profiling-team {
-		margin-top: 20px;
-	}
+	
 
 	.profile {
 		display: block;
@@ -482,20 +437,7 @@
 		flex-basis: 50%;
 		max-width: 50%;
 	  }
-	  /* .mobile-carousel-row {
-		display: flex;
-		justify-content: center;
-		flex-wrap: wrap;
-	  }
-	  
-	  .col.col-6 {
-		width: 50%;
-		padding: 5px;
-		box-sizing: border-box;
-	  } */
-
-	  /* products */
-
+	 
 	  .money-mng p {
 		font-size: 14px;
 	  }
@@ -504,9 +446,7 @@
 		width: 50% !important;
 		margin-top: 30% !important;
 	  }
-	  /* .money-mng.mob-inv img {
-		width: 55%;
-	  } */
+	 
 	  .money-mng {
 		margin-bottom: 20px;
 	  }
@@ -516,23 +456,10 @@
 		margin-top: 60%!important
 
 	  }
-	  /* .loan-opt .money-mng img {
-		width: 40%;
-	  } */
-	  .money-mng .shopkeeper_logo{
-		/* object-fit: cover; */
-		/* border:2px solid black; */
-		/* width: 200px !important; */
-		/* height:30% !important; */
-		/* height: auto; */
-	  }
-	  
-	  /* .money-mng .shopkeeper_name{
-		margin-top: -10%;
-	  } */
+	 
+	 
 	  .product-name-container {
 		height:10px; 
-		/* overflow: hidden; */
 	  }
 	  .product-name-container p {
 		color: #465A65;
@@ -564,12 +491,7 @@
 
 	}
 
-	/* .profile_Photo {
-		max-width: 250px;
-		max-height: 250px;
-		margin-left:3%;
-	} */
-
+	
 	.profiling-team {
 		margin-left: 30%;
 		width: 100%;
@@ -580,9 +502,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		/* width: 100%; */
-		/* height: 100%; */
-		/* max-width: 6000px; */
+		
 		height: 450px;
 	}
 
@@ -616,20 +536,11 @@
 
 @media (max-width: 280px) {
 	.money-mng img {
-		/* width: 50% !important; */
 		margin-top: 100% !important;
 	  }
 }
 
-/* @media (min-width: 540px) {
-	.profiling-team {
-		margin-top: 20px;
-		width:100%;
-		margin-left: auto;
-		margin-right: auto;
-		padding:20px;
-	  }
-} */
+
 @media only screen and (max-width: 991px) and (min-width: 768px) {
 	#site-wrapper .hidden-lg {
 		display: block;
@@ -676,9 +587,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		/* width: 100%; */
-		/* height: 100%; */
-		/* max-width: 6000px; */
+	
 		height: 460px;
 	}
 
@@ -686,35 +595,21 @@
 	.profile_details {
 		margin-bottom: 3.2%;
 	}
-	/* .loan-opt .money-mng img {
-		width: 38%;
-	  } */
-
-
+	
 	  .shopkeeper img{
 		margin-top: 15px !important;
 		width: 40% !important;
 		height: 50px;
-	
-		/* border: 1px solid blueviolet !important  */
-	 }
-	  .shopkeeper p{
-		/* margin-top:2px !important; */
-	
-		/* border: 1px solid blueviolet !important  */
-	 }
+		 }
+	 
 	 .monexo img{
-		/* margin-top: -2px !important; */
 		width: 40% !important;
 		height: 65px;
-	
-		/* border: 1px solid blueviolet !important  */
-	 }
+		 }
 	
 	 .monexo p{
 		margin-top: 12px !important;
 	
-		/* border: 1px solid blueviolet !important  */
 	 }
 }
 
@@ -738,11 +633,9 @@
 
 
 	.profiling-team {
-		/* margin-top: 20px; */
 		width: 80%;
 		margin-left: 30%;
-		/* margin-right: 10px; */
-		/* padding:20px; */
+		
 	}
 
 	.profile_Photo {
@@ -910,16 +803,10 @@
 }
 
 .nav-toggle {
-	/*  position: fixed;
-        top: 30px;
-        right: 30px;*/
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
-	/* -webkit-transform: translateX(0); */
 	-ms-transform: translateX(0);
-	/* transform: translateX(0); */
-	/* -webkit-transform: translateX(0) translateZ(0); */
-	/* transform: translateX(0) translateZ(0); */
+	
 	-webkit-transform: translate3d(0, 0, 0);
 	transform: translate3d(0, 0, 0);
 	-webkit-transition: all 0.4s cubic-bezier(0.32, 1.25, 0.375, 1.15);
@@ -946,11 +833,7 @@
 	color: #fff;
 }
 
-/*.nav-toggle.show-nav {
-        top: 12px;
-        right: 12px;
-        position: fixed;
-        }*/
+
 
 .onsidebar {
 	font-size: 26px;
@@ -990,7 +873,6 @@
 	border-radius: 50px;
 	color: #fff !important;
 	font-size: 12px;
-	/* background: #777; */
 	width: 28px;
 	height: 28px;
 	display: flex;
@@ -1035,10 +917,7 @@
 		text-align: right;
 		font-size: 20px;
 	}
-	/* .money-mng img {
-		height:45% !important;
-		width: 45% !important;
-		} */
+	
 
 }
 
@@ -1058,11 +937,9 @@
 	}
 
 	.profiling-team {
-		/* margin-top: 20px; */
 		width: 80%;
 		margin-left: 30%;
-		/* margin-right: 10px; */
-		/* padding:20px; */
+		
 	}
 
 	.profile_Photo {
@@ -1075,9 +952,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		/* width: 100%; */
-		/* height: 100%; */
-		/* max-width: 6000px; */
+		
 		height: 480px;
 	}
 
@@ -1085,21 +960,9 @@
 
 }
 
-/* header css end */
-
-
-
-
 
 .slider-head {
 
-	/* font-size: 44px;
-
-	font-size: 44px;
-	font-weight: 600;
-	color: #242424; */
-
-	/* added by sw */
 	font-family: "Circular Std font", Sans-serif;
 	font-size: 36px;
 	font-weight: 900;
@@ -1143,13 +1006,6 @@
 	z-index: 1 !important;
 }
 
-/* .testimonial_content{
-	display:flex;
-
-} */
-
-
-
 .carousel-control-prev {
 	left: -10%;
 }
@@ -1159,15 +1015,6 @@
 }
 
 
-/* .carousel-indicators [data-bs-target]{
-
-
-	width: 12px;
-	height: 12px;
-	background-color: #465A65;
-	border-radius: 50px;
-	border: 0px;
-} */
 .carousel-indicators {
 	bottom: -50px;
 }
@@ -1181,7 +1028,6 @@
 	margin: 0 5px;
 	border-radius: 10px;
 	border: 0px;
-	/* border: 1px solid rgba(255, 255, 255, 0.796); */
 	background-color: #C0DDED;
 }
 
@@ -1190,19 +1036,7 @@
 }
 
 
-/* .carousel-1-control-prev-icon{
-	background-image: url(../../assets/img/previous.png);
-}
-.carousel-1-control-next-icon{
-	background-image: url(../../assets/img/next.png);
-} */
-/* .carousel-1-control-next-icon, .carousel-1-control-prev-icon {
-	width: 3rem;
-	height: 3rem;
-} */
 
-
-/* meet our partner sections arrows */
 .carousel-1-control-next,
 .carousel-1-control-prev {
 	position: absolute;
@@ -1213,20 +1047,11 @@
 	border: none;
 }
 
-.carousel-1-control-prev {
-	/* left: -10%; */
-}
+
 
 .carousel-1-control-next {
-	/* right: -10%; */
 	left: 95%;
 }
-
-/* added by sw  */
-
-
-
-
 
 .loan-type {
 	text-align: center;
@@ -1261,9 +1086,7 @@
 	height: 35px;
 }
 
-.money-mng {
-	text-align: center;
-}
+
 
 .money-mng img {
 	width: 45%;
@@ -1353,26 +1176,17 @@
 	display: none;
 }
 
-/* added by sw for hdfc img start*/
 .hdfcimg {
 	max-height: 68px;
 	position: relative;
 	top: 6px;
 }
-/* added by sw for hdfc img end*/
 
 
 .finance-news {
 	margin: 0 5px;
-	/*margin-left: 37px;*/
 }
 
-/*.financial-slider .slick-slide{
-	opacity: 0.3;
-}
-.financial-slider .slick-slide.slick-active{
-	opacity: 1;
-	}*/
 
 	.testimonial-slider {
 		position: relative;
@@ -1408,7 +1222,6 @@
 		top: 8rem;
 		box-shadow: none;
 		opacity: 0.5;
-		/* border:2px solid red; */
 	  }
 	
 	  ::ng-deep .testimonial-slider .owl-prev:hover,
@@ -1453,10 +1266,7 @@
 		background: #465a65;
 		opacity: 1;
 	  }
-	  .testimonial-slider p {
-		font-size: 20px;
-		padding: 1% 20%;
-	  }
+	 
 	
 	  .testimonial-slider h4 {
 		font-size: 24px;
@@ -1492,11 +1302,7 @@
 	opacity: .9;
 }
 
-::ng-deep .financial-slider .owl-nav img {
-	/* width: 70%; */
-	/* opacity: .8; */
 
-}
 
 ::ng-deep .financial-slider .owl-nav .owl-prev,
 ::ng-deep .financial-slider .owl-nav .owl-next {
@@ -1539,9 +1345,7 @@
 	margin-top: 10px;
 }
 
-.financial-slider .slick-initialized .slick-slide {
-	padding-left: 20px;
-}
+
 
 .cta h3 {
 	color: #222222;
@@ -1575,25 +1379,17 @@
 .client-img .col img {
 	width: 100%;
 }
-.relianceimg{
-	/* border: 1px solid red; */
-}
+
 
 
 @media only screen and (max-width: 767px) {
 
-	/* responsiveness for starting banner section */
 	#demo .carousel-item {
 		padding: 20px;
 	}
 
-	/* responsiveness for starting banner section */
-
-
 	.slider-head {
-		/* font-size: 25px;
-		font-weight: 600;
-		color: #242424; */
+		
 		margin-top: 30px;
 
 
@@ -1639,17 +1435,11 @@
 		flex: 1 0 33% !important;
 	}
 
-	/* .money-mng.mob-inv img {
-		width: 20%;
-	} */
-
 	.money-mng {
 		margin-bottom: 20px;
 	}
 
-	/*.become-partner img{
-		height: 165px;
-		}*/
+
 	.partner-txt h3 {
 		font-size: 26px;
 	}
@@ -1729,9 +1519,7 @@
 		width: 100%;
 	}
 
-	/* phydigital section responsiveness by sw*/
 	.widget-container {
-		/* border: 1px solid yellow; */
 		color: #333333;
 		font-family: "Circular Std font", Sans-serif;
 		font-size: 36px;
@@ -1742,44 +1530,6 @@
 		margin-top: -50px;
 	}
 
-
-	/* by sw for responsiveness */
-	/* 
-	.w-100.wd90 {
-		width: 100% !important;
-	} */
-
-	/* .container.pt-70 .row {
-		display: flex;
-		flex-wrap: wrap;
-	  }
-	
-	  .container.pt-70 .col.col-6 {
-		flex-basis: 50%;
-		max-width: 50%;
-	  }
-	
-	  .container.mt-5 .row {
-		display: flex;
-		flex-wrap: wrap;
-	  }
-	
-	  .container.mt-5 .col.col-6 {
-		flex-basis: 50%;
-		max-width: 50%;
-	  } */
-	  /* .container.pt-70 .row {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-gap: 15px;
-	  }
-	
-	  .container.mt-5 .row {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-gap: 15px;
-	  } */
-
 	
 }
 
@@ -1789,11 +1539,8 @@
 		font-size: 60px;
 		padding-top: 60px;
 
-		/* added by sw */
-		/* font-family: "Circular Std font", Sans-serif; */
-		/* font-size: 24px; */
+		
 		font-weight: 900;
-		/* line-height: 36px; */
 		letter-spacing: 0px;
 		color: #242424;
 
@@ -1817,10 +1564,6 @@
 		align-items: baseline !important;
 	}
 
-	/* .loan-opt .money-mng img {
-		width: 48%;
-	} */
-
 	.partner-txt p {
 		font-size: 16px;
 		margin-bottom: 20px;
@@ -1839,17 +1582,11 @@
 		width: 95%;
 	}
 
-	/* added by sw for hdfc img start*/
 .hdfcimg {
 	max-height: 42px;
-	/* position: relative;
-	top: 6px; */
+	
 }
-/* added by sw for hdfc img end*/
-/* .testimonial-slider p{
-	font-size: 16px;
-	padding: 1% 10%;
-} */
+
 }
 
 @media only screen and (min-width: 768px) {
@@ -1906,14 +1643,7 @@
 	::ng-deep .index-product:hover .owl-nav .owl-prev {
 		opacity: 0.9 !important
 	}
-	/* ::ng-deep .index-product .row .col {
-		flex-basis: 50%;
-		max-width: 50%;
-	  } */
-	  /* .testimonial-slider p{
-		font-size: 16px;
-		padding: 1% 10%;
-	} */
+	
 }
 
 @media (min-width: 1200px) {
@@ -1939,10 +1669,6 @@
 		font-size: 26px;
 	}
 
-	/* .testimonial-slider p{
-		font-size: 16px;
-		padding: 1% 10%;
-	} */
 	::ng-deep .owl-theme .owl-nav [class*=owl-] {
 		display: none;
 	}
@@ -2198,13 +1924,7 @@
 	  .money-mng img {
 		width: 45%;
 	  }
-	  /* .loan-opt .money-mng img {
-		width: 32%;
-	  }
-	
-	  .flow-row .money-mng img {
-		width: 54%;
-	  } */
+	 
 }
 
 /*-------------------1536x864-------------*/
@@ -2227,15 +1947,13 @@
 		width: 90% !important;
 	}
 
-	.loan-type p {
-		font-size: 18px;
-	}
 
 	.loan-type img {
 		width: 34%;
 	}
 
 	.loan-type p {
+		font-size: 18px;
 		margin-bottom: 0px;
 		margin-top: 0px;
 	}
@@ -2273,13 +1991,7 @@
 	.client-img .col img {
 		width: 85%;
 	}
-	/* .loan-opt .money-mng img {
-		width: 32%;
-	  } */
 	
-	  /* .flow-row .money-mng img {
-		width: 62%;
-	  } */
 	  .money-mng img {
 		width: 29%;
 	  }
@@ -2427,12 +2139,8 @@
 		width: 100%;
 		z-index: 9999;
 		background-color: #ffffff;
-		/* Add other styling properties as needed */
 	  }
-	  .money-mng p
-	 {
-		font-size: 24px;
-	  }
+	  
 	  
 }
 
@@ -2529,28 +2237,18 @@
 }
 
 
-/* changes by sw  for phydigital section*/
 .phydigitalsection {
-	/* border: 1px solid red; */
 	margin-top: 80px;
-	/* margin-left: 15%; */
-	/* display: flex;
-	justify-content: center;
-	align-items: center; */
-	/* margin-left: 250px; */
+	
 }
 
 .phydigitalimg {
-	/* border: 1px solid green; */
 	width: 400px !important;
-
-	/* sol. */
 	max-width: 100%;
 	height: auto;
 }
 
 .widget-container {
-	/* border: 1px solid yellow; */
 	color: #333333;
 	font-family: "Circular Std font", Sans-serif;
 	font-size: 36px;
@@ -2558,7 +2256,6 @@
 	line-height: 54px;
 	letter-spacing: 0px;
 	margin-left: 100px;
-	/* margin-top: 0px; */
 }
 
 .phydigitalheading {
@@ -2578,7 +2275,6 @@
 	margin-top: 20px;
 }
 
-.right_arrow_img {}
 
 .elementor-icon-list-text {
 	font-size: 20px;
@@ -2606,27 +2302,16 @@
 	transform: translateX(0);
 }
 
-#partnerModal {
-	/* overflow-y: hidden !important;  */
-}
 
-/* .modal-dialog {
-	width: 800px !important; 
-	height: 1200px !important; 
-	margin: 0 auto; 
-	transform: translateY(-50%);
-  } */
 
 .modal-dialog {
 	overflow-y: hidden !important;
 	max-width: 860px !important;
-	/* max-height: 1200px !important; */
-	/* border: 1px solid white; */
+	
 	border-radius: 10px;
 }
 
 .modal-content {
-	/* border: 1px solid red; */
 	max-width: 860px !important;
 	height: 550px !important;
 	border-radius: 25px;
@@ -2640,17 +2325,12 @@
 
 }
 
-/* .modal.modal-body{
-	border: none;
-	padding: 0;
-	margin: 0;
-  } */
+
 .closeicon .close {
 	width: 30px;
 	height: 30px;
 	margin-left: 28px;
 	margin-top: 23px;
-	/* padding: 8px; */
 	border: 2px solid #F7F7F7;
 	background: linear-gradient(156.65deg, #ECECEC 1.2%, #FFFFFF 98.95%);
 	border-radius: 100px;
@@ -2658,11 +2338,7 @@
 }
 
 .phydigital_partner_img {
-	/* border: 1px solid green; */
 	width: 350px !important;
-
-	/* sol. */
-	/* max-width: 100%; */
 	height: auto;
 	margin-top: -20px;
 }
@@ -2681,16 +2357,13 @@
 
 
 
-/* changes by sw  for meet our partners section */
 .mop {
 	width: 700px;
 	height: fit-content;
 }
 
 .mop img {
-	/* border: 1px solid lightgray;
-		border-radius: 15px; */
-
+	
 	border-style: solid;
 	border-width: 1px 1px 1px 1px;
 	border-color: #ECECEC;
@@ -2699,49 +2372,23 @@
 
 }
 
-/* .main img {
-		width: 1000px;
-		height:300px;
-		object-fit: cover;
-    object-position: center;
-		max-height:100%;
-		max-width:100%;
-	} */
-/* .partnersimg{
-		width: 100%;
-		height:100%;
-		max-height: 100%;
-		max-width:100%;
-	} */
+
 .main img {
 	width: 80vw;
 	height: 50vh;
-	/* object-fit: cover;
-		object-position:  center; */
+	
 	max-height: 100%;
 	max-width: 100%;
 
-	/* border-style: solid;
-        border-width: 1px 1px 1px 1px;
-    border-color: #ECECEC;
-    border-radius: 16px 16px 16px 16px;
-    overflow: hidden; */
+	
 }
 
 
 
-/* phydigital section media query by sw */
 
 @media (max-width: 575.98px) {
-	/* added by sw for hdfc img start */
-	/* .hdfcimg {
-		max-height: 30px;
-		position: relative;
-		top: 2px;
-	} */
-	/* added by sw for hdfc img end */
+	
 	.phydigitalsection {
-		/* margin-top: 80px; */
 		margin-left: 10px;
 	}
 
@@ -2788,13 +2435,11 @@
 		max-width: 100%;
 	}
 
-	/* meet our partner responsiveness */
 	.carousel-1-control-prev {
 		left: 5%;
 	}
 
 	.carousel-1-control-next {
-		/* right: -10%; */
 		left: 85%;
 	}
 
@@ -2815,20 +2460,16 @@
 		transform: translateX(0);
 	}
 
-	#partnerModal {
-		/* overflow-y: hidden !important;  */
-	}
+	
 
 	.modal-dialog {
 		overflow-y: hidden !important;
 		max-width: 860px !important;
-		/* max-height: 1200px !important; */
-		/* border: 1px solid white; */
+		
 		border-radius: 10px;
 	}
 
 	.modal-content {
-		/* border: 1px solid red; */
 		max-width: 860px !important;
 		height: 550px !important;
 		border-radius: 25px;
@@ -2840,17 +2481,12 @@
 
 	}
 
-	/* .modal.modal-body{
-    border: none;
-    padding: 0;
-    margin: 0;
-  } */
+	
 	.closeicon .close {
 		width: 30px;
 		height: 30px;
 		margin-left: 25px;
 		margin-top: 20px;
-		/* padding: 8px; */
 		border: 2px solid #F7F7F7;
 		background: linear-gradient(156.65deg, #ECECEC 1.2%, #FFFFFF 98.95%);
 		border-radius: 100px;
@@ -2858,15 +2494,11 @@
 	}
 
 	.phydigital_partner_img {
-		/* border: 1px solid green; */
 		width: 280px !important;
 
 		height: auto;
-		/* margin-top: -10px; */
-
 		display: block;
 		margin: 0 auto;
-		/* max-width: 100%; */
 	}
 
 	.modal-body button {
@@ -2875,39 +2507,32 @@
 	}
 
 	.modalpartnerbtn {
-		/* margin-left: 45px; */
-		/* margin-top: 25px; */
+		
 		display: block;
 		margin: 15px auto;
 		width: 230px !important;
 	}
 
-	/* modal part responsiveness of come join us banner section and phydigital partner button section */
 }
 
 
 
-/* meet our partner responsiveness */
 @media screen and (max-width: 280px) {
 
-	/* added by sw for hdfc img start */
 	.hdfcimg {
 		max-height: 10px;
 		position: relative;
 		top: 1px;
 	}
-	/* added by sw for hdfc img end */
 
 	.carousel-1-control-prev {
 		left: 4%;
 	}
 
 	.carousel-1-control-next {
-		/* right: -10%; */
 		left: 82%;
 	}
 
-	/* modal part responsiveness of come join us banner section , phydigital partner button section */
 	.modal {
 		bottom: 0;
 		top: auto;
@@ -2923,20 +2548,15 @@
 		transform: translateX(0);
 	}
 
-	#partnerModal {
-		/* overflow-y: hidden !important;  */
-	}
-
+	
 	.modal-dialog {
 		overflow-y: hidden !important;
 		max-width: 860px !important;
-		/* max-height: 1200px !important; */
-		/* border: 1px solid white; */
+		
 		border-radius: 10px;
 	}
 
 	.modal-content {
-		/* border: 1px solid red; */
 		max-width: 860px !important;
 		height: 550px !important;
 		border-radius: 25px;
@@ -2948,17 +2568,12 @@
 		padding: 10px 10px 10px 10px;
 	}
 
-	/* .modal.modal-body{
-        border: none;
-        padding: 0;
-        margin: 0;
-      } */
+	
 	.closeicon .close {
 		width: 30px;
 		height: 30px;
 		margin-left: 15px;
 		margin-top: 15px;
-		/* padding: 8px; */
 		border: 2px solid #F7F7F7;
 		background: linear-gradient(156.65deg, #ECECEC 1.2%, #FFFFFF 98.95%);
 		border-radius: 100px;
@@ -2966,12 +2581,8 @@
 	}
 
 	.phydigital_partner_img {
-		/* border: 1px solid green; */
-		/* width: 280px !important; */
-
+		
 		height: auto;
-		/* margin-top: -10px; */
-
 		display: block;
 		margin: 0 auto;
 		max-width: 100%;
@@ -2983,8 +2594,7 @@
 	}
 
 	.modalpartnerbtn {
-		/* margin-left: 45px; */
-		/* margin-top: 25px; */
+		
 		display: block;
 		margin: 15px auto;
 		width: 230px !important;
@@ -3044,17 +2654,14 @@
 		max-width: 100%;
 	}
 
-	/* meet our partner responsiveness */
 	.carousel-1-control-prev {
 		left: 2%;
 	}
 
 	.carousel-1-control-next {
-		/* right: -10%; */
 		left: 93%;
 	}
 
-	/* modal part responsiveness of come join us banner section and phydigital partner button section */
 	.modal {
 		bottom: 0;
 		top: auto;
@@ -3070,24 +2677,18 @@
 		transform: translateX(0);
 	}
 
-	#partnerModal {
-		/* overflow-y: hidden !important;  */
-	}
-
+	
 	.modal-dialog {
 		overflow-y: hidden !important;
 		max-width: 860px !important;
-		/* max-height: 1200px !important; */
-		/* border: 1px solid white; */
+	
 		border-radius: 10px;
 	}
 
 	.modal-content {
-		/* border: 1px solid red; */
 		max-width: 860px !important;
 		height: 550px !important;
 		border-radius: 25px;
-
 
 	}
 
@@ -3097,17 +2698,12 @@
 
 	}
 
-	/* .modal.modal-body{
-    border: none;
-    padding: 0;
-    margin: 0;
-  } */
+
 	.closeicon .close {
 		width: 40px;
 		height: 40px;
 		margin-left: 33px;
 		margin-top: 28px;
-		/* padding: 8px; */
 		border: 2px solid #F7F7F7;
 		background: linear-gradient(156.65deg, #ECECEC 1.2%, #FFFFFF 98.95%);
 		border-radius: 100px;
@@ -3115,11 +2711,7 @@
 	}
 
 	.phydigital_partner_img {
-		/* border: 1px solid green; */
 		width: 350px !important;
-
-		/* sol. */
-		/* max-width: 100%; */
 		height: auto;
 		margin-top: -20px;
 	}
@@ -3135,7 +2727,6 @@
 		width: 330px !important;
 	}
 
-	/* modal part responsiveness of come join us banner section and phydigital partner button section */
 
 }
 
@@ -3194,61 +2785,11 @@
 
 }
 
-/* @media only screen and (min-width: 1200px){
 
-	.phydigitalsection {
-		margin-left: 10px;
-		max-width: 1920px;
-	}
-
-	.phydigitalimg {
-		width: 100% !important;
-	}
-
-	.widget-container {
-		font-size: 37px;
-		line-height: 54px;
-		margin-left: 50px;
-		margin-top: 0px;
-		text-align: left;
-		font-weight: 900;
-	}
-	.phydigitalparentdiv {
-		margin-left: 50px;
-		margin-top: 34px;
-	}
-
-	.firstpoint {
-		margin-top: 20px;
-	}
-
-	.right_arrow_img {
-		width: 20px;
-		height: 20px;
-	}
-
-	.elementor-icon-list-text {
-		font-size: 18px;
-		margin-left: 5px;
-
-		letter-spacing: 0.45px;
-	}
-
-	.partnerbtn {
-		margin-left: 50px;
-		margin-top: 25px;
-	}
-
-
-}    */
 
 
 @media only screen and (min-width: 1920px) {
-	.phydigitalsection {
-		/* margin-left: 20%; */
-
-	}
-
+	
 	.phydigitalimg {
 		width: 100% !important;
 	}
@@ -3296,7 +2837,3 @@
 	}
 
 }
-
-
-
-/*  */

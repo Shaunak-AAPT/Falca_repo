@@ -14,7 +14,7 @@
   background-size: cover;
   overflow-x: hidden;
   overflow-y: scroll;
-  font-family: myfont;
+  font-family: myfont, sans-serif;
 }
 
 html,
@@ -421,9 +421,9 @@ p {
     height: 70px;
   }
 
-  .modal-backdrop {
+  /* .modal-backdrop {
     z-index: 10;
-  }
+  } */
 
   #mob_signin.modal.fade .modal-dialog,
   #mob_signup.modal.fade .modal-dialog {
@@ -467,15 +467,16 @@ p {
     line-height: 36px;
   }
 
-  .hidden-xs {
+  /* .hidden-xs {
     display: none;
-  }
+  } */
 
   .hidden-lg {
     display: block;
   }
 
   .modal-backdrop {
+    z-index: 10;
     -webkit-backdrop-filter: blur(5px);
     backdrop-filter: blur(5px);
     background-color: #00000080;

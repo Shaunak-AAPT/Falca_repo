@@ -5,13 +5,12 @@ import * as CryptoJS from 'crypto-js';
 })
 export class AESCryptoService {
 
-  constructor() { }
   private Key = CryptoJS.enc.Base64.parse("1nB0jFNeWxzqwF9xxaSx9ljzu0UCCcAvcawuDLyiXkw=");
   private IV = CryptoJS.enc.Base64.parse("17BXpOGRAZ82EsH9Ok4xTw==");
   
   Encrypt(value:any){
     const SecureRequest=JSON.stringify(value);
-    var encrypted = CryptoJS.AES.encrypt(SecureRequest, this.Key,
+    let encrypted = CryptoJS.AES.encrypt(SecureRequest, this.Key,
     {
         iv: this.IV,
         mode: CryptoJS.mode.CBC,
@@ -21,7 +20,7 @@ export class AESCryptoService {
   }
 
   Decrypt(value:any){
-    var decrypted = CryptoJS.AES.decrypt(value, this.Key, {
+    let decrypted = CryptoJS.AES.decrypt(value, this.Key, {
         iv: this.IV,
         mode: CryptoJS.mode.CBC,
         padding: CryptoJS.pad.Pkcs7

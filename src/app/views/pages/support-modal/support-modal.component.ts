@@ -1,11 +1,9 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component,  OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-// import { registerRequest } from 'src/app/models/registerRequest.model';
 import { ValidateService } from 'src/app/services/validate/validate.service';
-import { ReactiveFormsModule } from '@angular/forms'
 import { ApiService } from 'src/app/services/api/api.service';
-declare var $: any;
+declare let $: any;
 @Component({
   selector: 'app-support-modal',
   templateUrl: './support-modal.component.html',
@@ -15,7 +13,6 @@ declare var $: any;
 export class SupportModalComponent implements OnInit {
   myForm!: FormGroup;
   isSubmitted = false;
-  // namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{3,15})?(\\s[a-zA-Z]{3,15})?$";
 
   namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{3,15}){1,2}$";
   emailPattern = "^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
@@ -38,7 +35,9 @@ export class SupportModalComponent implements OnInit {
     const input = event.target as HTMLInputElement;
     let value = input.value;
     if (specialCharacters.some(char => value.includes(char)) || value.includes(' ')) {
-      value = value.replace(/[!@_*\$\%\#\-\&\?+\s]/g, '');
+
+      value = value.replace(/[!@_*$%#\-\&?+\s]/g, '');
+
       input.value = value;
       input.dispatchEvent(new Event('input'));
     }
@@ -51,7 +50,6 @@ export class SupportModalComponent implements OnInit {
   showSupportModal() {
 
     $("#supportModal").modal("show");
-    // console.log("showmodel:", this.showModal);
   }
 
   hideSupportModal() {
@@ -109,6 +107,5 @@ export class SupportModalComponent implements OnInit {
    
   }
 }
-
 
 

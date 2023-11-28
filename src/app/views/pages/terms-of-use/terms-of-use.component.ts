@@ -1,7 +1,6 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { filter } from 'rxjs/operators';
-import { NavigationEnd } from '@angular/router';
+
 @Component({
   selector: 'app-terms-of-use',
   templateUrl: './terms-of-use.component.html',
@@ -29,5 +28,4 @@ export class TermsOfUseComponent implements OnInit {
 
 
 }
-
 

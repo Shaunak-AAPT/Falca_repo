@@ -1,60 +1,60 @@
 .container {
-    margin-top: 5%;
+  margin-top: 5%;
 }
 
 
 .title{
-    color: #333333;
-    font-size: 40px;
-     font-family: "Circular Std font", Sans-serif;
-    font-weight:bolder;
-    line-height: 56px;
-    letter-spacing: 0px;
+  color: #333333;
+  font-size: 40px;
+   font-family: "Circular Std font", Sans-serif;
+  font-weight:bolder;
+  line-height: 56px;
+  letter-spacing: 0px;
 }
 .common_font {
-    color: #333333;
-    font-family: "Circular Std font", Sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 30px;
-    letter-spacing: 0.35px;
-    margin-top: 2.5%;
+  color: #333333;
+  font-family: "Circular Std font", Sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0.35px;
+  margin-top: 2.5%;
 }
 
 .highlights{
-    font-weight: bolder;
+  font-weight: bolder;
 }
 
 p{
-    color: #333333;
-    font-family: "Circular Std font", Sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 30px;
-    letter-spacing: 0.35px;
-  
+  color: #333333;
+  font-family: "Circular Std font", Sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+  letter-spacing: 0.35px;
+
 
 }
 .common_font p{
-    margin-bottom: 0.2em;
-  }
+  margin-bottom: 0.2em;
+}
 
 
-  a { 
-    color: #e27e28;
-    text-decoration: none; 
-    cursor: pointer;
+a { 
+  color: #e27e28;
+  text-decoration: none; 
+  cursor: pointer;
 } 
 
 
 .Custemail {
 
-  text-decoration: none;
+text-decoration: none;
 
 }html {
-    scroll-behavior: auto;
-  }
-  
-  html, body {
-    scroll-behavior: smooth;
-  }
+  scroll-behavior: auto;
+}
+
+html, body {
+  scroll-behavior: smooth;
+}

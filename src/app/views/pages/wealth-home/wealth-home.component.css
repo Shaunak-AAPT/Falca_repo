@@ -70,13 +70,7 @@
     display: none;
 }
 
-/* .carousel-indicators [data-bs-target]{
-	width: 12px;
-	height: 12px;
-	background-color: #465A65;
-	border-radius: 50px;
-	border: 0px;
-} */
+
 
 .carousel-indicators {
     bottom: -50px;
@@ -96,9 +90,6 @@
     background-color: #00A0AE;
 }
 
-.carousel-indicators {
-    bottom: -50px;
-}
 
 .testimonial-slider {
     position: relative;
@@ -180,17 +171,6 @@
     background: #465a65;
     opacity: 1;
 }
-
-.testimonial-slider p {
-    font-size: 20px;
-    padding: 1% 20%;
-}
-
-.testimonial-slider h4 {
-    font-size: 24px;
-}
-
-
 
 .loan-type {
     text-align: center;
@@ -431,11 +411,7 @@
     opacity: .9;
 }
 
-::ng-deep .financial-slider .owl-nav img {
-    /* border:2px solid red; */
-    /* width: 3rem !important;
-    height: 3rem !important; */
-}
+
 
 ::ng-deep .financial-slider .owl-nav .owl-prev,
 ::ng-deep .financial-slider .owl-nav .owl-next {
@@ -495,13 +471,11 @@
     min-height: 58px;
 }
 
-.financial-slider .slick-initialized .slick-slide {
-    padding-left: 20px;
-}
 
-.financial-slider .fin .slick-initialized .slick-slide {
+
+/* .financial-slider .fin .slick-initialized .slick-slide {
     padding-left: 20px;
-}
+} */
 
 .cta h3 {
     color: #222222;
@@ -550,7 +524,6 @@ p.trend-name {
     line-height: 18px !important;
     color: #222 !important;
     margin-bottom: 0px;
-    ;
 }
 
 .title-head2 {
@@ -640,12 +613,6 @@ p.trend-name {
     margin-top: 20px;
 }
 
-.right_arrow_img {}
-
-.elementor-icon-list-text {
-    font-size: 20px;
-    margin-left: 5px;
-}
 
 .partnerbtn {
     margin-left: 100px;
@@ -669,16 +636,7 @@ p.trend-name {
     transform: translateX(0);
 }
 
-#partnerModal {
-    /* overflow-y: hidden !important;  */
-}
 
-/* .modal-dialog {
-	width: 800px !important; 
-	height: 1200px !important; 
-	margin: 0 auto; 
-	transform: translateY(-50%);
-  } */
 
 .modal-dialog {
     overflow-y: hidden !important;
@@ -854,9 +812,7 @@ tbody tr:last-child {
         transform: translateX(0);
     }
 
-    #partnerModal {
-        /* overflow-y: hidden !important;  */
-    }
+   
 
     .modal-dialog {
         overflow-y: hidden !important;
@@ -1136,17 +1092,9 @@ tbody tr:last-child {
         text-align: left;
     }
 
-    .trending-product {
-        margin-left: 0px;
-        margin-right: 0px;
-    }
+    
 
     .trending-product p {
-        text-align: left;
-    }
-
-    .finance .title-head1 {
-        font-size: 28px;
         text-align: left;
     }
 
@@ -1239,12 +1187,7 @@ tbody tr:last-child {
         height: 20px;
     }
 
-    .elementor-icon-list-text {
-        font-size: 17px;
-        margin-left: 5px;
-
-        letter-spacing: 0.45px;
-    }
+  
 
     .elementor-icon-list-text .font12 {
         font-size: 12px !important;
@@ -1271,9 +1214,7 @@ tbody tr:last-child {
         transform: translateX(0);
     }
 
-    #partnerModal {
-        /* overflow-y: hidden !important;  */
-    }
+   
 
     .modal-dialog {
         overflow-y: hidden !important;
@@ -1608,7 +1549,6 @@ tbody tr:last-child {
     .elementor-icon-list-text {
         font-size: 18px;
         margin-left: 5px;
-
         letter-spacing: 0.45px;
     }
 
@@ -1920,7 +1860,6 @@ tbody tr:last-child {
     .loan-opt .money-mng img {
         width: 34%;
     }
-
     .flow-row .money-mng img {
         width: 45%;
     }
@@ -2270,7 +2209,7 @@ tbody tr:last-child {
 .spinner {
     height: 60px;
     display: block;
-    vertical-align: middle;
+    /* vertical-align: middle; */
     margin: 46vh auto;
     text-align: center;
     font-size: 10px;

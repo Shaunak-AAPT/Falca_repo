@@ -12,12 +12,12 @@ export class EligibilityService {
   constructor(private cryptoManager: AESCryptoService) { }
 
   setSessionParams(contentKey: any, args: any){
-    var encryptedArgs = this.cryptoManager.Encrypt(JSON.stringify(args));
+    let encryptedArgs = this.cryptoManager.Encrypt(JSON.stringify(args));
     localStorage.setItem(contentKey, encryptedArgs);
   }
 
   getSessionParams(contentKey: any){
-    var encryptedArgs = localStorage.getItem(contentKey) || '';
+    let encryptedArgs = localStorage.getItem(contentKey) ?? '';
     if(encryptedArgs === null || encryptedArgs === undefined || encryptedArgs === ''){
       return '';
     } else{
@@ -30,3 +30,4 @@ export class EligibilityService {
   }
   
 }
+
