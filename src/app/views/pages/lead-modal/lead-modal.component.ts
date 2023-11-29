@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api/api.service';
 import { ValidateService } from 'src/app/services/validate/validate.service';
@@ -12,7 +12,7 @@ declare let $: any;
 })
 export class LeadModalComponent implements OnInit {
 
-  myForm!: FormGroup;
+  myForm!: UntypedFormGroup;
   isSubmitted = false;
 
   namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{3,15}){1,2}$";
@@ -20,14 +20,14 @@ export class LeadModalComponent implements OnInit {
   successMessage: boolean = false;
 
 
-  constructor(public validation: ValidateService, private toastr: ToastrService, private fb: FormBuilder, private api: ApiService,) {
+  constructor(public validation: ValidateService, private toastr: ToastrService, private fb: UntypedFormBuilder, private api: ApiService,) {
 
 
-    this.myForm = new FormGroup({
-      Name: new FormControl('', [Validators.required, Validators.pattern(this.namePattern)]),
-      Email: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
-      mobileNumber: new FormControl('', [Validators.required, Validators.pattern("^[6-9]{1}[0-9]{9}$")]),
-      Comments: new FormControl('', Validators.required)
+    this.myForm = new UntypedFormGroup({
+      Name: new UntypedFormControl('', [Validators.required, Validators.pattern(this.namePattern)]),
+      Email: new UntypedFormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
+      mobileNumber: new UntypedFormControl('', [Validators.required, Validators.pattern("^[6-9]{1}[0-9]{9}$")]),
+      Comments: new UntypedFormControl('', Validators.required)
     });
 
 

@@ -5,7 +5,7 @@ import { ApiService } from '../services/api/api.service';
 import { AESCryptoService } from '../services/cryptomanager/aescrypto.service';
 import { environment } from 'src/environments/environment';
 import { ValidateService } from '../services/validate/validate.service';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 declare let $: any;
 
 declare let bootstrap: any;
@@ -258,7 +258,7 @@ export class HomeComponent implements OnInit {
 
 
 
-  constructor(public activeRoute: ActivatedRoute, public validation: ValidateService, private api: ApiService, private route: Router, private crypto: AESCryptoService, private fb: FormBuilder, private elementRef: ElementRef, private renderer: Renderer2) {
+  constructor(public activeRoute: ActivatedRoute, public validation: ValidateService, private api: ApiService, private route: Router, private crypto: AESCryptoService, private fb: UntypedFormBuilder, private elementRef: ElementRef, private renderer: Renderer2) {
 
     // lead modal 
     // this.myForm = new FormGroup({
