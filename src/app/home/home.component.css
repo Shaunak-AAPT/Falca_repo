@@ -340,7 +340,23 @@
 
  }
  
- 
+ .owl-theme .owl-dots {
+	/* Add your styles for the dots container here */
+  }
+  
+  .owl-theme .owl-dot {
+	/* Add your styles for the dots here */
+	background-color:  #00A0AD; /* Change to the desired color */
+	width: 10px; /* Set the width of the dots */
+	height: 10px; /* Set the height of the dots */
+	margin: 0 5px; /* Adjust the margin between dots */
+	border-radius: 50%; /* Make dots circular */
+  }
+  
+  .owl-theme .owl-dot.active {
+	/* Style for active dot */
+	background-color:  #00A0AD !important; /* Change to the desired color for active dot */
+  }
 
 
 @media only screen and (max-width: 767px) {

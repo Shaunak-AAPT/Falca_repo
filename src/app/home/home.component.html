@@ -135,6 +135,34 @@
 
     </div>
 
+    <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div *ngFor="let banner of CommonBannerlist; let i = index" class="carousel-item"
+          [ngClass]="i === 0 ? 'active' : ''">
+          <img [src]="banner.banner" class="d-block w-100" alt="Banner {{ i }}">
+          <div class="carousel-caption d-none d-md-block">
+            <h5 [innerHTML]="banner.heading"></h5>
+            <p [innerHTML]="banner.description"></p>
+            <button *ngIf="banner.sortOrder === 1" class="btn btn-primary"
+              (click)="partnermodal(banner)">Partner</button>
+            <button *ngIf="banner.sortOrder === 2" class="btn btn-primary"
+              (click)="customermodal(banner)">Customer</button>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div> -->
+
+
 
     <div class="modal fade" id="mutualFundModal" tabindex="-1" role="dialog" aria-labelledby="mutualFundModalLabel"
       aria-hidden="true">
@@ -170,6 +198,39 @@
       </div>
 
     </div>
+
+
+    <!-- <div class="container pt-70 ptsm-1 mt-5">
+      <div class="testimonial-slider">
+        <img src="assets/img/upquote.png" class="upquote" alt="upquote">
+        <owl-carousel-o [options]="customOptions2">
+          <ng-template carouselSlide *ngFor=" let testimonial of CommonrTestimonialdata">
+            <div class="row align-items-center">
+              <div class="col-lg-12 text-center">
+                <div class="d-flex justify-content-center">
+                  <img src="{{testimonial?.profilePhoto}}" class="user-img" alt="profilephoto">
+                </div>
+                <h4>{{testimonial?.firstName}} {{testimonial?.lastName}}</h4>
+
+                <div *ngIf="shouldShowReadMore(testimonial)" class="testimonial_content">
+                  <div class="content-wrapper">
+                    <p class="testimonialtext" [innerHTML]="getReviewContent(testimonial)"></p>
+                    <a href="javascript:void(0)" (click)="toggleExpanded(testimonial)">
+                      {{ testimonial.expanded ? 'Read Less' : 'Read More' }}
+                    </a>
+                  </div>
+                </div>
+                <div *ngIf="!shouldShowReadMore(testimonial)">
+                  <p class="testimonialtext">{{ testimonial?.profileReview }}</p>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
+        <img src="assets/img/downquote.png" class="downquote" alt="downquote">
+      </div>
+    </div> -->
+
 
     <!-- desktop view -->
 
@@ -210,7 +271,7 @@
       </div>
     </div>
 
-   
+
 
     <div class="container hidden-xs mt-5 mb-3 common-mt-3 more-product money-invest loan-opt wealth">
       <div class="row align-items-center justify-content-center">
@@ -234,7 +295,7 @@
         </div>
       </div>
     </div>
-   
+
     <!--As per insurance in each line 3 products  -->
 
     <div class="container hidden-lg pt-70 mt-5 mb-3 common-mt-3 more-product money-invest loan-opt">
@@ -331,11 +392,11 @@
     <div class="container pt-70 money-invest">
       <div class="row align-items-center">
         <div class="col-lg-12">
-          <h4 class="title-head mb-4">Meet Our <span style="color:
+          <!-- <h4 class="title-head mb-4">Meet Our <span style="color:
           #00A0AD;">Partners</span>
-          </h4>
+          </h4> -->
 
-          <div id="meetpartners" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+          <!-- <div id="meetpartners" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
 
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#meetpartners" data-bs-slide-to="0" class="active"></button>
@@ -360,13 +421,33 @@
 
             </button>
             <button class="carousel-1-control-next" type="button" data-bs-target="#meetpartners" data-bs-slide="next">
-             
+
               <span><img src="../../assets/img/icons8-next-page-24.png" alt="next"></span>
 
             </button>
-          </div>
+          </div> -->
 
-        
+          <div class="container pt-70 ptsm-1 mt-5">
+            <div class="row align-items-center">
+              <div class="col-lg-12">
+                <h4 class="title-head mb-4">Meet Our <span style="color:
+                  #00A0AD;">Partners</span>
+                </h4>
+              </div>
+            </div>
+            <div class="testimonial-slider">
+
+              <owl-carousel-o [options]="customOptions3">
+                <ng-template carouselSlide *ngFor=" let banners of meetpartnerslist">
+
+                  <div class="main">
+                    <img class="partnersimg" src="{{banners.image}}" alt="slider1">
+                  </div>
+
+                </ng-template>
+              </owl-carousel-o>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -483,7 +564,7 @@
                 </div>
 
               </div>
-            
+
             </div>
           </div>
         </div>
@@ -529,7 +610,7 @@
 
 
           </div>
-          
+
           <div class=" become-partner">
             <div class="row align-items-center">
               <div class="profiling-team">
@@ -551,13 +632,13 @@
               </div>
             </div>
           </div>
-         
+
         </div>
 
       </div>
     </div>
 
-    
+
 
     <div class="container pt-70 ptsm-1 mt-5">
       <div class="testimonial-slider">
@@ -613,7 +694,7 @@
       <div class="row align-items-center">
         <div class="col-1">
         </div>
-       
+
         <div class="col">
           <img src="assets/img/1280px-Reliance_General_Insurance.svg.png" class="c2 relianceimg" alt="reliance">
         </div>
@@ -626,7 +707,7 @@
         <div class="col">
           <img src="assets/img/universal_logo.png" class="c4" alt="universal">
         </div>
-       
+
         <div class="col-1">
         </div>
       </div>
@@ -647,7 +728,7 @@
           <img src="assets/img/religare_logo.png" class="c5" alt="religare">
         </div>
       </div>
-     
+
     </div>
 
     <!-- Blogs -->

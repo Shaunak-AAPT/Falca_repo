@@ -251,6 +251,30 @@ export class HomeComponent implements OnInit {
     autoplayTimeout: 5000,
     autoplayHoverPause: true
   }
+
+  customOptions3: OwlOptions = {
+    items: 1,
+    margin: 0,
+    loop: true,
+    // responsive: {
+    //   0: { items: 3 },
+    //   480: { items: 3 },
+    //   600: { items: 4 },
+    //   1000: { items: 5 },
+    //   1200: { items: 5 }
+    // },
+    nav: true,
+    // navText: ['Back','Next'],
+    navText: ["<img src='assets/img/arrow_left.svg'>", "<img src='assets/img/arrow_right.svg'>"],
+    dots: true,
+    dotsEach: true,
+    lazyLoad: false,
+    autoplay: true,
+    autoplaySpeed: 750,
+    navSpeed: 750,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true
+  }
   // lead modal 
   // myForm!: FormGroup;
   // isSubmitted = false;
