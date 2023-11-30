@@ -8,7 +8,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgApexchartsModule } from 'ng-apexcharts'
 import { DatePipe } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxSliderModule } from '@angular-slider/ngx-slider';
+// import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { WebcamModule } from 'ngx-webcam';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AppRoutingModule } from './app-routing.module';
@@ -98,7 +98,7 @@ import { WealthHomeComponent } from './views/pages/wealth-home/wealth-home.compo
     FormsModule,
     AppRoutingModule,
     CarouselModule,
-    NgxSliderModule,
+    // NgxSliderModule,
     WebcamModule,
     NgApexchartsModule,
     NgxPaginationModule,

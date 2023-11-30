@@ -83,10 +83,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "aapt-common-landing:build:production"
+              "buildTarget": "aapt-common-landing:build:production"
             },
             "development": {
-              "browserTarget": "aapt-common-landing:build:development"
+              "buildTarget": "aapt-common-landing:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -94,7 +94,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "aapt-common-landing:build"
+            "buildTarget": "aapt-common-landing:build"
           }
         },
         "test": {
