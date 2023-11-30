@@ -11,17 +11,114 @@
 </div>
 <div #scrollContainer *ngIf="!ShowLoader">
   <div class="container pb-3">
+    <div class="container  ptsm-1">
+      <owl-carousel-o [options]="customOptions4">
+        <ng-template class="carousel-item" carouselSlide *ngFor="let banners of CommonBannerlist">
+          <!-- <div class="carousel-item" [ngClass]="{'active': i === 0}"> -->
+          <div class="row align-items-center Banner">
+            <div class="col-12 hidden-lg hidden-sm order-2 order-lg-1">
+              <h4 class="slider-head" [innerHTML]="banners?.heading"></h4>
+            </div>
+            <!-- <div class="col-lg-8 col-12 order-2 order-lg-1">
+  
+              <h4 class="slider-head hidden-xs" [innerHTML]="banners?.heading"></h4>
+              <p class="slider-txt" [innerHTML]="banners?.description"></p>
+              <button id="partner" *ngIf="banners.sortOrder === 1" class="nav-link btn btn-primary theme-button"
+                [innerHTML]="banners?.button" data-toggle="modal" data-target="#bannerpartnerModal"
+                (click)="partnermodal(banners)">
+                <span class="elementor-button-icon elementor-align-icon-right">
+                  <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
+                </span>
+                
+              </button>
+  
+              <div class="d-flex align-items-center">
+                <button id="customer" *ngIf="banners.sortOrder === 2" class="nav-link btn btn-primary theme-button banner_btn"
+                  data-toggle="modal" data-target="#bannercustomerModal" (click)="customermodal(banners)">
+                  COME JOIN US
+                  <span class="elementor-button-icon elementor-align-icon-right">
+                    <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
+                  </span>
+                </button>
+              </div>
+            
+            </div> -->
+            
+            <div class="col-lg-8 col-12 order-2 order-lg-1">
+              <h4 class="slider-head hidden-xs" [innerHTML]="banners?.heading"></h4>
+              <p class="slider-txt" [innerHTML]="banners?.description"></p>
+            
+              
+              <div class="row align-items-center" *ngIf="banners.sortOrder === 1">
+                <div class="col-sm-2">
+                  <button id="partner" 
+                    class="nav-link btn btn-primary theme-button banner_btn" data-toggle="modal" data-target="#bannerpartnerModal"
+                    (click)="partnermodal(banners)">
+                    COME JOIN US
+                  </button>
+                </div>
+                <div class="col-3">
+                  <span class="elementor-button-icon elementor-align-icon-right">
+                    <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
+                  </span>
+                </div>
+              </div>
+  
+  
+              <div class="row align-items-center" *ngIf="banners.sortOrder === 2">
+                <div class="col-sm-2">
+                  <button id="partner" 
+                    class="nav-link btn btn-primary theme-button banner_btn" data-toggle="modal" data-target="#bannerpartnerModal"
+                    (click)="customermodal(banners)">
+                    COME JOIN US
+                  </button>
+                </div>
+                <div class="col-3">
+                  <span class="elementor-button-icon elementor-align-icon-right">
+                    <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
+                  </span>
+                </div>
+              </div>
+  
+  
+  
+  
+            </div>
+            
+            <!-- <div class="col-lg-8 col-12 order-2 order-lg-1">
+              <h4 class="slider-head hidden-xs" [innerHTML]="banners?.heading"></h4>
+              <p class="slider-txt" [innerHTML]="banners?.description"></p>
+            
+              <div class="d-flex align-items-center">
+                <button id="customer" *ngIf="banners.sortOrder === 2"
+                  class="nav-link btn btn-primary theme-button banner_btn" data-toggle="modal" data-target="#bannercustomerModal"
+                  (click)="customermodal(banners)">
+                  <span style="margin-right: 5px;">COME JOIN US</span>
+                  <span class="elementor-button-icon elementor-align-icon-right">
+                    <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
+                  </span>
+                </button>
+              </div>
+            </div> -->
+            
+  
+            <div class="col-lg-4 col-12 order-1 order-lg-2">
+              <img src="{{banners.banner}}" alt="slider1" class="w-100 wd90">
+            </div>
+          </div>
+          <!-- </div> -->
+        </ng-template>
+      </owl-carousel-o>
+    </div>
     <!-- Banners Carousel -->
     <div id="demo" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
 
-      <!-- Indicators/dots -->
-      <div class="carousel-indicators">
+      <!-- <div class="carousel-indicators">
         <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
         <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-      </div>
-      <!-- The slideshow/carousel -->
+      </div> -->
       <div class="carousel-inner">
-        <div class="carousel-item " *ngFor=" let banners of CommonBannerlist; let i=index" [ngClass]="i==0?'active':''">
+        <!-- <div class="carousel-item " *ngFor=" let banners of CommonBannerlist; let i=index" [ngClass]="i==0?'active':''">
           <div class="row align-items-center Banner">
             <div class="col-12 hidden-lg hidden-sm order-2 order-lg-1">
 
@@ -38,7 +135,6 @@
                 [innerHTML]="banners?.button" data-toggle="modal" data-target="#bannerpartnerModal"
                 (click)="partnermodal(banners)">
                 <span class="elementor-button-icon elementor-align-icon-right">
-                    <!-- <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow"> -->
                 </span>
               </button>
 
@@ -54,7 +150,7 @@
               <img src="{{banners.banner}}" alt="slider1" class="w-100 wd90">
             </div>
           </div>
-        </div>
+        </div> -->
 
 
         <!-- modal part latest for banner customer section-->
@@ -372,7 +468,7 @@
             </button>
           </div> -->
 
-          <div class="container pt-70 ptsm-1 mt-5">
+          <div class="container ptsm-1 mt-5">
             <div class="row align-items-center">
               <div class="col-lg-12">
                 <h4 class="title-head mb-4">Meet Our <span style="color:
@@ -722,105 +818,7 @@
 
 
 
-  <div class="container pt-70 ptsm-1 mt-5">
-    <owl-carousel-o [options]="customOptions4">
-      <ng-template class="carousel-item" carouselSlide *ngFor="let banners of CommonBannerlist">
-        <!-- <div class="carousel-item" [ngClass]="{'active': i === 0}"> -->
-        <div class="row align-items-center Banner">
-          <div class="col-12 hidden-lg hidden-sm order-2 order-lg-1">
-            <h4 class="slider-head" [innerHTML]="banners?.heading"></h4>
-          </div>
-          <!-- <div class="col-lg-8 col-12 order-2 order-lg-1">
-
-            <h4 class="slider-head hidden-xs" [innerHTML]="banners?.heading"></h4>
-            <p class="slider-txt" [innerHTML]="banners?.description"></p>
-            <button id="partner" *ngIf="banners.sortOrder === 1" class="nav-link btn btn-primary theme-button"
-              [innerHTML]="banners?.button" data-toggle="modal" data-target="#bannerpartnerModal"
-              (click)="partnermodal(banners)">
-              <span class="elementor-button-icon elementor-align-icon-right">
-                <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
-              </span>
-              
-            </button>
-
-            <div class="d-flex align-items-center">
-              <button id="customer" *ngIf="banners.sortOrder === 2" class="nav-link btn btn-primary theme-button banner_btn"
-                data-toggle="modal" data-target="#bannercustomerModal" (click)="customermodal(banners)">
-                COME JOIN US
-                <span class="elementor-button-icon elementor-align-icon-right">
-                  <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
-                </span>
-              </button>
-            </div>
-          
-          </div> -->
-          
-          <div class="col-lg-8 col-12 order-2 order-lg-1">
-            <h4 class="slider-head hidden-xs" [innerHTML]="banners?.heading"></h4>
-            <p class="slider-txt" [innerHTML]="banners?.description"></p>
-          
-            
-            <div class="row align-items-center" *ngIf="banners.sortOrder === 1">
-              <div class="col-sm-2">
-                <button id="partner" 
-                  class="nav-link btn btn-primary theme-button banner_btn" data-toggle="modal" data-target="#bannerpartnerModal"
-                  (click)="partnermodal(banners)">
-                  COME JOIN US
-                </button>
-              </div>
-              <div class="col-3">
-                <span class="elementor-button-icon elementor-align-icon-right">
-                  <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
-                </span>
-              </div>
-            </div>
-
-
-            <div class="row align-items-center" *ngIf="banners.sortOrder === 2">
-              <div class="col-sm-2">
-                <button id="partner" 
-                  class="nav-link btn btn-primary theme-button banner_btn" data-toggle="modal" data-target="#bannerpartnerModal"
-                  (click)="customermodal(banners)">
-                  COME JOIN US
-                </button>
-              </div>
-              <div class="col-3">
-                <span class="elementor-button-icon elementor-align-icon-right">
-                  <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
-                </span>
-              </div>
-            </div>
-
-
-
-
-          </div>
-          
-          <!-- <div class="col-lg-8 col-12 order-2 order-lg-1">
-            <h4 class="slider-head hidden-xs" [innerHTML]="banners?.heading"></h4>
-            <p class="slider-txt" [innerHTML]="banners?.description"></p>
-          
-            <div class="d-flex align-items-center">
-              <button id="customer" *ngIf="banners.sortOrder === 2"
-                class="nav-link btn btn-primary theme-button banner_btn" data-toggle="modal" data-target="#bannercustomerModal"
-                (click)="customermodal(banners)">
-                <span style="margin-right: 5px;">COME JOIN US</span>
-                <span class="elementor-button-icon elementor-align-icon-right">
-                  <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
-                </span>
-              </button>
-            </div>
-          </div> -->
-          
-
-          <div class="col-lg-4 col-12 order-1 order-lg-2">
-            <img src="{{banners.banner}}" alt="slider1" class="w-100 wd90">
-          </div>
-        </div>
-        <!-- </div> -->
-      </ng-template>
-    </owl-carousel-o>
-  </div>
+ 
 
 
 
