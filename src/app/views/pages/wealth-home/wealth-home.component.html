@@ -13,95 +13,116 @@
     <!-- Carousel -->
     <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
-      <!-- Indicators/dots -->
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-      </div>
-
-      <!-- The slideshow/carousel -->
-      <div class="carousel-inner">
-        <div class="carousel-item" *ngFor="let banners of wealthbannerList; let i= index" [ngClass]="i==0?'active':''">
-          <div class="row align-items-center Banner">
-
-            <div class="col-12 hidden-lg hidden-sm order-2 order-lg-1">
-
-              <h4 class="slider-head" [innerHTML]="banners?.heading"></h4>
-            </div>
-
-            <div class="col-lg-8 col-12 order-2 order-lg-1">
-              <h4 class="slider-head hidden-xs" [innerHTML]="banners?.heading"></h4>
-              <p class="slider-txt" [innerHTML]="banners?.description"></p>
-
-              <button id="partner" *ngIf="banners.sortOrder === 1" class="nav-link btn btn-primary theme-button"
-                [innerHTML]="banners?.button" data-toggle="modal" data-target="#bannerpartnerModal"
-                (click)="partnerWealth(banners)">
-                <span class="elementor-button-icon elementor-align-icon-right">
-                  <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
-                </span>
-              </button>
-
-              <button id="customer" *ngIf="banners.sortOrder === 2" class="nav-link btn btn-primary theme-button"
-                [innerHTML]="banners?.button" data-toggle="modal" data-target="#bannercustomerModal"
-                (click)="customerWealth(banners)">
-                <span class="elementor-button-icon elementor-align-icon-right">
-                  <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
-                </span>
-              </button>
-
-              <button id="customer" *ngIf="banners.sortOrder === 3" class="nav-link btn btn-primary theme-button"
-                [innerHTML]="banners?.button" data-toggle="modal" data-target="#knowmoreModal" (click)="knowMore()">
-                <span class="elementor-button-icon elementor-align-icon-right">
-                  <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
-                </span>
-              </button>
-
-            </div>
-            <div class="col-lg-4 col-12 order-1 order-lg-2">
-              <img src="{{banners.banner}}" alt="slider1" class="w-100 wd90">
-            </div>
-          </div>
-        </div>
-
-        <div class="modal fade" id="bannercustomerModal" tabindex="-1" role="dialog"
-          aria-labelledby="bannercustomerModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="closeicon">
-                <button type="button" class="close" (click)="hidebannerModal()" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
+      <div class="container  ptsm-1">
+        <owl-carousel-o [options]="customOptions4">
+          <ng-template class="carousel-item" carouselSlide *ngFor="let banners of wealthbannerList">
+            <!-- <div class="carousel-item" [ngClass]="{'active': i === 0}"> -->
+            <div class="row align-items-center Banner">
+              <div class="col-12 hidden-lg hidden-sm order-2 order-lg-1">
+                <h4 class="slider-head" [innerHTML]="banners?.heading"></h4>
+              </div>
+              <!-- <div class="col-lg-8 col-12 order-2 order-lg-1">
+    
+                <h4 class="slider-head hidden-xs" [innerHTML]="banners?.heading"></h4>
+                <p class="slider-txt" [innerHTML]="banners?.description"></p>
+                <button id="partner" *ngIf="banners.sortOrder === 1" class="nav-link btn btn-primary theme-button"
+                  [innerHTML]="banners?.button" data-toggle="modal" data-target="#bannerpartnerModal"
+                  (click)="partnermodal(banners)">
+                  <span class="elementor-button-icon elementor-align-icon-right">
+                    <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
+                  </span>
+                  
                 </button>
-
-              </div>
-              <div class="modal-body">
-                <div class="row">
-                  <div class="col-lg-4 col-sm-6">
-                    <img src="assets/img/banner_customer_img.svg" class="phydigital_partner_img" alt="about">
-                  </div>
-
-                  <div class="col-lg-8 col-sm-6">
-                    <a style="text-decoration: none;" target="_blank" href="https://wealth.finizon.com/client-login">
-                      <button class="nav-link btn btn-primary theme-button modalpartnerbtn">SIGN IN</button>
-                    </a>
-                    <a style="text-decoration: none;" target="_blank"
-                      href="https://docs.google.com/forms/d/e/1FAIpQLSejq8glfhwz7uxHZnSF7Tb6FflIaO7GovsH8Li5fDW76bcZHg/viewform">
-                      <button class="nav-link btn btn-primary theme-button modalpartnerbtn">SIGN UP</button>
-                    </a>
-
-                  </div>
-
+    
+                <div class="d-flex align-items-center">
+                  <button id="customer" *ngIf="banners.sortOrder === 2" class="nav-link btn btn-primary theme-button banner_btn"
+                    data-toggle="modal" data-target="#bannercustomerModal" (click)="customermodal(banners)">
+                    COME JOIN US
+                    <span class="elementor-button-icon elementor-align-icon-right">
+                      <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
+                    </span>
+                  </button>
                 </div>
-
+              
+              </div> -->
+    
+              <div class="col-lg-8 col-12 order-2 order-lg-1">
+                <h4 class="slider-head hidden-xs" [innerHTML]="banners?.heading"></h4>
+                <p class="slider-txt" [innerHTML]="banners?.description"></p>
+    
+    
+                <div class="row align-items-center" *ngIf="banners.sortOrder === 1">
+                  <div class="col-sm-2">
+                    <button id="partner" class="nav-link btn btn-primary theme-button banner_btn" 
+                      (click)="partnerWealth(banners)">
+                      COME JOIN US
+                    </button>
+                  </div>
+                  <div class="col-3 d-none d-sm-block">
+                    <span class="elementor-button-icon elementor-align-icon-right">
+                      <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
+                    </span>
+                  </div>
+                </div>
+    
+    
+                <div class="row align-items-center" *ngIf="banners.sortOrder === 2">
+                  <div class="col-sm-2">
+                    <button id="partner" class="nav-link btn btn-primary theme-button banner_btn" 
+                    (click)="customerWealth(banners)">
+                      COME JOIN US
+                    </button>
+                  </div>
+                  <div class="col-3 d-none d-sm-block">
+                    <span class="elementor-button-icon elementor-align-icon-right">
+                      <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
+                    </span>
+                  </div>
+                </div>
+                <div class="row align-items-center" *ngIf="banners.sortOrder === 3">
+                  <div class="col-sm-2">
+                    <button id="partner" class="nav-link btn btn-primary theme-button banner_btn" 
+                   (click)="knowMore()">
+                      KNOW MORE
+                    </button>
+                  </div>
+                  <!-- <div class="col-3">
+                    <span class="elementor-button-icon elementor-align-icon-right">
+                      <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
+                    </span>
+                  </div> -->
+                </div>
+              </div>
+    
+              <!-- <div class="col-lg-8 col-12 order-2 order-lg-1">
+                <h4 class="slider-head hidden-xs" [innerHTML]="banners?.heading"></h4>
+                <p class="slider-txt" [innerHTML]="banners?.description"></p>
+              
+                <div class="d-flex align-items-center">
+                  <button id="customer" *ngIf="banners.sortOrder === 2"
+                    class="nav-link btn btn-primary theme-button banner_btn" data-toggle="modal" data-target="#bannercustomerModal"
+                    (click)="customermodal(banners)">
+                    <span style="margin-right: 5px;">COME JOIN US</span>
+                    <span class="elementor-button-icon elementor-align-icon-right">
+                      <img src="assets/img/icons8-forward-button-20.png" class="" alt="rightarrow">
+                    </span>
+                  </button>
+                </div>
+              </div> -->
+    
+    
+              <div class="col-lg-4 col-12 order-1 order-lg-2">
+                <img src="{{banners.banner}}" alt="slider1" class="w-100 wd90">
               </div>
             </div>
-          </div>
-
-        </div>
-
-
+            <!-- </div> -->
+          </ng-template>
+        </owl-carousel-o>
       </div>
     </div>
+
+
+
 
     <!-- Desktop  work in 767 and above--->
     <div class="container pt-70 mb-3  common-pt-50 more-product money-invest loan-opt mob-hidden">
@@ -426,6 +447,12 @@
     </div>
 
   </div>
+
+
+
+ 
+
+
 
   <div class="container pt-70 phydigitalsection">
     <div class="row">

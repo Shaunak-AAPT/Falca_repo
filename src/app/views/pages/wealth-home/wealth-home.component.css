@@ -754,6 +754,14 @@ tbody tr:last-child {
     visibility: hidden;
   } */
 
+  .owl-carousel .owl-item img {
+	display:none !important;
+	width:0% !important;
+}
+.elementor-button-icon{
+	display:block !important;
+	width:12% !important;
+}
 @media (max-width: 575.98px) {
     .phydigitalsection {
         /* margin-top: 80px; */

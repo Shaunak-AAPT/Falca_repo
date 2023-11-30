@@ -60,6 +60,17 @@ export class WealthHomeComponent implements OnInit {
     autoplayHoverPause: true
   }
 
+  customOptions4: OwlOptions = {
+    items: 1,
+    loop: true,
+    nav: false,
+    // navText: [], // Set navText to an empty array to remove text from navigation buttons
+    dots: true,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true
+    // Add other options as needed
+  };
   BlogList: any[] = []; // Replace with your actual data
 
 
