@@ -275,6 +275,18 @@ export class HomeComponent implements OnInit {
     autoplayTimeout: 5000,
     autoplayHoverPause: true
   }
+
+  customOptions4: OwlOptions = {
+    items: 1,
+    loop: true,
+    nav: false,
+    // navText: [], // Set navText to an empty array to remove text from navigation buttons
+    dots: true,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true
+    // Add other options as needed
+  };
   // lead modal 
   // myForm!: FormGroup;
   // isSubmitted = false;
