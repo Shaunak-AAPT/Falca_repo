@@ -67,7 +67,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { scrollPositionRestoration: 'top', relativeLinkResolution: 'legacy', onSameUrlNavigation: 'reload', useHash: false }),// useHash: true }),
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'top', onSameUrlNavigation: 'reload', useHash: false }),// useHash: true }),
     BrowserAnimationsModule
   ],
   exports: [RouterModule]
