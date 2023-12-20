@@ -192,12 +192,12 @@ export class HeaderComponent implements OnInit {
   }
 
   customerinsurancelink() {
-    window.open("https://diy.ins.finizoninsurance.com/user/home/", "_blank");
+    window.open("https://diy.ins.finizoninsurance.com/user/home/", "_blank", "noopener");
   }
 
 
   customerinvestmentlink() {
-    window.open("https://wealth.finizon.com/client-login", "_blank");
+    window.open("https://wealth.finizon.com/client-login", "_blank", "noopener");
   }
   
   wealthlink() {
@@ -208,34 +208,34 @@ export class HeaderComponent implements OnInit {
 
 
   partnerinsurancelink() {
-    window.open("https://ins.finizoninsurance.com/partner/posp-home", "_blank");
+    window.open("https://ins.finizoninsurance.com/partner/posp-home", "_blank", "noopener");
   }
 
   partnerinvestmentlink() {
-    window.open("https://wealth.finizon.com/advisor-login", "_blank");
+    window.open("https://wealth.finizon.com/advisor-login", "_blank", "noopener");
 
   }
   insurefitLink() {
     // window.open("http://65.1.237.83:5800/spprd/wellness?referralid=goqii", "_blank");
-    window.open("https://dev.finizon.com/spprd/wellness?referralid=goqii", "_blank");
+    window.open("https://dev.finizon.com/spprd/wellness?referralid=goqii", "_blank", "noopener");
 
   }
 
   shopkeeperLink() {
     // window.open("http://65.1.237.83:5800/spprd/shopkeeper?referralid=godigit", "_blank");
-    window.open("https://dev.finizon.com/shopkeeper?referralid=godigit", "_blank");
+    window.open("https://dev.finizon.com/shopkeeper?referralid=godigit", "_blank", "noopener");
 
   }
   monexoLink() {
     // window.open("http://65.1.237.83:5800/monexo?referralid=monexo", "_blank");
-    window.open("https://dev.finizon.com/monexo?referralid=monexo", "_blank");
+    window.open("https://dev.finizon.com/monexo?referralid=monexo", "_blank", "noopener");
 
   }
 
 
   insureLink() {
     // window.open("http://65.1.237.83:6800", "_blank");
-    window.open("https://uatnw.finizoninsurance.com/", "_blank");
+    window.open("https://uatnw.finizoninsurance.com/", "_blank", "noopener");
 
     
   }

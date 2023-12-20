@@ -147,13 +147,13 @@ export class WealthHomeComponent implements OnInit {
 
   partnerWealth(banners: any) {
     if (banners.sortOrder === 1) {
-      window.open("https://forms.gle/t4D9wrpJWNiFVpDS8", "_blank");
+      window.open("https://forms.gle/t4D9wrpJWNiFVpDS8", "_blank", "noopener");
     }
   }
 
   customerWealth(banners: any) {
     if (banners.sortOrder === 2) {
-      window.open("https://forms.gle/J1WexoLfsLAoMrAp7", "_blank");
+      window.open("https://forms.gle/J1WexoLfsLAoMrAp7", "_blank", "noopener");
     }
   }
 
@@ -162,7 +162,7 @@ export class WealthHomeComponent implements OnInit {
   }
 
   clkHere(){
-    window.open("https://drive.google.com/drive/folders/1gWxnK9k_8-hpG11HqFH8e7c1nm-AdgRC?usp=drive_link","_blank");
+    window.open("https://drive.google.com/drive/folders/1gWxnK9k_8-hpG11HqFH8e7c1nm-AdgRC?usp=drive_link","_blank", "noopener");
 
   }
   TestimonialWealth() {
@@ -216,7 +216,7 @@ export class WealthHomeComponent implements OnInit {
       console.log('credit', Product.path)
       $("#bannercustomerModal").modal("show");
     } else if(Product.name === "P2P Lending<br>(New)"){
-      window.open(Product.path, '_blank');
+      window.open(Product.path, '_blank', "noopener");
 
     }
 

@@ -1,20 +1,10 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
-
 export const environment = {
   production: false,
   // ServerUrl: "https://findev.aaptfin.com/api/",
 
-  // ServerUrl: "http://65.1.237.83/api/",
+  ServerUrl: "http://65.1.237.83/api/",
 
-  // duplicate/local version by shaunak
-  // ServerUrl: "http://127.0.0.1:8000/api/",
-
-  // dev
-  // ServerUrl: "http://13.127.4.232/api/",
-
-  ServerUrl: "https://uatnw.finizon.com/api/",
+  // ServerUrl: "https://uatnw.finizon.com/api/",
 
 
   // ServerUrl: "https://finizon.com/api/",
@@ -24,16 +14,9 @@ export const environment = {
 
 
   // ServerUrl: "https://dev.finizon.com/api/",
-  // ServerUrl: "http://15.206.79.170:8080/api/",
-
 
   // prod url 
   // ServerUrl: "https://finizon.com/api/",
-
-
-
-
-  // apiUrl: 'https://cctoolapi-dev.aaptfin.com',
 
   // --LOCAL--
 
@@ -52,18 +35,8 @@ export const environment = {
   InsuranceUrl: "http://localhost:50196?PATH={PATH}",
 
 
-
-  // taken from environment.prod.ts by sw
-  // InsuranceUrl: "http://uat.finizoninsurance.com/?TOKEN={TOKEN}&PATH={PATH}",
-
-
   // ng serve --port 57617
   WealthUrl: "http://localhost:57617?TOKEN={TOKEN}&PATH={PATH}&DG={DG}",
-
-  // // taken from environment.prod.ts by sw
-  // WealthUrl: "https://uat.finizon.com/wealth/?TOKEN={TOKEN}&PATH={PATH}",
-
-
 
   WealthShareUrl: "http://localhost:57617/assisted-share-wealth?FID={FID}&TOKEN={TOKEN}&VIEWFUND={VIEWFUND}",
 
@@ -78,27 +51,8 @@ export const environment = {
 
   // AgentUrl: "http://localhost:50533?ATOKEN={ATOKEN}&PATH={PATH}",  
   // --LOCAL--
-  InsuranceShare:'"http://agentinsurance.onerooftechnologies.com/pending-products?TOKEN={TOKEN}&PATH={PATH}&QUOTEID={QUOTEID}&PLANID={PLANID}',
+  InsuranceShare:'"https://agentinsurance.onerooftechnologies.com/pending-products?TOKEN={TOKEN}&PATH={PATH}&QUOTEID={QUOTEID}&PLANID={PLANID}',
 
-
-  
-  // --old UAT FINIZON--
-
-  //CommonUrl:"https://uat.finizon.com?TOKEN={TOKEN}&PATH={PATH}",
-  //CreditUrl:"https://uat.finizon.com/credit?TOKEN={TOKEN}&PATH={PATH}",  
-  //InsuranceUrl:"http://uat.finizoninsurance.com?TOKEN={TOKEN}&PATH={PATH}",
-  //WealthUrl:"https://uat.finizon.com/wealth?TOKEN={TOKEN}&PATH={PATH}",
-
-  // --old UAT FINIZON--
-
-  // --old UAT ONEROOFTECH--
-
-  // CommonUrl:"http://finizon.onerooftechnologies.com?TOKEN={TOKEN}&PATH={PATH}",
-  // CreditUrl:"http://finizon-credit.onerooftechnologies.com?TOKEN={TOKEN}&PATH={PATH}",
-  // InsuranceUrl:"http://finizon-insurance.onerooftechnologies.com?TOKEN={TOKEN}&PATH={PATH}",
-  // WealthUrl:"http://finizon-wealth.onerooftechnologies.com?TOKEN={TOKEN}&PATH={PATH}",
-
-  // --old UAT ONEROOFTECH--
 };
 
 /*
@@ -108,4 +62,3 @@ export const environment = {
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.

@@ -39,8 +39,6 @@ export class HomeComponent implements OnInit {
   LOGOUT: any;
   // loginInit: boolean = false;
 
-
-  // sw code
   founders = [
     {
       id: 2, name: 'Sourabh Kumar', title: 'Cofounder', bio: 'Experienced Leader with a demonstrated track record of leading & scaling organizations in wealth management, Insurance & lending.',
@@ -256,13 +254,6 @@ export class HomeComponent implements OnInit {
     items: 1,
     margin: 0,
     loop: true,
-    // responsive: {
-    //   0: { items: 3 },
-    //   480: { items: 3 },
-    //   600: { items: 4 },
-    //   1000: { items: 5 },
-    //   1200: { items: 5 }
-    // },
     nav: true,
     // navText: ['Back','Next'],
     navText: ["<img src='assets/img/arrow_left.svg'>", "<img src='assets/img/arrow_right.svg'>"],
@@ -280,124 +271,36 @@ export class HomeComponent implements OnInit {
     items: 1,
     loop: true,
     nav: false,
-    // navText: [], // Set navText to an empty array to remove text from navigation buttons
     dots: true,
     autoplay: true,
     autoplayTimeout: 5000,
     autoplayHoverPause: true
-    // Add other options as needed
   };
-  // lead modal 
-  // myForm!: FormGroup;
-  // isSubmitted = false;
-  // // namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{3,15})?(\\s[a-zA-Z]{3,15})?$";
-
-
 
   constructor(public activeRoute: ActivatedRoute, public validation: ValidateService, private api: ApiService, private route: Router, private crypto: AESCryptoService, private fb: UntypedFormBuilder, private elementRef: ElementRef, private renderer: Renderer2) {
 
-    // lead modal 
-    // this.myForm = new FormGroup({
-    //   category: new FormControl("INSURANCE", Validators.required),
-    //   Name: new FormControl('', [Validators.required, Validators.pattern(this.namePattern)]),
-    //   Email: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
-    //   mobileNumber: new FormControl('', [Validators.required, Validators.pattern("^[6-9]{1}[0-9]{9}$")]),
-    //   Comments: new FormControl('', Validators.required)
-    // });
   }
 
 
 
   ngOnInit(): void {
-
-    // this._paramSub = this.activeRoute.queryParams.subscribe(async params => {
-    //   // debugger
-    //   this.QueryToken = params.TOKEN;
-    //   this.Path = params.PATH;
-    //   this.Transaction = params.TXN;
-    //   this.FromPath = params.FROM;
-    //   this.LOGOUT = params.LOGOUT;
-    // });
-
-    // this._paramSub.unsubscribe();
-
-    // if ((!this.validation.isNullEmptyUndefined(this.LOGOUT) && this.LOGOUT != "null" && this.LOGOUT != "{LOGOUT}") && (this.LOGOUT == "true")) {
-    //   console.log(this.LOGOUT)
-    //   localStorage.clear();
-    //   window.location.href = '/';
-    // }
-    // else {
-
-    //   if (!this.validation.isNullEmptyUndefined(this.Path) && this.Path != "null" && this.Path != "{PATH}") {
-    //     this.ShowLoader = true;
-    //   }
-
-    //   if (!this.validation.isNullEmptyUndefined(this.QueryToken) && this.QueryToken != 'null' && this.QueryToken != "{TOKEN}") {
-    //     this.QueryToken = decodeURIComponent(this.QueryToken);
-    //     localStorage.setItem("CustToken", this.QueryToken);
-    //     this.api.get("auth/customer/user", true).subscribe(async response => {
-    //       localStorage.setItem("ApplicantData", this.crypto.Encrypt(response.data));
-    //     });
-
-    //   }
-
-    //   if (!this.validation.isNullEmptyUndefined(this.Transaction) && this.Transaction != 'null' && this.Transaction != "{TXN}") {
-    //     this.Transaction = decodeURIComponent(this.Transaction);
-    //     if (this.Transaction == 1) {
-    //       localStorage.setItem('Transaction', this.crypto.Encrypt(this.Transaction))
-    //     }
-    //   }
-
-    //   if (!this.validation.isNullEmptyUndefined(this.FromPath) && this.FromPath != 'null' && this.FromPath != "{FROM}") {
-    //     this.FromPath = decodeURIComponent(this.FromPath);
-    //     console.log('FromPath', this.FromPath);
-    //     localStorage.setItem('FromPath', this.crypto.Encrypt(this.FromPath))
-    //   }
-
-    //   setTimeout(() => {
-    //     if (!this.validation.isNullEmptyUndefined(this.Path) && this.Path != "null" && this.Path != "{PATH}") {
-    //       // debugger
-    //       this.route.navigate([this.Path]);
-    //       this.ShowLoader = false;
-    //     }
-    //     else {
-    //       this.route.navigate(['']);
-    //       this.ShowLoader = false;
-    //     }
-    //   }, 1000);
-
-    // }
-
-
-
     this.getCommonBanner();
     this.CommonTestimonial();
     this.InsuranceProduct();
     this.creditProduct();
-
     // not in use
     this.wealthProduct();
-
     this.GetBlogList();
     this.getpartnersbanner();
 
   }
-  // handleOpenCloseNav(){
-  //   if (document.getElementById("site-wrapper-menu")!.classList.contains("show-nav")) {
-  //     document.getElementById("site-wrapper-menu")!.classList.remove("show-nav");
-  //   }else{
-  //     document.getElementById("site-wrapper-menu")!.classList.add("show-nav");
-  //   }
-  // }
+  
   getCommonBanner() {
     this.api.get("banner?vertical=0").subscribe((resp) => {
       this.CommonBannerlist = resp.data;
       console.log("banner data", resp.data);
     });
   }
-
-
-  // sw version
 
   // ***************org code*************
   partnermodal(banners: any) {
@@ -422,55 +325,10 @@ export class HomeComponent implements OnInit {
 
   }
 
-
-  // ***************org code*************
-
-
-
-
-  // pd
-  // customermodal(banners:any){
-  //   console.log("cust bnrs:- ",banners);
-
-
-
-
-  // }
-
-  // partnermodal(banners:any){
-  //   console.log("part bnrs:- ",banners);
-
-
-
-
-  //   customermodal(buttonId: string) {
-  //     console.log("Showing customer modal for button: ", buttonId);
-  //     $("#" + buttonId + "customerModal").modal("show");
-  // }
-
-  // partnermodal(buttonId: string) {
-  //     console.log("Showing partner modal for button: ", buttonId);
-  //     $("#" + buttonId + "partnerModal").modal("show");
-  // }
-
-
-
-
-
-
-
   hidebannerModal() {
     $(".modal").modal("hide");
   }
 
-  //   hidebannerModal(banners:any) {
-  //   if(banners.sortOrder == 1){
-  //     $("#bannerpartnerModal").modal("hide");
-  //   } 
-  //   else if(banners.sortOrder == 2){
-  //     $("#bannercustomerModal").modal("hide");
-  //   }
-  // }
 
   hidebannercustomerrModal() {
     $("#bannercustomerModal").modal("hide");
@@ -481,15 +339,6 @@ export class HomeComponent implements OnInit {
       this.meetpartnerslist = resp.data;
     })
   }
-
-  // *****ORG*****
-  // CommonTestimonial() {
-  //   this.api.get("testimonial?vertical=0").subscribe((resp) => {
-  //     this.CommonrTestimonialdata = resp.data;
-
-  //   });
-  // }
-
 
   CommonTestimonial() {
     this.api.get("testimonial?vertical=0").subscribe((resp) => {
@@ -518,8 +367,6 @@ export class HomeComponent implements OnInit {
       return testimonial?.profileReview;
     }
   }
-
-
 
   InsuranceProduct() {
     this.api.get("vertical/product?vertical=1").subscribe((resp) => {
@@ -567,8 +414,6 @@ export class HomeComponent implements OnInit {
     }
   }
 
-
-
   InsurancetRouterUrl(insurence: any) {
     console.log("name", insurence)
     if (insurence.name === "Life Insurance") {
@@ -584,8 +429,6 @@ export class HomeComponent implements OnInit {
   }
 
   wealthtRouterUrl(wealth: any) {
-
-
     console.log("name", wealth)
     if (wealth.name === "Savings & Insurance") {
       console.log("begin");
@@ -629,8 +472,6 @@ export class HomeComponent implements OnInit {
     window.location.href = 'https://uat.finizoninsurance.com/covercalc';
   }
 
-
-
   showPartnerModal() {
     console.log("hello")
     $("#partnerModal").modal("show");
@@ -641,38 +482,7 @@ export class HomeComponent implements OnInit {
   }
 
   cancleModal() {
-
     $("#headerotp-screen").modal("hide");
   }
-
-
-
-
-
-
-  // scrollToTop() {
-  //   const headerElement = this.elementRef.nativeElement.querySelector('top');
-  //   if (headerElement) {
-  //     headerElement.scrollIntoView({ behavior: 'smooth' });
-  //   }
-  // }
-
-  //  scrollToTop() {
-  //   window.scrollTo({
-  //     top: 0,
-  //     behavior: 'smooth'
-  //   });
-  // }
-
-  // scrollToTop() {
-  //   window.scrollTo({
-  //     top: 0,
-  //     behavior: 'smooth' // Smooth scrolling animation
-  //   });
-  // }
-  // scrollToTop() {
-  //   const scrollContainerEl = this.scrollContainer.nativeElement;
-  //   this.renderer.setProperty(scrollContainerEl, 'scrollTop', 0);
-  // }
 
 }
