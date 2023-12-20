@@ -214,7 +214,6 @@ export class HomeComponent implements OnInit {
       1200: { items: 3 }
     },
     nav: true,
-    // navText: ['Back','Next'],
     navText: ["<img src='assets/img/arrow_left.svg'>", "<img src='assets/img/arrow_right.svg'>"],
     dots: true,
     dotsEach: true,
@@ -230,15 +229,7 @@ export class HomeComponent implements OnInit {
     items: 1,
     margin: 0,
     loop: true,
-    // responsive: {
-    //   0: { items: 3 },
-    //   480: { items: 3 },
-    //   600: { items: 4 },
-    //   1000: { items: 5 },
-    //   1200: { items: 5 }
-    // },
     nav: true,
-    // navText: ['Back','Next'],
     navText: ["<img src='assets/img/arrow_left.svg'>", "<img src='assets/img/arrow_right.svg'>"],
     dots: false,
     dotsEach: true,
@@ -255,7 +246,6 @@ export class HomeComponent implements OnInit {
     margin: 0,
     loop: true,
     nav: true,
-    // navText: ['Back','Next'],
     navText: ["<img src='assets/img/arrow_left.svg'>", "<img src='assets/img/arrow_right.svg'>"],
     dots: true,
     dotsEach: true,
@@ -278,10 +268,7 @@ export class HomeComponent implements OnInit {
   };
 
   constructor(public activeRoute: ActivatedRoute, public validation: ValidateService, private api: ApiService, private route: Router, private crypto: AESCryptoService, private fb: UntypedFormBuilder, private elementRef: ElementRef, private renderer: Renderer2) {
-
   }
-
-
 
   ngOnInit(): void {
     this.getCommonBanner();
