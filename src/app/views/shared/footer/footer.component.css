@@ -103,7 +103,6 @@ padding: 1.5rem;
   border-width: 14px 14px 0px 14px;
   border-style: solid;
   border-color: #fff transparent;
-  /* box-shadow:0px 4px 8px #00000029; */
 }
 
 .sort-by.dropdown-menu {
@@ -161,13 +160,7 @@ padding: 1.5rem;
 
 /* added by sw for cust,part mobile view */
 .modalpartnerbtn {
-	/* margin-left: 150px; */
-	/* margin-top: 5px; */
-  /* width: 100%; */
-  /* position: relative;
-  top: 10px; */
-	/* width: 60% !important; */
-  /* max-width: 210px !important; */
+
   margin: 10px 0px;
 }
 /* added by sw for cust,part mobile view */
@@ -195,10 +188,10 @@ margin: 0;
 
 /* Firefox */
 #headerotp-screen input[type=number] {
--moz-appearance: textfield;
+appearance: textfield;
 }
 #Footerotp-screen input[type=number] {
-  -moz-appearance: textfield;
+  appearance: textfield;
   }
 
 @media only screen and (max-width:767px){
@@ -218,8 +211,6 @@ margin: 0;
 #mob_signup .modal-content {
 border-radius: 18px 18px 0px 0px;
 
-/* added by sw from insurance ui */
-/* margin-bottom: 70px; */
 
 }
 #mob_signup .modal-body {
@@ -236,8 +227,6 @@ align-items: end;
 #mob_signin .modal-content {
 border-radius: 18px 18px 0px 0px;
 
-/* added by sw from insurance ui */
-/* margin-bottom: 70px; */
 
 }
 #mob_signin .modal-body {

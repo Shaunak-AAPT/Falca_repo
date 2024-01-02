@@ -10,9 +10,7 @@
   width: max-content;
 }
 
-/* .header-nav .nav-link {
-  padding: 10px 5px !important;
-} */
+
 
 .navbar-expand-sm {
   width: 100%;
@@ -26,8 +24,7 @@
 
 .navbar-nav .nav-link.theme-button {
   color: #fff !important;
-  /* commented by sw for cust, part dropdown in header */
-  /* width: auto !important; */
+ 
 }
 
 .menu-ic {
@@ -49,21 +46,12 @@
 
 .login-popup {
   padding: 15px 10px;
-  /* background: #ffffff; */
   background: transparent;
-
-  /* border-radius: 12px; */
-  /* box-shadow: 0px 4px 8px #0000003d; */
   width: 220px;
   height: 160px;
   text-align: center;
   border: none;
 
-  /*	top: 70px;
-	right: 10px;
-	z-index: 11;
-	position: absolute;
-	display: none;*/
 }
 
 .login-popup.show {
@@ -151,13 +139,6 @@
 
 
 .modalpartnerbtn {
-	/* margin-left: 150px; */
-	/* margin-top: 5px; */
-  /* width: 100%; */
-  /* position: relative;
-  top: 10px; */
-	/* width: 60% !important; */
-  /* max-width: 210px !important; */
   margin: 6px 0px;
 }
 @media only screen and (max-width: 767px) {
@@ -165,11 +146,6 @@
     border-color: rgb(226 126 40);
     background: #e27e28;
   }
-/* 
-  .navbar-collapse {
-    background: #efefef;
-    border-radius: 0px 0px 15px 15px;
-  } */
 
   .menu-ic {
     display: none;
@@ -183,24 +159,10 @@
     display: block;
   }
 
-  /* .mobile-toggle img {
-    width: 80%;
-  } */
-
-  /* #site-wrapper {
-    z-index: 11;
-  } */
 
   
 .modalpartnerbtn {
-	/* margin-left: 150px; */
-	/* margin-top: 5px; */
-  /* width: 100%; */
-  /* position: relative;
-  top: 10px; */
-	/* width: 60% !important; */
-  /* max-width: 210px !important; */
-  /* width: 100% !important; */
+
   margin: 10px 0px;
 }
 }
@@ -241,7 +203,6 @@
   }
 
   .navbar-nav .nav-link.theme-button {
-    /* width added by sw for cust,part dropdown in header*/
     width: 150px;
 
     margin-right: 10px;
@@ -252,22 +213,14 @@
 /* media query for 992 to 1200  added by sw for cust,part dropdown in header*/
 @media only screen and (min-width: 991px) and (max-width: 1000px) {
   .navbar-nav .nav-link.theme-button {
-    /* width added by sw for cust,part dropdown in header*/
     width: 150px;
-
-    /* margin-right: 10px;
-    padding-bottom: 10px !important; */
   }
 }
 
 /* media query for 1001 to 1010  added by sw for cust,part dropdown in header*/
 @media only screen and (min-width: 1001px) and (max-width: 1010px) {
   .navbar-nav .nav-link.theme-button {
-    /* width added by sw for cust,part dropdown in header*/
     width: 150px;
-
-    /* margin-right: 10px;
-    padding-bottom: 10px !important; */
   }
 }
 
@@ -347,26 +300,18 @@
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   overflow: hidden;
-  -webkit-transform: translateX(0);
   -ms-transform: translateX(0);
-  transform: translateX(0);
   -webkit-transform: translateX(0) translateZ(0);
   transform: translateX(0) translateZ(0);
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
   -webkit-transition: all 0.3s cubic-bezier(0.32, 1.25, 0.375, 1.15);
   transition: all 0.3s cubic-bezier(0.32, 1.25, 0.375, 1.15);
   z-index: 14;
 }
 
 .menu.show-nav {
-  -webkit-transform: translateX(-300px);
-  -ms-transform: translateX(-300px);
-  transform: translateX(-300px);
   -webkit-transform: translateX(-300px) tranlateZ(0);
   -ms-transform: translateX(-300px) tranlateZ(0);
   transform: translateX(-300px) tranlateZ(0);
-  -webkit-transform: translate3d(-300px, 0, 0);
   transform: translate3d(-300px, 0, 0);
 }
 
@@ -449,17 +394,11 @@
 }
 
 .nav-toggle {
-  /*  position: fixed;
-        top: 30px;
-        right: 30px;*/
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  -webkit-transform: translateX(0);
   -ms-transform: translateX(0);
-  transform: translateX(0);
   -webkit-transform: translateX(0) translateZ(0);
   transform: translateX(0) translateZ(0);
-  -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   -webkit-transition: all 0.4s cubic-bezier(0.32, 1.25, 0.375, 1.15);
   transition: all 0.4s cubic-bezier(0.32, 1.25, 0.375, 1.15);
@@ -484,12 +423,6 @@
 .nav-toggle span.fa-times:hover {
   color: #fff;
 }
-
-/*.nav-toggle.show-nav {
-        top: 12px;
-        right: 12px;
-        position: fixed;
-        }*/
 
 .onsidebar {
   font-size: 26px;
@@ -530,7 +463,6 @@
   border-radius: 50px;
   color: #fff !important;
   font-size: 12px;
-  /* background: #465A65; */
   width: 28px;
   height: 28px;
   display: flex;
@@ -582,11 +514,7 @@
   display: none !important;
 }
 }
-/* @media only screen and (min-width: 575) and (max-width: 600){
-  .hide-list{
-    display: none !important;
-  }
-  } */
+
 @media only screen and (min-width: 768px) and (max-width: 991px){
   .logo {
     width: 60%;
@@ -613,8 +541,6 @@
   }
 
   .navbar-nav .nav-link.theme-button {    
-    /* width: auto; */
-
     /* added by sw for cust, part responsiveness */
     width: 150px;
     padding: 12px 20px !important;
@@ -681,31 +607,24 @@ padding: 1.5rem;
 }
 
 
-/* added by sw for sidenav tools dropdown */
 .scrollmenu{
   max-height: 75vh;
   overflow-y: auto;
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
 }
-/* Hide scrollbar for Chrome, Safari and Opera */
 .scrollmenu::-webkit-scrollbar {
   display: none;
 }
-/* Hide scrollbar for IE, Edge and Firefox */
-.scrollmenu {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
+
 
 #Toolscollapse .card-body , #Toolscollapse1 .card-body{
  padding: 0;
  background: transparent;
- /* -webkit-backdrop-filter: blur(1px); */
- /* backdrop-filter: blur(1px); */
  margin: 15px;
  margin-top: 0px;
  border: 0;
  border-top: 1px solid rgba(0,0,0,.125);
- /* border: 0; */
  border-radius: 0;
  margin-bottom: 0px;
 }
@@ -721,25 +640,6 @@ padding: 1.5rem;
 .menu #Toolscollapse1 ul li a{
   font-weight: 500;
 }
-/* .menu ul li a.drop-menu::after{
-  display: inline-block;
-  margin-left: 0.255em;
-  vertical-align: 0.255em;
-  content: "";
-  position: relative;
-  border-top: 0.3em solid;
-  border-right: 0.3em solid transparent;
-  border-bottom: 0;
-  border-left: 0.3em solid transparent;
-  height: auto;
-  width: auto;
-  visibility: visible;
-  transform: rotate(180deg);
-  background-color: transparent;
-}
-.menu ul li a.drop-menu.collapsed::after{
-  transform: rotate(0deg);
-} */
 
 .menu ul li a.drop-menu::after {
   display: inline-block;

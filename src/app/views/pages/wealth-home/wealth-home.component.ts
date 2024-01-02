@@ -92,45 +92,6 @@ export class WealthHomeComponent implements OnInit {
   constructor(private api: ApiService, private route: Router, public activeRoute: ActivatedRoute, public validation: ValidateService, private crypto: AESCryptoService,) { }
 
   ngOnInit(): void {
-
-
-    this._paramSub = this.activeRoute.queryParams.subscribe(async params => {
-      this.QueryToken = params.TOKEN;
-      this.Path = params.PATH;
-      this.DG = params.DG;
-     
-    });
-
-    this._paramSub.unsubscribe();
-
-    if (!this.validation.isNullEmptyUndefined(this.Path) && this.Path != "null" && this.Path != "{PATH}") {
-      this.ShowLoader = true;
-    }
-
-    if (!this.validation.isNullEmptyUndefined(this.QueryToken) && this.QueryToken != 'null' && this.QueryToken != "{TOKEN}") {
-      this.QueryToken = decodeURIComponent(this.QueryToken);
-      localStorage.setItem("CustToken", this.QueryToken);
-      this.api.get("auth/customer/user", true).subscribe(async response => {
-        localStorage.setItem("ApplicantData", this.crypto.Encrypt(response.data));
-      })
-    }
-    setTimeout(() => {
-      if (!this.validation.isNullEmptyUndefined(this.Path) && this.Path != 'null' && this.Path != "{PATH}") {
-
-        if ((!this.validation.isNullEmptyUndefined(this.DG) && this.DG != "null" && this.DG != "{DG}") && (this.DG == "true")) {
-          localStorage.setItem('DGProceed', '1');
-        }
-
-       
-        this.route.navigate([this.Path]);
-        this.ShowLoader = false;
-      }
-      else {
-       
-        this.ShowLoader = false;
-      }
-    }, 1000);
-
     this.getwealthBanner();
     this.TestimonialWealth();
     this.ProductsWealth();
@@ -143,7 +104,6 @@ export class WealthHomeComponent implements OnInit {
       console.log("banner data", this.wealthbannerList);
     });
   }
-
 
   partnerWealth(banners: any) {
     if (banners.sortOrder === 1) {

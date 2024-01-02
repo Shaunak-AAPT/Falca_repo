@@ -57,7 +57,7 @@ export class LeadModalComponent implements OnInit {
     $("#leadModal").modal("hide");
   }
 
-  hideThankYouModal(){
+  hideThankYouModal() {
     $("#thankYouModal").modal("hide");
 
   }
@@ -73,28 +73,31 @@ export class LeadModalComponent implements OnInit {
     if (this.myForm.valid) {
       console.log(this.myForm.value);
 
-      let payload = {    //this payload is a json object
-
+      let payload = {
         name: this.myForm.value.Name, // leftside firstname is exactly same as that of backend API and rightside firstname i.e., ,firstName should be exact same as that of formcontrolname in .html file or same as written above in ngonit 
         email: this.myForm.value.Email,
         phone_no: this.myForm.value.mobileNumber,
         comments: this.myForm.value.Comments,
         category: "Insurance"
-
       }
-     
-      this.api.post("support/", payload, false).subscribe(async response => {
-        console.log(response);
+      const submitAsync = async () => {
+        try {
+          const response = await this.api.post("support/", payload, false).toPromise();
+          console.log(response);
 
-      });
+          this.myForm.reset();
+          this.isSubmitted = false;
+          $("#leadModal").modal("hide");
+          $('#thankYouModal').modal('show');
+        } catch (error) {
+          console.error(error);
+        }
+      };
 
-      this.myForm.reset();
-      this.isSubmitted=false;
-      $("#leadModal").modal("hide");
-      $('#thankYouModal').modal('show');
-      
-    } 
-   
+      submitAsync();
+
+    }
+
   }
 }
 

@@ -1,7 +1,5 @@
 .slider-head {
-    /* font-size: 44px;
-	font-weight: 600;
-	color: #242424; */
+  
     font-family: "Circular Std font", Sans-serif;
     font-size: 36px;
     font-weight: 900;
@@ -30,41 +28,15 @@
     background-image: url('../../../../assets/img/arrow_right.svg');
 }
 
-/* .carousel-control-prev-icon {
-	background-image: url(../../assets/img/arrow_left.svg);
-}
 
-.carousel-control-next-icon {
-	background-image: url(../../assets/img/arrow_right.svg);
-} */
 
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
     width: 3rem;
     height: 3rem;
-    /* border:2px solid red; */
-    /* background :transparent; */
     margin-top: -30% !important;
 }
 
-/* .carousel-control-next,
-.carousel-control-prev {
-   
-    position: absolute !important;
-	width: 15%;
-	height: 10%;
-	top: 50% !important;
-	transform: translateY(-50%) !important;
-	z-index: 1 !important;
-} */
-
-/* .carousel-control-prev {
-    left: -10%;
-}
-
-.carousel-control-next {
-    right: -10%;
-} */
 
 #testimonial .carousel-indicators {
     display: none;
@@ -82,7 +54,6 @@
     margin: 0 5px;
     border-radius: 10px;
     border: 0px;
-    /* border: 1px solid rgba(255, 255, 255, 0.796); */
     background-color: #C0DDED;
 }
 
@@ -125,7 +96,6 @@
     top: 8rem;
     box-shadow: none;
     opacity: 0.5;
-    /* border:2px solid red; */
 }
 
 ::ng-deep .testimonial-slider .owl-prev:hover,
@@ -223,7 +193,6 @@
 .money-mng p {
     margin-bottom: 0px;
     color: #465A65;
-    /* font-size: 20px; */
 }
 
 .partner-txt {
@@ -327,26 +296,17 @@
 }
 
 .trending-product p.trend-head {
-    /* min-height: 60px; */
     align-items: center;
     display: flex;
 }
 
 .finance-news {
     margin: 0 5px;
-    /*margin-left: 37px;*/
 }
 
-/*.financial-slider .slick-slide{
-	opacity: 0.3;
-}
-.financial-slider .slick-slide.slick-active{
-	opacity: 1;
-	}*/
 ::ng-deep .financial-slider .owl-prev {
     left: 0px;
     background: #eef8fa !important;
-    /* background: transparent !important; */
     z-index: 999;
     display: flex !important;
     position: absolute;
@@ -356,10 +316,7 @@
     width: 40px !important;
     top: 35px;
     box-shadow: 0px 0px 5px #0000001c;
-    /* opacity: .9; */
     opacity: 0.5;
-    /* border:2px solid red; */
-
 }
 
 ::ng-deep .financial-slider .owl-next {
@@ -375,10 +332,7 @@
     width: 40px !important;
     top: 35px;
     box-shadow: 0px 0px 5px #0000001c;
-    /* opacity: .9; */
     opacity: 0.5;
-    /* background: transparent !important; */
-
 }
 
 ::ng-deep .financial-slider.fin .owl-prev {
@@ -472,11 +426,6 @@
 }
 
 
-
-/* .financial-slider .fin .slick-initialized .slick-slide {
-    padding-left: 20px;
-} */
-
 .cta h3 {
     color: #222222;
     font-size: 42px;
@@ -542,7 +491,6 @@ p.trend-name {
 
 .flow-row {
     flex-flow: row;
-    /* margin-top: 30px; */
 }
 
 .loan-opt .money-mng img {
@@ -564,28 +512,17 @@ p.trend-name {
     margin-left: 5px;
 }
 
-/* changes by sw  for phydigital section*/
 .phydigitalsection {
-    /* border: 1px solid red; */
     margin-top: 80px;
-    /* margin-left: 15%; */
-    /* display: flex;
-	justify-content: center;
-	align-items: center; */
-    /* margin-left: 250px; */
 }
 
 .phydigitalimg {
-    /* border: 1px solid green; */
     width: 400px !important;
-
-    /* gpt sol. */
     max-width: 100%;
     height: auto;
 }
 
 .widget-container {
-    /* border: 1px solid yellow; */
     color: #333333;
     font-family: "Circular Std font", Sans-serif;
     font-size: 36px;
@@ -593,7 +530,6 @@ p.trend-name {
     line-height: 54px;
     letter-spacing: 0px;
     margin-left: 100px;
-    /* margin-top: 0px; */
 }
 
 .phydigitalheading {
@@ -641,13 +577,10 @@ p.trend-name {
 .modal-dialog {
     overflow-y: hidden !important;
     max-width: 860px !important;
-    /* max-height: 1200px !important; */
-    /* border: 1px solid white; */
     border-radius: 10px;
 }
 
 .modal-content {
-    /* border: 1px solid red; */
     max-width: 860px !important;
     height: 550px !important;
     border-radius: 25px;
@@ -661,17 +594,11 @@ p.trend-name {
 
 }
 
-/* .modal.modal-body{
-	border: none;
-	padding: 0;
-	margin: 0;
-  } */
 .closeicon .close {
     width: 30px;
     height: 30px;
     margin-left: 28px;
     margin-top: 23px;
-    /* padding: 8px; */
     border: 2px solid #F7F7F7;
     background: linear-gradient(156.65deg, #ECECEC 1.2%, #FFFFFF 98.95%);
     border-radius: 100px;
@@ -679,11 +606,7 @@ p.trend-name {
 }
 
 .phydigital_partner_img {
-    /* border: 1px solid green; */
     width: 350px !important;
-
-    /* sol. */
-    /* max-width: 100%; */
     height: auto;
     margin-top: -20px;
 }
@@ -705,11 +628,8 @@ table {
     margin: 20px auto;
     background-color: #f2f2f2;
     border-radius: 10px !important;
-    /* Add border radius here */
     border: none !important;
     outline: none !important;
-    /* border-radius: 5px !important; */
-    /* border:2px solid red; */
 }
 
 th,
@@ -717,42 +637,28 @@ td {
     border: 1px solid #c9c7c7;
     padding: 8px;
     text-align: left;
-    /* border: none !important;
-    outline: none !important; */
+   
 }
 
-/* th {
-    background-color: #f2f2f2;
-} */
 table,
 th,
 td {
     border-collapse: collapse;
     padding: 0.5rem;
     text-align: left;
-    /* // text-align: center; */
-
 }
 
 thead th {
-    /* position: sticky; */
     top: 0;
     left: 0;
     background-color: #d5d1defe;
-    /* cursor: pointer; */
     text-transform: capitalize;
 }
 
 tbody tr:last-child {
-    /* color:green; */
     font-weight: 600 !important;
 }
 
-/* .table__body::-webkit-scrollbar-thumb{
-    border-radius: .5rem;
-    background-color: #0004;
-    visibility: hidden;
-  } */
 
   .owl-carousel .owl-item img {
 	display:none !important;
@@ -764,7 +670,6 @@ tbody tr:last-child {
 }
 @media (max-width: 575.98px) {
     .phydigitalsection {
-        /* margin-top: 80px; */
         margin-left: 10px;
     }
 
@@ -825,13 +730,10 @@ tbody tr:last-child {
     .modal-dialog {
         overflow-y: hidden !important;
         max-width: 860px !important;
-        /* max-height: 1200px !important; */
-        /* border: 1px solid white; */
         border-radius: 10px;
     }
 
     .modal-content {
-        /* border: 1px solid red; */
         max-width: 860px !important;
         height: 550px !important;
         border-radius: 25px;
@@ -843,17 +745,12 @@ tbody tr:last-child {
 
     }
 
-    /* .modal.modal-body{
-		  border: none;
-		  padding: 0;
-		  margin: 0;
-		  } */
+ 
     .closeicon .close {
         width: 30px;
         height: 30px;
         margin-left: 25px;
         margin-top: 20px;
-        /* padding: 8px; */
         border: 2px solid #F7F7F7;
         background: linear-gradient(156.65deg, #ECECEC 1.2%, #FFFFFF 98.95%);
         border-radius: 100px;
@@ -861,15 +758,10 @@ tbody tr:last-child {
     }
 
     .phydigital_partner_img {
-        /* border: 1px solid green; */
         width: 280px !important;
-
         height: auto;
-        /* margin-top: -10px; */
-
         display: block;
         margin: 0 auto;
-        /* max-width: 100%; */
     }
 
     .modal-body button {
@@ -878,14 +770,11 @@ tbody tr:last-child {
     }
 
     .modalpartnerbtn {
-        /* margin-left: 45px; */
-        /* margin-top: 25px; */
         display: block;
         margin: 15px auto;
         width: 230px !important;
     }
 
-    /* modal part responsiveness of come join us banner section and phydigital partner button section */
 
 }
 
@@ -897,10 +786,7 @@ tbody tr:last-child {
     }
 
     .slider-head {
-        /* font-size: 25px;
-			font-weight: 600;
-			color: #242424;
-			margin-top: 30px; */
+       
         font-family: "Circular Std font", Sans-serif;
         font-size: 24px;
         font-weight: 900;
@@ -947,14 +833,12 @@ tbody tr:last-child {
     .about p {
         text-align: justify;
         font-size: 15px;
-        /* font-weight: 600; */
     }
 
     .about .font12 {
         text-align: justify;
         font-size: 12px;
         color: #707070;
-        /* font-weight: 600; */
     }
 
     .about .text-end p {
@@ -1096,7 +980,6 @@ tbody tr:last-child {
 
     .finance .title-head1 {
         font-size: 28px;
-        /* text-align: center; */
         text-align: left;
     }
 
@@ -1111,7 +994,6 @@ tbody tr:last-child {
     }
 
     .finance-news {
-        /* margin-left: 0px; */
         margin-left: 10px;
         margin-right: 0px;
     }
@@ -1150,9 +1032,6 @@ tbody tr:last-child {
 
     }
 
-    /* .custom-col {
-     justify-content: left;
-    } */
 }
 
 @media only screen and (min-width: 576px) and (max-width: 991px) {
@@ -1227,13 +1106,11 @@ tbody tr:last-child {
     .modal-dialog {
         overflow-y: hidden !important;
         max-width: 860px !important;
-        /* max-height: 1200px !important; */
-        /* border: 1px solid white; */
+  
         border-radius: 10px;
     }
 
     .modal-content {
-        /* border: 1px solid red; */
         max-width: 860px !important;
         height: 550px !important;
         border-radius: 25px;
@@ -1247,17 +1124,12 @@ tbody tr:last-child {
 
     }
 
-    /* .modal.modal-body{
-	  border: none;
-	  padding: 0;
-	  margin: 0;
-	} */
+   
     .closeicon .close {
         width: 40px;
         height: 40px;
         margin-left: 33px;
         margin-top: 28px;
-        /* padding: 8px; */
         border: 2px solid #F7F7F7;
         background: linear-gradient(156.65deg, #ECECEC 1.2%, #FFFFFF 98.95%);
         border-radius: 100px;
@@ -1265,11 +1137,7 @@ tbody tr:last-child {
     }
 
     .phydigital_partner_img {
-        /* border: 1px solid green; */
         width: 350px !important;
-
-        /* sol. */
-        /* max-width: 100%; */
         height: auto;
         margin-top: -20px;
     }
@@ -1285,7 +1153,6 @@ tbody tr:last-child {
         width: 330px !important;
     }
 
-    /* modal part responsiveness of phydigital partner button section */
     .testimonial-slider .owl-next {
         right: 0rem;
     }
@@ -1295,36 +1162,10 @@ tbody tr:last-child {
     }
 }
 
-/* Apply this style for screens between 777px and 1200px */
-/* @media (min-width: 777px) and (max-width: 1200px) {
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .col {
-      width: calc(10%); 
-    }
-  } */
-
-/*   
-  @media (max-width: 767px) {
-    .container {
-      display: none;
-    }
-  } */
-
-
-
-
-
 
 @media only screen and (max-width: 991px) and (min-width: 768px) {
     #demo .slider-head {
         font-size: 45px;
-
-        /* added by shaunak */
-        /* border: 1px solid green; */
         padding-top: 60px;
         font-weight: 900;
         letter-spacing: 0px;
@@ -1485,9 +1326,7 @@ tbody tr:last-child {
         display: none;
     }
 
-    /* .carousel-control-prev, .carousel-control-next{
-			display: none;
-		} */
+  
     .loan-opt .money-mng img {
         width: 40%;
     }
@@ -1502,7 +1341,6 @@ tbody tr:last-child {
 
     .slider-head {
         font-size: 26px;
-        /* font-weight: 500; */
     }
 
     .mt-5.common-mt-3 {
@@ -1596,7 +1434,6 @@ tbody tr:last-child {
 
     .flow-row {
         flex-flow: row;
-        /* margin-top: 10px; */
     }
 
     .mt-5.common-mt-3 {
@@ -1868,10 +1705,7 @@ tbody tr:last-child {
     .loan-opt .money-mng img {
         width: 34%;
     }
-    .flow-row .money-mng img {
-        width: 45%;
-    }
-
+  
     .protect p {
         font-size: 24px;
     }
@@ -2217,7 +2051,6 @@ tbody tr:last-child {
 .spinner {
     height: 60px;
     display: block;
-    /* vertical-align: middle; */
     margin: 46vh auto;
     text-align: center;
     font-size: 10px;

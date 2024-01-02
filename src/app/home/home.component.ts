@@ -151,7 +151,6 @@ export class HomeComponent implements OnInit {
       linkedinLink: 'https://www.linkedin.com/in/chandramoulipandya/'
     },
     {
-
       id: 3, name: 'Suraj Gaydhane', title: 'COO', bio: 'An experienced professional with a demonstrated history of working in leadership roles across finance, analytics, product management, and business strategy for banking and life insurance businesses.',
       // img: '../../assets/img/founding_team_member/team-suraj.svg',
       img: '../../assets/img/founding_team_member/Suraj-Finizon-Pic.png',
@@ -160,7 +159,6 @@ export class HomeComponent implements OnInit {
       linkedinLink: 'https://www.linkedin.com/in/surajgaydhane/'
     },
     {
-
       id: 4, name: 'Jaya Singh', title: 'Director, Wealth', bio: 'A leader with deep experience in wealth management across advisory, research, fund diligence, client engagement, and sales',
       // img: '../../assets/img/founding_team_member/team-jaya.svg',
       img: '../../assets/img/founding_team_member/Jaya.jpg',
@@ -178,7 +176,6 @@ export class HomeComponent implements OnInit {
     },
     {
       id: 8, name: 'Arnab Koley', title: 'COO', bio: 'Enterprising & resourceful professional with 16+ years of experience across Insurance & start-up sector. Comprehensive background in leading Insurance business operations, formulating strategic plans & initiatives for large Retail operations. Successful contributions in building B2B2C distribution model, Business Process Reengineering & building technology product from scratch.',
-
       img: '../../assets/img/Arnab2.jpg',
       image: '../../assets/img/Arnab2.jpg',
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
@@ -187,8 +184,6 @@ export class HomeComponent implements OnInit {
 
 
   ];
-
-
 
   selectedFounder = this.founders[0];
 

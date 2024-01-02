@@ -1,4 +1,4 @@
-import { Component,  OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { ValidateService } from 'src/app/services/validate/validate.service';
@@ -56,7 +56,7 @@ export class SupportModalComponent implements OnInit {
     $("#supportModal").modal("hide");
   }
 
-  hideThankYousupportModal(){
+  hideThankYousupportModal() {
     $("#thankYouSupportModal").modal("hide");
 
   }
@@ -84,27 +84,26 @@ export class SupportModalComponent implements OnInit {
       if (this.myForm.value.category === 'INVESTMENT') {
         payload.category = 'INVESTMENT';
       }
-      this.api.post("support/", payload, false).subscribe(async response => {
-        console.log(response);
 
-      });
+      const submitAsync = async () => {
+        try {
+          const response = await this.api.post("support/", payload, false).toPromise();
+          console.log(response);
 
-      this.myForm.reset({ category: 'INSURANCE' });
-      this.isSubmitted=false;
-      $("#supportModal").modal("hide");
-      $('#thankYouSupportModal').modal('show');
-      // Show success message for 15 seconds
-      // this.successMessage = true;
-      // setTimeout(() => {
-      //   this.successMessage = false;
 
-      //   // Close the modal after 5 seconds
-      //   setTimeout(() => {
-      //     this.hideSupportModal();
-      //   }, 1000);
-      // }, 1500);
-    } 
-   
+          this.myForm.reset({ category: 'INSURANCE' });
+          this.isSubmitted = false;
+          $("#supportModal").modal("hide");
+          $('#thankYouSupportModal').modal('show');
+        } catch (error) {
+          console.error(error);
+        }
+      };
+
+      submitAsync();
+
+    }
+
   }
 }
 
