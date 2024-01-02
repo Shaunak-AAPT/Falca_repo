@@ -219,7 +219,7 @@ export class HeaderComponent implements OnInit {
   }
 
   shopkeeperLink() {
-    window.open("https://dev.finizon.com/shopkeeper?referralid=godigit", "_blank", "noopener");
+    window.open("https://dev.finizon.com/spprd/shopkeeper?referralid=godigit", "_blank", "noopener");
 
   }
   monexoLink() {
