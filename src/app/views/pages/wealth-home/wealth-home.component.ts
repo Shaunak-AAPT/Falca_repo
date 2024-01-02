@@ -64,14 +64,12 @@ export class WealthHomeComponent implements OnInit {
     items: 1,
     loop: true,
     nav: false,
-    // navText: [], // Set navText to an empty array to remove text from navigation buttons
     dots: true,
     autoplay: true,
     autoplayTimeout: 5000,
     autoplayHoverPause: true
-    // Add other options as needed
   };
-  BlogList: any[] = []; // Replace with your actual data
+  BlogList: any[] = [];
 
 
 
