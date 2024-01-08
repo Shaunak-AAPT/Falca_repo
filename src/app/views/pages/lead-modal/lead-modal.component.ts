@@ -15,7 +15,7 @@ export class LeadModalComponent implements OnInit {
   myForm!: UntypedFormGroup;
   isSubmitted = false;
 
-  namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{3,15}){1,2}$";
+  namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{1,15}){1,2}$";
   emailPattern = "^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
   successMessage: boolean = false;
 
