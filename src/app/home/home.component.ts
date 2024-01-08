@@ -367,7 +367,7 @@ export class HomeComponent implements OnInit {
   wealthProduct() {
     this.api.get("vertical/product?vertical=5").subscribe((resp) => {
       this.wealthdataList = resp.data;
-      console.log(this.wealthdataList)
+      console.log("test wealth data:-",this.wealthdataList)
     });
   }
   CreditRouterUrl(credit: any) {
@@ -412,7 +412,7 @@ export class HomeComponent implements OnInit {
 
   wealthtRouterUrl(wealth: any) {
     console.log("name", wealth)
-    if (wealth.name === "Savings & Insurance") {
+    if (wealth.name === "Savings & Insurance" || "Cyber Insurance") {
       console.log("begin");
       $("#leadModal").modal("show");
       console.log("after");
