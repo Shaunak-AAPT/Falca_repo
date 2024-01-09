@@ -411,8 +411,12 @@ export class HomeComponent implements OnInit {
   }
 
   wealthtRouterUrl(wealth: any) {
-    console.log("name", wealth)
-    if (wealth.name === "Savings & Insurance" || "Cyber Insurance") {
+    console.log("name", wealth);
+
+    const allowedProductNames = ["Savings & Insurance", "Cyber Insurance<br>(New)"];
+
+    if (allowedProductNames.includes(wealth.name)) {
+    // if (wealth.name === "Savings & Insurance" || "Cyber Insurance<br>(New)") {
       console.log("begin");
       $("#leadModal").modal("show");
       console.log("after");
@@ -420,7 +424,7 @@ export class HomeComponent implements OnInit {
     else {
       console.log('credit', wealth.path)
       $("#leadModal").modal("hide");
-      window.open(wealth.path, '_blank');
+      window.open(wealth.path, '_blank',"noopener");
 
     }
   }
