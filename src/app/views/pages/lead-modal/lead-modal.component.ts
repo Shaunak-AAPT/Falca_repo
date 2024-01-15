@@ -15,7 +15,32 @@ export class LeadModalComponent implements OnInit {
   myForm!: UntypedFormGroup;
   isSubmitted = false;
 
-  namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{1,15}){1,2}$";
+  // org code
+  // namePattern = "^([a-zA-Z]{3,15})(\\s[a-zA-Z]{1,15}){1,2}$";
+  // =================
+  // working for 3 letters firstname 
+    // namePattern = "^([a-zA-Z]{2,15})(\\s[a-zA-Z]{1,})?(\\s[a-zA-Z]+)?$";  
+
+    // final working w/o 2 letter fn
+    //  namePattern = "^([a-zA-Z]{3,15})((\\s[a-zA-Z]{2,})|(\\s[a-zA-Z]+(\\s[a-zA-Z]+)?))?$"
+
+
+    // ******************************************
+    // namePattern = "^([a-zA-Z]{3,15})((\\s[a-zA-Z]+(\\s[a-zA-Z]+)?))?$"  //condition 1 for firstname min 3 letters
+    // namePattern = "^([a-zA-Z]{2,15})((\\s[a-zA-Z]+(\\s[a-zA-Z]+)?))$"   //condition 2 for firstname min 2 letters
+
+      //  namePattern = "^([a-zA-Z]{3,})((\\s[a-zA-Z]+(\\s[a-zA-Z]+)?))?$|^([a-zA-Z]{1,})((\\s[a-zA-Z]{2,})+(\\s[a-zA-Z]{2,})?)$" //merged above conditions
+  
+      namePattern = "^([a-zA-Z]{3,})((\\s[a-zA-Z]+(\\s[a-zA-Z]+)?))?$|^([a-zA-Z]{1,})((\\s[a-zA-Z]{2,})+(\\s[a-zA-Z]{2,})?)$" //merged above conditions
+
+
+        // namePattern = "^(?:[a-zA-Z]{2}(\\s[a-zA-Z]+)?$|[a-zA-Z]{3,15}(\\s[a-zA-Z]+)?$)";
+
+    // partially working sol 
+  namePattern1 = "^[a-zA-Z]{3,}$"
+  namePattern2 = "^[a-zA-Z]{2,}(?: [a-zA-Z]{2,}){0,2}$"
+  namePattern3 = "^[a-zA-Z]{3,15}(\\s[a-zA-Z]{1,})?(\\s[a-zA-Z]+)?$"
+
   emailPattern = "^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
   successMessage: boolean = false;
 
@@ -24,7 +49,10 @@ export class LeadModalComponent implements OnInit {
 
 
     this.myForm = new UntypedFormGroup({
+      // org code
       Name: new UntypedFormControl('', [Validators.required, Validators.pattern(this.namePattern)]),
+
+      // Name: new UntypedFormControl('', [Validators.required, Validators.pattern(this.namePattern1 && this.namePattern2 && this.namePattern3)]),
       Email: new UntypedFormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
       mobileNumber: new UntypedFormControl('', [Validators.required, Validators.pattern("^[6-9]{1}[0-9]{9}$")]),
       Comments: new UntypedFormControl('', Validators.required)
@@ -32,6 +60,25 @@ export class LeadModalComponent implements OnInit {
 
 
   }
+
+  // validateName() {
+  //   const nameControl = this.myForm.get('Name')!;
+  //   const inputValue = nameControl.value;
+
+  //   if (this.namePattern1.test(inputValue)) {
+  //     // Handle logic for pattern 1
+  //     console.log('Pattern 1 matched');
+  //   } else if (this.namePattern2.test(inputValue)) {
+  //     // Handle logic for pattern 2
+  //     console.log('Pattern 2 matched');
+  //   } else if (this.namePattern3.test(inputValue)) {
+  //     // Handle logic for pattern 3
+  //     console.log('Pattern 3 matched');
+  //   } else {
+  //     // Handle invalid input
+  //     console.log('Invalid input');
+  //   }
+  // }
   disableSpecialCharacters(event: Event) {
     const specialCharacters = ['!', '@', '_', '*', '$', '%', '#', '-', '&', '?', '+'];
     const input = event.target as HTMLInputElement;

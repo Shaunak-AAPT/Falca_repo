@@ -37,8 +37,8 @@
 
               <div *ngIf="myForm.controls['Name'].invalid && (myForm.controls['Name'].touched || isSubmitted)"
                 class="text-danger">
-                Please enter a valid name (3-15 characters, only letters and spaces allowed & only first name is not allowed)
-              </div>
+                Please enter a valid name (If 3 or more characters, middle and lastname are optional.If 1-2 characters,
+                either middle or lastname with minimum 2 characters is mandatory. Use only letters and spaces.)</div>
             </div>
 
             <div class="mb-3">

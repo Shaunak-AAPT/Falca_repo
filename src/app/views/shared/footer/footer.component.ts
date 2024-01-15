@@ -150,7 +150,6 @@ export class FooterComponent implements OnInit {
   }
  
   showSupportModal() {
-
     $("#supportModal").modal("show");
   }
 
