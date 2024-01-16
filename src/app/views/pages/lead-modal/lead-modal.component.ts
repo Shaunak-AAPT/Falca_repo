@@ -149,10 +149,12 @@ export class LeadModalComponent implements OnInit {
           const response = await this.api.post("support/", payload, false).toPromise();
           console.log(response);
 
+          if (response.response.n == 1){
           this.myForm.reset();
           this.isSubmitted = false;
           $("#leadModal").modal("hide");
           $('#thankYouModal').modal('show');
+          }
         } catch (error) {
           console.error(error);
         }

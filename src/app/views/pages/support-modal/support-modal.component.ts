@@ -48,7 +48,7 @@ export class SupportModalComponent implements OnInit {
       event.target.value = this.capitalizeName(name);
     }
   }
-  
+
   disableSpecialCharacters(event: Event) {
     const specialCharacters = ['!', '@', '_', '*', '$', '%', '#', '-', '&', '?', '+'];
     const input = event.target as HTMLInputElement;
@@ -109,11 +109,12 @@ export class SupportModalComponent implements OnInit {
           const response = await this.api.post("support/", payload, false).toPromise();
           console.log(response);
 
-
+          if (response.response.n == 1){
           this.myForm.reset({ category: 'INSURANCE' });
           this.isSubmitted = false;
           $("#supportModal").modal("hide");
           $('#thankYouSupportModal').modal('show');
+          }
         } catch (error) {
           console.error(error);
         }
