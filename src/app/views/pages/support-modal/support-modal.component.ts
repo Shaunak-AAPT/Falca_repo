@@ -34,6 +34,21 @@ export class SupportModalComponent implements OnInit {
 
 
   }
+
+  capitalizeName(name: string) {
+    let nameList = name.split(' ', 3);
+    let capitalizedName = nameList.map(n => n.charAt(0).toUpperCase() + n.slice(1)).join(' ');
+    return capitalizedName;
+  }
+  onKeyup(event: any) {
+    let name = event.target.value;
+    console.log("name", name)
+    if (name.match(this.namePattern)) {
+      console.log("event.target.value", event.target.value)
+      event.target.value = this.capitalizeName(name);
+    }
+  }
+  
   disableSpecialCharacters(event: Event) {
     const specialCharacters = ['!', '@', '_', '*', '$', '%', '#', '-', '&', '?', '+'];
     const input = event.target as HTMLInputElement;

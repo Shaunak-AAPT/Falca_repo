@@ -33,7 +33,7 @@
             <div class="mb-3">
               <label for="name">Full Name</label>
               <input type="text" formControlName="Name" class="form-control" name="Name" placeholder="Enter Full Name"
-                class="form-control">
+                class="form-control" (keyup)="onKeyup($event)">
 
               <div *ngIf="myForm.controls['Name'].invalid && (myForm.controls['Name'].touched || isSubmitted)"
                 class="text-danger">
