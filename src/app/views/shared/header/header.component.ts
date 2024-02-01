@@ -1,4 +1,4 @@
-import { Component,OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api/api.service';
@@ -49,7 +49,7 @@ export class HeaderComponent implements OnInit {
   urlValidateOTP: any = 'auth/customer/ValidateOTP';
   AgentInsuranceUrl = environment.AgentInsuranceUrl;
   AgentCommonUrl = environment.AgentCommonUrl;
- 
+
 
   constructor(public validation: ValidateService, private toastr: ToastrService, private route: Router, private api: ApiService, private cryptoManager: AESCryptoService, private eligibility: EligibilityService) { }
 
@@ -88,7 +88,7 @@ export class HeaderComponent implements OnInit {
       $(".sign-in").show();
       $(".sign-up").hide();
     });
-    
+
 
     let authToken = localStorage.getItem('CustToken') ?? '';
     if (this.validation.isNullEmptyUndefined(authToken)) {
@@ -148,7 +148,7 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  
+
 
   Logout() {
     this.isLoggedIn = false;
@@ -171,7 +171,7 @@ export class HeaderComponent implements OnInit {
   }
 
 
-  
+
 
   ResetModal() {
     this.FormFirstName = "";
@@ -199,9 +199,12 @@ export class HeaderComponent implements OnInit {
   customerinvestmentlink() {
     window.open("https://wealth.finizon.com/client-login", "_blank", "noopener");
   }
-  
+
   wealthlink() {
-    window.location.href = "https://uatnw.finizon.com/wealth";    
+    // window.location.href = "https://uatnw.finizon.com/wealth";  
+    window.location.href = "http://65.1.237.83/wealth";
+
+
   }
 
 
@@ -213,17 +216,43 @@ export class HeaderComponent implements OnInit {
     window.open("https://wealth.finizon.com/advisor-login", "_blank", "noopener");
 
   }
+
+
+  insurerightLink() {
+    // window.open("https://dev.finizon.com/insureright", "_blank", "noopener"); 
+    window.open("http://65.1.237.83:5800/insureright", "_blank", "noopener");
+  }
+  hospicashLink() {
+    // window.open("https://dev.finizon.com/spprd/hospicash?referralid=care", "_blank", "noopener");
+    window.open("http://65.1.237.83:5800/spprd/hospicash?referralid=care", "_blank", "noopener");
+  }
+
+  wellnessLink() {
+    // window.open("https://dev.finizon.com/spprd/wellness?referralid=svaas", "_blank", "noopener");   
+    window.open("http://65.1.237.83:5800/spprd/wellness?referralid=svaas", "_blank", "noopener");
+  }
+
   insurefitLink() {
-        window.open("https://dev.finizon.com/spprd/wellness?referralid=goqii", "_blank", "noopener");     
+    // window.open("https://dev.finizon.com/spprd/wellness?referralid=goqii", "_blank", "noopener");     
+    window.open("http://65.1.237.83:5800/spprd/wellness?referralid=goqii", "_blank", "noopener");
+
   }
 
   shopkeeperLink() {
-    window.open("https://dev.finizon.com/spprd/shopkeeper?referralid=godigit", "_blank", "noopener");
+  // window.open("https://dev.finizon.com/spprd/shopkeeper?referralid=godigit", "_blank", "noopener");
+    window.open("http://65.1.237.83:5800/spprd/shopkeeper?referralid=godigit", "_blank", "noopener");
+
   }
   monexoLink() {
-    window.open("https://dev.finizon.com/monexo?referralid=monexo", "_blank", "noopener");  
+    // window.open("https://dev.finizon.com/monexo?referralid=monexo", "_blank", "noopener");  
+    window.open("http://65.1.237.83:5800/monexo?referralid=monexo", "_blank", "noopener");
+
   }
   insureLink() {
-    window.open("https://uatnw.finizoninsurance.com/", "_blank", "noopener");    
+    // window.open("https://uatnw.finizoninsurance.com/", "_blank", "noopener"); 
+    window.open("http://65.1.237.83:6800/", "_blank", "noopener");
+
+
+
   }
 }

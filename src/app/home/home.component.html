@@ -539,19 +539,21 @@
         <div class="founder-team">
           <div class="founders-container ">
             <div class="founder-column hidden-xs hidden-md ">
-              <div *ngFor="let founder of founders.slice(0, 4)">
+              <div *ngFor="let founder of founders.slice(0, 5)">
                 <img class="clkprofile_Photo" [src]="founder.img"
                   [ngClass]="{ 'selected-profile': isSelected(founder) }" (click)="showDetails(founder)"
                   alt="founderimg" />
               </div>
             </div>
+
             <div class="founder-column hidden-xs hidden-md ">
-              <div *ngFor="let founder of founders.slice(4)">
+              <div *ngFor="let founder of founders.slice(5)">
                 <img class="clkprofile_Photo" [src]="founder.img"
                   [ngClass]="{ 'selected-profile': isSelected(founder) }" (click)="showDetails(founder)"
                   alt="founderimg" />
               </div>
             </div>
+            
             <div class="founder-row hidden-lg">
               <div class="founder-row-container">
                 <div *ngFor="let foundermob of foundersmob">
@@ -720,7 +722,9 @@
             <h3>Grow your family's investment in one place</h3>
           </div>
           <div class="col-lg-3 col-12 col-sm-3">
-            <a href="https://uatnw.finizon.com/" class="nav-link btn btn-primary theme-button m0-auto"
+            <!-- <a href="https://uatnw.finizon.com/" class="nav-link btn btn-primary theme-button m0-auto"
+              rel="noopener">Get Started</a> -->
+              <a href="http://65.1.237.83/" class="nav-link btn btn-primary theme-button m0-auto"
               rel="noopener">Get Started</a>
           </div>
         </div>

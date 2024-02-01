@@ -67,12 +67,26 @@ export class HomeComponent implements OnInit {
       linkedinLink: 'https://www.linkedin.com/in/surajgaydhane/'
     },
     {
-      id: 8, name: 'Abhay Rathore', title: 'National Head-Sales', bio: 'Experiences Sales Professional with over 14 years of experience across Insurance sector and start up. Comprehensive background in leading all aspects of Insurance Business and formulate strategic plans & initiatives for large scale Retail and HNI business. Carrying rich experience across diverse areas with successful contributions in Building B2B2C Business distribution model',
-      img: '../../assets/img/abhay.jpg',
-      image: '../../assets/img/abhay.jpg',
+      // id: 8, name: 'Abhay Rathore', title: 'National Head-Sales', bio: 'Experiences Sales Professional with over 14 years of experience across Insurance sector and start up. Comprehensive background in leading all aspects of Insurance Business and formulate strategic plans & initiatives for large scale Retail and HNI business. Carrying rich experience across diverse areas with successful contributions in Building B2B2C Business distribution model',
+      // img: '../../assets/img/abhay.jpg',
+      // image: '../../assets/img/abhay.jpg',
+      // linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+
+      id: 8, name: 'Priyank Sapra', title: 'Co-Founder & Executive Director', bio: 'Seasoned Distribution Strategy expert with 21 year track record of setting up Distribution models from the ground up. His expertise spans various distribution channels including BANCA, Digital & Tele, Virtual office, Brokers, Direct  FOS & Agency. Completed Chief Strategy Officer program from National University of Singapore & Leadership program from IIM Bangalore. ICICI Lombard | HDFC ERGO | Aditya Birla Capital',
+      img: '../../assets/img/Priyank photo.JPG',
+      image: '../../assets/img/Priyank photo.JPG',
+      linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+    },
+
+    {
+      id: 9, name: 'Sudhir Sabharwal', title: 'National Head - Sales', bio: 'Experiences Sales Professional with over 17 years of experience  across Insurance sector and start up. Comprehensive  background in leading all aspects of Insurance Business and  formulate strategic plans & initiatives for large scale Retail and HNI  business. Carrying rich experience across diverse areas with  successful contributions in Building B2B2C Business distribution  model. Reliance Life | Tata AIA | Turtlemint',
+      img: '../../assets/img/Sudhir photo.jpg',
+
+      image: '../../assets/img/Sudhir photo.jpg',
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
       // linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
     },
+
     {
       id: 5, name: 'Tarun Taneja', title: 'Cofounder & CEO', bio: 'A seasoned professional with 20 years of experience in building, scaling and leading new business streams in the General & Health Insurance space. He has deep expertise in New Product Development, Business Development, Bancassurance, Portfolio Management & Risk Management.',
       // img: '../../assets/img/founding_team_member/team-tarun.svg',
@@ -98,6 +112,7 @@ export class HomeComponent implements OnInit {
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
       linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
     },
+    
     {
       id: 7, name: 'Arnab Koley', title: 'COO', bio: 'Enterprising & resourceful professional with 16+ years of experience across Insurance & start-up sector. Comprehensive background in leading Insurance business operations, formulating strategic plans & initiatives for large Retail operations. Successful contributions in building B2B2C distribution model, Business Process Reengineering & building technology product from scratch.',
       img: '../../assets/img/Arnab.jpg',
@@ -106,6 +121,7 @@ export class HomeComponent implements OnInit {
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
       // linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
     },
+
 
 
   ];
@@ -168,9 +184,9 @@ export class HomeComponent implements OnInit {
     },
 
     {
-      id: 7, name: 'Abhay Rathore', title: 'National Head-Sales', bio: 'Experiences Sales Professional with over 14 years of experience across Insurance sector and start up. Comprehensive background in leading all aspects of Insurance Business and formulate strategic plans & initiatives for large scale Retail and HNI business. Carrying rich experience across diverse areas with successful contributions in Building B2B2C Business distribution model',
-      img: '../../assets/img/abhay.jpg',
-      image: '../../assets/img/abhay.jpg',
+      id: 7, name: 'Priyank Sapra', title: 'Co-Founder & Executive Director', bio: 'Seasoned Distribution Strategy expert with 21 year track record of setting up Distribution models from the ground up. His expertise spans various distribution channels including BANCA, Digital & Tele, Virtual office, Brokers, Direct  FOS & Agency. Completed Chief Strategy Officer program from National University of Singapore & Leadership program from IIM Bangalore. ICICI Lombard | HDFC ERGO | Aditya Birla Capital',
+      img: '../../assets/img/Priyank photo.JPG',
+      image: '../../assets/img/Priyank photo.JPG',
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
       // linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
     },
@@ -178,6 +194,14 @@ export class HomeComponent implements OnInit {
       id: 8, name: 'Arnab Koley', title: 'COO', bio: 'Enterprising & resourceful professional with 16+ years of experience across Insurance & start-up sector. Comprehensive background in leading Insurance business operations, formulating strategic plans & initiatives for large Retail operations. Successful contributions in building B2B2C distribution model, Business Process Reengineering & building technology product from scratch.',
       img: '../../assets/img/Arnab2.jpg',
       image: '../../assets/img/Arnab2.jpg',
+      linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
+      // linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
+    },
+
+    {
+      id: 9, name: 'Sudhir Sabharwal', title: 'National Head - Sales', bio: 'Experiences Sales Professional with over 17 years of experience  across Insurance sector and start up. Comprehensive  background in leading all aspects of Insurance Business and  formulate strategic plans & initiatives for large scale Retail and HNI  business. Carrying rich experience across diverse areas with  successful contributions in Building B2B2C Business distribution  model. Reliance Life | Tata AIA | Turtlemint',
+      img: '../../assets/img/Sudhir photo.jpg',
+      image: '../../assets/img/Sudhir photo.jpg',
       linkedinImg: '../../assets/img/linkedin-svgrepo-com.svg',
       // linkedinLink: 'https://www.linkedin.com/in/jaya-singh-63a48a193/'
     },
