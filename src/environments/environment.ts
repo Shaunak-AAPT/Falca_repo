@@ -2,9 +2,9 @@ export const environment = {
   production: false,
   // ServerUrl: "https://findev.aaptfin.com/api/",
 
-  ServerUrl: "http://65.1.237.83/api/",
+  // ServerUrl: "http://65.1.237.83/api/",
 
-  // ServerUrl: "https://uatnw.finizon.com/api/",
+  ServerUrl: "https://uatnw.finizon.com/api/",
 
 
   // ServerUrl: "https://finizon.com/api/",
