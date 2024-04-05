@@ -486,4 +486,20 @@ export class HomeComponent implements OnInit {
     $("#headerotp-screen").modal("hide");
   }
 
+
+  navigateToMotor() {
+    // Navigate to a specific route
+    this.route.navigate(['/motor']);
+  }
+  
+  navigateToWeather() {
+    // Navigate to a specific route
+    this.route.navigate(['/weather']);
+  }
+  
+  navigateToAccident() {
+    // Navigate to a specific route
+    this.route.navigate(['/accident']);
+  }
+
 }

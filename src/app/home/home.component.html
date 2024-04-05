@@ -19,11 +19,9 @@
               <h4 class="slider-head" [innerHTML]="banners?.heading"></h4>
             </div>
 
-
             <div class="col-lg-8 col-12 order-2 order-lg-1">
               <h4 class="slider-head hidden-xs" [innerHTML]="banners?.heading"></h4>
               <p class="slider-txt" [innerHTML]="banners?.description"></p>
-
 
               <div class="row align-items-center" *ngIf="banners.sortOrder === 1">
                 <div class="col-sm-2">
@@ -38,7 +36,6 @@
                   </span>
                 </div>
               </div>
-
 
               <div class="row align-items-center" *ngIf="banners.sortOrder === 2">
                 <div class="col-sm-2">
@@ -55,8 +52,6 @@
               </div>
             </div>
 
-
-
             <div class="col-lg-4 col-12 order-1 order-lg-2">
               <img src="{{banners.banner}}" alt="slider1" class="w-100 wd90">
             </div>
@@ -68,8 +63,6 @@
     <div id="demo" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
 
       <div class="carousel-inner">
-
-
 
         <!-- modal part latest for banner customer section-->
         <div class="modal fade" id="bannercustomerModal" tabindex="-1" role="dialog"
@@ -192,7 +185,7 @@
 
     <!-- desktop view -->
 
-    <div class="container hidden-xs mt-5 mb-3 common-mt-5 more-product money-invest loan-opt margin">
+    <!-- <div class="container hidden-xs mt-5 mb-3 common-mt-5 more-product money-invest loan-opt margin">
       <div class="row align-items-center">
         <div class="col" *ngFor="let insurence of InsurencedataList" data-toggle="modal" data-target="#leadModal"
           (click)="InsurancetRouterUrl(insurence)">
@@ -206,24 +199,66 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="container hidden-xs mt-5 mb-3 common-mt-3 more-product money-invest loan-opt">
       <div class="row align-items-center">
-        <div class="col" *ngFor="let credit of CreditdataList .slice(0,4)" (click)="CreditRouterUrl(credit)">
+        <!-- <div class="col">
           <div class="money-mng">
-            <img src="{{credit?.logo}}" alt="l1">
+            <img src="../../assets/img/car_insurance.svg" alt="l1">
+
+
           </div>
           <div class="title-mng">
             <div class="product-name-container">
-              <p [innerHTML]="credit?.name"></p>
+              <h5>Motor</h5>
             </div>
           </div>
         </div>
-        <div class="col" *ngFor="let credit of CreditdataList.slice(4,5)" (click)="CreditRouterUrl(credit)">
-          <div class="money-mng shopkeeper">
-            <img src="{{credit?.logo}}" alt="l1">
-            <p [innerHTML]="credit?.name"></p>
+
+
+        <div class="col">
+          <div class="money-mng">
+            <img src="../../assets/img/car_insurance.svg" alt="l1">
+
+          </div>
+          <div class="title-mng">
+            <div class="product-name-container">
+              <h5>Weather</h5>
+
+            </div>
+          </div>
+        </div> -->
+
+
+
+
+        <div class="col">
+          <div class="money-mng shopkeeper" (click)="navigateToMotor()">
+            <!-- <img src="{{credit?.logo}}" alt="l1"> -->
+            <img src="../../assets/img/Motor-insurance-2.png" alt="l1">
+            <!-- <img src="../../assets/img/two_wheeler_insurance.svg" alt="l1"> -->            <!-- <p [innerHTML]="credit?.name"></p> -->
+            <h5>Motor</h5>
+
+          </div>
+        </div>
+        <div class="col">
+          <div class="money-mng shopkeeper" (click)="navigateToWeather()">
+            <!-- <img src="{{credit?.logo}}" alt="l1"> -->
+            <img src="../../assets/img/Weather-insurance-1.2.png" alt="l1">
+            <!-- <p [innerHTML]="credit?.name"></p> -->
+            <h5>Weather</h5>
+
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="money-mng shopkeeper" (click)="navigateToAccident()">
+            <!-- <img src="{{credit?.logo}}" alt="l1"> -->
+            <img src="../../assets/img/Group-Personal-Accident-1.png" alt="l1">
+            <!-- <p [innerHTML]="credit?.name"></p> -->
+            <h5>Personal Accident</h5>
+
           </div>
         </div>
       </div>
@@ -231,7 +266,7 @@
 
 
 
-    <div class="container hidden-xs mt-5 mb-3 common-mt-3 more-product money-invest loan-opt wealth">
+    <!-- <div class="container hidden-xs mt-5 mb-3 common-mt-3 more-product money-invest loan-opt wealth">
       <div class="row align-items-center justify-content-center">
         <div class="col-6 col-sm-4 col-md-3" *ngFor="let wealth of wealthdataList.slice(0,2)" data-toggle="modal"
           data-target="#leadModal" (click)="wealthtRouterUrl(wealth)">
@@ -253,7 +288,6 @@
         </div>
 
 
-        <!-- cyber insurance -->
         <div class="col-6 col-sm-4 col-md-3" *ngFor="let wealth of wealthdataList.slice(3,4)" data-toggle="modal"
           data-target="#leadModal" (click)="wealthtRouterUrl(wealth)">
           <div class="money-mng">
@@ -266,13 +300,13 @@
 
 
       </div>
-    </div>
+    </div> -->
 
     <!--As per insurance in each line 3 products  -->
 
     <div class="container hidden-lg pt-70 mt-5 mb-3 common-mt-3 more-product money-invest loan-opt">
       <div class="row align-items-center">
-        <div class="col" *ngFor="let insurence of InsurencedataList" data-toggle="modal" data-target="#leadModal"
+        <!-- <div class="col" *ngFor="let insurence of InsurencedataList" data-toggle="modal" data-target="#leadModal"
           (click)="InsurancetRouterUrl(insurence)">
           <div class="money-mng">
             <img src="{{insurence.logo}}" alt="l1">
@@ -282,42 +316,41 @@
               <p [innerHTML]="insurence?.name"></p>
             </div>
           </div>
+        </div> -->
+
+        <div class="col" *ngFor="let credit of CreditdataList.slice(0,1)" data-toggle="modal" data-target="#leadModal">
+          <div class="money-mng">
+            <img src="{{credit.logo}}" alt="l1">
+          </div>
+          <div class="title-mng">
+            <div class="product-name-container">
+              <p [innerHTML]="credit?.name"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-4" *ngFor="let credit of CreditdataList.slice(1, 2)" data-toggle="modal"
+          data-target="#leadModal">
+          <div class="money-mng">
+            <img src="{{credit.logo}}" alt="l1">
+          </div>
+          <div class="title-mng">
+            <div class="product-name-container">
+              <p [innerHTML]="credit?.name"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-4" *ngFor="let credit of CreditdataList.slice(4, 5)">
+          <div class="money-mng">
+            <img src="{{credit.logo}}" alt="l1">
+          </div>
+          <div class="title-mng">
+            <div class="product-name-container">
+              <p [innerHTML]="credit?.name"></p>
+            </div>
+          </div>
         </div>
 
-        <div class="col" *ngFor="let credit of CreditdataList.slice(0,1)" data-toggle="modal" data-target="#leadModal"
-          (click)="CreditRouterUrl(credit)">
-          <div class="money-mng">
-            <img src="{{credit.logo}}" alt="l1">
-          </div>
-          <div class="title-mng">
-            <div class="product-name-container">
-              <p [innerHTML]="credit?.name"></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-4" *ngFor="let credit of CreditdataList.slice(1, 4)" data-toggle="modal"
-          data-target="#leadModal" (click)="CreditRouterUrl(credit)">
-          <div class="money-mng">
-            <img src="{{credit.logo}}" alt="l1">
-          </div>
-          <div class="title-mng">
-            <div class="product-name-container">
-              <p [innerHTML]="credit?.name"></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-4" *ngFor="let credit of CreditdataList.slice(4, 5)" (click)="CreditRouterUrl(credit)">
-          <div class="money-mng">
-            <img src="{{credit.logo}}" alt="l1">
-          </div>
-          <div class="title-mng">
-            <div class="product-name-container">
-              <p [innerHTML]="credit?.name"></p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col" *ngFor="let wealth of wealthdataList.slice(0,2)" data-toggle="modal" data-target="#leadModal"
+        <!-- <div class="col" *ngFor="let wealth of wealthdataList.slice(0,2)" data-toggle="modal" data-target="#leadModal"
           (click)="wealthtRouterUrl(wealth)">
           <div class="money-mng">
             <img src="{{wealth.logo}}" alt="l1">
@@ -343,25 +376,24 @@
         </div>
 
 
-         <!-- cyber insurance -->
-         <div class="col-4" *ngFor="let wealth of wealthdataList.slice(3,4)" data-toggle="modal" data-target="#leadModal"
-         (click)="wealthtRouterUrl(wealth)">
-         <div class="money-mng monexo">
-           <img src="{{wealth.logo}}" alt="l1">
-         </div>
-         <div class="title-mng">
-           <div class="product-name-container">
-             <p [innerHTML]="wealth?.name"></p>
-           </div>
-         </div>
-       </div>
+        <div class="col-4" *ngFor="let wealth of wealthdataList.slice(3,4)" data-toggle="modal" data-target="#leadModal"
+          (click)="wealthtRouterUrl(wealth)">
+          <div class="money-mng monexo">
+            <img src="{{wealth.logo}}" alt="l1">
+          </div>
+          <div class="title-mng">
+            <div class="product-name-container">
+              <p [innerHTML]="wealth?.name"></p>
+            </div>
+          </div>
+        </div> -->
       </div>
 
     </div>
 
 
 
-    <div class="container pt-70 why-finizon">
+    <!-- <div class="container pt-70 why-finizon">
       <div class="row align-items-center about">
         <div class="col-lg-8 col-sm-6">
           <h4 class="title-head mb-4 title-finizon">Why Finizon?</h4>
@@ -487,7 +519,6 @@
 
       </div>
 
-      <!-- modal part latest for phydigital section-->
       <div class="modal fade" id="partnerModal" tabindex="-1" role="dialog" aria-labelledby="partnerModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -529,7 +560,6 @@
 
     </div>
 
-    <!-- meet foundig section -->
 
     <div class="container pt-70 founding_team_container">
       <div class="row align-items-center">
@@ -553,7 +583,7 @@
                   alt="founderimg" />
               </div>
             </div>
-            
+
             <div class="founder-row hidden-lg">
               <div class="founder-row-container">
                 <div *ngFor="let foundermob of foundersmob">
@@ -628,7 +658,6 @@
     </div>
 
 
-    <!-- clients images -->
     <div class="container pt-70 client-img">
       <div class="row align-items-center">
         <div class="col">
@@ -687,7 +716,6 @@
 
     </div>
 
-    <!-- Blogs -->
     <div class="container mt-5 pt-50 finance owl-1">
       <div class="row align-items-center">
         <div class="col-lg-12">
@@ -723,11 +751,11 @@
           </div>
           <div class="col-lg-3 col-12 col-sm-3">
             <a href="https://uatnw.finizon.com/" class="nav-link btn btn-primary theme-button m0-auto"
-              rel="noopener">Get Started</a>             
+              rel="noopener">Get Started</a>
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
 

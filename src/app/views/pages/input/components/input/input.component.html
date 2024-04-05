@@ -1,0 +1,20 @@
+<p>input works!</p>
+<div class="wrapper" [class]="inputWrapperClass">
+  <!-- <mat-form-field [appearance]="appearance" [class]="formFieldClass" class="col-lg-12"> -->
+    <!-- <mat-label *ngIf="label" class="label">
+      {{ label }}
+    </mat-label> -->
+    <input *ngIf="!currency && !inr" [class]="inputClass" class="custom-formfield form-control " [tabindex]="tabindex"
+      [placeholder]="placeholder" (keyup)="triggerKeyUp($event)" (focusout)="onFocusOut($event)" [min]="min" [max]="max"
+      [type]="type" matInput (input)="onInputChange($event)"
+      (keypress)="keyPress($event)"  
+      >
+    <input *ngIf="currency" [class]="inputClass" class="custom-formfield form-control rupee" [tabindex]="tabindex"
+      [placeholder]="placeholder" (keyup)="triggerKeyUp($event)" (focusout)="onFocusOut($event)" [min]="min" [max]="max"
+      [type]="type" matInput  [value]="control?.value" (input)="onInputChange($event)" (focus)="onFocus($event, control)" (blur)="onBlur($event, control)"
+       (keypress)="keyPress($event)" (ngModelChange)="formatPricing($event, control)">
+      
+    <small class="sq-ft">Sqft</small>
+   
+  <!-- </mat-form-field> -->
+</div>

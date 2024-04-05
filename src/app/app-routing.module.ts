@@ -6,6 +6,9 @@ import { TermsOfUseComponent } from './views/pages/terms-of-use/terms-of-use.com
 import { SupportModalComponent } from './views/pages/support-modal/support-modal.component';
 import { LeadModalComponent } from './views/pages/lead-modal/lead-modal.component';
 import { WealthHomeComponent } from './views/pages/wealth-home/wealth-home.component';
+import { MotorComponent } from './views/pages/Motor/motor/motor.component';
+import { WeatherComponent } from './views/pages/weather/weather/weather.component';
+import { CropComponent } from './views/pages/Crop/crop/crop.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,6 +16,12 @@ const routes: Routes = [
   { path: 'support', component: SupportModalComponent },
   { path: 'lead', component: LeadModalComponent },
   { path: 'wealth', component: WealthHomeComponent },
+
+  { path: 'motor', component:MotorComponent },
+  { path: 'weather', component: WeatherComponent },
+  { path: 'accident', component: CropComponent },
+
+
 
 ];
 

@@ -342,9 +342,13 @@
 }
 
 .shopkeeper img {
-	margin-top: 50px !important;
+	/* margin-top: 50px !important;
 	width: 40% !important;
-	height: 85px;
+	height: 105px; */
+
+	margin-top: 50px !important;
+    width: 30% !important;
+    height: 106px;
 
 }
 
@@ -630,8 +634,8 @@
 
 	.shopkeeper img {
 		margin-top: 15px !important;
-		width: 40% !important;
-		height: 50px;
+		width: 30% !important;
+		height: 80px !important;
 	}
 
 	.monexo img {
