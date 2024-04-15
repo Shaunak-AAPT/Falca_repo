@@ -160,6 +160,8 @@ export class MotorComponent {
     this.isSubmitted = true;
     console.log("reached on subit", this.myForm.valid)
     console.log("reached on", this.myForm)
+    this.router.navigateByUrl('placeholder');
+
     if (this.myForm.valid) {
       console.log(this.myForm.value);
 

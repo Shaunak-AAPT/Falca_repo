@@ -185,109 +185,18 @@
 
         <div class="apply-now">
 
-            <!-- <form [formGroup]="referralForm">
-                <div class="form-row">
-                    <div class="form-column">
-                        <label for="customer-name" class="cust_name">Customer Name *</label>
-                        <app-input class="input" [placeholder]="'Enter your full name'" formFieldClass="w-90perc"
-                            [errorMessage]="formErrors.cust_name" [control]="referralForm.get('custmor_name')"
-                            appearance="outline" maxlength='30' (keyup)="onKeyup($event)"></app-input>
-                    </div>
-                    <div class="form-column">
-                        <label for="customer-email" class="cust_name">Customer E-mail *</label>
-                        <app-input class="input" [placeholder]="'Enter your email'" formFieldClass="w-90perc"
-                            [errorMessage]="formErrors.cust_email" [control]="referralForm.get('custmor_email')"
-                            appearance="outline"></app-input>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-column">
-                        <label for="customer-mobile  custom-width" class="cust_mob">Customer Mobile No *</label>
-                        <app-input class="input" [type]="'tel'" [placeholder]="'Enter your mobile no'"
-                            formFieldClass="w-90perc" [errorMessage]="formErrors.phone_No"
-                            [control]="referralForm.get('mobile')" appearance="outline" maxlength='10'></app-input>
-                    </div>
-                    <div class="form-column">
-                        <label for="agent-code  custom-width" class="agent_code">Finizon Agent Code(Optional)</label>
-                        <app-input class="input agentinput" [placeholder]="'Enter your agent code'"
-                            formFieldClass="w-90perc" [errorMessage]="formErrors.agent_code"
-                            [control]="referralForm.get('agentCode')" appearance="outline" minlength="12" maxlength='13'
-                            (input)="disableSpecialCharacters($event)"></app-input>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-column">
-                        <a href="https://aaptfin.com/?q={{agentCode}}">
-                            <button type="submit" id="apply-btn" (click)="onSubmit()">Apply Now</button>
-                        </a>
-                    </div>
-                </div>
-            </form> -->
-
-
     
                <!-- ================================ -->
                 <form [formGroup]="myForm">
-                <div class="form-row">
-                    <div class="form-column">
-                        <label for="customer-name" class="cust_name">Customer Name *</label>
-                       <input type="text" formControlName="Name" class="form-control" name="Name" placeholder="Enter Full Name"
-                      class="form-control" (keyup)="onKeyup($event)">
-                    </div>
-                    <div class="form-column">
-                        <label for="customer-email" class="cust_name">Customer E-mail</label>
-                         <input type="text" formControlName="Email" class="form-control" name="Email" placeholder="Enter Email"
-                      class="form-control">
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-column">
-                        <label for="customer-mobile  custom-width" class="cust_mob">Customer Mobile No *</label>
-                        <input type="text" formControlName="mobileNumber" class="form-control" name="mobileNumber"
-                      placeholder="Enter Phone" class="form-control" maxlength='10' (input)="disableSpecialCharacters($event)">
-                    </div>
-                    <!-- <div class="form-column">
-                        <label for="agent-code  custom-width" class="agent_code">Finizon Agent Code(Optional)</label>
-                        <input type="text" formControlName="agentCode" class="input agentinput" placeholder="Enter your agent code"
-                            formFieldClass="w-90perc" minlength="12" maxlength='13'>/>
-                    </div> -->
-
-                    <div class="form-column">
-                        <label for="customer-mobile  custom-width" class="cust_mob">Finizon Agent Code *</label>
-                        <input type="text" formControlName="agentCode" class="form-control" name="agentCode"
-                      placeholder="Enter your agent code"  minlength="12" maxlength='13'>
-                    </div>
-                </div>
+              
 
                 <!-- ============= -->
-                <div class="form-row">
-                    <!-- <div class="form-column">
-                        <label for="customer-mobile  custom-width" class="cust_mob">Customer Pan No *</label>
-                        <input type="text" formControlName="mobileNumber" class="form-control" name="mobileNumber"
-                            placeholder="Enter your Pan number" class="form-control" maxlength='10'
-                            (input)="disableSpecialCharacters($event)">
-                    </div> -->
-                    <!-- <div class="form-column">
-                        <label for="agent-code  custom-width" class="agent_code">Finizon Agent Code(Optional)</label>
-                        <input type="text" formControlName="agentCode" class="input agentinput" placeholder="Enter your agent code"
-                            formFieldClass="w-90perc" minlength="12" maxlength='13'>/>
-                    </div> -->
-
-                    <div class="form-column" >
-                        <label for="customer-mobile  custom-width" class="cust_mob">Falca Unique Id *</label>
-                        <input style="width: 49.5%;" type="text" formControlName="agentCode" class="form-control" name="agentCode"
-                            placeholder="Enter your unique id" minlength="12" maxlength='13'>
-                    </div>
-                </div>
+              
 
                 <div class="form-row">
                     <div class="form-column">
-                        <a href="https://aaptfin.com/?q={{agentCode}}">
-                            <button type="submit" id="apply-btn" (click)="Submit()">Apply Now</button>
-                        </a>
+                            <button type="submit" id="apply-btn" (click)="Submit()">Submit</button>
+                     
                     </div>
                 </div>
             </form>

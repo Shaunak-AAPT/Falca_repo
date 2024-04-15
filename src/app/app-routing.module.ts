@@ -9,6 +9,8 @@ import { WealthHomeComponent } from './views/pages/wealth-home/wealth-home.compo
 import { MotorComponent } from './views/pages/Motor/motor/motor.component';
 import { WeatherComponent } from './views/pages/weather/weather/weather.component';
 import { CropComponent } from './views/pages/Crop/crop/crop.component';
+import { PlaceholderComponent } from './views/pages/Placeholder_screen/placeholder/placeholder.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,6 +22,7 @@ const routes: Routes = [
   { path: 'motor', component:MotorComponent },
   { path: 'weather', component: WeatherComponent },
   { path: 'accident', component: CropComponent },
+  { path: 'placeholder', component:PlaceholderComponent}
 
 
 
