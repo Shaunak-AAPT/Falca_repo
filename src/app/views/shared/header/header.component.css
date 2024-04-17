@@ -1,7 +1,9 @@
 .logo {
   width: 75%;
 }
-
+.navbar{
+padding-bottom: 50px;
+}
 .header-nav .nav-link {
   padding: 10px 5px !important;
   font-size: 18px !important;
@@ -19,7 +21,7 @@
   position: fixed;
   background: #bfe6ec;
   z-index: 13;
-  padding: 0;
+  padding-bottom: 30px;
 }
 
 .navbar-nav .nav-link.theme-button {

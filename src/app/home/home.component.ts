@@ -494,12 +494,12 @@ export class HomeComponent implements OnInit {
   
   navigateToWeather() {
     // Navigate to a specific route
-    this.route.navigate(['/weather']);
+    // this.route.navigate(['/weather']);
   }
   
   navigateToAccident() {
     // Navigate to a specific route
-    this.route.navigate(['/accident']);
+    // this.route.navigate(['/accident']);
   }
 
 }

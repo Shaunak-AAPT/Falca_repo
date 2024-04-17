@@ -23,6 +23,7 @@
   /* width: 100%; */
   position: relative;
   left: 60px;
+  top: 20px;
   /* bottom: 25px; */
 }
 
@@ -792,6 +793,7 @@ thead th:nth-child(4) span {
 
   .apply-now label {
     margin-bottom: 0%;
+    font-size: 14px;
   }
 
   .cust_name {
@@ -1013,7 +1015,7 @@ thead th:nth-child(4) span {
   }
 
   .apply-now label {
-    font-size: 15px !important;
+    font-size:13.5px !important;
   }
 
   #apply-btn {

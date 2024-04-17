@@ -247,7 +247,7 @@
             <!-- <img src="{{credit?.logo}}" alt="l1"> -->
             <img src="../../assets/img/Weather-insurance-1.2.png" alt="l1">
             <!-- <p [innerHTML]="credit?.name"></p> -->
-            <h5>Weather</h5>
+            <h5>Weather<br>(Coming Soon)</h5>
 
           </div>
         </div>
@@ -257,7 +257,7 @@
             <!-- <img src="{{credit?.logo}}" alt="l1"> -->
             <img src="../../assets/img/Group-Personal-Accident-1.png" alt="l1">
             <!-- <p [innerHTML]="credit?.name"></p> -->
-            <h5>Personal Accident</h5>
+            <h5>Personal Accident<br>(Coming Soon)</h5>
 
           </div>
         </div>
@@ -318,34 +318,40 @@
           </div>
         </div> -->
 
-        <div class="col" *ngFor="let credit of CreditdataList.slice(0,1)" data-toggle="modal" data-target="#leadModal">
+        <div class="col" *ngFor="let credit of CreditdataList.slice(0,1)" data-toggle="modal" (click)="navigateToMotor()" >
           <div class="money-mng">
-            <img src="{{credit.logo}}" alt="l1">
+            <!-- <img src="{{credit.logo}}" alt="l1"> -->
+            <img src="../../assets/img/Motor-insurance-2.png" alt="l1">
+
           </div>
           <div class="title-mng">
             <div class="product-name-container">
-              <p [innerHTML]="credit?.name"></p>
+              <!-- <p [innerHTML]="credit?.name"></p> -->
+              <p>Motor</p>
             </div>
           </div>
         </div>
         <div class="col-4" *ngFor="let credit of CreditdataList.slice(1, 2)" data-toggle="modal"
-          data-target="#leadModal">
+        >
           <div class="money-mng">
-            <img src="{{credit.logo}}" alt="l1">
+            <!-- <img src="{{credit.logo}}" alt="l1"> -->
+            <img src="../../assets/img/Weather-insurance-1.2.png" alt="l1">
+
           </div>
           <div class="title-mng">
             <div class="product-name-container">
-              <p [innerHTML]="credit?.name"></p>
+              <p>Weather<br>(Coming Soon)</p>
             </div>
           </div>
         </div>
         <div class="col-4" *ngFor="let credit of CreditdataList.slice(4, 5)">
           <div class="money-mng">
-            <img src="{{credit.logo}}" alt="l1">
+            <!-- <img src="{{credit.logo}}" alt="l1"> -->
+            <img src="../../assets/img/Group-Personal-Accident-1.png" alt="l1">
           </div>
           <div class="title-mng">
             <div class="product-name-container">
-              <p [innerHTML]="credit?.name"></p>
+              <p>Personal Accident<br>(Coming Soon)</p>
             </div>
           </div>
         </div>
