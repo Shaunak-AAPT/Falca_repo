@@ -218,9 +218,9 @@ export class HeaderComponent implements OnInit {
   insurerightLink() {
     window.open("https://dev.finizon.com/insureright", "_blank", "noopener"); 
   }
-  hospicashLink() {
-    window.open("https://dev.finizon.com/spprd/hospicash?referralid=care", "_blank", "noopener");
-  }
+  // hospicashLink() {
+  //   window.open("https://dev.finizon.com/spprd/hospicash?referralid=care", "_blank", "noopener");
+  // }
 
   wellnessLink() {
     window.open("https://dev.finizon.com/spprd/wellness?referralid=svaas", "_blank", "noopener");   

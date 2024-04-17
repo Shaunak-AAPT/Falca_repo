@@ -281,19 +281,8 @@
     font-weight: bold;
     background-color: whitesmoke;
   }
-  
-  thead th:nth-child(2) span,
-  thead th:nth-child(3)span,
-  thead th:nth-child(4) span {
-  
-    color: rgb(34, 33, 33);
-    background-color: #FCC06C;
-    border: 1px solid rgb(209, 206, 206);
-    font-weight: 500;
-    padding: 5px 10px;
-    border-radius: 50px;
-    margin-left: 2%;
-  }
+/*  
+ */
   
   .goqii {
     font-size: 22px;
