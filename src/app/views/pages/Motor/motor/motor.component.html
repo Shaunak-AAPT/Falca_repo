@@ -237,8 +237,8 @@
 
                     <div class="form-column">
                         <label for="customer-mobile  custom-width" class="cust_mob">Falca Branch ID *</label>
-                        <input type="text" formControlName="agentCode" class="form-control" name="agentCode"
-                            placeholder="Enter your agent code" minlength="12" maxlength='13'>
+                        <input type="text" formControlName="Falca_Branch_Id" class="form-control" name="Falca_Branch_Id"
+                            placeholder="Enter Falca Branch ID" minlength="12" maxlength='13'>
                     </div>
                 </div>
 
@@ -264,16 +264,16 @@
                     </div> -->
                     <div class="form-column">
                         <label for="customer-mobile  custom-width" class="cust_mob">Falca Unique Reference No *</label>
-                        <input type="text" formControlName="agentCode" class="form-control Falca_Unique_Id" name="agentCode"
-                            placeholder="Enter your unique id" minlength="12" maxlength='13'>
+                        <input type="text" formControlName="Falca_Ref_no" class="form-control Falca_Unique_Id" name="Falca_Ref_no"
+                            placeholder="Enter Falca Unique Reference No" minlength="12" maxlength='13'>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-column">
-                        <a href="https://aaptfin.com/?q={{agentCode}}">
-                            <button type="submit" id="apply-btn" routerLink="placeholder" (click)="Submit()">Apply Now</button>
-                        </a>
+                        <!-- <a href="https://aaptfin.com/?q={{agentCode}}"> -->
+                            <button type="submit" id="apply-btn"  (click)="Submit()">Apply Now</button>
+                        <!-- </a> -->
                     </div>
                 </div>
             </form>

@@ -489,7 +489,7 @@ export class HomeComponent implements OnInit {
 
   navigateToMotor() {
     // Navigate to a specific route
-    this.route.navigate(['/motor']);
+    this.route.navigate(['/spprd/Falca_motor']);
   }
   
   navigateToWeather() {

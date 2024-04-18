@@ -13,13 +13,14 @@ import { PlaceholderComponent } from './views/pages/Placeholder_screen/placehold
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '',redirectTo: 'spprd/Falca_Home', pathMatch: 'full' },
+  { path: 'spprd/Falca_Home', component: HomeComponent },
   { path: 'terms-of-use', component: TermsOfUseComponent },
-  { path: 'support', component: SupportModalComponent },
-  { path: 'lead', component: LeadModalComponent },
-  { path: 'wealth', component: WealthHomeComponent },
+  // { path: 'support', component: SupportModalComponent },
+  // { path: 'lead', component: LeadModalComponent },
+  // { path: 'wealth', component: WealthHomeComponent },
 
-  { path: 'motor', component:MotorComponent },
+  { path: 'spprd/Falca_motor', component:MotorComponent },
   { path: 'weather', component: WeatherComponent },
   { path: 'accident', component: CropComponent },
   { path: 'placeholder', component:PlaceholderComponent}
