@@ -2,6 +2,8 @@ export const environment = {
   production: true,
   // dev
   ServerUrl: "http://65.1.237.83/api/",
+  
+  FalcaServerUrl: "http://65.1.237.83:5800/api/",
 
   // ServerUrl: "https://uatnw.finizon.com/api/",
 
