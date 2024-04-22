@@ -224,7 +224,7 @@
                         <input type="text" formControlName="customer_email" class="form-control" name="Email"
                             placeholder="Enter Email" class="form-control" errorMessage="formErrors.cust_email">
                             <div *ngIf="myForm.get('customer_email')?.hasError('required') && myForm.get('customer_email')?.touched" class="text-danger">Please enter a valid email address.</div>
-                            <div *ngIf="myForm.get('customer_email')?.hasError('pattern') && myForm.get('customer_email')?.touched" class="text-danger">E-mail should be combination of alphabets, number and special character.</div>
+                            <div *ngIf="myForm.get('customer_email')?.hasError('pattern') && myForm.get('customer_email')?.touched" class="text-danger">E-mail should be combination of alphabets, numbers and special character also.</div>
                         </div>
                 </div>
 
