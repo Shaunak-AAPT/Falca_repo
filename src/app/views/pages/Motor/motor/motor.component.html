@@ -208,72 +208,60 @@
 
 
             <!-- ================================ -->
-            <form [formGroup]="myForm">
+            <form [formGroup]="myForm" (ngSubmit)="Submit()">
                 <div class="form-row">
                     <div class="form-column">
                         <label for="customer-name" class="cust_name">Customer Name *</label>
-                        <input type="text" formControlName="Name" class="form-control" name="Name"
-                            placeholder="Enter Full Name" class="form-control" (keyup)="onKeyup($event)">
+                        <input type="text" formControlName="customer_name" class="form-control" name="Name"
+                            placeholder="Enter Full Name" class="form-control" (keyup)="onKeyup($event)" errorMessage="formErrors.cust_name">
+                            <div *ngIf="myForm.get('customer_name')?.hasError('required') && myForm.get('customer_name')?.touched" class="text-danger">Customer Name is required.</div>
+                            <div *ngIf="myForm.get('customer_name')?.hasError('pattern') && myForm.get('customer_name')?.touched" class="text-danger">Please enter correct Customer Name.</div>
+
                     </div>
                     <div class="form-column">
+           
                         <label for="customer-email" class="cust_name">Customer E-mail</label>
-                        <input type="text" formControlName="Email" class="form-control" name="Email"
-                            placeholder="Enter Email" class="form-control">
-                    </div>
+                        <input type="text" formControlName="customer_email" class="form-control" name="Email"
+                            placeholder="Enter Email" class="form-control" errorMessage="formErrors.cust_email">
+                            <div *ngIf="myForm.get('customer_email')?.hasError('required') && myForm.get('customer_email')?.touched" class="text-danger">Please enter a valid email address.</div>
+                            <div *ngIf="myForm.get('customer_email')?.hasError('pattern') && myForm.get('customer_email')?.touched" class="text-danger">E-mail should be combination of alphabets, number and special character.</div>
+                        </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-column">
                         <label for="customer-mobile  custom-width" class="cust_mob">Customer Mobile No *</label>
-                        <input type="text" formControlName="mobileNumber" class="form-control" name="mobileNumber"
+                        <input type="text" formControlName="customer_mobile_no" class="form-control" name="mobileNumber"
                             placeholder="Enter Phone" class="form-control" maxlength='10'
                             (input)="disableSpecialCharacters($event)">
+                            <div *ngIf="myForm.get('customer_mobile_no')?.hasError('required') && myForm.get('customer_mobile_no')?.touched" class="text-danger">Customer Mobile No is required.</div>
+                            <div *ngIf="myForm.get('customer_mobile_no')?.hasError('pattern') && myForm.get('customer_mobile_no')?.touched" class="text-danger">Please enter a valid 10-digit mobile number starting with 6-9.</div>
                     </div>
-                    <!-- <div class="form-column">
-                        <label for="agent-code  custom-width" class="agent_code">Finizon Agent Code(Optional)</label>
-                        <input type="text" formControlName="agentCode" class="input agentinput" placeholder="Enter your agent code"
-                            formFieldClass="w-90perc" minlength="12" maxlength='13'>/>
-                    </div> -->
-
+                   
                     <div class="form-column">
                         <label for="customer-mobile  custom-width" class="cust_mob">Falca Branch ID *</label>
-                        <input type="text" formControlName="Falca_Branch_Id" class="form-control" name="Falca_Branch_Id"
+                        <input type="text" formControlName="falca_branch_id" class="form-control" name="Falca_Branch_Id"
                             placeholder="Enter Falca Branch ID" minlength="12" maxlength='13'>
+                            <div *ngIf="myForm.get('falca_branch_id')?.hasError('required') && myForm.get('falca_branch_id')?.touched" class="text-danger">Falca Branch ID is required.</div>
+
                     </div>
                 </div>
 
 
-
-                <!-- ============= -->
                 <div class="form-row">
-                    <!-- <div class="form-column">
-                        <label for="customer-mobile  custom-width" class="cust_mob">Customer Pan No *</label>
-                        <input type="text" formControlName="mobileNumber" class="form-control" name="mobileNumber"
-                            placeholder="Enter your Pan number" class="form-control" maxlength='10'
-                            (input)="disableSpecialCharacters($event)">
-                    </div> -->
-                    <!-- <div class="form-column">
-                        <label for="agent-code  custom-width" class="agent_code">Finizon Agent Code(Optional)</label>
-                        <input type="text" formControlName="agentCode" class="input agentinput" placeholder="Enter your agent code"
-                            formFieldClass="w-90perc" minlength="12" maxlength='13'>/>
-                    </div> -->
-                    <!-- <div class="form-column">
-                        <label for="customer-mobile  custom-width" class="cust_mob">Falca Branch ID *</label>
-                        <input type="text" formControlName="agentCode" class="form-control" name="agentCode"
-                            placeholder="Enter your agent code" minlength="12" maxlength='13'>
-                    </div> -->
+                   
                     <div class="form-column">
                         <label for="customer-mobile  custom-width" class="cust_mob">Falca Unique Reference No *</label>
-                        <input type="text" formControlName="Falca_Ref_no" class="form-control Falca_Unique_Id" name="Falca_Ref_no"
+                        <input type="text" formControlName="falca_unique_ref_no" class="form-control Falca_Unique_Id" name="Falca_Ref_no"
                             placeholder="Enter Falca Unique Reference No" minlength="12" maxlength='13'>
+                            <div *ngIf="myForm.get('falca_unique_ref_no')?.hasError('required') && myForm.get('customer_email')?.touched" class="text-danger">Falca Unique Reference No is required.</div>
+
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-column">
-                        <!-- <a href="https://aaptfin.com/?q={{agentCode}}"> -->
-                            <button type="submit" id="apply-btn"  (click)="Submit()">Apply Now</button>
-                        <!-- </a> -->
+                            <button type="submit" id="apply-btn" (click)="Submit()">Apply Now</button>
                     </div>
                 </div>
             </form>

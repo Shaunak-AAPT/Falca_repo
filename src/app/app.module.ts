@@ -21,6 +21,8 @@ import { TermsOfUseComponent } from './views/pages/terms-of-use/terms-of-use.com
 import { SupportModalComponent } from './views/pages/support-modal/support-modal.component';
 import { LeadModalComponent } from './views/pages/lead-modal/lead-modal.component';
 import { WealthHomeComponent } from './views/pages/wealth-home/wealth-home.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -45,6 +47,7 @@ import { WealthHomeComponent } from './views/pages/wealth-home/wealth-home.compo
     NgApexchartsModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
+    MatFormFieldModule,
   
     ToastrModule.forRoot({timeOut:3000,preventDuplicates:true}),
     HttpClientModule,
@@ -56,6 +59,7 @@ import { WealthHomeComponent } from './views/pages/wealth-home/wealth-home.compo
   ],
   providers: [
     DatePipe,
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]
 })

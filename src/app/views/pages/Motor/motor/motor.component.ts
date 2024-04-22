@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ReactiveFormsModule, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
+import { FormBuilder, FormGroup, ReactiveFormsModule, UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { InputComponent } from "../../input/components/input/input.component";
 import { ToastrService } from 'ngx-toastr';
@@ -11,7 +13,7 @@ declare let $: any;
     standalone: true,
     templateUrl: './motor.component.html',
     styleUrl: './motor.component.css',
-    imports: [InputComponent, ReactiveFormsModule]
+    imports: [InputComponent, ReactiveFormsModule,CommonModule]
 })
 export class MotorComponent {
   submitted = false;
@@ -47,7 +49,7 @@ export class MotorComponent {
 
 
   // ===============================
-  myForm!: UntypedFormGroup;
+  myForm!: FormGroup;
   isSubmitted = false;
 
   // org code
@@ -58,16 +60,15 @@ export class MotorComponent {
   emailPattern = "^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
   successMessage: boolean = false;
 
-  constructor(private fb: UntypedFormBuilder, private route: ActivatedRoute, private router: Router,private toastr: ToastrService,private api: ApiService,) { 
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router,private toastr: ToastrService,private api: ApiService,) { 
 
-    this.myForm = new UntypedFormGroup({
+    this.myForm = this.fb.group({
       // category: new UntypedFormControl("INSURANCE", Validators.required),
-      custmor_name: new UntypedFormControl('', [Validators.required, Validators.pattern(this.namePattern)]),
-      custmor_email: new UntypedFormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
-      mobileNumber: new UntypedFormControl('', [Validators.required, Validators.pattern("^[6-9]{1}[0-9]{9}$")]),
-      // Comments: new UntypedFormControl('', Validators.required)
-      Falca_Branch_Id: new UntypedFormControl('', Validators.required),
-      Falca_Ref_no: new UntypedFormControl('', Validators.required)
+      customer_name :['', [Validators.required, Validators.pattern(this.namePattern)]],
+      customer_email:  ['', [Validators.required, Validators.pattern(this.emailPattern)]],
+      customer_mobile_no:  ['', [Validators.required, Validators.pattern("^[6-9]{1}[0-9]{9}$")]],
+      falca_branch_id: ['',Validators.required],
+      falca_unique_ref_no:  ['', Validators.required]
 
     });
   }
@@ -170,18 +171,24 @@ export class MotorComponent {
 
   Submit() {
     this.isSubmitted = true;
-    console.log("reached on subit", this.myForm.valid)
+    console.log("reached on submit", this.myForm.valid)
     console.log("reached on", this.myForm)
     // this.router.navigateByUrl('placeholder');
 
     if (this.myForm.valid) {
+      this.isSubmitted = true;
+
       console.log(this.myForm.value);
 
       let payload = {    //this payload is a json object
 
-        name: this.myForm.value.Name, // leftside firstname is exactly same as that of backend API and rightside firstname i.e., ,firstName should be exact same as that of formcontrolname in .html file or same as written above in ngonit 
-        email: this.myForm.value.Email,
-        phone_no: this.myForm.value.mobileNumber,
+        customer_name: this.myForm.value.customer_name, // leftside firstname is exactly same as that of backend API and rightside firstname i.e., ,firstName should be exact same as that of formcontrolname in .html file or same as written above in ngonit 
+        customer_email: this.myForm.value.customer_email,
+        customer_mobile_no: this.myForm.value.customer_mobile_no,
+        falca_branch_id: this.myForm.value.falca_branch_id,
+        falca_unique_ref_no: this.myForm.value.falca_unique_ref_no,
+
+
         // category: this.myForm.value.category,
         // comments: this.myForm.value.Comments
 
@@ -192,7 +199,7 @@ export class MotorComponent {
 
       const submitAsync = async () => {
         try {
-          const response = await this.api.post("support/", payload, false).toPromise();
+          const response = await this.api.postencode("spprd/falca/track", payload, false).toPromise();
           console.log(response);
 
           // if (response.response.n == 1){
@@ -212,11 +219,11 @@ export class MotorComponent {
 
   }
   private handleApiResponse(response: any): void {
-    if (response.n === 1) {
+    // if (response.n === 1) {
       this.handleValidResponse();
-    } else {
-      console.log('Response not equal to 1, window.open will not be executed');
-    }
+    // } else {
+    //   console.log('Response not equal to 1, window.open will not be executed');
+    // }
   }
   
   private handleValidResponse(): void {
@@ -231,12 +238,18 @@ export class MotorComponent {
     // if (this.referralForm.get('agentCode')?.value) {
     //   agentCode = this.referralForm.get('agentCode')?.value;
     // }
-    name = this.referralForm.get('custmor_name')?.value;
-    mail = this.referralForm.get('custmor_email')?.value;
-    mobileNo = this.referralForm.get('mobile')?.value;
-    branchId = this.referralForm.get('mobile')?.value;
-    refNo = this.referralForm.get('mobile')?.value;
+    // name = this.referralForm.get('custmor_name')?.value;
+    // mail = this.referralForm.get('custmor_email')?.value;
+    // mobileNo = this.referralForm.get('mobile')?.value;
+    // branchId = this.referralForm.get('mobile')?.value;
+    // refNo = this.referralForm.get('mobile')?.value;
 
+
+    name = this.myForm.get('customer_name')?.value;
+    mail = this.myForm.get('customer_email')?.value;
+    mobileNo = this.myForm.get('customer_mobile_no')?.value;
+    branchId = this.myForm.get('falca_branch_id')?.value;
+    refNo = this.myForm.get('falca_unique_ref_no')?.value;
     // if (urlKey in this.Config) {
     //   console.log(name.replace(/ /g, '%20'))
     //   window.open(
