@@ -206,7 +206,7 @@ export class MotorComponent {
           // this.myForm.reset({ category: 'INSURANCE' });
           // this.isSubmitted = false;
           // $("#supportModal").modal("hide");
-          // $('#thankYouSupportModal').modal('show');
+          $('#thankYouSupportModal').modal('show');
           // }
         } catch (error) {
           console.error(error);
