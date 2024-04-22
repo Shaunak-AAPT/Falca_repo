@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'spprd/Falca_motor', component:MotorComponent },
   { path: 'weather', component: WeatherComponent },
   { path: 'accident', component: CropComponent },
-  { path: 'placeholder', component:PlaceholderComponent}
+  // { path: 'placeholder', component:PlaceholderComponent}
 
 
 
