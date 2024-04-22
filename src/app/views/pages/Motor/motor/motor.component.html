@@ -234,7 +234,7 @@
                         <input type="text" formControlName="customer_mobile_no" class="form-control" name="mobileNumber"
                             placeholder="Enter Phone" class="form-control" maxlength='10'
                             (input)="disableSpecialCharacters($event)">
-                            <div *ngIf="myForm.get('customer_mobile_no')?.hasError('required') && myForm.get('customer_mobile_no')?.touched" class="text-danger">Customer Mobile No is required.</div>
+                            <div *ngIf="myForm.get('customer_mobile_no')?.hasError('required') && myForm.get('customer_mobile_no')?.touched" class="text-danger">Customer Mobile Number is required.</div>
                             <div *ngIf="myForm.get('customer_mobile_no')?.hasError('pattern') && myForm.get('customer_mobile_no')?.touched" class="text-danger">Please enter a valid 10-digit mobile number starting with 6-9.</div>
                     </div>
                    
