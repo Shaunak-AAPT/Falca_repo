@@ -337,7 +337,8 @@ thead th:nth-child(4) span {
 .apply-now label {
   display: inline-block;
   text-align: right;
-  margin-bottom: 5%;
+  margin-bottom: 8px !important;
+  /* border: 1px solid red; */
   margin-right: 2px;
   font-size: 18px;
   font-family: 'Dax-light', Sans-serif;
@@ -345,6 +346,11 @@ thead th:nth-child(4) span {
   font-weight: 600;
 }
 
+.text-danger{
+  /* border: 1px solid yellow; */
+  height: 100% !important;
+  margin: 0 auto !important;
+}
 ::ng-deep .apply-now .form-column app-input.input input {
   width: 85%;
   /* border: 1px solid red; */
@@ -422,6 +428,7 @@ thead th:nth-child(4) span {
   width: 50%;
   height: 120%;
 }
+
 
 /* Styles for mobile screens */
 @media only screen and (min-width: 1410px) and (max-width: 1600px) {

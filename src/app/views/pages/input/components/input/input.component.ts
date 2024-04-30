@@ -16,7 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 export class InputComponent {
   private formatter: Intl.NumberFormat;
   inputvalue = "";
-appearance: any;
+  appearance: any;
   constructor( private titlecasePipe: TitleCasePipe) {
     this.formatter = new Intl.NumberFormat('en-IN', { maximumFractionDigits: 2 });
   }

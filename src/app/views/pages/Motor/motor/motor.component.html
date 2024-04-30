@@ -149,14 +149,14 @@
     </div> -->
 
 
-    <div >
+    <div>
         <div class="Hospicash_content2">
             <!-- <div class="HospiCashT">Options Available with
                 <img class="optionimg" src="../../../assets/img/motorSquareLogo-style.png" alt="">
 
             </div> -->
 
-          
+
 
             <div class="motor">Lets kickstart with your Motor Journey.</div>
         </div>
@@ -207,7 +207,7 @@
 
 
             <!-- ================================ -->
-            <form [formGroup]="myForm" (ngSubmit)="Submit()">
+            <!-- <form [formGroup]="myForm" (ngSubmit)="Submit()">
                 <div class="form-row">
                     <div class="form-column">
                         <label for="customer-name" class="cust_name">Customer Name *</label>
@@ -229,7 +229,7 @@
 
                 <div class="form-row">
                     <div class="form-column">
-                        <label for="customer-mobile  custom-width" class="cust_mob">Customer Mobile No *</label>
+                        <label for="customer_mobile_no  custom-width" class="cust_mob">Customer Mobile No *</label>
                         <input type="text" formControlName="customer_mobile_no" class="form-control" name="mobileNumber"
                             placeholder="Enter Phone" class="form-control" maxlength='10'
                             (input)="disableSpecialCharacters($event)">
@@ -238,7 +238,7 @@
                     </div>
                    
                     <div class="form-column">
-                        <label for="customer-mobile  custom-width" class="cust_mob">Falca Branch ID *</label>
+                        <label for="falca_branch_id  custom-width" class="cust_mob">Falca Branch ID *</label>
                         <input type="text" formControlName="falca_branch_id" class="form-control" name="Falca_Branch_Id"
                             placeholder="Enter Falca Branch ID" minlength="12" maxlength='13'>
                             <div *ngIf="myForm.get('falca_branch_id')?.hasError('required') && myForm.get('falca_branch_id')?.touched" class="text-danger">Falca Branch ID is required.</div>
@@ -250,7 +250,7 @@
                 <div class="form-row">
                    
                     <div class="form-column">
-                        <label for="customer-mobile  custom-width" class="cust_mob">Falca Unique Reference No *</label>
+                        <label for="falca_unique_ref_no  custom-width" class="cust_mob">Falca Unique Reference No *</label>
                         <input type="text" formControlName="falca_unique_ref_no" class="form-control Falca_Unique_Id" name="Falca_Ref_no"
                             placeholder="Enter Falca Unique Reference No" minlength="12" maxlength='13'>
                             <div *ngIf="myForm.get('falca_unique_ref_no')?.hasError('required') && myForm.get('customer_email')?.touched" class="text-danger">Falca Unique Reference No is required.</div>
@@ -260,9 +260,107 @@
 
                 <div class="form-row">
                     <div class="form-column">
-                            <button type="submit" id="apply-btn" (click)="Submit()">Apply Now</button>
+                            <button id="apply-btn" (click)="Submit()">Apply Now</button>
                     </div>
                 </div>
+            </form> -->
+
+
+            <!-- =============================================== -->
+
+
+
+            <!-- trial -->
+
+            <form [formGroup]="myForm">
+                <!-- <div class="details"> -->
+                <div class="form-row">
+
+                    <div class="form-column">
+                        <label for="customer_name" class="cust_name">Customer Name *</label>
+                        <input type="text" formControlName="customer_name" class="form-control" name="customer_name"
+                            placeholder="Enter Full Name" class="form-control" (keyup)="onKeyup($event)">
+
+                        <div *ngIf="myForm.controls['customer_name'].invalid && (myForm.controls['customer_name'].touched || isSubmitted)"
+                            class="text-danger">
+                            Please enter a valid name. Use only letters and
+                            spaces.
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-column">
+                        <label for="customer_email" class="cust_name">Customer E-mail</label>
+                        <input type="text" formControlName="customer_email" class="form-control" name="customer_email"
+                            placeholder="Enter Email" class="form-control">
+                        <div *ngIf="myForm.controls['customer_email'].invalid && (myForm.controls['customer_email'].touched || isSubmitted)"
+                            class="text-danger">
+                            Please enter a valid email address
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- ============= -->
+
+                <div class="form-row">
+
+                    <div class="form-column">
+                        <label for="customer_mobile_no custom-width" class="cust_mob">Customer Mobile No *</label>
+                        <input type="text" formControlName="customer_mobile_no" class="form-control" name="customer_mobile_no"
+                            placeholder="Enter Phone" class="form-control" maxlength='10'
+                            (input)="disableSpecialCharacters($event)">
+                        <div *ngIf="myForm.controls['customer_mobile_no'].invalid && (myForm.controls['customer_mobile_no'].touched || isSubmitted)"
+                            class="text-danger">
+                            Please enter a valid 10-digit mobile number starting with 6-9
+                        </div>
+                    </div>
+
+                    <div class="form-column comments">
+
+                        <label for="falca_branch_id custom-width" class="cust_mob">Falca Branch ID *</label>
+                        <!-- <textarea type="text" formControlName="Comments" class="form-control" name="Comments"
+                            placeholder="Enter comments" class="form-control"></textarea> -->
+                        <input type="text" formControlName="falca_branch_id" class="form-control" name="falca_branch_id"
+                            placeholder="Enter Falca Branch ID" class="form-control" minlength="12" maxlength='13'>
+
+                        <div *ngIf="myForm.controls['falca_branch_id'].invalid && (myForm.controls['falca_branch_id'].touched || isSubmitted)"
+                            class="text-danger">
+                            Please enter valid 12-13 characters Falca branch ID.
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- ================ -->
+
+                <div class="form-row">
+
+                    <div class="form-column comments">
+
+                        <label for="falca_unique_ref_no custom-width" class="cust_mob">Falca Unique Reference No *</label>
+
+                        <input type="text" formControlName="falca_unique_ref_no" class="form-control Falca_Unique_Id"
+                            name="falca_unique_ref_no" placeholder="Enter Falca Unique Reference No" minlength="12" maxlength='13'>
+
+                        <div *ngIf="myForm.controls['falca_unique_ref_no'].invalid && (myForm.controls['falca_unique_ref_no'].touched || isSubmitted)"
+                            class="text-danger">
+                            Please enter valid 12-13 characters Falca Unique Reference No.
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+                <!-- ================ -->
+                <div class="mb-5 center ">
+                    <button class="btn btn-primary theme-button submit" (click)="Submit()">SUBMIT</button>
+                </div>
+                <!-- </div> -->
             </form>
         </div>
 
