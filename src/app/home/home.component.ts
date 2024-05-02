@@ -366,7 +366,7 @@ export class HomeComponent implements OnInit {
   }
 
   InsuranceProduct() {
-    this.api.get("vertical/product?vertical=1").subscribe((resp) => {
+    this.api.get("vertical/product?vertical=9").subscribe((resp) => {
       this.InsurencedataList = resp.data;
       console.log('InsurencedataList', this.InsurencedataList)
     });
@@ -503,3 +503,4 @@ export class HomeComponent implements OnInit {
   }
 
 }
+

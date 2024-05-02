@@ -2,7 +2,7 @@
 
     <div class="image-with-text">
         <div class="text">
-            <div> Protecting Your Wheels,<br><br>Shielding Your Wallet</div>
+            <div> Protecting Your Wheels,<br><br><br>Shielding Your Wallet</div>
 
             <!-- <div class="black">Finizon's InsureFit 360,<br> Your All-in-One Solution!</div> -->
         </div>
@@ -149,7 +149,7 @@
     </div> -->
 
 
-    <div>
+    <div class="parentformdiv">
         <div class="Hospicash_content2">
             <!-- <div class="HospiCashT">Options Available with
                 <img class="optionimg" src="../../../assets/img/motorSquareLogo-style.png" alt="">
@@ -163,121 +163,12 @@
 
         <div class="apply-now">
 
-            <!-- <form [formGroup]="referralForm">
-                <div class="form-row">
-                    <div class="form-column">
-                        <label for="customer-name" class="cust_name">Customer Name *</label>
-                        <app-input class="input" [placeholder]="'Enter your full name'" formFieldClass="w-90perc"
-                            [errorMessage]="formErrors.cust_name" [control]="referralForm.get('custmor_name')"
-                            appearance="outline" maxlength='30' (keyup)="onKeyup($event)"></app-input>
-                    </div>
-                    <div class="form-column">
-                        <label for="customer-email" class="cust_name">Customer E-mail *</label>
-                        <app-input class="input" [placeholder]="'Enter your email'" formFieldClass="w-90perc"
-                            [errorMessage]="formErrors.cust_email" [control]="referralForm.get('custmor_email')"
-                            appearance="outline"></app-input>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-column">
-                        <label for="customer-mobile  custom-width" class="cust_mob">Customer Mobile No *</label>
-                        <app-input class="input" [type]="'tel'" [placeholder]="'Enter your mobile no'"
-                            formFieldClass="w-90perc" [errorMessage]="formErrors.phone_No"
-                            [control]="referralForm.get('mobile')" appearance="outline" maxlength='10'></app-input>
-                    </div>
-                    <div class="form-column">
-                        <label for="agent-code  custom-width" class="agent_code">Finizon Agent Code(Optional)</label>
-                        <app-input class="input agentinput" [placeholder]="'Enter your agent code'"
-                            formFieldClass="w-90perc" [errorMessage]="formErrors.agent_code"
-                            [control]="referralForm.get('agentCode')" appearance="outline" minlength="12" maxlength='13'
-                            (input)="disableSpecialCharacters($event)"></app-input>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-column">
-                        <a href="https://aaptfin.com/?q={{agentCode}}">
-                            <button type="submit" id="apply-btn" (click)="onSubmit()">Apply Now</button>
-                        </a>
-                    </div>
-                </div>
-            </form> -->
-
-
-
-            <!-- ================================ -->
-            <!-- <form [formGroup]="myForm" (ngSubmit)="Submit()">
-                <div class="form-row">
-                    <div class="form-column">
-                        <label for="customer-name" class="cust_name">Customer Name *</label>
-                        <input type="text" formControlName="customer_name" class="form-control" name="Name"
-                            placeholder="Enter Full Name" class="form-control" (keyup)="onKeyup($event)" errorMessage="formErrors.cust_name">
-                            <div *ngIf="myForm.get('customer_name')?.hasError('required') && myForm.get('customer_name')?.touched" class="text-danger">Customer Name is required.</div>
-                            <div *ngIf="myForm.get('customer_name')?.hasError('pattern') && myForm.get('customer_name')?.touched" class="text-danger">Please enter correct Customer Name.</div>
-
-                    </div>
-                    <div class="form-column">
-           
-                        <label for="customer-email" class="cust_name">Customer E-mail</label>
-                        <input type="text" formControlName="customer_email" class="form-control" name="Email"
-                            placeholder="Enter Email" class="form-control" errorMessage="formErrors.cust_email">
-                            <div *ngIf="myForm.get('customer_email')?.hasError('required') && myForm.get('customer_email')?.touched" class="text-danger">Please enter a valid email address.</div>
-                            <div *ngIf="myForm.get('customer_email')?.hasError('pattern') && myForm.get('customer_email')?.touched" class="text-danger">E-mail should be combination of alphabets, numbers and special character also.</div>
-                        </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-column">
-                        <label for="customer_mobile_no  custom-width" class="cust_mob">Customer Mobile No *</label>
-                        <input type="text" formControlName="customer_mobile_no" class="form-control" name="mobileNumber"
-                            placeholder="Enter Phone" class="form-control" maxlength='10'
-                            (input)="disableSpecialCharacters($event)">
-                            <div *ngIf="myForm.get('customer_mobile_no')?.hasError('required') && myForm.get('customer_mobile_no')?.touched" class="text-danger">Customer Mobile Number is required.</div>
-                            <div *ngIf="myForm.get('customer_mobile_no')?.hasError('pattern') && myForm.get('customer_mobile_no')?.touched" class="text-danger">Please enter a valid 10-digit mobile number starting with 6-9.</div>
-                    </div>
-                   
-                    <div class="form-column">
-                        <label for="falca_branch_id  custom-width" class="cust_mob">Falca Branch ID *</label>
-                        <input type="text" formControlName="falca_branch_id" class="form-control" name="Falca_Branch_Id"
-                            placeholder="Enter Falca Branch ID" minlength="12" maxlength='13'>
-                            <div *ngIf="myForm.get('falca_branch_id')?.hasError('required') && myForm.get('falca_branch_id')?.touched" class="text-danger">Falca Branch ID is required.</div>
-
-                    </div>
-                </div>
-
-
-                <div class="form-row">
-                   
-                    <div class="form-column">
-                        <label for="falca_unique_ref_no  custom-width" class="cust_mob">Falca Unique Reference No *</label>
-                        <input type="text" formControlName="falca_unique_ref_no" class="form-control Falca_Unique_Id" name="Falca_Ref_no"
-                            placeholder="Enter Falca Unique Reference No" minlength="12" maxlength='13'>
-                            <div *ngIf="myForm.get('falca_unique_ref_no')?.hasError('required') && myForm.get('customer_email')?.touched" class="text-danger">Falca Unique Reference No is required.</div>
-
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-column">
-                            <button id="apply-btn" (click)="Submit()">Apply Now</button>
-                    </div>
-                </div>
-            </form> -->
-
-
-            <!-- =============================================== -->
-
-
-
-            <!-- trial -->
-
             <form [formGroup]="myForm">
                 <!-- <div class="details"> -->
                 <div class="form-row">
 
                     <div class="form-column">
-                        <label for="customer_name" class="cust_name">Customer Name *</label>
+                        <label for="customer_name" class="cust_name">Customer Name <b class="asteric">&#42;</b></label>
                         <input type="text" formControlName="customer_name" class="form-control" name="customer_name"
                             placeholder="Enter Full Name" class="form-control" (keyup)="onKeyup($event)">
 
@@ -307,7 +198,7 @@
                 <div class="form-row">
 
                     <div class="form-column">
-                        <label for="customer_mobile_no custom-width" class="cust_mob">Customer Mobile No *</label>
+                        <label for="customer_mobile_no custom-width" class="cust_mob">Customer Mobile No <b class="asteric">&#42;</b></label>
                         <input type="text" formControlName="customer_mobile_no" class="form-control" name="customer_mobile_no"
                             placeholder="Enter Phone" class="form-control" maxlength='10'
                             (input)="disableSpecialCharacters($event)">
@@ -319,7 +210,7 @@
 
                     <div class="form-column comments">
 
-                        <label for="falca_branch_id custom-width" class="cust_mob">Falca Branch ID *</label>
+                        <label for="falca_branch_id custom-width" class="cust_mob">Falca Branch ID <b class="asteric">&#42;</b></label>
                         <!-- <textarea type="text" formControlName="Comments" class="form-control" name="Comments"
                             placeholder="Enter comments" class="form-control"></textarea> -->
                         <input type="text" formControlName="falca_branch_id" class="form-control" name="falca_branch_id"
@@ -340,7 +231,7 @@
 
                     <div class="form-column comments">
 
-                        <label for="falca_unique_ref_no custom-width" class="cust_mob">Falca Unique Reference No *</label>
+                        <label for="falca_unique_ref_no custom-width" class="cust_mob">Falca Unique Reference No <b class="asteric">&#42;</b></label>
 
                         <input type="text" formControlName="falca_unique_ref_no" class="form-control Falca_Unique_Id"
                             name="falca_unique_ref_no" placeholder="Enter Falca Unique Reference No" minlength="12" maxlength='13'>
@@ -357,8 +248,14 @@
 
 
                 <!-- ================ -->
-                <div class="mb-5 center ">
+                <!-- <div class="mb-5 center ">
                     <button class="btn btn-primary theme-button submit" (click)="Submit()">SUBMIT</button>
+                </div> -->
+
+                <div class="form-row">
+                    <div class="form-column">
+                            <button type="submit" id="apply-btn" (click)="Submit()">Apply Now</button>
+                    </div>
                 </div>
                 <!-- </div> -->
             </form>

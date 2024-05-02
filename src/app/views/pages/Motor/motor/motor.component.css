@@ -314,12 +314,19 @@ thead th:nth-child(4) span {
 
 .form-row label {
   margin-bottom: -10px !important;
+  /* font-family: myfont, sans-serif !important; */
+  color: #333333 !important;
 }
 
+.parentformdiv{
+  position: relative;
+  top: 80px !important;
+  /* border: 1px solid red; */
+}
 .apply-now form {
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 2%;
+  margin-top: 4%;
 }
 
 .apply-now .form-row {
@@ -337,20 +344,14 @@ thead th:nth-child(4) span {
 .apply-now label {
   display: inline-block;
   text-align: right;
-  margin-bottom: 8px !important;
-  /* border: 1px solid red; */
+  margin-bottom: 5%;
   margin-right: 2px;
   font-size: 18px;
   font-family: 'Dax-light', Sans-serif;
   color: #333;
-  font-weight: 600;
+  font-weight: 500 !important;
 }
 
-.text-danger{
-  /* border: 1px solid yellow; */
-  height: 100% !important;
-  margin: 0 auto !important;
-}
 ::ng-deep .apply-now .form-column app-input.input input {
   width: 85%;
   /* border: 1px solid red; */
@@ -428,7 +429,6 @@ thead th:nth-child(4) span {
   width: 50%;
   height: 120%;
 }
-
 
 /* Styles for mobile screens */
 @media only screen and (min-width: 1410px) and (max-width: 1600px) {
@@ -662,7 +662,7 @@ thead th:nth-child(4) span {
 
   .text {
 
-    font-size: 40px;
+    font-size: 25px;
     margin-right: 0;
     margin-bottom: 10px;
     align-items: center;
@@ -962,7 +962,7 @@ thead th:nth-child(4) span {
 
   .apply-now label {
     margin-bottom: 0%;
-    font-size: 25px !important;
+    font-size: 20px !important;
   }
 
   .cust_name {
@@ -1002,6 +1002,12 @@ thead th:nth-child(4) span {
 }
 
 @media (max-width:540px) {
+  .parentformdiv{
+    position: relative;
+    top: 100px !important;
+    /* border: 1px solid red; */
+  }
+
   .image-with-text img {
     margin-top: -12px;
     /* max-width: 77%; */
@@ -1023,6 +1029,7 @@ thead th:nth-child(4) span {
 
   .apply-now label {
     font-size:13.5px !important;
+    margin-top: 10% !important;
   }
 
   #apply-btn {
@@ -1034,7 +1041,7 @@ thead th:nth-child(4) span {
     width: 103.2% !important;
    }
    .motor {
-    margin-top: 205px;
+    margin-top: 80px;
     font-size: 16px !important;
 }
 }
@@ -1054,7 +1061,7 @@ thead th:nth-child(4) span {
 @media (max-width: 280px) {
 
   .text {
-    font-size: 28px;
+    font-size: 22px !important;
   }
 
   .Hospicash_content1 {

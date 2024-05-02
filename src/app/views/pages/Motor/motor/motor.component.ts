@@ -301,14 +301,11 @@ export class MotorComponent {
   myForm!: UntypedFormGroup;
   isSubmitted = false;
 
- 
-      //  namePattern = "^([a-zA-Z]{3,})((\\s[a-zA-Z]+(\\s[a-zA-Z]+)?))?$|^([a-zA-Z]{1,})((\\s[a-zA-Z]{2,})+(\\s[a-zA-Z]{2,})?)$" //merged above conditions
+  // namePattern = "^([a-zA-Z']{1}\\.)?\\s?([a-zA-Z']{1}\\.)?\\s?([a-zA-Z']{3,})((\\s[a-zA-Z']+(\\s[a-zA-Z']+)?))?$|^([a-zA-Z']{1,})((\\s[a-zA-Z']{2,})+(\\s[a-zA-Z']{2,})?)$"
   
-      namePattern = "^([a-zA-Z']{1}\\.)?\\s?([a-zA-Z']{1}\\.)?\\s?([a-zA-Z']{3,})((\\s[a-zA-Z']+(\\s[a-zA-Z']+)?))?$|^([a-zA-Z']{1,})((\\s[a-zA-Z']{2,})+(\\s[a-zA-Z']{2,})?)$"
-
-
-        // namePattern = "^(?:[a-zA-Z]{2}(\\s[a-zA-Z]+)?$|[a-zA-Z]{3,15}(\\s[a-zA-Z]+)?$)";
-
+  namePattern = "^([a-zA-Z']{1}\\.)?\\s?([a-zA-Z']{1}\\.)?\\s?([a-zA-Z']{3,})((\\s[a-zA-Z']+(\\s[a-zA-Z']+)?))?$|^([a-zA-Z']{1,})((\\s[a-zA-Z']{2,})+(\\s[a-zA-Z']{2,})?)$"
+  // namePattern = "^([a-zA-Z']{1}\\.)?\\s?([a-zA-Z']{1}\\.)?\\s?([a-zA-Z']{3,})((\\s[a-zA-Z']+(\\s[a-zA-Z']+)?))?$|^([a-zA-Z']{1,})((\\s[a-zA-Z']{1,3})+(\\s[a-zA-Z']{1,3})?)$"
+             
   emailPattern = "^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
   successMessage: boolean = false;
 
@@ -330,26 +327,6 @@ export class MotorComponent {
 
 
   }
-
-  // validateName() {
-  //   const nameControl = this.myForm.get('Name')!;
-  //   const inputValue = nameControl.value;
-
-  //   if (this.namePattern1.test(inputValue)) {
-  //     // Handle logic for pattern 1
-  //     console.log('Pattern 1 matched');
-  //   } else if (this.namePattern2.test(inputValue)) {
-  //     // Handle logic for pattern 2
-  //     console.log('Pattern 2 matched');
-  //   } else if (this.namePattern3.test(inputValue)) {
-  //     // Handle logic for pattern 3
-  //     console.log('Pattern 3 matched');
-  //   } else {
-  //     // Handle invalid input
-  //     console.log('Invalid input');
-  //   }
-  // }
-
 
   capitalizeName(name: string) {
     let nameList = name.split(' ', 3);
@@ -431,7 +408,8 @@ export class MotorComponent {
           // this.myForm.reset({ category: 'INSURANCE' });
           this.isSubmitted = false;
           // $("#supportModal").modal("hide");
-          $('#thankYouSupportModal').modal('show');
+          // $('#thankYouSupportModal').modal('show');
+          window.open('https://dip.sbigeneral.in/Login/LoginSBI', '_blank');
           // }
         } catch (error) {
           console.error(error);

@@ -3,6 +3,16 @@
   src: url(assets/fonts/Dax.ttf);
 }
 
+@font-face {
+  font-family: Dax-light;
+  src: url(assets/fonts/Dax.ttf);
+}
+
+label {
+  margin-bottom: -10px !important;
+  font-family: Dax-light, sans-serif !important;
+  color: #333333 !important;
+}
 
 .body-color {
   background-image: linear-gradient(#BFE6EC 30%, #fff 80%, #fff 100%);

@@ -77,12 +77,12 @@ export class PlaceholderComponent {
   Submit() {
 
        let payload = {
-      customer_name: "Shaunak",
-      customer_email: "shaunak@gmail.com",
-      customer_mobile_no: "8999678909",
-      falca_branch_id: "FALCABRANCH2",
-      falca_unique_ref_no: "FALCAUNIQ5678",
-      customer_policy_no: "rtyui1234"
+      customer_name: "Chandramouli P",
+      customer_email: "chandramouli@finizon.com",
+      customer_mobile_no: "9820941914",
+      falca_branch_id: "FALCA123453AB",
+      falca_unique_ref_no: "F123438986962",
+      customer_policy_no: "MT123456789087"
     }
 
     let token = 'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXNzIjoiUD94QDNCTDdrKG0pIn0.FDZhbs9aqFypIjdNiXt2XrZn5WhH83uiiADixySL30yQMQgws5oOXJsIuuIJgB8pK0Xc7G7zytKdofvcapkrgOLuPa1K_yS-AEkTjV0Nh8aPK8fYTVZ_dVEJGt-IXXrx75-FhNTeFjZGi5-JugC7rLyKFOY4OAc8hX0qF8EaPGUSdw5kpPM9Ab-YpcnF7GlxYsum9C-IeZ9ojZtzpvMfr-9oqaAVSotbQUX7URl_No_gf8IsVJg9l4V3TrWuqBe_cSGClfRHdvHXC2BTNwf0tQvy7kq4G60dQEMKALsCKy9kEpc6QFQqvGA1sZR8n9OzFr5uARaNDVKRgJJFqg_78w'
